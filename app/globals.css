@@ -1,3 +1,19 @@
+/* 字体 */
+@font-face {
+    font-family: 'Roboto';
+    font-stretch: 75% 100%;
+    font-weight: 100 900;
+    src: url('assets/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-stretch: 75% 100%;
+    font-style: italic;
+    font-weight: 100 900;
+    src: url('assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,5 +33,5 @@
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    @apply font-sans;
 }
