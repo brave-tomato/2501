@@ -1,7 +1,7 @@
 /**
  * Styles
  */
-import './globals.css';
+import './global.css';
 
 /**
  * Types
