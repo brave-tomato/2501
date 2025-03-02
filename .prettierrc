@@ -1,6 +1,7 @@
 {
     "$schema": "http://json.schemastore.org/prettierrc",
     "jsxSingleQuote": false,
+    "organizeImportsSkipDestructiveCodeActions": true,
     "overrides": [
         {
             "files": ".prettierrc",
