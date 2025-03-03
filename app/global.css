@@ -17,3 +17,10 @@
 /* 变量 */
 :root:root {
 }
+
+/* styles/globals.css */
+:root {
+    --custom-blue: #103675;
+    --custom-green: #2dafb7;
+    --custom-gray: #7f8085;
+}
