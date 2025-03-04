@@ -1,0 +1,27 @@
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // background-color: var(--custom-green);
+    background-color: transparent;
+    padding: 0 50px;
+    z-index: 9999;
+}
+
+.menu-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    .ant-menu-light {
+        .ant-menu-item {
+            color: #fff !important;
+        }
+    }
+
+    &:hover {
+        border-bottom-color: var(--custom-green);
+    }
+}

@@ -24,3 +24,15 @@
     --custom-green: #2dafb7;
     --custom-gray: #7f8085;
 }
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}

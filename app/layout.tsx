@@ -16,6 +16,7 @@ import './global.css';
 /**
  * Types
  */
+import HeaderComponent from '@/components/header';
 import type { Metadata } from 'next';
 
 /**
@@ -33,7 +34,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
             <body>
                 <AntdRegistry>
                     {/* Header */}
-                    <Header />
+                    <HeaderComponent />
 
                     {/* Main */}
                     <main>{children}</main>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 /**
  * Styles
  */
+import IndexVideo from '@/components/index-video';
 import styles from './page.module.css';
 
 const PageIndex = () => {
@@ -25,6 +26,7 @@ const PageIndex = () => {
 
     return (
         <div>
+            <IndexVideo />
             <Button type="primary">没用的按钮</Button>
 
             <Button type="primary" onClick={showModal}>
