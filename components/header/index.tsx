@@ -8,8 +8,8 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { FC, useState } from 'react';
-import AspectRatioImage from '../aspect-ratio-image';
-import styles from './index.module.scss';
+// import './index.less';
+// import styles from './index.less';
 import LanuagesSwitch from './languages-switch';
 
 const menuItems: any[] = [
@@ -40,51 +40,32 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
         setCurrent(e.key);
     };
     return (
-        <Flex className={classNames(styles['header-wrapper'], 'flex justify-center items-center', className)}>
-            <Row justify="center" align="middle">
-                <Col span={5}>
-                    <Image
-                        preview={false}
-                        src={
-                            isHovered || isScrolled || isMobile
-                                ? '/images/indexpage/nav_logo@2x.png'
-                                : '/images/indexpage/nav_logo_white@2x.png'
-                        }
-                        alt="北京卫蓝新能源科技股份有限公司"
-                    />
-                </Col>
-                <Col span={14}>
-                    <ConfigProvider
-                        theme={{
-                            components: {
-                                Menu: {
-                                    horizontalItemSelectedColor: `var(--custom-green)`,
-                                    colorItemTextSelected: '#fff',
-                                    // colorPrimary: '#fff',
-                                    // itemSelectedColor: 'pink',
-                                },
-                            },
-                        }}
-                    >
-                        <Menu
-                            onClick={onClick}
-                            selectedKeys={[current]}
-                            mode="horizontal"
-                            items={menuItems}
-                            style={{
-                                borderBottom: '0',
-                                height: 100,
-                                alignItems: 'center',
-                                backgroundColor: 'transparent',
-                            }}
-                            className={styles.menuDefault}
-                        />
-                    </ConfigProvider>
-                </Col>
-                <Col span={5}>
-                    <LanuagesSwitch />
-                </Col>
-            </Row>
+        <Flex align="center" justify="space-between" gap={12} style={{ height: 100, padding: '0 24px' }}>
+            <Image
+                preview={false}
+                src={
+                    isHovered || isScrolled || isMobile
+                        ? '/images/indexpage/nav_logo@2x.png'
+                        : '/images/indexpage/nav_logo_white@2x.png'
+                }
+                alt="北京卫蓝新能源科技股份有限公司"
+            />
+
+            <Menu
+                onClick={onClick}
+                selectedKeys={[current]}
+                mode="horizontal"
+                items={menuItems}
+                style={{
+                    borderBottom: '0',
+                    height: 100,
+                    alignItems: 'center',
+                    backgroundColor: 'transparent',
+                }}
+                // className={styles.menuDefault}
+            />
+
+            <LanuagesSwitch />
         </Flex>
     );
 };
