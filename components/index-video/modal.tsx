@@ -1,6 +1,6 @@
 'use client';
 import { ICustomComponentProps } from '@/types';
-import { Modal } from 'antd';
+import { Flex, Modal } from 'antd';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import Link from 'next/link';
@@ -47,20 +47,27 @@ const MessageModal: FC<ICustomComponentProps> = ({ className }) => {
     ];
     return (
         <div className={classNames('', className)}>
-            <div
+            <Flex
+                align="center"
+                justify="space-around"
+                className="cursor-pointer"
+                style={{
+                    backgroundImage: `url('/images/indexpage/zhanhuixinxi@2x.png' )`,
+                    backgroundSize: 'cover',
+                    width: 200,
+                    height: 200,
+                    borderRadius: '100%',
+                }}
                 onClick={showModal}
-                className={classNames(
-                    'flex justify-center items-center rounded-full  cursor-pointer',
-                    'w-20 h-20',
-                    'bg-cover',
-                    className,
-                )}
-                style={{ backgroundImage: `url('/images/indexpage/zhanhuixinxi@2x.png' )` }}
             >
-                <div className="flex justify-center items-center text-center text-2xl w-4/5 h-4/5 text-white">
+                <Flex
+                    align="center"
+                    justify="space-around"
+                    style={{ fontSize: '4rem', width: '80%', height: '80%', color: '#fff', textAlign: 'center' }}
+                >
                     展会信息
-                </div>
-            </div>
+                </Flex>
+            </Flex>
 
             {/* 模态框组件，根据 isModalOpen 的值决定是否显示 */}
             {/* <AspectRatio ratio={82 / 82}></AspectRatio> */}

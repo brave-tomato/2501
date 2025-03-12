@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import HeaderComponent from '@/components/header';
+import IndexVideo from '@/components/index-video';
 
 const Test = () => {
     return (
-        <div style={{ background: 'pink', height: '200vh' }}>
-            <HeaderComponent />
+        <div style={{ background: 'lightblue', height: '200vh' }}>
+            <IndexVideo />
         </div>
     );
 };
