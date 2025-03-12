@@ -1,35 +1,30 @@
-.header-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* background-color: var(--custom-green); */
-    background-color: transparent;
-    padding: 0 50px;
-    z-index: 9999;
-}
-
-.menu-default {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: transparent;
-
-    /* .ant-menu-light {
-        .ant-menu-item {
-            color: #fff !important;
-        }
+.menu-light {
+    &.ant-menu-light .ant-menu-item {
+        color: #fff !important;
     }
-
-    &:hover {
-        border-bottom-color: var(--custom-green);
-    } */
 }
-
-.ant-menu-light .ant-menu-item {
-    color: #fff !important;
+.menu-night {
+    &.ant-menu-light .ant-menu-item {
+        color: var(--custom-gray) !important;
+    }
 }
-.languagesText {
+.languages-text-light {
     color: #fff;
 }
+.languages-text-night {
+    color: var(--custom-gray);
+}
+
+// .rotate-180-plain {
+//     transform: rotate(180deg);
+// }
+
+// .transition-transform {
+//     transition-property: transform;
+//     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+//     transition-duration: 150ms;
+// }
+
+// .duration-300 {
+//     transition-duration: 300ms;
+// }

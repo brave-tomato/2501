@@ -25,7 +25,7 @@ export const langObj = {
 /**
  * 切换语言面板
  */
-const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered, showIcon = false }) => {
+const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered }) => {
     const isScrolled = useScrollDetection();
     const [isOpen, setIsOpen] = useState(false);
     const [isRotated, setIsRotated] = useState(false); // 新增状态用于控制图片旋转
@@ -55,12 +55,6 @@ const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered, 
     };
 
     // 当 isHovered 变为 false 时，将图片旋转状态恢复
-    useEffect(() => {
-        if (!isHovered) {
-            setIsRotated(false);
-        }
-    }, [isHovered]);
-
     // 当鼠标移出<header>时，关闭面板
     useEffect(() => {
         if (!isHovered) {
@@ -70,15 +64,18 @@ const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered, 
     }, [isHovered]);
 
     return (
-        <div className={classNames('', className)}>
+        <div className={classNames('cursor-pointer ', className)}>
             <img
                 src={
-                    isScrolled || isHovered || showIcon
+                    isScrolled || isHovered
                         ? '/images/indexpage/icon_arrow_down@2x.png'
                         : '/images/indexpage/icon_arrow_down_white@2x.png'
                 }
-                style={{ maxWidth: '22px' }}
-                className={`w-[22px]   ${isRotated ? 'rotate-180' : ''} transition-transform duration-300`} // 动态添加旋转类和过渡效果
+                style={{
+                    maxWidth: '22px',
+                    transition: 'transform 300ms ease',
+                    transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
+                }}
                 onClick={toggleMenu}
             />
         </div>

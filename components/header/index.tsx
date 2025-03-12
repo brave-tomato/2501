@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { FC, useState } from 'react';
-// import './index.less';
+import './index.scss';
 // import styles from './index.less';
 import LanuagesSwitch from './languages-switch';
 
@@ -40,7 +40,22 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
         setCurrent(e.key);
     };
     return (
-        <Flex align="center" justify="space-between" gap={12} style={{ height: 100, padding: '0 24px' }}>
+        <Flex
+            align="center"
+            justify="space-between"
+            gap={12}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 100,
+                padding: '0 24px',
+                background: isHovered ? '#fff' : '',
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
             <Image
                 preview={false}
                 src={
@@ -62,10 +77,10 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                     alignItems: 'center',
                     backgroundColor: 'transparent',
                 }}
-                // className={styles.menuDefault}
+                className={isScrolled || isHovered ? 'menu-night' : 'menu-light'}
             />
 
-            <LanuagesSwitch />
+            <LanuagesSwitch isHovered={isHovered} />
         </Flex>
     );
 };
