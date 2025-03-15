@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { FC, useState } from 'react';
+import AspectRatio from '../aspect-ratio';
 
 /**
  * 站会信息
@@ -70,63 +71,54 @@ const MessageModal: FC<ICustomComponentProps> = ({ className }) => {
             </Flex>
 
             {/* 模态框组件，根据 isModalOpen 的值决定是否显示 */}
-            {/* <AspectRatio ratio={82 / 82}></AspectRatio> */}
             <Modal
                 open={isModalOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}
-                width={'auto'}
-                classNames={{
-                    content: classNames('max-w-[650px] absolut  left-1/2 -translate-x-1/2 translate-y-1/3'),
-                }}
+                width={650}
                 styles={{
                     content: {
                         backgroundColor: 'transparent',
                         boxShadow: 'none',
+                        width: 650,
+                        padding: 0,
                     },
                 }}
                 footer={null}
-                closeIcon={
-                    <img
-                        src="/images/indexpage/icon_close@2x.png"
-                        className="w-[35px] h-[35px]"
-                        style={{ maxWidth: 35 }}
-                    />
-                }
+                closeIcon={<img src="/images/indexpage/icon_close@2x.png" style={{ maxWidth: 35, height: 35 }} />}
             >
-                <div className="relative">
+                <div className="modal-body-wrapper">
                     {/* 背景图 */}
-                    <img
-                        src="/images/indexpage/h5/modal_bg@2x.png"
-                        style={{ maxWidth: 650 }}
-                        className="bg-transparent "
-                    />
-                    <div className="absolute top-0 left-0 text-white pt-20 flex flex-col pl-10 w-full">
+                    <AspectRatio ratio={1301 / 814}>
+                        <img src="/images/indexpage/h5/modal_bg@2x.png" style={{ maxWidth: 650 }} />
+                    </AspectRatio>
+                    <Flex className="modal-body-text-wrapper" vertical gap={24}>
                         {/* 标题、副标题 */}
-                        <div className="flex flex-col  tracking-wide">
-                            <div className=" text-3xl">2025年度</div>
+                        <Flex justify="space-around" vertical>
+                            <div className="text-3xl">2025年度</div>
                             <div className="text-4xl">CHINAPLAS国际橡塑展</div>
-                        </div>
-                        <div className="flex w-full mt-9 gap-14">
+                        </Flex>
+                        {/* 展示icon */}
+                        <Flex gap={50}>
                             {list.map((item) => (
-                                <div key={item.id} className="flex gap-2 items-center">
-                                    <img src={item.icon} className="w-[14px] h-[14px]" style={{ maxWidth: 14 }} />
-                                    <div className="flex">{item.content}</div>
-                                </div>
+                                <Flex align="center" gap={8} key={item.id}>
+                                    <img src={item.icon} style={{ maxWidth: 14, height: 14 }} />
+                                    <Flex>{item.content}</Flex>
+                                </Flex>
                             ))}
-                        </div>
-                    </div>
+                        </Flex>
+                    </Flex>
                     {/* 联系我们 */}
-                    <div className=" flex justify-center items-center gap-2 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4">
+                    <Flex className="link-us" gap={8} justify="center">
                         <img
                             src="/images/indexpage/icon_lianxiwomen@2x.png"
                             className="w-6 h-6 "
-                            style={{ maxWidth: 24 }}
+                            style={{ maxWidth: 24, height: 24 }}
                         />
                         <Link href={'/contact-us'} className="hover:text-customblue">
                             联系我们
                         </Link>
-                    </div>
+                    </Flex>
                 </div>
             </Modal>
         </div>
