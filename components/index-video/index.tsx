@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { FC, useEffect, useRef } from 'react';
 import MessageModal from './modal';
 
+import './index.scss';
+
 /**
  * 首页的视频切换
  */
@@ -30,13 +32,13 @@ const IndexVideo: FC<ICustomComponentProps> = ({ className }) => {
     }, []);
 
     return (
-        <div className={classNames('relative', className)}>
+        <div className={classNames('video-wrapper', className)}>
             <video ref={videoRef} autoPlay muted loop>
                 <source src={getVideoSource()} type="video/mp4" />
                 你的浏览器不支持视频播放。
             </video>
             {/* 展会信息 */}
-            <MessageModal className="absolute bottom-0 right-6 translate-y-1/2 " />
+            <MessageModal className="message-modal-box absolute bottom-0 right-6 translate-y-1/2 " />
         </div>
     );
 };
