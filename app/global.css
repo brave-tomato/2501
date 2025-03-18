@@ -19,10 +19,17 @@
 }
 
 /* styles/globals.css */
+/*蓝色 #103675 #103675 rgb(16,54,117) 217.4 75.9% 26.1% */
+/* 绿色 #2dafb7 #2DAFB7 rgb(45,175,183) 183.5 60.5% 44.7% */
+/* #7F8085  hsl(230,2.4%,51%) rgb(127,128,133) 首页 的灰色*/
 :root {
     --custom-blue: #103675;
     --custom-green: #2dafb7;
     --custom-gray: #7f8085;
+
+    --custom-blue-rgb: 16, 54, 117;
+    --custom-green-rgb: 45, 175, 183;
+    --custom-gray-rgb: 127, 128, 133;
 }
 
 .cursor-pointer {

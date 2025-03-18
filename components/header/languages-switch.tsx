@@ -18,9 +18,9 @@ const LanuagesSwitch: FC<ICustomComponentProps> = ({ className, isHovered }) => 
     return (
         <Flex align="center" justify="space-between" gap={12} className={classNames(className)}>
             {isHovered || isScrolled ? (
-                <img src="/images/indexpage/icon_qiu@2x.png" className="w-[25px]" style={{ maxWidth: 25 }} />
+                <img src="/images/indexpage/icon_qiu@2x.png" style={{ maxWidth: 25 }} />
             ) : (
-                <img src="/images/indexpage/icon_qiu_white@2x.png" className="w-[25px]" style={{ maxWidth: 25 }} />
+                <img src="/images/indexpage/icon_qiu_white@2x.png" style={{ maxWidth: 25 }} />
             )}
             <span className={isScrolled || isHovered ? 'languages-text-night' : 'languages-text-light'}>
                 选择区域/语言

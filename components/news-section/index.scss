@@ -1,6 +1,6 @@
 .ant-flex.news-section-wrapper {
     padding: 0 50px;
-    background-color: lightgray;
+    // background-color: lightgray;
     .header {
         width: 100%;
         .title {
@@ -19,6 +19,39 @@
             border-radius: 50px;
             font-size: 20px;
             line-height: 24px;
+        }
+    }
+
+    .news-item-big-box {
+        position: relative;
+        .news-item-big-box-content {
+            position: absolute;
+            bottom: 0;
+            border-radius: 0 0 10px 10px;
+            background-color: rgba(var(--custom-blue-rgb), 0.85);
+            padding: 40px 22px;
+            .date {
+                font-size: 16px;
+            }
+            .content {
+                font-size: 14px;
+            }
+            .date,
+            .content {
+                color: #fff;
+            }
+
+            .title {
+                color: var(--custom-green);
+                font-size: 22px;
+            }
+
+            .more {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #fff;
+            }
         }
     }
 }
