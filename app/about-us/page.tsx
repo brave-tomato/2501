@@ -12,6 +12,11 @@ import { Title1 } from '@/components/headline';
 
 const ComponentGlobe = dynamic(() => import('@/components/globe'), { ssr: false });
 
+/**
+ * Styles
+ */
+import styles from './styles.module.scss';
+
 const Page = () => {
     /**
      * Hooks
@@ -47,11 +52,10 @@ const Page = () => {
                         transform: 'translateY(-50%)',
                         color: 'white',
                         fontSize: '50px',
-                        letterSpacing: '0.5em',
                         textAlign: 'center',
                     }}
                 >
-                    让人类享受更安全的绿色能源
+                    <span style={{ letterSpacing: '0.5em' }}>让人类享受更安全的绿色能</span>源
                 </div>
             </AspectRatio>
 
@@ -70,6 +74,15 @@ const Page = () => {
 
             {/* 可持续发展 */}
             <Title1 title="可持续发展" subtitle="Sustainable" />
+
+            {/* 企业 ESG */}
+            <div className={styles.esg}>
+                <img alt="" src="/images/about-us/esg.png" />
+
+                <span>
+                    <span style={{ letterSpacing: '0.25em' }}>企业ES</span>G
+                </span>
+            </div>
         </div>
     );
 };

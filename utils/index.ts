@@ -59,12 +59,22 @@ export const getConf: any = (screens: any) => {
     }
 
     // < 576px
+    if (screens.xs) {
+        return {
+            ...screens,
+            name: 'xs',
+
+            // TODO: 适配
+            banner: 992 / 404,
+            globe: 992 / 404,
+        };
+    }
+
     return {
         ...screens,
-        name: 'xs',
+        name: 'xxl',
 
-        // TODO: 适配
-        banner: 992 / 404,
-        globe: 992 / 404,
+        banner: 1920 / 650,
+        globe: 1920 / 650,
     };
 };
