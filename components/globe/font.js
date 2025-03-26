@@ -1,3 +1,7 @@
+/**
+ * 生成字体文件
+ * @example 北京房山淄博江苏溧阳浙湖州绍兴广东深圳匈牙布达佩澳大利亚堪培拉泰国曼谷斯abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ,
+ */
 export default {
     glyphs: {
         ' ': { ha: 311, x_min: 0, x_max: 0, o: '' },

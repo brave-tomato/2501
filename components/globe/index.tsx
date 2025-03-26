@@ -29,15 +29,18 @@ const ComponentGlobe = () => {
     };
 
     const globeProps: GlobeProps = {
-        // arcsData: cities.map((factory) => ({
+        // arcsData: cities.map((city) => ({
         //     startLat: cities[0].lat,
         //     startLng: cities[0].lng,
-        //     endLat: factory.lat,
-        //     endLng: factory.lng,
+        //     endLat: city.lat,
+        //     endLng: city.lng,
         // })),
         // arcStroke: 0.5,
         globeImageUrl: '/textures/earth.jpg',
-        labelsData: cities,
+        labelsData: cities.map((city) => ({
+            ...city,
+            label: city.label_zhCN,
+        })),
         labelColor: () => 'red',
         labelDotOrientation: (d) => d.orientation || 'bottom',
         labelDotRadius: 0.3,
