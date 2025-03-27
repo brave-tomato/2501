@@ -26,13 +26,13 @@
     --custom-green: #2dafb7;
     --custom-black: #313232;
     --custom-gray: #969696;
-    --custom-light-gray: #d9d9d9;
+    --custom-gray-light: #d9d9d9;
 
     --custom-blue-rgb: 16, 54, 117;
     --custom-green-rgb: 45, 175, 183;
     --custom-black-rgb: 49, 50, 50;
     --custom-gray-rgb: 150, 150, 150;
-    --custom-light-gray-rgb: 217, 217, 217;
+    --custom-gray-light-rgb: 217, 217, 217;
 }
 
 .cursor-pointer {

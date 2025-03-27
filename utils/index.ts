@@ -10,6 +10,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 1920 / 650,
             globe: 1920 / 650,
+            video: 1920 / 682,
         };
     }
 
@@ -21,6 +22,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 1920 / 650,
             globe: 1920 / 650,
+            video: 1920 / 682,
         };
     }
 
@@ -32,6 +34,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 1200 / 460,
             globe: 1200 / 460,
+            video: 1200 / 682,
         };
     }
 
@@ -43,6 +46,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 992 / 404,
             globe: 992 / 404,
+            video: 992 / 434,
         };
     }
 
@@ -55,6 +59,7 @@ export const getConf: any = (screens: any) => {
             // TODO: 适配
             banner: 992 / 404,
             globe: 992 / 404,
+            video: 992 / 434,
         };
     }
 
@@ -67,6 +72,7 @@ export const getConf: any = (screens: any) => {
             // TODO: 适配
             banner: 992 / 404,
             globe: 992 / 404,
+            video: 992 / 434,
         };
     }
 
@@ -76,5 +82,6 @@ export const getConf: any = (screens: any) => {
 
         banner: 1920 / 650,
         globe: 1920 / 650,
+        video: 1920 / 682,
     };
 };

@@ -34,7 +34,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
             <body>
                 <AntdRegistry>
                     {/* Header */}
-                    {/* <HeaderComponent /> */}
+                    <HeaderComponent />
 
                     {/* Main */}
                     <main>{children}</main>
