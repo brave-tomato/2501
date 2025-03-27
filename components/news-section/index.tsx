@@ -16,13 +16,13 @@ const NewsSection: FC<ICustomComponentProps> = ({ className, newsData }) => {
     return (
         <Flex className={classNames('news-section-wrapper', className)} vertical>
             <Flex className="header" justify="space-between">
-                <Flex gap={10} vertical>
+                <Flex gap={6} vertical>
                     <div className="title">新闻动态</div>
                     <div className="sub-title">NEWS</div>
                 </Flex>
                 <Flex align="center" className="btn-more" justify="center" gap={8}>
                     <div>查看更多</div>
-                    <img src="/images/indexpage/icon_arrow_right_white@2x.png" width={8} height={16} />
+                    <img src="/images/indexpage/icon_arrow_right_white@2x.png" width={6} height={12} />
                 </Flex>
             </Flex>
             {/* 内容 */}
