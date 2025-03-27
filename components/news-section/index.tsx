@@ -14,7 +14,7 @@ import NewsItemSmall from './news-item-small';
  */
 const NewsSection: FC<ICustomComponentProps> = ({ className, newsData }) => {
     return (
-        <Flex className={classNames('news-section-wrapper', className)} vertical>
+        <Flex className={classNames('news-section-wrapper', className)} gap={40} vertical>
             <Flex className="header" justify="space-between">
                 <Flex gap={6} vertical>
                     <div className="title">新闻动态</div>
