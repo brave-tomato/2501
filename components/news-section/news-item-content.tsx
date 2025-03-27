@@ -14,11 +14,11 @@ const { Paragraph } = Typography;
  */
 const NewsItemContent: FC<ICustomComponentProps> = ({ className, mode = 'big', news, rows = 2 }) => {
     return (
-        <Flex className={classNames(className, 'news-item-big-box-content')} gap={26} vertical>
+        <Flex className={classNames(className, 'news-item-big-box-content')} justify="space-between" gap={26} vertical>
             <div className="date">{news.date}</div>
-            <Flex vertical gap={4}>
+            <Flex justify="space-between" gap={4} vertical>
                 <div className="title">{news.title}</div>
-                <Flex vertical gap={16}>
+                <Flex justify="space-between" gap={16} vertical>
                     <Paragraph className="content" ellipsis={{ rows: rows }}>
                         {news.content}
                     </Paragraph>
