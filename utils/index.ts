@@ -8,6 +8,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xxl',
 
+            logo: 146 / 19,
             banner: 1920 / 650,
             video: 1920 / 682,
 
@@ -24,6 +25,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xl',
 
+            logo: 146 / 19,
             banner: 1920 / 650,
             video: 1920 / 682,
 
@@ -38,6 +40,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'lg',
 
+            logo: 146 / 19,
             banner: 1200 / 460,
             video: 1200 / 682,
 
@@ -52,6 +55,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'md',
 
+            logo: 146 / 19,
             banner: 992 / 404,
             video: 992 / 434,
 
@@ -67,6 +71,7 @@ export const getConf: any = (screens: any) => {
             name: 'sm',
 
             // TODO: 适配
+            logo: 146 / 19,
             banner: 992 / 404,
             video: 992 / 434,
 
@@ -82,6 +87,7 @@ export const getConf: any = (screens: any) => {
             name: 'xs',
 
             // TODO: 适配
+            logo: 146 / 19,
             banner: 992 / 404,
             video: 992 / 434,
 
@@ -94,6 +100,7 @@ export const getConf: any = (screens: any) => {
         ...screens,
         name: 'xxl',
 
+        logo: 146 / 19,
         banner: 1920 / 650,
         video: 1920 / 682,
 

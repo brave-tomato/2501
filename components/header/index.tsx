@@ -3,13 +3,14 @@ import useHoverDetection from '@/hooks/useHoverDetection';
 import useIsMobile from '@/hooks/useIsMobile';
 import useScrollDetection from '@/hooks/useScrollDetection';
 import { ICustomComponentProps } from '@/types';
-import { Col, ConfigProvider, Flex, Image, Layout, Menu, Row } from 'antd';
-import classNames from 'classnames';
+import { Flex, Grid, Menu } from 'antd';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import './index.scss';
 // import styles from './index.less';
+import { getConf } from '@/utils';
+import AspectRatio from '../aspect-ratio';
 import LanuagesSwitch from './languages-switch';
 
 const menuItems: any[] = [
@@ -22,10 +23,17 @@ const menuItems: any[] = [
     { key: 'job', label: '人才招聘', path: '/job' },
 ];
 
+const heightHeader = 70;
+
 /**
  * 头部导航
  */
 const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
+    /**
+     * Hooks
+     */
+    const conf = getConf(Grid.useBreakpoint());
+
     const { isHovered, handleMouseEnter, handleMouseLeave } = useHoverDetection();
     const isScrolled = useScrollDetection();
     const isMobile = useIsMobile();
@@ -49,15 +57,15 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                 top: 0,
                 left: 0,
                 right: 0,
-                height: 100,
-                padding: '0 24px',
+                height: heightHeader,
+                padding: '0 70px',
                 background: isHovered || isScrolled ? '#fff' : '',
                 zIndex: 1,
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <Image
+            {/* <Image
                 preview={false}
                 src={
                     isHovered || isScrolled || isMobile
@@ -65,7 +73,19 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                         : '/images/indexpage/nav_logo_white@2x.png'
                 }
                 alt="北京卫蓝新能源科技股份有限公司"
-            />
+            /> */}
+            <div style={{ width: 300 }}>
+                <AspectRatio ratio={conf.logo}>
+                    <img
+                        src={
+                            isHovered || isScrolled || isMobile
+                                ? '/images/indexpage/nav_logo@2x.png'
+                                : '/images/indexpage/nav_logo_white@2x.png'
+                        }
+                        alt="北京卫蓝新能源科技股份有限公司"
+                    />
+                </AspectRatio>
+            </div>
 
             <Menu
                 onClick={onClick}
@@ -74,7 +94,7 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                 items={menuItems}
                 style={{
                     borderBottom: '0',
-                    height: 100,
+                    height: heightHeader,
                     alignItems: 'center',
                     backgroundColor: 'transparent',
                 }}

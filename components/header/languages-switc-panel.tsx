@@ -72,7 +72,7 @@ const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered }
                         : '/images/indexpage/icon_arrow_down_white@2x.png'
                 }
                 style={{
-                    maxWidth: '22px',
+                    maxWidth: 12,
                     transition: 'transform 300ms ease',
                     transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
                 }}
