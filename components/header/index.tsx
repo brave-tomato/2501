@@ -24,7 +24,7 @@ const menuItems = [
     },
     {
         key: 'research-and-innovation',
-        label: <Link href="/research-and-innovation">研发与创新</Link>,
+        label: <Link href="/research-and-innovation">固态电池研发与创新</Link>,
     },
     {
         key: 'applications-and-solutions',
