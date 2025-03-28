@@ -13,14 +13,35 @@ import { getConf } from '@/utils';
 import AspectRatio from '../aspect-ratio';
 import LanuagesSwitch from './languages-switch';
 
-const menuItems: any[] = [
-    { key: 'index', label: '首页', path: '/' },
-    { key: 'about-us', label: '关于我们', path: '/about-us' },
-    { key: 'research-and-innovation', label: '研发与创新', path: '/research-and-innovation' },
-    { key: 'applications-and-solutions', label: '应用与解决方案', path: '/applications-and-solutions' },
-    { key: 'news-media', label: '新闻媒体', path: '/news-media' },
-    { key: 'contact-us', label: '联系我们', path: '/contact-us' },
-    { key: 'job', label: '人才招聘', path: '/job' },
+const menuItems = [
+    {
+        key: 'index',
+        label: <Link href="/">首页</Link>,
+    },
+    {
+        key: 'about-us',
+        label: <Link href="/about-us">关于我们</Link>,
+    },
+    {
+        key: 'research-and-innovation',
+        label: <Link href="/research-and-innovation">研发与创新</Link>,
+    },
+    {
+        key: 'applications-and-solutions',
+        label: <Link href="/applications-and-solutions">应用与解决方案</Link>,
+    },
+    {
+        key: 'news-media',
+        label: <Link href="/news-media">新闻媒体</Link>,
+    },
+    {
+        key: 'contact-us',
+        label: <Link href="/contact-us">联系我们</Link>,
+    },
+    {
+        key: 'job',
+        label: <Link href="/job">人才招聘</Link>,
+    },
 ];
 
 const heightHeader = 70;
@@ -65,15 +86,6 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {/* <Image
-                preview={false}
-                src={
-                    isHovered || isScrolled || isMobile
-                        ? '/images/indexpage/nav_logo@2x.png'
-                        : '/images/indexpage/nav_logo_white@2x.png'
-                }
-                alt="北京卫蓝新能源科技股份有限公司"
-            /> */}
             <div style={{ width: 300 }}>
                 <AspectRatio ratio={conf.logo}>
                     <img
