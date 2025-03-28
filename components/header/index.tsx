@@ -51,7 +51,7 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                 right: 0,
                 height: 100,
                 padding: '0 24px',
-                background: isHovered ? '#fff' : '',
+                background: isHovered || isScrolled ? '#fff' : '',
                 zIndex: 1,
             }}
             onMouseEnter={handleMouseEnter}
