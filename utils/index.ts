@@ -9,8 +9,12 @@ export const getConf: any = (screens: any) => {
             name: 'xxl',
 
             banner: 1920 / 650,
-            globe: 1920 / 650,
             video: 1920 / 682,
+
+            // 全球布局
+            globe: 1920 / 650,
+            // 可持续发展
+            sustainable: 1920 / 848,
         };
     }
 
@@ -21,8 +25,10 @@ export const getConf: any = (screens: any) => {
             name: 'xl',
 
             banner: 1920 / 650,
-            globe: 1920 / 650,
             video: 1920 / 682,
+
+            // 全球布局
+            globe: 1920 / 650,
         };
     }
 
@@ -33,8 +39,10 @@ export const getConf: any = (screens: any) => {
             name: 'lg',
 
             banner: 1200 / 460,
-            globe: 1200 / 460,
             video: 1200 / 682,
+
+            // 全球布局
+            globe: 1200 / 460,
         };
     }
 
@@ -45,8 +53,10 @@ export const getConf: any = (screens: any) => {
             name: 'md',
 
             banner: 992 / 404,
-            globe: 992 / 404,
             video: 992 / 434,
+
+            // 全球布局
+            globe: 992 / 404,
         };
     }
 
@@ -58,8 +68,10 @@ export const getConf: any = (screens: any) => {
 
             // TODO: 适配
             banner: 992 / 404,
-            globe: 992 / 404,
             video: 992 / 434,
+
+            // 全球布局
+            globe: 992 / 404,
         };
     }
 
@@ -71,8 +83,10 @@ export const getConf: any = (screens: any) => {
 
             // TODO: 适配
             banner: 992 / 404,
-            globe: 992 / 404,
             video: 992 / 434,
+
+            // 全球布局
+            globe: 992 / 404,
         };
     }
 
@@ -81,7 +95,9 @@ export const getConf: any = (screens: any) => {
         name: 'xxl',
 
         banner: 1920 / 650,
-        globe: 1920 / 650,
         video: 1920 / 682,
+
+        // 全球布局
+        globe: 1920 / 650,
     };
 };

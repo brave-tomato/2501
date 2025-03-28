@@ -3,12 +3,15 @@
 import { getConf } from '@/utils';
 import { Grid } from 'antd';
 import dynamic from 'next/dynamic';
+import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 /**
  * Components
  */
 import AspectRatio from '@/components/aspect-ratio';
 import { Title1 } from '@/components/headline';
+import { StaggeredText } from '@/components/motion';
 
 const ComponentGlobe = dynamic(() => import('@/components/globe'), { ssr: false });
 
@@ -55,7 +58,7 @@ const Page = () => {
                         textAlign: 'center',
                     }}
                 >
-                    <span style={{ letterSpacing: '0.5em' }}>让人类享受更安全的绿色能</span>源
+                    <StaggeredText style={{ margin: '0 12px' }} text="让人类享受更安全的绿色能源" />
                 </div>
             </AspectRatio>
 
@@ -74,6 +77,26 @@ const Page = () => {
 
             {/* 可持续发展 */}
             <Title1 title="可持续发展" subtitle="Sustainable" />
+
+            <Swiper modules={[Pagination]} pagination={true}>
+                <SwiperSlide>
+                    <AspectRatio ratio={conf.sustainable}>
+                        <img alt="" height="100%" src="/images/about-us/sustainable1.jpg" width="100%" />
+                    </AspectRatio>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <AspectRatio ratio={conf.sustainable}>
+                        <img alt="" height="100%" src="/images/about-us/sustainable1.jpg" width="100%" />
+                    </AspectRatio>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <AspectRatio ratio={conf.sustainable}>
+                        <img alt="" height="100%" src="/images/about-us/sustainable1.jpg" width="100%" />
+                    </AspectRatio>
+                </SwiperSlide>
+            </Swiper>
 
             {/* 企业 ESG */}
             <div className={styles.esg}>
