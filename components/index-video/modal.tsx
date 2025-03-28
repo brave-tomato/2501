@@ -55,8 +55,8 @@ const MessageModal: FC<ICustomComponentProps> = ({ className }) => {
                 style={{
                     backgroundImage: `url('/images/indexpage/zhanhuixinxi@2x.png' )`,
                     backgroundSize: 'cover',
-                    width: 200,
-                    height: 200,
+                    width: 120,
+                    height: 120,
                     borderRadius: '100%',
                 }}
                 onClick={showModal}
@@ -64,7 +64,7 @@ const MessageModal: FC<ICustomComponentProps> = ({ className }) => {
                 <Flex
                     align="center"
                     justify="space-around"
-                    style={{ fontSize: '4rem', width: '80%', height: '80%', color: '#fff', textAlign: 'center' }}
+                    style={{ fontSize: '2rem', width: '60%', height: '80%', color: '#fff', textAlign: 'center' }}
                 >
                     展会信息
                 </Flex>

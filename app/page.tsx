@@ -1,6 +1,5 @@
 'use client';
 
-import { Button, Modal } from 'antd';
 import { useState } from 'react';
 
 /**
@@ -8,7 +7,7 @@ import { useState } from 'react';
  */
 import IndexVideo from '@/components/index-video';
 import NewsSection from '@/components/news-section';
-import styles from './page.module.css';
+import { Flex, Space } from 'antd';
 
 const newsList: any[] = [
     {
