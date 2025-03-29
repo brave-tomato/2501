@@ -19,6 +19,9 @@ export const getConf: any = (screens: any) => {
         globe: 1920 / 848,
         // 可持续发展
         sustainable: 1920 / 848,
+
+        // 固态电池研发与创新 - 固态生态
+        solidStateEcology: 1920 / 428,
     };
 
     if (isClient && window?.innerWidth >= 1920) {
@@ -39,6 +42,9 @@ export const getConf: any = (screens: any) => {
             globe: 1600 / 707,
             // 可持续发展
             sustainable: 1600 / 707,
+
+            // 固态电池研发与创新 - 固态生态
+            solidStateEcology: 428 / 400,
         };
     }
 
@@ -56,6 +62,9 @@ export const getConf: any = (screens: any) => {
             globe: 1200 / 530,
             // 可持续发展
             sustainable: 1200 / 530,
+
+            // 固态电池研发与创新 - 固态生态
+            solidStateEcology: 428 / 400,
         };
     }
 
@@ -73,6 +82,9 @@ export const getConf: any = (screens: any) => {
             globe: 992 / 438,
             // 可持续发展
             sustainable: 992 / 438,
+
+            // 固态电池研发与创新 - 固态生态
+            solidStateEcology: 428 / 400,
         };
     }
 
@@ -90,6 +102,9 @@ export const getConf: any = (screens: any) => {
             globe: 768 / 768,
             // 可持续发展
             sustainable: 768 / 340,
+
+            // 固态电池研发与创新 - 固态生态
+            solidStateEcology: 428 / 400,
         };
     }
 
@@ -107,6 +122,9 @@ export const getConf: any = (screens: any) => {
             globe: 576 / 576,
             // 可持续发展
             sustainable: 576 / 254,
+
+            // 固态电池研发与创新 - 固态生态
+            solidStateEcology: 428 / 400,
         };
     }
 
@@ -124,6 +142,9 @@ export const getConf: any = (screens: any) => {
             globe: 576 / 576,
             // 可持续发展
             sustainable: 576 / 254,
+
+            // 固态电池研发与创新 - 固态生态
+            solidStateEcology: 428 / 400,
         };
     }
 
