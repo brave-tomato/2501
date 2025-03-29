@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import AspectRatio from '@/components/aspect-ratio';
 import { useSetState } from 'ahooks';
-import { Flex } from 'antd';
+import { Flex, Image } from 'antd';
 import ImageTextSection from './components/image-text-section';
 
 import './index.scss';
@@ -121,14 +121,41 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
                         <SwiperSlide key={index}>
                             <Flex className="swiper-item-wrapper" vertical>
                                 <AspectRatio ratio={327 / 164}>
-                                    <img
+                                    <Image
                                         alt=""
-                                        height="100%"
-                                        src={payload.src}
-                                        width="100%"
-                                        onClick={() => handleCoverClick(payload.video)}
+                                        preview={{
+                                            mask: '',
+                                            imageRender: () => (
+                                                <div
+                                                    style={{
+                                                        aspectRatio: '16/9',
+                                                        width: '100%',
+                                                        height: 'auto',
+                                                        maxWidth: '90vw',
+                                                        maxHeight: '90vh',
+                                                        margin: 'auto',
+                                                    }}
+                                                >
+                                                    <video
+                                                        autoPlay
+                                                        loop
+                                                        playsInline
+                                                        src={payload.video}
+                                                        style={{
+                                                            width: '100%',
+                                                            height: '100%',
+                                                            objectFit: 'contain',
+                                                        }}
+                                                    />
+                                                </div>
+                                            ),
+                                            toolbarRender: () => null,
+                                        }}
+                                        src="/images/about-us/img_03.png"
+                                        style={{ width: '100%', cursor: 'pointer' }}
                                     />
                                 </AspectRatio>
+
                                 <Flex className="bg-linear-green content-box" gap={16} vertical>
                                     <Flex gap={4} vertical>
                                         <div className="title">{payload.title}</div>
@@ -141,20 +168,7 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
                     ))}
                 </Swiper>
             </div>
-            {/* 播放视频 */}
-            {showVideoModal && (
-                <div className="video-modal-overlay" onClick={handleCloseModal}>
-                    <div className="video-modal">
-                        <span className="close-button" onClick={handleCloseModal}>
-                            &times;
-                        </span>
-                        <video autoPlay loop muted playsInline width="100%">
-                            <source src={selectedVideoSrc} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            )}
+
             {/* 固态电池制造 */}
             <Title1 title="固态电池制造" subtitle="Solid-State Battery Process" />
             <div style={{ backgroundColor: `var(--custom-gray-light)`, maxWidth: '1920px', height: 600 }}></div>
