@@ -21,7 +21,14 @@ const ImageTextSectionItem: FC<ICustomComponentProps> = ({ payload }) => {
             <AspectRatio ratio={conf.solidStateEcology}>
                 <img src={payload.url} style={{ width: '100%', height: 'auto' }} />
             </AspectRatio>
-            <Flex align="center" className="content-box" gap={52} justify="center" vertical style={{ width: 428 }}>
+            <Flex
+                align="center"
+                className="content-box bg-linear-green"
+                gap={52}
+                justify="center"
+                vertical
+                style={{ width: 428 }}
+            >
                 <img src={payload.icon} style={{ maxWidth: 52, height: 'auto' }} />
                 <Flex align="center" gap={12} justify="center" vertical>
                     <div className="title">{payload.title}</div>
