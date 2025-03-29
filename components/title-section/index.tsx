@@ -1,11 +1,9 @@
 'use client';
-import classNames from 'classnames';
 import React, { FC } from 'react';
 
 import { ICustomComponentProps } from '@/types';
 
-import { Divider, Flex, Typography } from 'antd';
-import './index.scss';
+import { Divider, Flex } from 'antd';
 
 /**
  *

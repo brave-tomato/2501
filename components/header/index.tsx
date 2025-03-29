@@ -1,19 +1,25 @@
-'use client';
+'use client'; // 声明为 Next.js 客户端组件
+
 import useHoverDetection from '@/hooks/useHoverDetection';
 import useIsMobile from '@/hooks/useIsMobile';
 import useScrollDetection from '@/hooks/useScrollDetection';
 import { ICustomComponentProps } from '@/types';
+import { getConf } from '@/utils';
 import { Flex, Grid, Menu } from 'antd';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
-import './index.scss';
-// import styles from './index.less';
-import { getConf } from '@/utils';
 import AspectRatio from '../aspect-ratio';
 import LanuagesSwitch from './languages-switch';
 
-const menuItems = [
+// 定义菜单项的类型
+type MenuItem = {
+    key: string;
+    label: React.ReactNode;
+};
+
+// 菜单项列表
+const menuItems: MenuItem[] = [
     {
         key: 'index',
         label: <Link href="/">首页</Link>,
@@ -44,30 +50,40 @@ const menuItems = [
     },
 ];
 
-const heightHeader = 70;
+// 头部高度常量
+const HEADER_HEIGHT = 70;
 
 /**
- * 头部导航
+ * 头部导航组件
  */
 const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
-    /**
-     * Hooks
-     */
+    // 获取配置信息
     const conf = getConf(Grid.useBreakpoint());
 
+    // 悬停检测
     const { isHovered, handleMouseEnter, handleMouseLeave } = useHoverDetection();
+    // 滚动检测
     const isScrolled = useScrollDetection();
+    // 移动设备检测
     const isMobile = useIsMobile();
+    // 获取当前路径名
     const pathname = usePathname();
+    // 获取路由实例
+    const router = useRouter();
 
+    // 移动菜单展开状态
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+    // 当前选中的菜单项
     const [current, setCurrent] = useState('index');
 
-    const onClick = (e: any) => {
+    // 菜单项点击处理函数
+    const handleMenuItemClick = (e: { key: string }) => {
         console.log('click ', e);
         setCurrent(e.key);
+        // 使用路由刷新页面
+        router.reload();
     };
+
     return (
         <Flex
             align="center"
@@ -78,7 +94,7 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                 top: 0,
                 left: 0,
                 right: 0,
-                height: heightHeader,
+                height: HEADER_HEIGHT,
                 padding: '0 70px',
                 background: isHovered || isScrolled ? '#fff' : '',
                 zIndex: 1,
@@ -100,13 +116,13 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
             </div>
 
             <Menu
-                onClick={onClick}
+                onClick={handleMenuItemClick}
                 selectedKeys={[current]}
                 mode="horizontal"
                 items={menuItems}
                 style={{
                     borderBottom: '0',
-                    height: heightHeader,
+                    height: HEADER_HEIGHT,
                     alignItems: 'center',
                     backgroundColor: 'transparent',
                 }}

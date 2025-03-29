@@ -2,6 +2,9 @@
  * 通过屏幕尺寸获取配置
  */
 export const getConf: any = (screens: any) => {
+    // 检查是否在客户端运行
+    const isClient = typeof window !== 'undefined';
+
     // >= 1920px（自定义 xxxl 屏幕尺寸）
     const defaultScreen = {
         ...screens,
@@ -18,7 +21,7 @@ export const getConf: any = (screens: any) => {
         sustainable: 1920 / 848,
     };
 
-    if (window.innerWidth >= 1920) {
+    if (isClient && window?.innerWidth >= 1920) {
         return defaultScreen;
     }
 
