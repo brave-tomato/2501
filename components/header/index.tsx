@@ -81,7 +81,7 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
         console.log('click ', e);
         setCurrent(e.key);
         // 使用路由刷新页面
-        router.reload();
+        router?.refresh();
     };
 
     return (
@@ -116,7 +116,7 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
             </div>
 
             <Menu
-                onClick={handleMenuItemClick}
+                // onClick={handleMenuItemClick}
                 selectedKeys={[current]}
                 mode="horizontal"
                 items={menuItems}

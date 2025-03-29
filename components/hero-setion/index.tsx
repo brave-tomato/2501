@@ -11,34 +11,25 @@ import './index.scss';
 /**
  * 导航下面的大图
  */
-const HeroSection: FC<ICustomComponentProps> = () => {
+const HeroSection: FC<ICustomComponentProps & React.PropsWithChildren> = ({ src, children }) => {
     /**
      * Hooks
      */
     const conf = getConf(Grid.useBreakpoint());
 
     return (
-        <div style={{ maxWidth: '1920px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1920px', margin: '0 auto', position: 'relative' }}>
             <AspectRatio ratio={conf.banner}>
-                <div
+                <img
+                    src={src}
                     style={{
-                        backgroundColor: 'rgba(var(--custom-blue-rgb), 0.8)',
+                        objectFit: 'cover',
                         height: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        width: 'auto',
                     }}
-                >
-                    <img
-                        src="/images/hero-section/research-and-innovation@2x.png"
-                        style={{
-                            objectFit: 'cover',
-                            height: '100%',
-                            width: 'auto',
-                        }}
-                    />
-                </div>
+                />
             </AspectRatio>
+            <div className="hero-section-titile-box">{children}</div>
         </div>
     );
 };
