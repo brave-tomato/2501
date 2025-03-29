@@ -1,6 +1,5 @@
 'use client';
-import { Title1 } from '@/components/headline';
-import Title2 from '@/components/headline/title2';
+import { Title1, Title3 } from '@/components/headline';
 import HeroSection from '@/components/hero-setion';
 import TitleSection from '@/components/title-section';
 import { ICustomComponentProps } from '@/types';
@@ -108,10 +107,10 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
             </HeroSection>
             {/* 固态电池研发 */}
             <Title1 title="固态电池研发" subtitle="Solid-State Battery R&D" />
-            <Title2 title="固态生态" />
+            <Title3 title="固态生态" />
             <ImageTextSection />
 
-            <Title2 title="固态技术" />
+            <Title3 title="固态技术" />
             <div className="swiper-culture">
                 <div className="swiper-button-prev" onClick={() => state.swiperCulture2.slidePrev()} />
                 <div className="swiper-button-next" onClick={() => state.swiperCulture2.slideNext()} />
