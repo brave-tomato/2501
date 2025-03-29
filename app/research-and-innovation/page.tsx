@@ -149,7 +149,7 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
                         <span className="close-button" onClick={handleCloseModal}>
                             &times;
                         </span>
-                        <video controls width="100%">
+                        <video autoPlay loop muted playsInline width="100%">
                             <source src={selectedVideoSrc} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>

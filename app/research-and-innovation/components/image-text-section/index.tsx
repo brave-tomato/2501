@@ -19,7 +19,7 @@ const imageTextArr = [
     },
     {
         id: 2,
-        url: '/images/research-and-innovation/dianchi@2x.png',
+        url: '/images/research-and-innovation/zhuanli@2x.png',
         title: '专利生态',
         content: `发明专利占比，授权专利占比，海外专利占比，文章paper发表，标准制定`,
         icon: '/images/research-and-innovation/icon_zhuanlishengtai@2x.png',
