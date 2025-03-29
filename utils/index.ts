@@ -2,20 +2,40 @@
  * 通过屏幕尺寸获取配置
  */
 export const getConf: any = (screens: any) => {
+    // >= 1920px（自定义 xxxl 屏幕尺寸）
+    const defaultScreen = {
+        ...screens,
+        xxxl: true,
+        name: 'xxxl',
+
+        banner: 1920 / 650,
+        logo: 146 / 19,
+        video: 1920 / 682,
+
+        // 全球布局
+        globe: 1920 / 848,
+        // 可持续发展
+        sustainable: 1920 / 848,
+    };
+
+    if (window.innerWidth >= 1920) {
+        return defaultScreen;
+    }
+
     // >= 1600px
     if (screens.xxl) {
         return {
             ...screens,
             name: 'xxl',
 
+            banner: 1600 / 576,
             logo: 146 / 19,
-            banner: 1920 / 650,
-            video: 1920 / 682,
+            video: 1920 / 682, // TODO: 适配
 
             // 全球布局
-            globe: 1920 / 650,
+            globe: 1600 / 707,
             // 可持续发展
-            sustainable: 1920 / 848,
+            sustainable: 1600 / 707,
         };
     }
 
@@ -25,12 +45,14 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xl',
 
+            banner: 1200 / 460,
             logo: 146 / 19,
-            banner: 1920 / 650,
-            video: 1920 / 682,
+            video: 1920 / 682, // TODO: 适配
 
             // 全球布局
-            globe: 1920 / 650,
+            globe: 1200 / 530,
+            // 可持续发展
+            sustainable: 1200 / 530,
         };
     }
 
@@ -40,12 +62,14 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'lg',
 
+            banner: 992 / 404,
             logo: 146 / 19,
-            banner: 1200 / 460,
-            video: 1200 / 682,
+            video: 1200 / 682, // TODO: 适配
 
             // 全球布局
-            globe: 1200 / 460,
+            globe: 992 / 438,
+            // 可持续发展
+            sustainable: 992 / 438,
         };
     }
 
@@ -55,12 +79,14 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'md',
 
+            banner: 768 / 500,
             logo: 146 / 19,
-            banner: 992 / 404,
-            video: 992 / 434,
+            video: 992 / 434, // TODO: 适配
 
             // 全球布局
-            globe: 992 / 404,
+            globe: 768 / 768,
+            // 可持续发展
+            sustainable: 768 / 340,
         };
     }
 
@@ -70,13 +96,14 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'sm',
 
-            // TODO: 适配
+            banner: 576 / 375,
             logo: 146 / 19,
-            banner: 992 / 404,
-            video: 992 / 434,
+            video: 992 / 434, // TODO: 适配
 
             // 全球布局
-            globe: 992 / 404,
+            globe: 576 / 576,
+            // 可持续发展
+            sustainable: 576 / 254,
         };
     }
 
@@ -86,25 +113,16 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xs',
 
-            // TODO: 适配
+            banner: 576 / 375,
             logo: 146 / 19,
-            banner: 992 / 404,
-            video: 992 / 434,
+            video: 992 / 434, // TODO: 适配
 
             // 全球布局
-            globe: 992 / 404,
+            globe: 576 / 576,
+            // 可持续发展
+            sustainable: 576 / 254,
         };
     }
 
-    return {
-        ...screens,
-        name: 'xxl',
-
-        logo: 146 / 19,
-        banner: 1920 / 650,
-        video: 1920 / 682,
-
-        // 全球布局
-        globe: 1920 / 650,
-    };
+    return defaultScreen;
 };
