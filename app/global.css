@@ -48,3 +48,44 @@
     font-size: 30px;
     color: #fff;
 }
+
+/* 轮播图 */
+.swiper-culture {
+    position: relative;
+    width: 100%;
+}
+
+.swiper-culture .swiper-button-next {
+    right: -55px;
+    width: 44px;
+    height: 44px;
+    margin-top: -55px;
+    padding: 55px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    color: #103675;
+}
+
+.swiper-culture .swiper-button-prev {
+    left: -55px;
+    width: 44px;
+    height: 44px;
+    margin-top: -55px;
+    padding: 55px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    color: #103675;
+}
+
+.swiper-sustainable .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ffffff;
+    opacity: 1;
+}
+
+.swiper-sustainable .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #ffffff;
+}

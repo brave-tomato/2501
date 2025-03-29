@@ -15,6 +15,8 @@ export const getConf: any = (screens: any) => {
         logo: 146 / 19,
         video: 1920 / 682,
 
+        // 公司简介
+        img03: 809 / 455,
         // 全球布局
         globe: 1920 / 848,
         // 可持续发展
@@ -38,6 +40,8 @@ export const getConf: any = (screens: any) => {
             logo: 146 / 19,
             video: 1920 / 682, // TODO: 适配
 
+            // 公司简介
+            img03: 809 / 455,
             // 全球布局
             globe: 1600 / 707,
             // 可持续发展
@@ -58,6 +62,8 @@ export const getConf: any = (screens: any) => {
             logo: 146 / 19,
             video: 1920 / 682, // TODO: 适配
 
+            // 公司简介
+            img03: 809 / 455,
             // 全球布局
             globe: 1200 / 530,
             // 可持续发展
@@ -78,6 +84,8 @@ export const getConf: any = (screens: any) => {
             logo: 146 / 19,
             video: 1200 / 682, // TODO: 适配
 
+            // 公司简介
+            img03: 809 / 455,
             // 全球布局
             globe: 992 / 438,
             // 可持续发展
@@ -98,6 +106,8 @@ export const getConf: any = (screens: any) => {
             logo: 146 / 19,
             video: 992 / 434, // TODO: 适配
 
+            // 公司简介
+            img03: 809 / 455,
             // 全球布局
             globe: 768 / 768,
             // 可持续发展
@@ -118,6 +128,8 @@ export const getConf: any = (screens: any) => {
             logo: 146 / 19,
             video: 992 / 434, // TODO: 适配
 
+            // 公司简介
+            img03: 809 / 455,
             // 全球布局
             globe: 576 / 576,
             // 可持续发展
@@ -138,6 +150,8 @@ export const getConf: any = (screens: any) => {
             logo: 146 / 19,
             video: 992 / 434, // TODO: 适配
 
+            // 公司简介
+            img03: 809 / 455,
             // 全球布局
             globe: 576 / 576,
             // 可持续发展

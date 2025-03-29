@@ -12,6 +12,7 @@ import Header from '@/components/header';
  */
 import 'antd/dist/reset.css';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './global.css';
 
