@@ -38,3 +38,13 @@
 .cursor-pointer {
     cursor: pointer;
 }
+
+/* 顶部导航区块的标题：固态电池研发与创新 */
+.title-top-big {
+    font-size: 52px;
+    color: #fff;
+}
+.subtitle-top-big {
+    font-size: 30px;
+    color: #fff;
+}
