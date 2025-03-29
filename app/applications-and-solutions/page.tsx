@@ -53,7 +53,7 @@ const ApplicationsAndSolutionsPage: FC<ICustomComponentProps> = ({ className }) 
             <HeroSection src="/images/hero-section/applications-and-solutions@2x.png">
                 <TitleSection title="应用与解决方案" />
             </HeroSection>
-            <Flex gap={70} vertical>
+            <Flex gap={70} vertical style={{ marginTop: 70 }}>
                 {data.map((payload: any, index: number) => (
                     <Flex
                         className="bg-linear-green2"
