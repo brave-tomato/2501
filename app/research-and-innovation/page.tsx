@@ -111,8 +111,6 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
             <Title2 title="固态生态" />
             <ImageTextSection />
 
-            {/* 固态电池制造 */}
-            <Title1 title="固态电池制造" subtitle="Solid-State Battery Process" />
             <Title2 title="固态技术" />
             <div className="swiper-culture">
                 <div className="swiper-button-prev" onClick={() => state.swiperCulture2.slidePrev()} />
@@ -143,6 +141,7 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
                     ))}
                 </Swiper>
             </div>
+            {/* 播放视频 */}
             {showVideoModal && (
                 <div className="video-modal-overlay" onClick={handleCloseModal}>
                     <div className="video-modal">
@@ -156,6 +155,9 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
                     </div>
                 </div>
             )}
+            {/* 固态电池制造 */}
+            <Title1 title="固态电池制造" subtitle="Solid-State Battery Process" />
+            <div style={{ backgroundColor: `var(--custom-gray-light)`, maxWidth: '1920px', height: 600 }}></div>
         </div>
     );
 };
