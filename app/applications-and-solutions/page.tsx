@@ -1,4 +1,5 @@
 'use client';
+import AspectRatio from '@/components/aspect-ratio';
 import { Title1, Title2, Title4 } from '@/components/headline';
 import HeroSection from '@/components/hero-setion';
 import TitleSection from '@/components/title-section';
@@ -14,8 +15,6 @@ const data: any = [
         subtitle: 'Power type applications',
         breakWord: 2,
         icon: '/images/applications-and-solutions/icon_circle_more@2x.png',
-        content1: 'Power type ',
-        content2: 'applications',
         bigicon: '/images/applications-and-solutions/bigicon1@2x.png',
     },
     {
@@ -24,9 +23,7 @@ const data: any = [
         subtitle: 'Low-altitude economic applications',
         breakWord: 1,
         icon: '/images/applications-and-solutions/icon_circle_more@2x.png',
-        content1: 'Low-altitude ',
-        content2: 'economic applications',
-        bigicon: '/images/applications-and-solutions/bigicon1@2x.png',
+        bigicon: '/images/applications-and-solutions/bigicon2@2x.png',
     },
     {
         id: 3,
@@ -34,15 +31,13 @@ const data: any = [
         subtitle: 'Energy storage applications',
         breakWord: 1,
         icon: '/images/applications-and-solutions/icon_circle_more@2x.png',
-        content1: 'Energy',
-        content2: 'storage applications',
-        bigicon: '/images/applications-and-solutions/bigicon1@2x.png',
+        bigicon: '/images/applications-and-solutions/bigicon3@2x.png',
     },
 ];
 // 定义拆分单词并插入换行符的函数
 const breakWordsAtPosition = (text: any, breakPosition: any) => {
-    const words = text.split(' ');
-    return words.slice(0, breakPosition).join(' ') + '<br/>' + words.slice(breakPosition).join(' ');
+    const words = text.toUpperCase().split(' ');
+    return `<div style="margin-bottom:20px">${words.slice(0, breakPosition).join(' ')}</div><div>${words.slice(breakPosition).join(' ')}</div>`;
 };
 /**
  * 应用与解决方案
@@ -71,13 +66,32 @@ const ApplicationsAndSolutionsPage: FC<ICustomComponentProps> = ({ className }) 
                         <Title4 title={payload.title} subtitle={payload.subtitle} />
                         <img src={payload.icon} width={184} style={{ marginTop: 70, marginBottom: 50 }} />
                         <div
-                            style={{ fontSize: 76, color: '#fff' }}
+                            style={{ fontSize: 76, color: '#fff', fontWeight: 'bold' }}
                             dangerouslySetInnerHTML={{
                                 __html: breakWordsAtPosition(payload.subtitle, payload.breakWord),
                             }}
                         ></div>
-                        {/* 右边的图片 TODO:这些图片尺寸要统一 */}
-                        <img src={payload.bigicon} style={{ position: 'absolute', top: 47, right: 78 }} width={503} />
+                        {index === 0 && (
+                            <div style={{ position: 'absolute', top: 47, right: 78, width: 503 }}>
+                                <AspectRatio ratio={503 / 371}>
+                                    <img src={payload.bigicon} width={'100%'} height={'100%'} />
+                                </AspectRatio>
+                            </div>
+                        )}
+                        {index === 1 && (
+                            <div style={{ position: 'absolute', top: 101, right: 62, width: 494 }}>
+                                <AspectRatio ratio={494 / 372}>
+                                    <img src={payload.bigicon} width={'100%'} height={'100%'} />
+                                </AspectRatio>
+                            </div>
+                        )}
+                        {index === 2 && (
+                            <div style={{ position: 'absolute', top: 0, right: 79, width: 435 }}>
+                                <AspectRatio ratio={435 / 484}>
+                                    <img src={payload.bigicon} width={'100%'} height={'100%'} />
+                                </AspectRatio>
+                            </div>
+                        )}
                     </Flex>
                 ))}
             </Flex>
