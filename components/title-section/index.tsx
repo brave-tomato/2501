@@ -8,14 +8,14 @@ import { Divider, Flex } from 'antd';
 /**
  *
  */
-const TitleSection: FC<ICustomComponentProps> = ({ title, subtitle }) => {
+const TitleSection: FC<ICustomComponentProps> = ({ title, subtitle = '' }) => {
     return (
         <Flex gap={40} vertical>
             <Flex gap={8} vertical>
                 {/* 主标题 */}
                 <div className="title-top-big">{title}</div>
                 {/* 副标题 */}
-                <div className="subtitle-top-big">{subtitle}</div>
+                {subtitle.length > 0 ? <div className="subtitle-top-big">{subtitle}</div> : null}
             </Flex>
             {/* 线 */}
             <Divider

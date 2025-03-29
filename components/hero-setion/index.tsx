@@ -1,18 +1,17 @@
 'use client';
-import classNames from 'classnames';
 import React, { FC } from 'react';
 
 import { ICustomComponentProps } from '@/types';
 
 import { getConf } from '@/utils';
-import { Flex, Grid } from 'antd';
+import { Grid } from 'antd';
 import AspectRatio from '../aspect-ratio';
 import './index.scss';
 
 /**
  * 导航下面的大图
  */
-const HeroSection: FC<ICustomComponentProps> = ({ src }) => {
+const HeroSection: FC<ICustomComponentProps> = () => {
     /**
      * Hooks
      */
@@ -21,11 +20,24 @@ const HeroSection: FC<ICustomComponentProps> = ({ src }) => {
     return (
         <div style={{ maxWidth: '1920px', margin: '0 auto' }}>
             <AspectRatio ratio={conf.banner}>
-                <img
-                    src={src}
-                    // src="/images/hero-section/research-and-innovation@2x.png"
-                    style={{ objectFit: 'cover', height: '100%', width: 'auto' }}
-                />
+                <div
+                    style={{
+                        backgroundColor: 'rgba(var(--custom-blue-rgb), 0.8)',
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <img
+                        src="/images/hero-section/research-and-innovation@2x.png"
+                        style={{
+                            objectFit: 'cover',
+                            height: '100%',
+                            width: 'auto',
+                        }}
+                    />
+                </div>
             </AspectRatio>
         </div>
     );
