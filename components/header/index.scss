@@ -15,24 +15,10 @@
     color: var(--custom-gray);
 }
 
-// .rotate-180-plain {
-//     transform: rotate(180deg);
-// }
-
-// .transition-transform {
-//     transition-property: transform;
-//     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-//     transition-duration: 150ms;
-// }
-
-// .duration-300 {
-//     transition-duration: 300ms;
-// }
-
 // 选择语言面板
 .change-languages-panel {
-    width: 80vw;
-    padding: 70px;
+    // width: 80vw;
+    padding: 0 8px;
     .title {
         font-size: 24px;
         font-weight: bold;
@@ -40,10 +26,11 @@
         margin-bottom: 45px;
     }
     .content {
-        font-size: 20px;
+        font-size: 16px;
         line-height: 1.5;
+        color: var(--custom-gray);
         .content-item {
-            width: 180px;
+            // width: 180px;
             cursor: pointer;
             &.selected {
                 color: var(--custom-green); // 可根据需要修改选中状态的样式
