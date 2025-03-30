@@ -73,8 +73,6 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // 初始化当前选中的菜单项
-    const storedKey = localStorage.getItem('selectedMenuKey');
-    // 初始化当前选中的菜单项
     let initialCurrent;
     if (typeof window !== 'undefined') {
         const storedKey = localStorage.getItem('selectedMenuKey');

@@ -27,7 +27,7 @@ const newsList: any[] = [
     },
     {
         id: 2,
-        url: '/images/indexpage/news_bg1@2x.png',
+        url: '/images/indexpage/news_bg2@2x.png',
 
         nav: '企业动态',
         date: '2025-02-22',
@@ -37,7 +37,7 @@ const newsList: any[] = [
     },
     {
         id: 3,
-        url: '/images/indexpage/news_bg1@2x.png',
+        url: '/images/indexpage/news_bg3@2x.png',
 
         nav: '时事热点',
         date: '2025-02-22',

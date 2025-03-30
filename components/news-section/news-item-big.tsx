@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import React, { FC } from 'react';
 
 import { ICustomComponentProps } from '@/types';
-import { Flex, Image } from 'antd';
+import { Flex } from 'antd';
 import AspectRatio from '../aspect-ratio';
 
 import './index.scss';
@@ -17,12 +17,13 @@ const NewsItemBig: FC<ICustomComponentProps> = ({ className, news }) => {
     return (
         <Flex className={classNames('', className)}>
             <div className="news-item-big-box">
-                {/* TODO：Image组件会随着屏幕的宽度变化，但是AspectRatio没有变化 */}
-                <Image src={news.url} preview={false} />
+                <div style={{ width: 523 }}>
+                    <AspectRatio ratio={523 / 461}>
+                        <img src={news.url} style={{ width: '100%', height: '100%' }} />
+                    </AspectRatio>
+                </div>
                 <NewsItemNav nav={news.nav} />
-                {/* <div style={{ maxWidth: 650, width: 'auto' }}>
-                    <AspectRatio ratio={650 / 548}></AspectRatio>
-                </div> */}
+
                 <NewsItemContent news={news} />
             </div>
         </Flex>
