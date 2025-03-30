@@ -7,6 +7,7 @@ import { FC } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import AspectRatio from '@/components/aspect-ratio';
 import { Flex } from 'antd';
 import './index.scss';
 
@@ -47,37 +48,43 @@ const events = [
  */
 const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
     return (
-        <div className={classNames('', className)}>
+        <div>
             <HeroSection src="/images/hero-section/news-media@2x.png">
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* tab选项卡 */}
-            <div className="news-media-swiper-wrapper">
-                <Swiper modules={[Pagination]} className="news-swiper">
-                    {events.map((event, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="event-container">
-                                <div className="event-text">
-                                    <h2>{event.title}</h2>
-                                    <p>{event.subtitle}</p>
-                                    <Flex className="event-date" gap={16}>
-                                        <div>{event.date}</div>
-                                        <div> {event.category}</div>
-                                    </Flex>
+            <div style={{ maxWidth: 1920, margin: `0 auto` }}>
+                <div className="news-media-swiper-wrapper">
+                    <div className="swiper-button">
+                        <Flex gap={40}>
+                            <img className="button-prev" src="/images/news-media/icon_news_swiper_left@2x.png" />
+                            <img className="button-next" src="/images/news-media/icon_news_swiper_right@2x.png" />
+                        </Flex>
+                    </div>
+                    <Swiper modules={[Pagination]} className="news-swiper">
+                        {events.map((event, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="event-container">
+                                    <div className="event-text">
+                                        <h2>{event.title}</h2>
+                                        <p>{event.subtitle}</p>
+                                        <Flex className="event-date" gap={16}>
+                                            <div>{event.date}</div>
+                                            <div> {event.category}</div>
+                                        </Flex>
+                                    </div>
+                                    <div style={{ width: 670 }}>
+                                        <AspectRatio ratio={670 / 424}>
+                                            <img src={event.image} alt={event.title} className="event-image" />
+                                        </AspectRatio>
+                                    </div>
                                 </div>
-                                <img src={event.image} alt={event.title} className="event-image" />
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
-                <div className="swiper-button">
-                    <Flex gap={40}>
-                        <img className="swiper-button-prev" src="/images/news-media/icon_news_swiper_left@2x.png" />
-                        <img className="swiper-button-next" src="/images/news-media/icon_news_swiper_right@2x.png" />
-                    </Flex>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </div>
+
             {/* 分页list */}
         </div>
     );

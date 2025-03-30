@@ -49,8 +49,9 @@
         position: absolute;
         left: 70px;
         bottom: 70px;
-        .swiper-button-prev,
-        .swiper-button-next {
+        z-index: 99;
+        .button-prev,
+        .button-next {
             width: 30px;
             height: 30px;
         }
