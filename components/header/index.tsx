@@ -1,4 +1,4 @@
-'use client'; // 声明为 Next.js 客户端组件
+'use client';
 
 import useHoverDetection from '@/hooks/useHoverDetection';
 import useIsMobile from '@/hooks/useIsMobile';
@@ -8,7 +8,7 @@ import { getConf } from '@/utils';
 import { Flex, Grid, Menu } from 'antd';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import AspectRatio from '../aspect-ratio';
 import LanuagesSwitch from './languages-switch';
 
@@ -68,20 +68,42 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
     const isMobile = useIsMobile();
     // 获取当前路径名
     const pathname = usePathname();
-    // 获取路由实例
-    const router = useRouter();
 
     // 移动菜单展开状态
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    // 初始化当前选中的菜单项
+    const storedKey = localStorage.getItem('selectedMenuKey');
+    let initialCurrent;
+    if (pathname === '/') {
+        initialCurrent = 'index';
+    } else {
+        const pathKey = pathname.slice(1); // 去掉路径名前面的斜杠
+        const foundItem = menuItems.find((item) => item.key === pathKey);
+        initialCurrent = foundItem ? pathKey : storedKey || 'index';
+    }
+
     // 当前选中的菜单项
-    const [current, setCurrent] = useState('index');
+    const [current, setCurrent] = useState(initialCurrent);
+
+    useEffect(() => {
+        const storedKey = localStorage.getItem('selectedMenuKey');
+        let newCurrent;
+        if (pathname === '/') {
+            newCurrent = 'index';
+        } else {
+            const pathKey = pathname.slice(1); // 去掉路径名前面的斜杠
+            const foundItem = menuItems.find((item) => item.key === pathKey);
+            newCurrent = foundItem ? pathKey : storedKey || 'index';
+        }
+        setCurrent(newCurrent);
+        localStorage.setItem('selectedMenuKey', newCurrent);
+    }, [pathname]);
 
     // 菜单项点击处理函数
     const handleMenuItemClick = (e: { key: string }) => {
-        console.log('click ', e);
         setCurrent(e.key);
-        // 使用路由刷新页面
-        router?.refresh();
+        localStorage.setItem('selectedMenuKey', e.key);
     };
 
     return (
@@ -116,7 +138,7 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
             </div>
 
             <Menu
-                // onClick={handleMenuItemClick}
+                onClick={handleMenuItemClick}
                 selectedKeys={[current]}
                 mode="horizontal"
                 items={menuItems}
