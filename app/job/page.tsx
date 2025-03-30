@@ -206,27 +206,6 @@ const JobPage = () => {
                         </Flex>
                     </Flex>
                 </Flex>
-
-                {/* <div>
-                    <Tabs onChange={handleTabChange}>
-                        {tabItems.map((category) => (
-                            <Tabs.TabPane key={category.key} tab={category.label}>
-
-                                asdfasfsdf
-                            </Tabs.TabPane>
-                        ))}
-                    </Tabs>
-                    <div>
-                        <Flex justify="center">
-                            <Pagination
-                                defaultCurrent={state.currentPage}
-                                total={state.total}
-                                showSizeChanger={false}
-                                onChange={onChange}
-                            />
-                        </Flex>
-                    </div>
-                </div> */}
             </div>
         </div>
     );
