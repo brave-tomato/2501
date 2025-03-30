@@ -1,0 +1,58 @@
+.news-media-swiper-wrapper {
+    position: relative;
+    margin: 70px 70px 0;
+    .news-swiper {
+        width: 100%;
+        height: 400px; /* 可按需调整高度 */
+    }
+
+    .event-container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .event-text {
+        flex: 1;
+        padding: 70px;
+        background-color: #f7f7f7;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .event-text h2 {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        color: var(--custom-black);
+    }
+
+    .event-text p {
+        font-size: 16px;
+        margin-bottom: 36px;
+        color: var(--custom-black);
+    }
+
+    .event-date {
+        color: #636464;
+        font-weight: bold;
+    }
+
+    .event-image {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-button {
+        position: absolute;
+        left: 70px;
+        bottom: 70px;
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
