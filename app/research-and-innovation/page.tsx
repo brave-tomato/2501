@@ -1,6 +1,6 @@
 'use client';
 import { Title1, Title3 } from '@/components/headline';
-import HeroSection from '@/components/hero-setion';
+import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { ICustomComponentProps } from '@/types';
 import classNames from 'classnames';

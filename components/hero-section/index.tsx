@@ -25,11 +25,12 @@ const HeroSection: FC<ICustomComponentProps & React.PropsWithChildren> = ({ src,
                     style={{
                         objectFit: 'cover',
                         height: '100%',
-                        width: 'auto',
+                        width: '100%',
                     }}
                 />
             </AspectRatio>
-            <div className="hero-section-titile-box">{children}</div>
+
+            <div className="hero-section-title-box">{children}</div>
         </div>
     );
 };

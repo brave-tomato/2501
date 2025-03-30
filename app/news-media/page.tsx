@@ -1,5 +1,5 @@
 'use client';
-import HeroSection from '@/components/hero-setion';
+import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { ICustomComponentProps } from '@/types';
 import { FC } from 'react';

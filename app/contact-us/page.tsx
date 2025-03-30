@@ -1,16 +1,14 @@
 'use client';
-import HeroSection from '@/components/hero-setion';
-import TitleSection from '@/components/title-section';
-import { ICustomComponentProps } from '@/types';
-import classNames from 'classnames';
-import { FC } from 'react';
 
 /**
- * 页面：联系我们
+ * Components
  */
-const ContactUsPage: FC<ICustomComponentProps> = ({ className }) => {
+import HeroSection from '@/components/hero-section';
+import TitleSection from '@/components/title-section';
+
+const Page = () => {
     return (
-        <div className={classNames('', className)}>
+        <div style={{ maxWidth: '1920px', margin: '0 auto' }}>
             <HeroSection src="/images/hero-section/contact-us@2x.png">
                 <TitleSection title="联系我们" />
             </HeroSection>
@@ -18,4 +16,4 @@ const ContactUsPage: FC<ICustomComponentProps> = ({ className }) => {
     );
 };
 
-export default ContactUsPage;
+export default Page;

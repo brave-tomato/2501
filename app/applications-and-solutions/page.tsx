@@ -1,7 +1,7 @@
 'use client';
 import AspectRatio from '@/components/aspect-ratio';
 import { Title1, Title2, Title4 } from '@/components/headline';
-import HeroSection from '@/components/hero-setion';
+import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { ICustomComponentProps } from '@/types';
 import { Flex } from 'antd';

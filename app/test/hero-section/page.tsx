@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import HeroSection from '@/components/hero-setion';
+import HeroSection from '@/components/hero-section';
 
 const Test = () => {
     return (
