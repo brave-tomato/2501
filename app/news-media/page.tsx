@@ -180,46 +180,45 @@ const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
                         ))}
                     </Swiper>
                 </div>
-            </div>
-
-            {/* 分页list */}
-            <div className={styles['news-list-wrapper']} style={{ maxWidth: 1920, margin: `0 atuo` }}>
-                {/* list */}
-                <Flex gap={50} justify="space-between" wrap>
-                    {newsList.map((payload: any, index: number) => (
-                        <Flex
-                            className={styles['list-item']}
-                            key={index}
-                            align="start"
-                            gap={20}
-                            justify="start"
-                            vertical
-                        >
-                            <div style={{ width: 320 }}>
-                                <AspectRatio ratio={320 / 210}>
-                                    <img src={payload.image} width={`100%`} height={`100%`} />
-                                </AspectRatio>
-                            </div>
-                            {/* 日期和分类 */}
-                            <Flex gap={18} style={{ fontSize: 12, color: `var(--custom-gray)` }}>
-                                <div>{payload.date}</div>
-                                <div>{payload.category}</div>
+                {/* 分页list */}
+                <div className={styles['news-list-wrapper']}>
+                    {/* list */}
+                    <Flex gap={50} justify="space-between" wrap>
+                        {newsList.map((payload: any, index: number) => (
+                            <Flex
+                                className={styles['list-item']}
+                                key={index}
+                                align="start"
+                                gap={20}
+                                justify="start"
+                                vertical
+                            >
+                                <div style={{ width: 320 }}>
+                                    <AspectRatio ratio={320 / 210}>
+                                        <img src={payload.image} width={`100%`} height={`100%`} />
+                                    </AspectRatio>
+                                </div>
+                                {/* 日期和分类 */}
+                                <Flex gap={18} style={{ fontSize: 12, color: `var(--custom-gray)` }}>
+                                    <div>{payload.date}</div>
+                                    <div>{payload.category}</div>
+                                </Flex>
+                                <div className={styles.title}>{payload.title}</div>
                             </Flex>
-                            <div className={styles.title}>{payload.title}</div>
-                        </Flex>
-                    ))}
-                </Flex>
+                        ))}
+                    </Flex>
 
-                {/* 分页 */}
-                <Flex justify="center">
-                    <Pagination
-                        className={styles.pagination}
-                        defaultCurrent={state.currentPage}
-                        total={state.total}
-                        showSizeChanger={false}
-                        onChange={onChange}
-                    />
-                </Flex>
+                    {/* 分页 */}
+                    <Flex justify="center">
+                        <Pagination
+                            className={styles.pagination}
+                            defaultCurrent={state.currentPage}
+                            total={state.total}
+                            showSizeChanger={false}
+                            onChange={onChange}
+                        />
+                    </Flex>
+                </div>
             </div>
         </div>
     );
