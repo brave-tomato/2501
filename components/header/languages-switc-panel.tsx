@@ -1,6 +1,7 @@
 'use client';
 import useScrollDetection from '@/hooks/useScrollDetection';
 import { ICustomComponentProps } from '@/types';
+import { Dropdown, Flex, Popover } from 'antd';
 import classNames from 'classnames';
 import { FC, useEffect, useState } from 'react';
 
@@ -47,6 +48,8 @@ const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered }
     const handleLangClick = (lang: any) => {
         setSelectedLang(lang);
         localStorage.setItem('selectedLang', JSON.stringify(lang));
+        setIsOpen(false);
+        setIsRotated(false);
     };
 
     // 鼠标离开后，收起下拉框
@@ -63,21 +66,40 @@ const LanguagesSwitcPanel: FC<ICustomComponentProps> = ({ className, isHovered }
         }
     }, [isHovered]);
 
+    const content = (
+        <div className="change-languages-panel">
+            <div className="title">选择区域/语言</div>
+            <Flex className="content" gap={40} wrap>
+                {langList.map((payload: any, index: number) => (
+                    <div
+                        className={classNames('content-item', {
+                            selected: payload.id === selectedLang.id,
+                        })}
+                        onClick={() => handleLangClick(payload)}
+                    >
+                        {payload.text}
+                    </div>
+                ))}
+            </Flex>
+        </div>
+    );
     return (
         <div className={classNames('cursor-pointer ', className)}>
-            <img
-                src={
-                    isScrolled || isHovered
-                        ? '/images/indexpage/icon_arrow_down@2x.png'
-                        : '/images/indexpage/icon_arrow_down_white@2x.png'
-                }
-                style={{
-                    maxWidth: 12,
-                    transition: 'transform 300ms ease',
-                    transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
-                }}
-                onClick={toggleMenu}
-            />
+            <Popover content={content} title="" placement="topRight" open={isOpen}>
+                <img
+                    src={
+                        isScrolled || isHovered
+                            ? '/images/indexpage/icon_arrow_down@2x.png'
+                            : '/images/indexpage/icon_arrow_down_white@2x.png'
+                    }
+                    style={{
+                        maxWidth: 12,
+                        transition: 'transform 300ms ease',
+                        transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }}
+                    onClick={toggleMenu}
+                />
+            </Popover>
         </div>
     );
 };
