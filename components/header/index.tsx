@@ -74,13 +74,21 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
 
     // 初始化当前选中的菜单项
     const storedKey = localStorage.getItem('selectedMenuKey');
+    // 初始化当前选中的菜单项
     let initialCurrent;
-    if (pathname === '/') {
-        initialCurrent = 'index';
+    if (typeof window !== 'undefined') {
+        const storedKey = localStorage.getItem('selectedMenuKey');
+        if (pathname === '/') {
+            initialCurrent = 'index';
+        } else if (pathname.startsWith('/applications-and-solutions')) {
+            initialCurrent = 'applications-and-solutions';
+        } else {
+            const pathKey = pathname.slice(1); // 去掉路径名前面的斜杠
+            const foundItem = menuItems.find((item) => item.key === pathKey);
+            initialCurrent = foundItem ? pathKey : storedKey || 'index';
+        }
     } else {
-        const pathKey = pathname.slice(1); // 去掉路径名前面的斜杠
-        const foundItem = menuItems.find((item) => item.key === pathKey);
-        initialCurrent = foundItem ? pathKey : storedKey || 'index';
+        initialCurrent = 'index';
     }
 
     // 当前选中的菜单项
