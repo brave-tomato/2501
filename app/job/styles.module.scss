@@ -1,0 +1,70 @@
+.job-wrapper {
+    margin-top: 70px;
+
+    // padding: 0 100px;
+    .title {
+        font-size: 34px;
+        font-weight: 500;
+        color: var(--custom-black);
+    }
+    .jianli {
+        background-image: url('/images/job/bg@2x.png');
+        background-size: contain; /* 让背景图片覆盖整个元素 */
+        background-position: center; /* 背景图片居中显示 */
+        background-repeat: no-repeat; /* 背景图片不重复 */
+    }
+    .job-list-wrapper {
+        width: 806px;
+
+        .list-item-box {
+            width: 222px;
+            padding: 28px 26px;
+            background-color: #fff;
+            /* 右侧阴影：水平偏移2px（向右），垂直偏移4px，模糊半径8px，阴影颜色为黑色且透明度0.1 */
+            box-shadow:
+                2px 4px 8px rgba(0, 0, 0, 0.1),
+                /* 左侧阴影：水平偏移 -2px（向左），垂直偏移4px，模糊半径8px，阴影颜色为黑色且透明度0.1 */ -2px 4px 8px
+                    rgba(0, 0, 0, 0.1),
+                /* 底部阴影：水平偏移0px，垂直偏移8px，模糊半径16px，阴影颜色为黑色且透明度0.2，实现底部阴影更重效果 */
+                    0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .job-title2,
+        .job-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--custom-blue);
+        }
+        .job-title2 {
+            font-size: 12px;
+        }
+        .subtitle {
+            font-size: 9px;
+            color: var(--custom-gray);
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--custom-green);
+        }
+        .list-item-content-box {
+            .content {
+                font-size: 8px;
+                line-height: 14px;
+                color: var(--custom-gray);
+            }
+        }
+    }
+}
+.input-box {
+    width: 806px;
+
+    .customInput {
+        height: 60px;
+        ::placeholder {
+            letter-spacing: 4px; // 可以根据需求调整文字间距
+        }
+    }
+
+    .enter-button {
+        font-size: 20px;
+        letter-spacing: 10px;
+        color: #fff;
+    }
+}
