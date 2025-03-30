@@ -234,19 +234,19 @@ const Page = () => {
             >
                 <SwiperSlide>
                     <AspectRatio ratio={conf.sustainable}>
-                        <img alt="" height="100%" src="/images/about-us/sustainable1.jpg" width="100%" />
+                        <img alt="" height="100%" src="/images/about-us/img_04_01.jpg" width="100%" />
                     </AspectRatio>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <AspectRatio ratio={conf.sustainable}>
-                        <img alt="" height="100%" src="/images/about-us/sustainable1.jpg" width="100%" />
+                        <img alt="" height="100%" src="/images/about-us/img_04_02.jpg" width="100%" />
                     </AspectRatio>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <AspectRatio ratio={conf.sustainable}>
-                        <img alt="" height="100%" src="/images/about-us/sustainable1.jpg" width="100%" />
+                        <img alt="" height="100%" src="/images/about-us/img_04_03.jpg" width="100%" />
                     </AspectRatio>
                 </SwiperSlide>
             </Swiper>
