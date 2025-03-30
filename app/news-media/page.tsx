@@ -139,7 +139,7 @@ const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
                     <div className={classNames(styles['swiper-button'], ' cursor-pointer ')}>
                         <Flex gap={40}>
                             <img
-                                className={styles['button-prev ']}
+                                className={styles['button-prev']}
                                 src="/images/news-media/icon_news_swiper_left@2x.png"
                                 onClick={() => state.swiperCulture2.slidePrev()}
                             />
