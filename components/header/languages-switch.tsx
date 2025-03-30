@@ -4,7 +4,6 @@ import { ICustomComponentProps } from '@/types';
 import { Flex, Popover } from 'antd';
 import classNames from 'classnames';
 import { FC, useEffect, useState } from 'react';
-import LanguagesSwitcPanel from './languages-switc-panel';
 
 import './index.scss';
 
@@ -19,7 +18,7 @@ export const langList = [
 /**
  * 切换语言
  */
-const LanuagesSwitch: FC<ICustomComponentProps> = ({ className, isHovered }) => {
+const LanguagesSwitch: FC<ICustomComponentProps> = ({ className, isHovered }) => {
     const isScrolled = useScrollDetection();
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLang, setSelectedLang]: any = useState(langList[0]);
@@ -96,4 +95,4 @@ const LanuagesSwitch: FC<ICustomComponentProps> = ({ className, isHovered }) => 
     );
 };
 
-export default LanuagesSwitch;
+export default LanguagesSwitch;

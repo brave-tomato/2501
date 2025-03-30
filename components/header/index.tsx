@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { FC, useEffect, useState } from 'react';
 import AspectRatio from '../aspect-ratio';
-import LanuagesSwitch from './languages-switch';
+import LanguagesSwitch from './languages-switch';
 
 // 定义菜单项的类型
 type MenuItem = {
@@ -68,48 +68,47 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
     const isMobile = useIsMobile();
     // 获取当前路径名
     const pathname = usePathname();
+    const router = useRouter();
 
-    // 移动菜单展开状态
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    // 初始化当前选中的菜单项
-    let initialCurrent;
-    if (typeof window !== 'undefined') {
-        const storedKey = localStorage.getItem('selectedMenuKey');
-        if (pathname === '/') {
-            initialCurrent = 'index';
-        } else if (pathname.startsWith('/applications-and-solutions')) {
-            initialCurrent = 'applications-and-solutions';
-        } else {
-            const pathKey = pathname.slice(1); // 去掉路径名前面的斜杠
-            const foundItem = menuItems.find((item) => item.key === pathKey);
-            initialCurrent = foundItem ? pathKey : storedKey || 'index';
+    // 修正路径匹配逻辑：支持嵌套路径
+    const getKeyFromPath = (path: string) => {
+        if (path === '/') return 'index';
+        // 匹配所有以菜单项路径开头的路径
+        for (const item of menuItems) {
+            if (item.key === 'index') continue;
+            const itemPath = `/${item.key}`;
+            if (path.startsWith(itemPath)) {
+                return item.key;
+            }
         }
-    } else {
-        initialCurrent = 'index';
-    }
+        return 'index';
+    };
 
-    // 当前选中的菜单项
-    const [current, setCurrent] = useState(initialCurrent);
+    // 初始值直接根据当前路径计算
+    const [current, setCurrent] = useState(() => {
+        // 优先使用本地存储的值（如果存在且有效）
+        const storedKey = localStorage.getItem('selectedMenuKey');
+        if (storedKey && menuItems.some((item) => item.key === storedKey)) {
+            return storedKey;
+        }
+        return getKeyFromPath(pathname);
+    });
 
+    // 路径变化时同步状态和存储
     useEffect(() => {
-        const storedKey = localStorage.getItem('selectedMenuKey');
-        let newCurrent;
-        if (pathname === '/') {
-            newCurrent = 'index';
-        } else {
-            const pathKey = pathname.slice(1); // 去掉路径名前面的斜杠
-            const foundItem = menuItems.find((item) => item.key === pathKey);
-            newCurrent = foundItem ? pathKey : storedKey || 'index';
+        const newCurrent = getKeyFromPath(pathname);
+        if (newCurrent !== current) {
+            setCurrent(newCurrent);
+            localStorage.setItem('selectedMenuKey', newCurrent);
         }
-        setCurrent(newCurrent);
-        localStorage.setItem('selectedMenuKey', newCurrent);
     }, [pathname]);
 
-    // 菜单项点击处理函数
+    // 菜单点击处理：仅负责导航
     const handleMenuItemClick = (e: { key: string }) => {
-        setCurrent(e.key);
-        localStorage.setItem('selectedMenuKey', e.key);
+        const href = menuItems.find((item) => item.key === e.key)?.label.props.href;
+        if (href) {
+            router.push(href);
+        }
     };
 
     return (
@@ -126,11 +125,14 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                 padding: '0 70px',
                 background: isHovered || isScrolled ? '#fff' : '',
                 zIndex: 999,
+                transition: 'background 0.3s ease', // 添加背景色过渡效果
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            className={className}
         >
-            <div style={{ width: 300 }}>
+            {/* Logo部分 */}
+            <div style={{ width: 300, cursor: 'pointer' }} onClick={() => router.push('/')}>
                 <AspectRatio ratio={conf.logo}>
                     <img
                         src={
@@ -139,10 +141,12 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                                 : '/images/indexpage/nav_logo_white@2x.png'
                         }
                         alt="北京卫蓝新能源科技股份有限公司"
+                        style={{ height: '100%', objectFit: 'contain' }}
                     />
                 </AspectRatio>
             </div>
 
+            {/* 导航菜单 */}
             <Menu
                 onClick={handleMenuItemClick}
                 selectedKeys={[current]}
@@ -153,11 +157,14 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
                     height: HEADER_HEIGHT,
                     alignItems: 'center',
                     backgroundColor: 'transparent',
+                    flex: 1,
+                    justifyContent: 'center',
                 }}
                 className={isScrolled || isHovered ? 'menu-night' : 'menu-light'}
             />
 
-            <LanuagesSwitch isHovered={isHovered} />
+            {/* 语言切换器 */}
+            <LanguagesSwitch isHovered={isHovered} />
         </Flex>
     );
 };
