@@ -70,7 +70,7 @@ const Details: FC<ICustomComponentProps> = ({ className }) => {
             {/* 解决方案 */}
             <Flex gap={70} vertical style={{ margin: `70px` }}>
                 {solutions.map((payload: any, index: number) => (
-                    <Flex gap={70} vertical>
+                    <Flex key={index} gap={70} vertical>
                         {index !== 0 ? (
                             <div
                                 style={{ borderBottom: `1px solid var(--custom-gray)`, height: 1, width: `100%` }}
