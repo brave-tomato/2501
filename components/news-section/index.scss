@@ -34,6 +34,10 @@
         color: var(--custom-blue);
         letter-spacing: 2px;
     }
+    .news-item-small-box,
+    .news-item-big-box {
+        width: 100%;
+    }
     // .news-item-small-box,
     .news-item-big-box {
         position: relative;
@@ -46,6 +50,7 @@
         background-color: rgba(var(--custom-blue-rgb), 0.85);
         padding: 24px 20px;
         height: 214px;
+        width: 523px;
 
         .date {
             font-size: 14px;

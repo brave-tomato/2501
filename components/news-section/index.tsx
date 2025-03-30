@@ -26,29 +26,23 @@ const NewsSection: FC<ICustomComponentProps> = ({ newsData }) => {
                         <img src="/images/indexpage/icon_arrow_right_white@2x.png" width={6} height={12} />
                     </Flex>
                 </Flex>
+
                 {/* 内容 */}
-                <Row gutter={16}>
+                <Flex gap={16}>
                     {newsData.length > 0 && (
                         <>
-                            {/* PC 端布局 */}
-                            <Col xs={0} md={12}>
+                            <Flex flex={2}>
                                 <NewsItemBig news={newsData[0]} />
-                            </Col>
-                            <Col xs={0} md={6}>
+                            </Flex>
+                            <Flex flex={1}>
                                 <NewsItemSmall news={newsData[1]} />
-                            </Col>
-                            <Col xs={0} md={6}>
+                            </Flex>
+                            <Flex flex={1}>
                                 <NewsItemSmall news={newsData[2]} />
-                            </Col>
-                            {/* 移动端布局 */}
-                            <Col md={0} xs={24}>
-                                {newsData.map((news: any, index: number) => (
-                                    <NewsItemBig key={index} news={news} />
-                                ))}
-                            </Col>
+                            </Flex>
                         </>
                     )}
-                </Row>
+                </Flex>
             </Flex>
         </div>
     );

@@ -15,18 +15,16 @@ import NewsItemNav from './news-item-nav';
  */
 const NewsItemBig: FC<ICustomComponentProps> = ({ className, news }) => {
     return (
-        <Flex className={classNames('', className)}>
-            <div className="news-item-big-box">
-                <div style={{ width: 523 }}>
-                    <AspectRatio ratio={523 / 461}>
-                        <img src={news.url} style={{ width: '100%', height: '100%' }} />
-                    </AspectRatio>
-                </div>
-                <NewsItemNav nav={news.nav} />
-
-                <NewsItemContent news={news} />
+        <div className="news-item-big-box">
+            <div style={{ width: 523 }}>
+                <AspectRatio ratio={523 / 461}>
+                    <img src={news.url} style={{ width: '100%', height: '100%' }} />
+                </AspectRatio>
             </div>
-        </Flex>
+            <NewsItemNav nav={news.nav} />
+
+            <NewsItemContent news={news} />
+        </div>
     );
 };
 
