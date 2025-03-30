@@ -8,6 +8,7 @@ import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import AspectRatio from '@/components/aspect-ratio';
+import { useSetState } from 'ahooks';
 import { Flex } from 'antd';
 import './index.scss';
 
@@ -47,6 +48,13 @@ const events = [
  * 页面：新闻媒体
  */
 const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
+    /**
+     * States
+     */
+    const [state, setState] = useSetState<any>({
+        swiperCulture2: null,
+    });
+
     return (
         <div>
             <HeroSection src="/images/hero-section/news-media@2x.png">
@@ -57,11 +65,23 @@ const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
                 <div className="news-media-swiper-wrapper">
                     <div className="swiper-button">
                         <Flex gap={40}>
-                            <img className="button-prev" src="/images/news-media/icon_news_swiper_left@2x.png" />
-                            <img className="button-next" src="/images/news-media/icon_news_swiper_right@2x.png" />
+                            <img
+                                className="button-prev"
+                                src="/images/news-media/icon_news_swiper_left@2x.png"
+                                onClick={() => state.swiperCulture2.slidePrev()}
+                            />
+                            <img
+                                className="button-next"
+                                src="/images/news-media/icon_news_swiper_right@2x.png"
+                                onClick={() => state.swiperCulture2.slideNext()}
+                            />
                         </Flex>
                     </div>
-                    <Swiper modules={[Pagination]} className="news-swiper">
+                    <Swiper
+                        modules={[Pagination]}
+                        className="news-swiper"
+                        onSwiper={(swiper) => setState({ swiperCulture2: swiper })}
+                    >
                         {events.map((event, index) => (
                             <SwiperSlide key={index}>
                                 <div className="event-container">
