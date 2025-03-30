@@ -116,6 +116,7 @@
     );
 }
 
+// 分页
 .ant-pagination .ant-pagination-item-active {
     // width: 35px !important;
     // height: 21px !important;
@@ -129,4 +130,10 @@
 }
 .ant-pagination .ant-pagination-next button {
     color: var(--custom-black) !important;
+}
+
+// 导航
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after,
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after {
+    border-bottom-color: var(--custom-green) !important;
 }
