@@ -1,14 +1,19 @@
+'use client';
 /**
  * Styles
  */
 import { Flex } from 'antd';
+import { usePathname } from 'next/navigation';
 import styles from './styles.module.scss';
 
 const Footer: React.FC = () => {
+    const pathname = usePathname();
+    const shouldShowLine = pathname !== '/';
+
     return (
         <footer className={styles.footer}>
             {/* 分割线 */}
-            <div className={styles.line} />
+            {shouldShowLine && <div className={styles.line} />}
 
             <Flex justify="space-between">
                 <Flex className={styles.gap1} vertical>
