@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
             <div className={styles.line} />
 
             <Flex justify="space-between">
-                <Flex gap={50} vertical>
+                <Flex className={styles.gap1} vertical>
                     <img alt="logo" className={styles.logo} src="/images/footer/logo.png" />
 
-                    <Flex gap={19} vertical>
+                    <Flex className={styles.gap4} vertical>
                         <span>网站：http://www.welion.tech</span>
 
                         <span>公司邮箱：info@welion.cn</span>
@@ -23,11 +23,11 @@ const Footer: React.FC = () => {
                     </Flex>
                 </Flex>
 
-                <Flex gap={55}>
-                    <Flex gap={38} vertical>
+                <Flex className={styles.gap2}>
+                    <Flex className={styles.gap3} vertical>
                         <div className={styles.title}>关注我们</div>
 
-                        <Flex gap={19} vertical>
+                        <Flex className={styles.gap4} vertical>
                             <span>企业文化</span>
 
                             <span>公司简介</span>
@@ -38,20 +38,20 @@ const Footer: React.FC = () => {
                         </Flex>
                     </Flex>
 
-                    <Flex gap={38} vertical>
+                    <Flex className={styles.gap3} vertical>
                         <div className={styles.title}>固态电池研发与创新</div>
 
-                        <Flex gap={19} vertical>
+                        <Flex className={styles.gap4} vertical>
                             <span>固态电池研发</span>
 
                             <span>固态电池制造</span>
                         </Flex>
                     </Flex>
 
-                    <Flex gap={38} vertical>
+                    <Flex className={styles.gap3} vertical>
                         <div className={styles.title}>应用与解决方案</div>
 
-                        <Flex gap={19} vertical>
+                        <Flex className={styles.gap4} vertical>
                             <span>动力类应用</span>
 
                             <span>低空经济类应用</span>
@@ -60,10 +60,10 @@ const Footer: React.FC = () => {
                         </Flex>
                     </Flex>
 
-                    <Flex gap={38} vertical>
+                    <Flex className={styles.gap3} vertical>
                         <div className={styles.title}>新闻媒体</div>
 
-                        <Flex gap={19} vertical>
+                        <Flex className={styles.gap4} vertical>
                             <span>新闻资讯</span>
 
                             <span>综合要闻</span>
@@ -74,18 +74,18 @@ const Footer: React.FC = () => {
                         </Flex>
                     </Flex>
 
-                    <Flex gap={38} vertical>
+                    <Flex className={styles.gap3} vertical>
                         <div className={styles.title}>联系我们</div>
 
-                        <Flex gap={19} vertical>
+                        <Flex className={styles.gap4} vertical>
                             <span>联系我们</span>
                         </Flex>
                     </Flex>
 
-                    <Flex gap={38} vertical>
+                    <Flex className={styles.gap3} vertical>
                         <div className={styles.title}>人才招聘</div>
 
-                        <Flex gap={19} vertical>
+                        <Flex className={styles.gap4} vertical>
                             <span>社会招聘</span>
 
                             <span>校园招聘</span>
