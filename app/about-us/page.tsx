@@ -158,6 +158,7 @@ const Page = () => {
                         <Image
                             alt=""
                             preview={{
+                                destroyOnClose: true,
                                 mask: '',
                                 imageRender: () => (
                                     <div
@@ -172,9 +173,10 @@ const Page = () => {
                                     >
                                         <video
                                             autoPlay
+                                            controls
                                             loop
                                             playsInline
-                                            src="/images/about-us/banner.mp4"
+                                            src="/images/about-us/zh_CN.mp4"
                                             style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                         />
                                     </div>

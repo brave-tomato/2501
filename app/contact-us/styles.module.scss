@@ -1,0 +1,50 @@
+.title1 {
+    margin-bottom: 68px;
+    padding-bottom: 54px;
+    color: #313232;
+    font-size: 33px;
+    line-height: 44px;
+    border-bottom: 1px solid #2dafb7;
+}
+
+.info1 {
+    color: #313232;
+    font-size: 20px;
+}
+
+.btn1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    width: 426px;
+    height: 133px;
+    margin: 0 auto;
+    // padding: 40px 0;
+    background-color: #2dafb7;
+    border-radius: 133px;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+
+    img {
+        width: 63px;
+        height: 53px;
+    }
+}
+
+.modal {
+    .title {
+        color: #103675;
+        font-size: 30px;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    .subtitle {
+        color: #2dafb7;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+    }
+}
