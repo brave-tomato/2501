@@ -55,7 +55,7 @@ const Page = () => {
                             <Flex vertical>
                                 <div className={styles.title1}>北京卫蓝新能源科技股份有限公司</div>
 
-                                <Flex className={styles.info1} gap={20} vertical>
+                                <Flex className={styles.info1} gap={5} vertical>
                                     <span>
                                         <EnvironmentOutlined style={{ marginRight: 10 }} />
                                         北京市房山区普安路91号
