@@ -115,3 +115,18 @@
         rgba(45, 175, 183, 1) 100%
     );
 }
+
+.ant-pagination .ant-pagination-item-active {
+    // width: 35px !important;
+    // height: 21px !important;
+    border: 1px solid transparent !important;
+    border-image: linear-gradient(90deg, var(--custom-green), var(--custom-blue)) 1 !important; /* 例如 border-color: blue; 将边框色改为蓝色 */
+    border-radius: 10px !important;
+}
+.ant-pagination .ant-pagination-item a,
+.ant-pagination .ant-pagination-item-active a {
+    color: var(--custom-gray) !important;
+}
+.ant-pagination .ant-pagination-next button {
+    color: var(--custom-black) !important;
+}

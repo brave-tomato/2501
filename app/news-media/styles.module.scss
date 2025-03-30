@@ -57,3 +57,22 @@
         }
     }
 }
+
+// List
+.news-list-wrapper {
+    padding: 70px;
+    .list-item {
+        width: 320px;
+        border-bottom: 1px solid var(--custom-gray);
+    }
+    .title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--custom-black);
+        line-height: 24px;
+        padding-bottom: 28px;
+    }
+    .pagination {
+        margin-top: 70px;
+    }
+}

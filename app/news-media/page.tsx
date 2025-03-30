@@ -2,15 +2,16 @@
 import HeroSection from '@/components/hero-setion';
 import TitleSection from '@/components/title-section';
 import { ICustomComponentProps } from '@/types';
-import classNames from 'classnames';
 import { FC } from 'react';
-import { Pagination } from 'swiper/modules';
+import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import AspectRatio from '@/components/aspect-ratio';
 import { useSetState } from 'ahooks';
-import { Flex } from 'antd';
-import './index.scss';
+import { Col, Flex, Pagination, Row } from 'antd';
+import classNames from 'classnames';
+import { stat } from 'fs';
+import styles from './styles.module.scss';
 
 const events = [
     {
@@ -44,6 +45,72 @@ const events = [
     },
 ];
 
+const newsList = [
+    {
+        image: '/images/news-media/news_item1@2x.png',
+        date: '2024-04-24',
+        category: '企业动态',
+        title: '卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！',
+        description: '北京独角兽企业代表授牌仪式',
+    },
+    {
+        image: '/images/news-media/news_item2@2x.png',
+        date: '2023-11-27',
+        category: '时事热点',
+        title: '卫蓝新能源固态锂离子储能电池荣获中国能源研究会技术创新一等奖',
+        description: '中国能源研究会能源创新奖颁奖仪式',
+    },
+    {
+        image: '/images/news-media/news_item3@2x.png',
+        date: '2024-04-24',
+        category: '综合要闻',
+        title: '卫蓝新能源与亿威科技签署战略合作协议',
+        description: '卫蓝新能源与亿威科技合作相关场景',
+    },
+    {
+        image: '/images/news-media/news_item2@2x.png',
+        date: '2023-09-15',
+        category: '企业动态',
+        title: '卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！',
+        description: '中天科技园区相关活动场景',
+    },
+    {
+        image: '/images/news-media/news_item2@2x.png',
+        date: '2024-06-11',
+        category: '时事热点',
+        title: '浙江龙泉固态电池网侧大规模储能电站并网',
+        description: '储能电站相关场景',
+    },
+    {
+        image: '/images/news-media/news_item3@2x.png',
+        date: '2024-04-24',
+        category: '综合要闻',
+        title: '卫蓝固态动力电池系统在CHINAPLAS 2024展会上广受关注',
+        description: '展会现场相关场景',
+    },
+    {
+        image: '/images/news-media/news_item2@2x.png',
+        date: '2023-11-08',
+        category: '企业动态',
+        title: '卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！',
+        description: '相关工作场景',
+    },
+    {
+        image: '/images/news-media/news_item2@2x.png',
+        date: '2023-08-22',
+        category: '时事热点',
+        title: '卫蓝新能源通过CNAS评定获得“实验室认可证书”',
+        description: '实验室相关场景',
+    },
+    {
+        image: '/images/news-media/news_item3@2x.png',
+        date: '2023-07-07',
+        category: '综合要闻',
+        title: '卫蓝新能源360Wh/kg锂电池电芯正式交付蔚来',
+        description: '电动汽车充电相关场景',
+    },
+];
+
 /**
  * 页面：新闻媒体
  */
@@ -53,7 +120,13 @@ const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
      */
     const [state, setState] = useSetState<any>({
         swiperCulture2: null,
+        currentPage: 1,
+        total: 1000,
     });
+
+    const onChange = (page: any, pageSize: any) => {
+        console.log(page, pageSize, '---9999--page, pageSize');
+    };
 
     return (
         <div>
@@ -62,40 +135,44 @@ const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
             </HeroSection>
             {/* tab选项卡 */}
             <div style={{ maxWidth: 1920, margin: `0 auto` }}>
-                <div className="news-media-swiper-wrapper">
-                    <div className="swiper-button">
+                <div className={styles['news-media-swiper-wrapper']}>
+                    <div className={classNames(styles['swiper-button'], ' cursor-pointer ')}>
                         <Flex gap={40}>
                             <img
-                                className="button-prev"
+                                className={styles['button-prev ']}
                                 src="/images/news-media/icon_news_swiper_left@2x.png"
                                 onClick={() => state.swiperCulture2.slidePrev()}
                             />
                             <img
-                                className="button-next"
+                                className={styles['button-next']}
                                 src="/images/news-media/icon_news_swiper_right@2x.png"
                                 onClick={() => state.swiperCulture2.slideNext()}
                             />
                         </Flex>
                     </div>
                     <Swiper
-                        modules={[Pagination]}
-                        className="news-swiper"
+                        modules={[SwiperPagination]}
+                        className={styles['news-swiper']}
                         onSwiper={(swiper) => setState({ swiperCulture2: swiper })}
                     >
                         {events.map((event, index) => (
                             <SwiperSlide key={index}>
-                                <div className="event-container">
-                                    <div className="event-text">
+                                <div className={styles['event-container']}>
+                                    <div className={styles['event-text']}>
                                         <h2>{event.title}</h2>
                                         <p>{event.subtitle}</p>
-                                        <Flex className="event-date" gap={16}>
+                                        <Flex className={styles['event-date']} gap={16}>
                                             <div>{event.date}</div>
                                             <div> {event.category}</div>
                                         </Flex>
                                     </div>
                                     <div style={{ width: 670 }}>
                                         <AspectRatio ratio={670 / 424}>
-                                            <img src={event.image} alt={event.title} className="event-image" />
+                                            <img
+                                                src={event.image}
+                                                alt={event.title}
+                                                className={styles['event-image']}
+                                            />
                                         </AspectRatio>
                                     </div>
                                 </div>
@@ -106,6 +183,44 @@ const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
             </div>
 
             {/* 分页list */}
+            <div className={styles['news-list-wrapper']} style={{ maxWidth: 1920, margin: `0 atuo` }}>
+                {/* list */}
+                <Flex gap={50} justify="space-between" wrap>
+                    {newsList.map((payload: any, index: number) => (
+                        <Flex
+                            className={styles['list-item']}
+                            key={index}
+                            align="start"
+                            gap={20}
+                            justify="start"
+                            vertical
+                        >
+                            <div style={{ width: 320 }}>
+                                <AspectRatio ratio={320 / 210}>
+                                    <img src={payload.image} width={`100%`} height={`100%`} />
+                                </AspectRatio>
+                            </div>
+                            {/* 日期和分类 */}
+                            <Flex gap={18} style={{ fontSize: 12, color: `var(--custom-gray)` }}>
+                                <div>{payload.date}</div>
+                                <div>{payload.category}</div>
+                            </Flex>
+                            <div className={styles.title}>{payload.title}</div>
+                        </Flex>
+                    ))}
+                </Flex>
+
+                {/* 分页 */}
+                <Flex justify="center">
+                    <Pagination
+                        className={styles.pagination}
+                        defaultCurrent={state.currentPage}
+                        total={state.total}
+                        showSizeChanger={false}
+                        onChange={onChange}
+                    />
+                </Flex>
+            </div>
         </div>
     );
 };
