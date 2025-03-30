@@ -105,72 +105,78 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
             <HeroSection src="/images/hero-section/research-and-innovation@2x.png">
                 <TitleSection title="固态电池研发与创新" subtitle="人才与创新是卫蓝聚焦未来技术的基础" />
             </HeroSection>
-            {/* 固态电池研发 */}
-            <Title1 title="固态电池研发" subtitle="Solid-State Battery R&D" />
-            <Title3 title="固态生态" />
-            <ImageTextSection />
+            <div style={{ maxWidth: 1920, margin: '0 auto' }}>
+                {/* 固态电池研发 */}
+                <Title1 title="固态电池研发" subtitle="Solid-State Battery R&D" />
+                <Title3 title="固态生态" />
+                <ImageTextSection />
 
-            <Title3 title="固态技术" />
-            <div className="swiper-culture">
-                <div className="swiper-button-prev" onClick={() => state.swiperCulture2.slidePrev()} />
-                <div className="swiper-button-next" onClick={() => state.swiperCulture2.slideNext()} />
+                <Title3 title="固态技术" />
+                <div className="swiper-culture">
+                    <div className="swiper-button-prev" onClick={() => state.swiperCulture2.slidePrev()} />
+                    <div className="swiper-button-next" onClick={() => state.swiperCulture2.slideNext()} />
 
-                <Swiper slidesPerView={3} spaceBetween={28} onSwiper={(swiper) => setState({ swiperCulture2: swiper })}>
-                    {culture1.map((payload, index) => (
-                        <SwiperSlide key={index}>
-                            <Flex className="swiper-item-wrapper" vertical>
-                                <AspectRatio ratio={327 / 164}>
-                                    <Image
-                                        alt=""
-                                        preview={{
-                                            mask: '',
-                                            imageRender: () => (
-                                                <div
-                                                    style={{
-                                                        aspectRatio: '16/9',
-                                                        width: '100%',
-                                                        height: 'auto',
-                                                        maxWidth: '90vw',
-                                                        maxHeight: '90vh',
-                                                        margin: 'auto',
-                                                    }}
-                                                >
-                                                    <video
-                                                        autoPlay
-                                                        loop
-                                                        playsInline
-                                                        src={payload.video}
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={28}
+                        onSwiper={(swiper) => setState({ swiperCulture2: swiper })}
+                    >
+                        {culture1.map((payload, index) => (
+                            <SwiperSlide key={index}>
+                                <Flex className="swiper-item-wrapper" vertical>
+                                    <AspectRatio ratio={327 / 164}>
+                                        <Image
+                                            alt=""
+                                            preview={{
+                                                mask: '',
+                                                imageRender: () => (
+                                                    <div
                                                         style={{
+                                                            aspectRatio: '16/9',
                                                             width: '100%',
-                                                            height: '100%',
-                                                            objectFit: 'contain',
+                                                            height: 'auto',
+                                                            maxWidth: '90vw',
+                                                            maxHeight: '90vh',
+                                                            margin: 'auto',
                                                         }}
-                                                    />
-                                                </div>
-                                            ),
-                                            toolbarRender: () => null,
-                                        }}
-                                        src="/images/about-us/img_03.png"
-                                        style={{ width: '100%', cursor: 'pointer' }}
-                                    />
-                                </AspectRatio>
+                                                    >
+                                                        <video
+                                                            autoPlay
+                                                            loop
+                                                            playsInline
+                                                            src={payload.video}
+                                                            style={{
+                                                                width: '100%',
+                                                                height: '100%',
+                                                                objectFit: 'contain',
+                                                            }}
+                                                        />
+                                                    </div>
+                                                ),
+                                                toolbarRender: () => null,
+                                            }}
+                                            src="/images/about-us/img_03.png"
+                                            style={{ width: '100%', cursor: 'pointer' }}
+                                        />
+                                    </AspectRatio>
 
-                                <Flex className="bg-linear-green content-box" gap={16} vertical>
-                                    <Flex gap={4} vertical>
-                                        <div className="title">{payload.title}</div>
-                                        <div className="subtitle">{payload.subtitle}</div>
+                                    <Flex className="bg-linear-green content-box" gap={16} vertical>
+                                        <Flex gap={4} vertical>
+                                            <div className="title">{payload.title}</div>
+                                            <div className="subtitle">{payload.subtitle}</div>
+                                        </Flex>
+                                        <div className="content">{payload.content}</div>
                                     </Flex>
-                                    <div className="content">{payload.content}</div>
                                 </Flex>
-                            </Flex>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
 
-            {/* 固态电池制造 */}
-            <Title1 title="固态电池制造" subtitle="Solid-State Battery Process" />
-            <div style={{ backgroundColor: `var(--custom-gray-light)`, maxWidth: '1920px', height: 600 }}></div>
+                {/* 固态电池制造 */}
+                <Title1 title="固态电池制造" subtitle="Solid-State Battery Process" />
+                <div style={{ backgroundColor: `var(--custom-gray-light)`, maxWidth: '1920px', height: 600 }}></div>
+            </div>
         </div>
     );
 };
