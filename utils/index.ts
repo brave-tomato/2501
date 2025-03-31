@@ -13,7 +13,7 @@ export const getConf: any = (screens: any) => {
 
         banner: 1920 / 650,
         logo: 146 / 19,
-        video: 1920 / 682,
+        video: 1600 / 816,
 
         // 公司简介
         img03: 809 / 455,
@@ -38,7 +38,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 1600 / 576,
             logo: 146 / 19,
-            video: 1920 / 682, // TODO: 适配
+            video: 1600 / 816,
 
             // 公司简介
             img03: 809 / 455,
@@ -60,7 +60,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 1200 / 460,
             logo: 146 / 19,
-            video: 1920 / 682, // TODO: 适配
+            video: 1600 / 816,
 
             // 公司简介
             img03: 809 / 455,
@@ -82,7 +82,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 992 / 404,
             logo: 146 / 19,
-            video: 1200 / 682, // TODO: 适配
+            video: 1600 / 816,
 
             // 公司简介
             img03: 809 / 455,
@@ -104,7 +104,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 768 / 500,
             logo: 146 / 19,
-            video: 992 / 434, // TODO: 适配
+            video: 1600 / 816,
 
             // 公司简介
             img03: 809 / 455,
@@ -126,7 +126,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 576 / 375,
             logo: 146 / 19,
-            video: 992 / 434, // TODO: 适配
+            video: 1600 / 816,
 
             // 公司简介
             img03: 809 / 455,
@@ -148,7 +148,7 @@ export const getConf: any = (screens: any) => {
 
             banner: 576 / 375,
             logo: 146 / 19,
-            video: 992 / 434, // TODO: 适配
+            video: 1600 / 816,
 
             // 公司简介
             img03: 809 / 455,
