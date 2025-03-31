@@ -67,7 +67,7 @@ const tabData = [
 const CustomTab = () => {
     const [activeKey, setActiveKey] = useState(tabData[0].key);
 
-    const handleTabChange = (key) => {
+    const handleTabChange = (key: any) => {
         setActiveKey(key);
     };
 

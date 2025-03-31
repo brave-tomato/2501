@@ -2,7 +2,7 @@
 import { Title1, Title3 } from '@/components/headline';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
-import { ICustomComponentProps } from '@/types';
+
 import classNames from 'classnames';
 import { FC, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -79,7 +79,7 @@ const culture1 = [
 /**
  * 固态电池研发与创新
  */
-const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
+const ResearchAndInnovation = () => {
     const [showVideoModal, setShowVideoModal] = useState(false);
     const [selectedVideoSrc, setSelectedVideoSrc] = useState('');
 
@@ -101,7 +101,7 @@ const ResearchAndInnovation: FC<ICustomComponentProps> = ({ className }) => {
     };
 
     return (
-        <div className={classNames('', className)}>
+        <div>
             <HeroSection src="/images/hero-section/research-and-innovation@2x.png">
                 <TitleSection title="固态电池研发与创新" subtitle="人才与创新是卫蓝聚焦未来技术的基础" />
             </HeroSection>

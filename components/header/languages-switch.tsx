@@ -1,6 +1,6 @@
 'use client';
 import useScrollDetection from '@/hooks/useScrollDetection';
-import { ICustomComponentProps } from '@/types';
+
 import { Flex, Popover } from 'antd';
 import classNames from 'classnames';
 import { FC, useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ export const langList = [
 /**
  * 切换语言
  */
-const LanguagesSwitch: FC<ICustomComponentProps> = ({ className, isHovered }) => {
+const LanguagesSwitch = ({ className, isHovered }) => {
     const isScrolled = useScrollDetection();
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLang, setSelectedLang]: any = useState(langList[0]);

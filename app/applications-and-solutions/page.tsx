@@ -3,7 +3,6 @@ import AspectRatio from '@/components/aspect-ratio';
 import { Title1, Title2, Title4 } from '@/components/headline';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
-import { ICustomComponentProps } from '@/types';
 import { Flex } from 'antd';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -44,9 +43,9 @@ const breakWordsAtPosition = (text: any, breakPosition: any) => {
 /**
  * 应用与解决方案
  */
-const ApplicationsAndSolutionsPage: FC<ICustomComponentProps> = ({ className }) => {
+const ApplicationsAndSolutionsPage = () => {
     return (
-        <div className={classNames('', className)}>
+        <div>
             <HeroSection src="/images/hero-section/applications-and-solutions@2x.png">
                 <TitleSection title="应用与解决方案" />
             </HeroSection>

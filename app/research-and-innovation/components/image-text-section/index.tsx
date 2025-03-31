@@ -2,8 +2,6 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 
-import { ICustomComponentProps } from '@/types';
-
 import { Flex } from 'antd';
 import ImageTextSectionItem from './item';
 
@@ -29,7 +27,7 @@ const imageTextArr = [
 /**
  *
  */
-const ImageTextSection: FC<ICustomComponentProps> = () => {
+const ImageTextSection = () => {
     return (
         <Flex justify="space-around">
             {imageTextArr.map((item) => (

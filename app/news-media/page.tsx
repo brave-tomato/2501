@@ -1,7 +1,7 @@
 'use client';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
-import { ICustomComponentProps } from '@/types';
+
 import { FC } from 'react';
 import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -114,7 +114,7 @@ const newsList = [
 /**
  * 页面：新闻媒体
  */
-const NewsMediaPage: FC<ICustomComponentProps> = ({ className }) => {
+const NewsMediaPage = () => {
     /**
      * States
      */

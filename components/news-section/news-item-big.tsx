@@ -13,7 +13,7 @@ import NewsItemNav from './news-item-nav';
 /**
  * 新闻展示模块
  */
-const NewsItemBig: FC<ICustomComponentProps> = ({ className, news }) => {
+const NewsItemBig: FC<ICustomComponentProps> = ({ news }) => {
     return (
         <div className="news-item-big-box">
             <div style={{ width: 523 }}>

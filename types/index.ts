@@ -4,3 +4,5 @@ export interface ICustomComponentProps {
     className?: string;
     [propName: string]: any;
 }
+
+declare const window: Window & typeof globalThis;

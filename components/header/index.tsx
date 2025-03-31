@@ -3,7 +3,7 @@
 import useHoverDetection from '@/hooks/useHoverDetection';
 import useIsMobile from '@/hooks/useIsMobile';
 import useScrollDetection from '@/hooks/useScrollDetection';
-import { ICustomComponentProps } from '@/types';
+
 import { getConf } from '@/utils';
 import { Flex, Grid, Menu } from 'antd';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ const HEADER_HEIGHT = 70;
 /**
  * 头部导航组件
  */
-const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
+const HeaderComponent = () => {
     // 获取配置信息
     const conf = getConf(Grid.useBreakpoint());
 
@@ -86,8 +86,9 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
 
     // 初始值直接根据当前路径计算
     const [current, setCurrent] = useState(() => {
+        if (typeof window === 'undefined') return 'index';
         // 优先使用本地存储的值（如果存在且有效）
-        const storedKey = localStorage.getItem('selectedMenuKey');
+        const storedKey = window.localStorage.getItem('selectedMenuKey');
         if (storedKey && menuItems.some((item) => item.key === storedKey)) {
             return storedKey;
         }
@@ -99,7 +100,10 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
         const newCurrent = getKeyFromPath(pathname);
         if (newCurrent !== current) {
             setCurrent(newCurrent);
-            localStorage.setItem('selectedMenuKey', newCurrent);
+            if (typeof window !== 'undefined') {
+                // 更新本地存储
+                window.localStorage.setItem('selectedMenuKey', newCurrent);
+            }
         }
     }, [pathname]);
 
@@ -129,7 +133,6 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={className}
         >
             {/* Logo部分 */}
             <div style={{ width: 300, cursor: 'pointer' }} onClick={() => router.push('/')}>
