@@ -1,5 +1,5 @@
 'use client';
-
+import { ICustomComponentProps } from '@/types';
 import classNames from 'classnames';
 import { FC, useEffect, useRef } from 'react';
 import MessageModal from './modal';
@@ -13,7 +13,7 @@ import './index.scss';
 /**
  * 首页的视频切换
  */
-const IndexVideo = () => {
+const IndexVideo: FC<ICustomComponentProps> = ({ className }) => {
     const videoRef = useRef(null);
 
     /**
@@ -41,7 +41,7 @@ const IndexVideo = () => {
     }, []);
 
     return (
-        <div className={classNames('video-wrapper')} style={{ maxWidth: '1920px', margin: '0 auto' }}>
+        <div className={classNames('video-wrapper', className)} style={{ maxWidth: '1920px', margin: '0 auto' }}>
             <AspectRatio ratio={conf.video}>
                 <video
                     ref={videoRef}

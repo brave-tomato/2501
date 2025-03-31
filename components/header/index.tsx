@@ -3,7 +3,7 @@
 import useHoverDetection from '@/hooks/useHoverDetection';
 import useIsMobile from '@/hooks/useIsMobile';
 import useScrollDetection from '@/hooks/useScrollDetection';
-
+import { ICustomComponentProps } from '@/types';
 import { getConf } from '@/utils';
 import { Flex, Grid, Menu } from 'antd';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ const HEADER_HEIGHT = 70;
 /**
  * 头部导航组件
  */
-const HeaderComponent = () => {
+const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
     // 获取配置信息
     const conf = getConf(Grid.useBreakpoint());
 
@@ -133,6 +133,7 @@ const HeaderComponent = () => {
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            className={className}
         >
             {/* Logo部分 */}
             <div style={{ width: 300, cursor: 'pointer' }} onClick={() => router.push('/')}>

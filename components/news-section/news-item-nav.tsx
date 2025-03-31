@@ -2,6 +2,8 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 
+import { ICustomComponentProps } from '@/types';
+
 import { Flex } from 'antd';
 import './index.scss';
 

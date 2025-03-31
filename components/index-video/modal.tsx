@@ -1,5 +1,5 @@
 'use client';
-
+import { ICustomComponentProps } from '@/types';
 import { Flex, Modal } from 'antd';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -10,7 +10,7 @@ import AspectRatio from '../aspect-ratio';
 /**
  * 站会信息
  */
-const MessageModal = () => {
+const MessageModal: FC<ICustomComponentProps> = ({ className }) => {
     // 使用 useState 钩子来管理模态框的显示和隐藏状态
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -47,7 +47,7 @@ const MessageModal = () => {
         },
     ];
     return (
-        <div>
+        <div className={classNames('', className)}>
             <Flex
                 align="center"
                 justify="space-around"

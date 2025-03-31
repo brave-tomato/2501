@@ -1,6 +1,8 @@
 'use client';
 import React, { FC } from 'react';
 
+import { ICustomComponentProps } from '@/types';
+
 import { getConf } from '@/utils';
 import { Grid } from 'antd';
 import AspectRatio from '../aspect-ratio';
