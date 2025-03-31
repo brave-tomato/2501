@@ -1,16 +1,15 @@
 'use client';
+import AspectRatio from '@/components/aspect-ratio';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
-
-import { FC } from 'react';
+import { useSetState } from 'ahooks';
+import { Flex, Pagination } from 'antd';
+import classNames from 'classnames';
 import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import AspectRatio from '@/components/aspect-ratio';
-import { useSetState } from 'ahooks';
-import { Col, Flex, Pagination, Row } from 'antd';
-import classNames from 'classnames';
-import { stat } from 'fs';
+import Link from 'next/link';
+import { handleClientScriptLoad } from 'next/script';
 import styles from './styles.module.scss';
 
 const events = [
@@ -157,25 +156,27 @@ const NewsMediaPage = () => {
                     >
                         {events.map((event, index) => (
                             <SwiperSlide key={index}>
-                                <div className={styles['event-container']}>
-                                    <div className={styles['event-text']}>
-                                        <h2>{event.title}</h2>
-                                        <p>{event.subtitle}</p>
-                                        <Flex className={styles['event-date']} gap={16}>
-                                            <div>{event.date}</div>
-                                            <div> {event.category}</div>
-                                        </Flex>
+                                <Link href={'/news-media-details'}>
+                                    <div className={styles['event-container']}>
+                                        <div className={styles['event-text']}>
+                                            <h2>{event.title}</h2>
+                                            <p>{event.subtitle}</p>
+                                            <Flex className={styles['event-date']} gap={16}>
+                                                <div>{event.date}</div>
+                                                <div> {event.category}</div>
+                                            </Flex>
+                                        </div>
+                                        <div style={{ width: 670 }}>
+                                            <AspectRatio ratio={670 / 424}>
+                                                <img
+                                                    src={event.image}
+                                                    alt={event.title}
+                                                    className={styles['event-image']}
+                                                />
+                                            </AspectRatio>
+                                        </div>
                                     </div>
-                                    <div style={{ width: 670 }}>
-                                        <AspectRatio ratio={670 / 424}>
-                                            <img
-                                                src={event.image}
-                                                alt={event.title}
-                                                className={styles['event-image']}
-                                            />
-                                        </AspectRatio>
-                                    </div>
-                                </div>
+                                </Link>
                             </SwiperSlide>
                         ))}
                     </Swiper>
@@ -185,26 +186,21 @@ const NewsMediaPage = () => {
                     {/* list */}
                     <Flex gap={50} justify="space-between" wrap>
                         {newsList.map((payload: any, index: number) => (
-                            <Flex
-                                className={styles['list-item']}
-                                key={index}
-                                align="start"
-                                gap={20}
-                                justify="start"
-                                vertical
-                            >
-                                <div style={{ width: 320 }}>
-                                    <AspectRatio ratio={320 / 210}>
-                                        <img src={payload.image} width={`100%`} height={`100%`} />
-                                    </AspectRatio>
-                                </div>
-                                {/* 日期和分类 */}
-                                <Flex gap={18} style={{ fontSize: 12, color: `var(--custom-gray)` }}>
-                                    <div>{payload.date}</div>
-                                    <div>{payload.category}</div>
+                            <Link href={'/news-media-details'} key={index}>
+                                <Flex className={styles['list-item']} align="start" gap={20} justify="start" vertical>
+                                    <div style={{ width: 320 }}>
+                                        <AspectRatio ratio={320 / 210}>
+                                            <img src={payload.image} width={`100%`} height={`100%`} />
+                                        </AspectRatio>
+                                    </div>
+                                    {/* 日期和分类 */}
+                                    <Flex gap={18} style={{ fontSize: 12, color: `var(--custom-gray)` }}>
+                                        <div>{payload.date}</div>
+                                        <div>{payload.category}</div>
+                                    </Flex>
+                                    <div className={styles.title}>{payload.title}</div>
                                 </Flex>
-                                <div className={styles.title}>{payload.title}</div>
-                            </Flex>
+                            </Link>
                         ))}
                     </Flex>
 
