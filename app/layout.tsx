@@ -39,6 +39,8 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
                     <ConfigProvider
                         theme={{
                             token: {
+                                colorLinkActive: '#2dafb7',
+                                colorLinkHover: '#2dafb7',
                                 colorPrimary: '#2dafb7',
                             },
                         }}
