@@ -1,0 +1,36 @@
+.pipeline: &pipeline
+  - docker:
+      image: node:20
+      volumes:
+        - /root/.npm:cow
+
+    imports:
+      - https://cnb.cool/liuuu/cases/secret/-/blob/main/env.yml
+
+    stages:
+      - name: build application
+        script: npm install --register=https://registry.npmmirror.com && npm run build
+
+      - name: upload application
+        image: tencentcom/coscli
+        commands: |
+          coscli config set --secret_id $COS_SECRET_ID --secret_key $COS_SECRET_KEY
+          coscli config add --init-skip=true -b $COS_BUCKET -r $COS_REGION
+          coscli cp ./dist cos://$COS_BUCKET -r
+
+main:
+  pull_request:
+    - <<: *pipeline
+      env:
+        COS_BUCKET: welion-1351840111
+        COS_REGION: ap-beijing
+  push:
+    - <<: *pipeline
+      env:
+        COS_BUCKET: welion-1351840111
+        COS_REGION: ap-beijing
+  web_trigger_prod:
+    - <<: *pipeline
+      env:
+        COS_BUCKET: welion-1351840111
+        COS_REGION: ap-beijing

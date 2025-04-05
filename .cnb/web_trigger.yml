@@ -1,0 +1,5 @@
+branch:
+  - reg: "main"
+    buttons:
+      - name: 部署生产环境
+        event: web_trigger_prod
