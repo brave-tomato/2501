@@ -1,6 +1,6 @@
 .pipeline: &pipeline
   - docker:
-      image: node:20
+      image: node:lts-alpine
       volumes:
         - /root/.npm:cow
 
@@ -9,7 +9,10 @@
 
     stages:
       - name: build application
-        script: npm install --register=https://registry.npmmirror.com && npm run build
+        script: |
+          npm install -g pnpm --register=https://registry.npmmirror.com
+          pnpm install
+          pnpm run build
 
       - name: upload application
         image: tencentcom/coscli
