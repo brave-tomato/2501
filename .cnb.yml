@@ -25,15 +25,15 @@ main:
   pull_request:
     - <<: *pipeline
       env:
-        COS_BUCKET: welion-1351840111
-        COS_REGION: ap-beijing
+        COS_BUCKET: hk-1351840111
+        COS_REGION: ap-hongkong
   push:
     - <<: *pipeline
       env:
-        COS_BUCKET: welion-1351840111
-        COS_REGION: ap-beijing
+        COS_BUCKET: hk-1351840111
+        COS_REGION: ap-hongkong
   web_trigger_prod:
     - <<: *pipeline
       env:
-        COS_BUCKET: welion-1351840111
-        COS_REGION: ap-beijing
+        COS_BUCKET: hk-1351840111
+        COS_REGION: ap-hongkong
