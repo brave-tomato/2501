@@ -158,25 +158,59 @@ const NewsMediaPage = () => {
                         {events.map((event, index) => (
                             <SwiperSlide key={index}>
                                 <Link href={'/news-media-details'}>
-                                    <div className={styles['event-container']}>
-                                        <div className={styles['event-text']}>
-                                            <h2>{event.title}</h2>
-                                            <p>{event.subtitle}</p>
-                                            <Flex className={styles['event-date']} gap={16}>
-                                                <div>{event.date}</div>
-                                                <div> {event.category}</div>
+                                    <Row>
+                                        <Col span={8}>
+                                            {/* 内容 */}
+                                            <Flex className={styles['event-text']} gap={48} vertical>
+                                                <Flex gap={34} vertical>
+                                                    <div className={styles.title}>{event.title}</div>
+                                                    <div className={styles.subtitle}>{event.subtitle}</div>
+                                                </Flex>
+
+                                                <Flex className={styles['event-date']} gap={16}>
+                                                    <div>{event.date}</div>
+                                                    <div> {event.category}</div>
+                                                </Flex>
                                             </Flex>
-                                        </div>
-                                        <div style={{ width: 670 }}>
-                                            <AspectRatio ratio={670 / 424}>
-                                                <img
-                                                    src={event.image}
-                                                    alt={event.title}
-                                                    className={styles['event-image']}
-                                                />
-                                            </AspectRatio>
-                                        </div>
-                                    </div>
+                                        </Col>
+                                        <Col span={16}>
+                                            {/* 图片 */}
+                                            <div style={{ width: '100%' }}>
+                                                <AspectRatio ratio={670 / 424}>
+                                                    <img
+                                                        src={event.image}
+                                                        alt={event.title}
+                                                        className={styles['event-image']}
+                                                    />
+                                                </AspectRatio>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    {/* <Row className={styles['event-container']}>
+                                        <Col span={8}>
+                                            内容
+                                            <div className={styles['event-text']}>
+                                                <h2>{event.title}</h2>
+                                                <p>{event.subtitle}</p>
+                                                <Flex className={styles['event-date']} gap={16}>
+                                                    <div>{event.date}</div>
+                                                    <div> {event.category}</div>
+                                                </Flex>
+                                            </div>
+                                        </Col>
+                                        <Col span={12}>
+                                            图片
+                                            <div style={{ width: '100%' }}>
+                                                <AspectRatio ratio={670 / 424}>
+                                                    <img
+                                                        src={event.image}
+                                                        alt={event.title}
+                                                        className={styles['event-image']}
+                                                    />
+                                                </AspectRatio>
+                                            </div>
+                                        </Col>
+                                    </Row> */}
                                 </Link>
                             </SwiperSlide>
                         ))}
