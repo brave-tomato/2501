@@ -7,8 +7,9 @@ import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import AspectRatio from '@/components/aspect-ratio';
+import { getConf } from '@/utils';
 import { useSetState } from 'ahooks';
-import { Col, Flex, Pagination, Row } from 'antd';
+import { Col, Flex, Grid, Pagination, Row } from 'antd';
 import classNames from 'classnames';
 import { stat } from 'fs';
 import styles from './styles.module.scss';
@@ -116,6 +117,11 @@ const newsList = [
  */
 const NewsMediaDetailsPage = () => {
     /**
+     * Hooks
+     */
+    const conf = getConf(Grid.useBreakpoint());
+
+    /**
      * States
      */
     const [state, setState] = useSetState<any>({
@@ -134,94 +140,106 @@ const NewsMediaDetailsPage = () => {
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* 左右布局：左边展示详情，右边切换 */}
-            <div style={{ maxWidth: 1920, margin: `84px auto 0`, width: 1200 }}>
-                <Flex gap={48} justify="center">
-                    {/* 左边 */}
-                    <Flex className={styles['news-details-left-box']} gap={52} vertical>
-                        <Flex gap={24} vertical>
-                            <div className={styles.title}>卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！</div>
-                            <Flex className={styles.subtitle} gap={60}>
-                                <div>时间：2025-03-31</div>
-                                <div>点击量：12345</div>
-                            </Flex>
-                        </Flex>
-                        <div className={styles.content}>
-                            {/* 渲染内容 */}
-                            <p>
-                                近年来，中国科技创新整体实力稳步提升，创新体系日益完备，孕育了一大批独角兽企业，为培育新质生产力提供源源不断的动能。独角兽企业具有创新能力强、成长性好、市场认可度高等特征，是新经济发展的“风向标”，是新质生产力的典型代表。
-                                在4月28日举行的中关村论坛——全球独角兽企业大会上发布的《中国独角兽企业发展报告（2024年）》公布了中国独角兽企业名单，共有369家，卫蓝新能源排名第103位。
-                            </p>
-                            <Flex align="center" justify="center" vertical>
-                                <div style={{ textAlign: 'center', width: 940 }}>
-                                    <AspectRatio ratio={940 / 616}>
-                                        <img src={'/images/news-media/details/img_1@2x.png'} width={940} />
-                                    </AspectRatio>
+            <div className="mw-1920" style={conf.xxxl ? { padding: `0 90px`, marginTop: 104 } : { marginTop: 104 }}>
+                <Row gutter={70}>
+                    <Col span={16} style={{ width: '100%' }}>
+                        <Flex className={styles['news-details-left-box']} gap={36} vertical>
+                            <Flex gap={24} vertical>
+                                <div className={styles.title}>
+                                    卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！
                                 </div>
-                                <div>（图：中关村论坛现场）</div>
-                            </Flex>
-                            <p>
-                                卫蓝新能源是中国科学院物理研究所固态电池产学研孵化企业，成立于2016年，位于北京房山窦店，主营固态锂离子电池，集研发、生产、市场、销售于一体，是国家级专精特新小巨人企业、独角兽企业，具有CNAS资质及40余年固态电池产业研究经验，在多个固态锂电技术领域实现“首次”突破。公司由中国工程院院士陈立泉、中国科学院物理研究所研究员李泓、教授级高级工程师俞会根共同发起创办，汇聚了电池材料、电芯、系统等领域的高精尖人才。
-                            </p>
-                            <Flex align="center" justify="center" vertical>
-                                <div style={{ textAlign: 'center', width: 940 }}>
-                                    <AspectRatio ratio={940 / 616}>
-                                        <img src={'/images/news-media/details/img_2@2x.png'} width={940} />
-                                    </AspectRatio>
-                                </div>
-                                <div>（图：中关村论坛北京独角兽企业代表授牌仪式现场）</div>
-                            </Flex>
-                            <Flex align="center" justify="center" vertical>
-                                <div style={{ width: 598 }}>
-                                    <AspectRatio ratio={598 / 775}>
-                                        <img src={'/images/news-media/details/img_3@2x.png'} width={598} />
-                                    </AspectRatio>
-                                </div>
-                                <div>（图：2024年北京市独角兽企业证书）</div>
-                            </Flex>
-                            <p>
-                                <p>
-                                    目前，369家独角兽企业分布在16个领域。独角兽企业覆盖了全国47个城市，“北上深广杭”集聚超六成，北京以114家的数量位居全国首位。
-                                </p>
-                                <p>
-                                    注：《中国独角兽企业发展报告（2024年）》由中关村独角兽企业发展联盟联合毕马威企业咨询（中国）有限公司、长城战略咨询、北京方迪经济发展研究院、清华大学中国科技政策研究中心共同发布。
-                                </p>
-                            </p>
-                        </div>
-                    </Flex>
-                    {/* 右边 */}
-                    <Flex className={styles['news-details-right-box']} gap={24} vertical>
-                        {/* 上一条 */}
-                        <Flex className={styles['right-item']} gap={16} vertical>
-                            <div className={styles.nav}>上一条</div>
-                            <Flex className={styles.title} gap={16} vertical>
-                                <div>泰国国务院总理府助理总理委员会主席罗亚蒙一行访问卫蓝新能源</div>
-                                <div>2025-03-31</div>
-                            </Flex>
-                        </Flex>
-
-                        {/* 下一条 */}
-                        <Flex className={styles['right-item']} gap={16} vertical>
-                            <div className={styles.nav}>下一条</div>
-                            <Flex className={styles.title} gap={16} vertical>
-                                <div>泰国国务院总理府助理总理委员会主席罗亚蒙一行访问卫蓝新能源</div>
-                                <div>2025-03-31</div>
-                            </Flex>
-                        </Flex>
-
-                        {/* 分享到 */}
-                        <Flex className={styles['right-item']} gap={16} vertical>
-                            <div className={styles.nav}>分享到</div>
-                            <Flex className={styles.title} gap={16} vertical>
-                                <Flex gap={16}>
-                                    <img src={'/images/news-media/details/icon_weixin@2x.png'} />
-                                    <img src={'/images/news-media/details/icon_weibo@2x.png'} />
-                                    <img src={'/images/news-media/details/icon_qq@2x.png'} />
+                                <Flex className={styles.subtitle} gap={70}>
+                                    <div>时间：2025-03-31</div>
+                                    <div>点击量：12345</div>
                                 </Flex>
-                                <div>2025-03-31</div>
+                            </Flex>
+                            <div className={styles.content}>
+                                <p>
+                                    近年来，中国科技创新整体实力稳步提升，创新体系日益完备，孕育了一大批独角兽企业，为培育新质生产力提供源源不断的动能。独角兽企业具有创新能力强、成长性好、市场认可度高等特征，是新经济发展的“风向标”，是新质生产力的典型代表。
+                                    在4月28日举行的中关村论坛——全球独角兽企业大会上发布的《中国独角兽企业发展报告（2024年）》公布了中国独角兽企业名单，共有369家，卫蓝新能源排名第103位。
+                                </p>
+                                <Flex align="center" justify="center" vertical>
+                                    <div style={{ textAlign: 'center', width: '100%' }}>
+                                        <AspectRatio ratio={1137 / 739}>
+                                            <img
+                                                src={'/images/news-media/details/img_1@2x.png'}
+                                                style={{ width: '100%' }}
+                                            />
+                                        </AspectRatio>
+                                    </div>
+                                    <div className={styles['img-title']}>（图：中关村论坛现场）</div>
+                                </Flex>
+                                <p>
+                                    卫蓝新能源是中国科学院物理研究所固态电池产学研孵化企业，成立于2016年，位于北京房山窦店，主营固态锂离子电池，集研发、生产、市场、销售于一体，是国家级专精特新小巨人企业、独角兽企业，具有CNAS资质及40余年固态电池产业研究经验，在多个固态锂电技术领域实现“首次”突破。公司由中国工程院院士陈立泉、中国科学院物理研究所研究员李泓、教授级高级工程师俞会根共同发起创办，汇聚了电池材料、电芯、系统等领域的高精尖人才。
+                                </p>
+                                <Flex align="center" justify="center" vertical>
+                                    <div style={{ textAlign: 'center', width: '100%' }}>
+                                        <AspectRatio ratio={1137 / 739}>
+                                            <img
+                                                src={'/images/news-media/details/img_2@2x.png'}
+                                                style={{ width: '100%' }}
+                                            />
+                                        </AspectRatio>
+                                    </div>
+                                    <div className={styles['img-title']}>
+                                        （图：中关村论坛北京独角兽企业代表授牌仪式现场）
+                                    </div>
+                                </Flex>
+                                <Flex align="center" justify="center" vertical style={{ marginTop: 48 }}>
+                                    <div style={{ textAlign: 'center', width: 533 }}>
+                                        <AspectRatio ratio={533 / 691}>
+                                            <img
+                                                src={'/images/news-media/details/img_3@2x.png'}
+                                                style={{ width: 533 }}
+                                            />
+                                        </AspectRatio>
+                                    </div>
+                                    <div className={styles['img-title']}>（图：2024年北京市独角兽企业证书）</div>
+                                </Flex>
+                                <p>
+                                    <p>
+                                        目前，369家独角兽企业分布在16个领域。独角兽企业覆盖了全国47个城市，“北上深广杭”集聚超六成，北京以114家的数量位居全国首位。
+                                    </p>
+                                    <p>
+                                        注：《中国独角兽企业发展报告（2024年）》由中关村独角兽企业发展联盟联合毕马威企业咨询（中国）有限公司、长城战略咨询、北京方迪经济发展研究院、清华大学中国科技政策研究中心共同发布。
+                                    </p>
+                                </p>
+                            </div>
+                        </Flex>
+                    </Col>
+                    <Col span={8}>
+                        <Flex className={styles['news-details-right-box']} gap={24} vertical>
+                            {/* 上一条 */}
+                            <Flex className={styles['right-item']} gap={25} vertical>
+                                <div className={styles.nav}>上一条</div>
+                                <Flex className={styles.title} gap={47} vertical>
+                                    <div>泰国国务院总理府助理总理委员会主席罗亚蒙一行访问卫蓝新能源</div>
+                                    <div>2025-03-31</div>
+                                </Flex>
+                            </Flex>
+                            {/* 下一条 */}
+                            <Flex className={styles['right-item']} gap={25} vertical>
+                                <div className={styles.nav}>下一条</div>
+                                <Flex className={styles.title} gap={47} vertical>
+                                    <div>泰国国务院总理府助理总理委员会主席罗亚蒙一行访问卫蓝新能源</div>
+                                    <div>2025-03-31</div>
+                                </Flex>
+                            </Flex>
+                            {/* 分享到 */}
+                            <Flex className={styles['right-item']} gap={18} vertical>
+                                <div className={styles.nav}>分享到</div>
+                                <Flex className={styles.title} gap={24} vertical>
+                                    <Flex gap={20}>
+                                        <img src={'/images/news-media/details/icon_weixin@2x.png'} />
+                                        <img src={'/images/news-media/details/icon_weibo@2x.png'} />
+                                        <img src={'/images/news-media/details/icon_qq@2x.png'} />
+                                    </Flex>
+                                    <div>2025-03-31</div>
+                                </Flex>
                             </Flex>
                         </Flex>
-                    </Flex>
-                </Flex>
+                    </Col>
+                </Row>
             </div>
         </div>
     );
