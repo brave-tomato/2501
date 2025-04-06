@@ -108,6 +108,9 @@ const Index: React.FC = () => {
                 </Col>
             </Row>
 
+            {/* 展会 */}
+            <img alt="" className={styles.exhibition} src="/static/index/exhibition.png" />
+
             {/* 灰条 */}
             <div style={{ height: 24, backgroundColor: '#f3f3f3' }} />
         </div>
