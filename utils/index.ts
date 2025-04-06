@@ -11,7 +11,7 @@ export const getConf: any = (screens: any) => {
         xxxl: true,
         name: 'xxxl',
 
-        banner: 1920 / 650,
+        banner: 1920 / 600,
         logo: 146 / 19,
         video: 1600 / 816,
 
@@ -36,7 +36,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xxl',
 
-            banner: 1600 / 576,
+            banner: 1920 / 600,
             logo: 146 / 19,
             video: 1600 / 816,
 
@@ -58,7 +58,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xl',
 
-            banner: 1200 / 460,
+            banner: 1920 / 600,
             logo: 146 / 19,
             video: 1600 / 816,
 
@@ -80,7 +80,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'lg',
 
-            banner: 992 / 404,
+            banner: 1920 / 600,
             logo: 146 / 19,
             video: 1600 / 816,
 
@@ -102,7 +102,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'md',
 
-            banner: 768 / 500,
+            banner: 1920 / 600,
             logo: 146 / 19,
             video: 1600 / 816,
 
@@ -124,7 +124,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'sm',
 
-            banner: 576 / 375,
+            banner: 1920 / 600,
             logo: 146 / 19,
             video: 1600 / 816,
 
@@ -146,7 +146,7 @@ export const getConf: any = (screens: any) => {
             ...screens,
             name: 'xs',
 
-            banner: 576 / 375,
+            banner: 1920 / 600,
             logo: 146 / 19,
             video: 1600 / 816,
 

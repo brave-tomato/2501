@@ -3,7 +3,7 @@ import AspectRatio from '@/components/aspect-ratio';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
-import { Flex, Pagination } from 'antd';
+import { Col, Flex, Pagination, Row } from 'antd';
 import classNames from 'classnames';
 import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -133,7 +133,8 @@ const NewsMediaPage = () => {
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* tab选项卡 */}
-            <div style={{ maxWidth: 1920, margin: `0 auto` }}>
+            <div className="mw-1920">
+                {/* swiper */}
                 <div className={styles['news-media-swiper-wrapper']}>
                     <div className={classNames(styles['swiper-button'], ' cursor-pointer ')}>
                         <Flex gap={40}>
@@ -181,28 +182,40 @@ const NewsMediaPage = () => {
                         ))}
                     </Swiper>
                 </div>
+
                 {/* 分页list */}
-                <div className={styles['news-list-wrapper']}>
-                    {/* list */}
-                    <Flex gap={50} justify="space-between" wrap>
+                <Flex className={styles['news-list-wrapper']} gap={104} vertical>
+                    <Row gutter={[64, 60]}>
                         {newsList.map((payload: any, index: number) => (
-                            <Link href={'/news-media-details'} key={index}>
-                                <Flex className={styles['list-item']} align="start" gap={20} justify="start" vertical>
-                                    <div style={{ width: 320 }}>
-                                        <AspectRatio ratio={320 / 210}>
-                                            <img src={payload.image} width={`100%`} height={`100%`} />
-                                        </AspectRatio>
-                                    </div>
-                                    {/* 日期和分类 */}
-                                    <Flex gap={18} style={{ fontSize: 12, color: `var(--custom-gray)` }}>
-                                        <div>{payload.date}</div>
-                                        <div>{payload.category}</div>
+                            <Col key={index} span={8}>
+                                <Link href={'/news-media-details'}>
+                                    <Flex
+                                        align="start"
+                                        className={styles['link-box']}
+                                        gap={32}
+                                        justify="start"
+                                        vertical
+                                    >
+                                        {/* 图片 */}
+                                        <div style={{ width: '100%' }}>
+                                            <AspectRatio ratio={511 / 342}>
+                                                <img src={payload.image} width={`100%`} height={`100%`} />
+                                            </AspectRatio>
+                                        </div>
+                                        {/* 内容 */}
+                                        <Flex gap={22} vertical>
+                                            {/* 日期和分类 */}
+                                            <Flex gap={28} style={{ fontSize: 18, color: `var(--custom-gray)` }}>
+                                                <div>{payload.date}</div>
+                                                <div>{payload.category}</div>
+                                            </Flex>
+                                            <div className={styles.title}>{payload.title}</div>
+                                        </Flex>
                                     </Flex>
-                                    <div className={styles.title}>{payload.title}</div>
-                                </Flex>
-                            </Link>
+                                </Link>
+                            </Col>
                         ))}
-                    </Flex>
+                    </Row>
 
                     {/* 分页 */}
                     <Flex justify="center">
@@ -214,7 +227,7 @@ const NewsMediaPage = () => {
                             onChange={onChange}
                         />
                     </Flex>
-                </div>
+                </Flex>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 .news-media-swiper-wrapper {
     position: relative;
-    margin: 70px 70px 0;
+    margin: 104px 0;
     .news-swiper {
         width: 100%;
         height: 400px; /* 可按需调整高度 */
@@ -60,19 +60,15 @@
 
 // List
 .news-list-wrapper {
-    padding: 70px;
-    .list-item {
-        width: 320px;
+    .link-box {
+        padding-bottom: 58px;
+        height: 100%;
         border-bottom: 1px solid var(--custom-gray);
     }
     .title {
-        font-size: 14px;
+        font-size: 20px;
         font-weight: 500;
         color: var(--custom-black);
-        line-height: 24px;
-        padding-bottom: 28px;
-    }
-    .pagination {
-        margin-top: 70px;
+        line-height: 28px;
     }
 }

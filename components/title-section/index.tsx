@@ -11,7 +11,7 @@ import { StaggeredText } from '../motion';
  */
 const TitleSection: FC<ICustomComponentProps> = ({ title, subtitle = '' }) => {
     return (
-        <Flex gap={40} vertical>
+        <Flex gap={80} vertical>
             <Flex gap={8} vertical>
                 {/* 主标题 */}
                 <div className="title-top-big">

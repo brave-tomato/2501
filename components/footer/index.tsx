@@ -7,11 +7,18 @@ import Link from 'next/link';
 /**
  * Styles
  */
+import { usePathname } from 'next/navigation';
 import styles from './styles.module.scss';
 
 const Footer: React.FC = () => {
+    const pathname = usePathname();
+    const shouldShowLine = pathname !== '/';
+
     return (
         <footer className={styles.footer}>
+            {/* 分割线 */}
+            {shouldShowLine && <div className={styles.line} />}
+
             <Row justify="center">
                 <Col span={2}>
                     <Link className={styles.title1} href="/about-us">

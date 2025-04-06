@@ -39,3 +39,11 @@
         cursor: pointer;
     }
 }
+
+// 分割线
+.line {
+    height: 1px;
+    margin-top: 86px; // 120-34
+    margin-bottom: 34px;
+    background: #969696;
+}
