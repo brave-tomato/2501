@@ -1,5 +1,6 @@
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import '@ant-design/v5-patch-for-react-19';
+import { ConfigProvider } from 'antd';
 
 /**
  * Components
@@ -35,14 +36,24 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
         <html lang="en">
             <body>
                 <AntdRegistry>
-                    {/* Header */}
-                    <Header />
+                    <ConfigProvider
+                        theme={{
+                            token: {
+                                colorLinkActive: '#2dafb7',
+                                colorLinkHover: '#2dafb7',
+                                colorPrimary: '#2dafb7',
+                            },
+                        }}
+                    >
+                        {/* Header */}
+                        <Header />
 
-                    {/* Main */}
-                    <main>{children}</main>
+                        {/* Main */}
+                        <main>{children}</main>
 
-                    {/* Footer */}
-                    <Footer />
+                        {/* Footer */}
+                        <Footer />
+                    </ConfigProvider>
                 </AntdRegistry>
             </body>
         </html>

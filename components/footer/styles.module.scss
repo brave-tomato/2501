@@ -1,7 +1,7 @@
 .footer {
     max-width: 1920px;
-    margin: 105px auto 0;
-    padding: 0 93px 160px;
+    margin: 0 auto;
+    padding: 34px 0 92px;
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) -0.37%,
@@ -15,129 +15,27 @@
         rgba(77, 187, 194, 0.85) 98.17%,
         #2dafb7 101.22%
     );
-    color: #969696;
-    font-size: 20px;
-    line-height: 26px;
 }
 
-// 间距
-.gap1 {
-    gap: 50px;
-}
-.gap2 {
-    gap: 55px;
-}
-.gap3 {
-    gap: 38px;
-}
-.gap4 {
-    gap: 19px;
-}
-
-// 分割线
-.line {
-    height: 1px;
-    margin-bottom: 70px;
-    background: #969696;
-}
-
-// Logo / QRCode
-.logo {
-    width: 145px;
-    height: 69px;
-}
-
-.qrcode {
-    width: 150px;
-    height: 150px;
-}
-
-// 标题
-.title {
-    padding-bottom: 8px;
-    border-bottom: 1.5px solid #2dafb7;
+.title1 {
     color: #103675;
-    font-size: 25px;
-    line-height: 33px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
 }
 
-@media (max-width: 1600px) {
-    .footer {
-        font-size: 16px;
-        line-height: 22px;
-    }
-
-    .gap2 {
-        gap: 52px;
-    }
-    .gap3 {
-        gap: 32px;
-    }
-    .gap4 {
-        gap: 8px;
-    }
-
-    .line {
-        margin-bottom: 57px;
-    }
-
-    .qrcode {
-        width: 133px;
-        height: 133px;
-    }
-
-    .title {
-        font-size: 19px;
-        line-height: 25px;
-    }
+.title2 {
+    color: #969696;
+    font-size: 14px;
+    line-height: 22px;
 }
 
-@media (max-width: 1200px) {
-    .footer {
-        padding-left: 70px;
-        padding-right: 70px;
-        font-size: 13px;
-        line-height: 16px;
-    }
+.icon {
+    color: #d9d9d9 !important;
+    font-size: 32px;
 
-    .gap1 {
-        gap: 38px;
+    &:hover {
+        color: #2dafb7 !important;
+        cursor: pointer;
     }
-    .gap2 {
-        gap: 36px;
-    }
-    .gap3 {
-        gap: 24px;
-    }
-    .gap4 {
-        gap: 6px;
-    }
-
-    .line {
-        margin-bottom: 43px;
-    }
-
-    .logo {
-        width: 110px;
-        height: 53px;
-    }
-
-    .qrcode {
-        width: 100px;
-        height: 100px;
-    }
-
-    .title {
-        font-size: 15px;
-        line-height: 20px;
-    }
-}
-
-@media (max-width: 992px) {
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 576px) {
 }

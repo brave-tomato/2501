@@ -3,7 +3,7 @@
     font-family: 'Roboto';
     font-stretch: 75% 100%;
     font-weight: 100 900;
-    src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('/static/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -11,17 +11,12 @@
     font-stretch: 75% 100%;
     font-style: italic;
     font-weight: 100 900;
-    src: url('/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('/static/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
 }
+/* 字体 end */
 
 /* 变量 */
 :root:root {
-}
-
-/* styles/globals.css */
-/*蓝色 #103675 #103675 rgb(16,54,117) 217.4 75.9% 26.1% */
-/* 绿色 #2dafb7 #2DAFB7 rgb(45,175,183) 183.5 60.5% 44.7% */
-:root {
     --custom-blue: #103675;
     --custom-green: #2dafb7;
     --custom-black: #313232;
@@ -34,6 +29,14 @@
     --custom-gray-rgb: 150, 150, 150;
     --custom-gray-light-rgb: 217, 217, 217;
 }
+/* 变量 end */
+
+/* 公共样式 */
+.mw-1920 {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+/* 公共样式 end */
 
 .cursor-pointer {
     cursor: pointer;
