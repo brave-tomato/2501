@@ -1,9 +1,8 @@
 .job-wrapper {
-    margin-top: 70px;
+    margin-top: 104px;
 
-    // padding: 0 100px;
     .title {
-        font-size: 34px;
+        font-size: 36px;
         font-weight: 500;
         color: var(--custom-black);
     }
@@ -53,18 +52,21 @@
     }
 }
 .input-box {
-    width: 806px;
+    width: 100%;
 
     .customInput {
-        height: 60px;
         ::placeholder {
-            letter-spacing: 4px; // 可以根据需求调整文字间距
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 8px; // 可以根据需求调整文字间距
         }
     }
 
     .enter-button {
-        font-size: 20px;
+        font-size: 25px;
         letter-spacing: 10px;
         color: #fff;
+        font-weight: normal;
+        padding: 0 68px;
     }
 }

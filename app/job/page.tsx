@@ -2,13 +2,15 @@
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
-import { Flex, GetProps, Input, Pagination, Tabs } from 'antd';
+import { Col, Flex, GetProps, Grid, Input, Pagination, Row, Tabs } from 'antd';
 type SearchProps = GetProps<typeof Input.Search>;
 
 import jobList from './data';
 
 import styles from './styles.module.scss';
 
+import { getConf } from '@/utils';
+import classNames from 'classnames';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -88,6 +90,11 @@ const tabItems = [
  */
 const JobPage = () => {
     /**
+     * Hooks
+     */
+    const conf = getConf(Grid.useBreakpoint());
+
+    /**
      * States
      */
     const [state, setState] = useSetState<any>({
@@ -117,29 +124,37 @@ const JobPage = () => {
             <HeroSection src="/images/hero-section/job@2x.png">
                 <TitleSection title="人才招聘" />
             </HeroSection>
-            <div className={styles['job-wrapper']} style={{ maxWidth: 1920, margin: '70px auto 0' }}>
+            <div
+                className={classNames('mw-1920', styles['job-wrapper'])}
+                // style={conf.xxxl ? { padding: `0 150px` } : {}}
+                style={{ padding: `0 150px` }}
+            >
                 {/* 搜索条 */}
-                <Flex align="center" gap={60} justify="center" style={{ marginBottom: 63 }}>
-                    <div className={styles.title}>职位类型</div>
-                    <div className={styles['input-box']}>
-                        <Input.Search
-                            allowClear
-                            className={styles.customInput}
-                            enterButton={<div className={styles['enter-button']}>搜索职位</div>}
-                            prefix={
-                                <img
-                                    src="/images/job/icon_search@2x.png"
-                                    width={20}
-                                    height={20}
-                                    style={{ marginRight: 12 }}
-                                />
-                            }
-                            placeholder="搜索职位关键词"
-                            size="large"
-                            onSearch={onSearch}
-                        />
-                    </div>
-                </Flex>
+                <Row gutter={68} style={{ marginBottom: 112 }}>
+                    <Col span={4}>
+                        <div className={styles.title}>职位类型</div>
+                    </Col>
+                    <Col span={20}>
+                        <div className={styles['input-box']}>
+                            <Input.Search
+                                allowClear
+                                className={styles.customInput}
+                                enterButton={<div className={styles['enter-button']}>搜索职位</div>}
+                                prefix={
+                                    <img
+                                        src="/images/job/icon_search@2x.png"
+                                        width={32}
+                                        height={32}
+                                        style={{ marginRight: 32 }}
+                                    />
+                                }
+                                placeholder="搜索职位关键词"
+                                size="large"
+                                onSearch={onSearch}
+                            />
+                        </div>
+                    </Col>
+                </Row>
                 {/* 左右布局 */}
 
                 <Flex className={styles['jianli']} justify="center" style={{ width: '100%' }}>
