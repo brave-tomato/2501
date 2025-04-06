@@ -2,7 +2,7 @@
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
-import { Col, Flex, GetProps, Grid, Input, Pagination, Row, Tabs } from 'antd';
+import { Col, ConfigProvider, Flex, GetProps, Grid, Input, Menu, MenuProps, Pagination, Row, Tabs } from 'antd';
 type SearchProps = GetProps<typeof Input.Search>;
 
 import jobList from './data';
@@ -12,48 +12,6 @@ import styles from './styles.module.scss';
 import { getConf } from '@/utils';
 import classNames from 'classnames';
 import { useState } from 'react';
-import styled from 'styled-components';
-
-// 定义样式
-const StyledTabs = styled(Tabs)`
-    .ant-tabs-nav-list {
-        flex-direction: column;
-        padding: 0 100px;
-    }
-    .ant-tabs-tab {
-        padding: 6px 14px;
-        // margin-bottom: 28px;
-        font-size: 16px;
-        width: auto;
-        color: var(--custom-black);
-    }
-    .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab,
-    .ant-tabs-tab.ant-tabs-tab-active {
-        background-color: var(--custom-green);
-        color: white;
-        font-size: 16px;
-        border-radius: 30px;
-        .ant-tabs-tab-btn {
-            color: white;
-        }
-    }
-
-    .ant-tabs-nav-list .ant-tabs-ink-bar {
-        background: transparent;
-    }
-    // 去掉竖线的样式
-    .ant-tabs-content-holder,
-    .ant-tabs-left > .ant-tabs-content-holder {
-        border-left: none;
-    }
-    // 鼠标移入
-    .ant-tabs-nav-list .ant-tabs-tab:hover {
-        color: var(--custonm-black);
-    }
-    .ant-tabs-nav-list .ant-tabs-tab-btn:active {
-        color: var(--custom-green);
-    }
-`;
 
 const tabItems = [
     {
@@ -126,14 +84,14 @@ const JobPage = () => {
             </HeroSection>
             <div
                 className={classNames('mw-1920', styles['job-wrapper'])}
-                // style={conf.xxxl ? { padding: `0 150px` } : {}}
-                style={{ padding: `0 150px` }}
+                style={conf.xxxl ? { padding: `0 150px` } : {}}
             >
                 {/* 搜索条 */}
-                <Row gutter={68} style={{ marginBottom: 112 }}>
-                    <Col span={4}>
+                <Row style={{ marginBottom: 112 }}>
+                    <Col span={3}>
                         <div className={styles.title}>职位类型</div>
                     </Col>
+                    <Col span={1}></Col>
                     <Col span={20}>
                         <div className={styles['input-box']}>
                             <Input.Search
@@ -156,60 +114,82 @@ const JobPage = () => {
                     </Col>
                 </Row>
                 {/* 左右布局 */}
-
-                <Flex className={styles['jianli']} justify="center" style={{ width: '100%' }}>
-                    <StyledTabs
-                        activeKey={activeKey}
-                        onChange={handleTabChange}
-                        tabPosition="left"
-                        items={tabItems.map((item) => ({
-                            key: item.key,
-                            label: item.label,
-                        }))}
-                    />
-                    <Flex className={styles['job-list-wrapper']} gap={70} wrap>
-                        {jobList.map((payload: any, index: number) => (
-                            <Flex className={styles['list-item-box']} key={index} gap={16} vertical>
-                                <Flex gap={6} vertical>
-                                    {/* 标题 */}
-                                    <div className={styles['job-title']}>{payload.jobTitle}</div>
-                                    {/* 小内容 */}
-                                    <Flex className={styles.subtitle} gap={16}>
-                                        <Flex gap={4}>
-                                            <img src="/images/job/icon_moeny@2x.png" style={{ width: 9, height: 9 }} />
-                                            <span>{payload.salary}</span>
+                <Row className={styles['jianli']}>
+                    <Col span={3}>
+                        <Flex className={styles['menu-wrapper']} gap={26} vertical>
+                            {tabItems.map((item: any) => (
+                                <div
+                                    className={classNames(
+                                        item.key === activeKey ? styles['active'] : '',
+                                        styles['menu-item'],
+                                    )}
+                                    key={item.key}
+                                    onClick={() => handleTabChange(item.key)}
+                                >
+                                    {item.label}
+                                </div>
+                            ))}
+                        </Flex>
+                    </Col>
+                    <Col span={1}></Col>
+                    <Col span={20} style={{ width: '100%', padding: '0 34px 0 0' }}>
+                        <Row
+                            className={styles['job-list-wrapper']}
+                            id="grid-job-playground"
+                            gutter={[68, 68]}
+                            justify="space-around"
+                        >
+                            {jobList.map((payload: any, index: number) => (
+                                <Col key={index} span={8}>
+                                    <Flex className={styles['list-item-box']} gap={19} vertical>
+                                        <Flex gap={25} vertical>
+                                            {/* 标题 */}
+                                            <div className={styles['job-title']}>{payload.jobTitle}</div>
+                                            {/* 小内容 */}
+                                            <Flex className={styles.subtitle} justify="space-between">
+                                                <Flex gap={4}>
+                                                    <img
+                                                        src="/images/job/icon_moeny@2x.png"
+                                                        style={{ width: 14, height: 14 }}
+                                                    />
+                                                    <span>{payload.salary}</span>
+                                                </Flex>
+                                                <Flex gap={4}>
+                                                    <img
+                                                        src="/images/job/icon_xueli@2x.png"
+                                                        style={{ width: 14, height: 14 }}
+                                                    />
+                                                    <span>{payload.education}</span>
+                                                </Flex>
+                                                <Flex gap={4}>
+                                                    <img
+                                                        src="/images/job/icon_address@2x.png"
+                                                        style={{ width: 14, height: 14 }}
+                                                    />
+                                                    <span>{payload.location}</span>
+                                                </Flex>
+                                            </Flex>
                                         </Flex>
-                                        <Flex gap={4}>
-                                            <img src="/images/job/icon_xueli@2x.png" style={{ width: 9, height: 9 }} />
-                                            <span>{payload.education}</span>
-                                        </Flex>
-                                        <Flex gap={4}>
-                                            <img
-                                                src="/images/job/icon_address@2x.png"
-                                                style={{ width: 9, height: 9 }}
+                                        {/* 职位描述 */}
+                                        <Flex className={styles['list-item-content-box']} gap={18} vertical>
+                                            <div className={styles['job-title2']}>职位描述</div>
+                                            <div
+                                                className={styles['content']}
+                                                dangerouslySetInnerHTML={{ __html: payload.description }}
                                             />
-                                            <span>{payload.location}</span>
+                                        </Flex>
+                                        <Flex justify="end">
+                                            <img
+                                                className="cursor-pointer"
+                                                src="/images/job/icon_more@2x.png"
+                                                style={{ width: 38, height: 38 }}
+                                            />
                                         </Flex>
                                     </Flex>
-                                </Flex>
-                                {/* 职位描述 */}
-                                <Flex className={styles['list-item-content-box']} gap={8} vertical>
-                                    <div className={styles['job-title2']}>职位描述</div>
-                                    <div
-                                        className={styles['content']}
-                                        dangerouslySetInnerHTML={{ __html: payload.description }}
-                                    />
-                                </Flex>
-                                <Flex justify="end">
-                                    <img
-                                        className="cursor-pointer"
-                                        src="/images/job/icon_more@2x.png"
-                                        style={{ width: 24, height: 24 }}
-                                    />
-                                </Flex>
-                            </Flex>
-                        ))}
-                        <Flex align="center" style={{ width: '100%' }}>
+                                </Col>
+                            ))}
+                        </Row>
+                        <Flex align="center" style={{ width: '100%', marginTop: 104 }}>
                             <Flex justify="center" style={{ width: '100%' }}>
                                 <Pagination
                                     defaultCurrent={state.currentPage}
@@ -219,8 +199,8 @@ const JobPage = () => {
                                 />
                             </Flex>
                         </Flex>
-                    </Flex>
-                </Flex>
+                    </Col>
+                </Row>
             </div>
         </div>
     );

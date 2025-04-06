@@ -13,11 +13,8 @@
         background-repeat: no-repeat; /* 背景图片不重复 */
     }
     .job-list-wrapper {
-        width: 806px;
-
         .list-item-box {
-            width: 222px;
-            padding: 28px 26px;
+            padding: 42px;
             background-color: #fff;
             /* 右侧阴影：水平偏移2px（向右），垂直偏移4px，模糊半径8px，阴影颜色为黑色且透明度0.1 */
             box-shadow:
@@ -29,23 +26,23 @@
         }
         .job-title2,
         .job-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 500;
             color: var(--custom-blue);
         }
         .job-title2 {
-            font-size: 12px;
+            font-size: 16px;
         }
         .subtitle {
-            font-size: 9px;
+            font-size: 12px;
             color: var(--custom-gray);
-            padding-bottom: 16px;
+            padding-bottom: 22px;
             border-bottom: 1px solid var(--custom-green);
         }
         .list-item-content-box {
             .content {
-                font-size: 8px;
-                line-height: 14px;
+                font-size: 12px;
+                line-height: 20px;
                 color: var(--custom-gray);
             }
         }
@@ -68,5 +65,22 @@
         color: #fff;
         font-weight: normal;
         padding: 0 68px;
+    }
+}
+
+// 菜单
+.menu-wrapper {
+    color: var(--custom-black);
+    font-size: 20px;
+    line-height: 28px;
+
+    .active {
+        color: #fff;
+        background-color: var(--custom-green);
+    }
+    .menu-item {
+        cursor: pointer;
+        padding: 12px 34px;
+        border-radius: 50px;
     }
 }
