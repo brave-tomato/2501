@@ -3,11 +3,12 @@ import AspectRatio from '@/components/aspect-ratio';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
-import { Col, Flex, Pagination, Row } from 'antd';
+import { Col, Flex, Grid, Pagination, Row } from 'antd';
 import classNames from 'classnames';
 import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { getConf } from '@/utils';
 import Link from 'next/link';
 import { handleClientScriptLoad } from 'next/script';
 import styles from './styles.module.scss';
@@ -115,6 +116,11 @@ const newsList = [
  */
 const NewsMediaPage = () => {
     /**
+     * Hooks
+     */
+    const conf = getConf(Grid.useBreakpoint());
+
+    /**
      * States
      */
     const [state, setState] = useSetState<any>({
@@ -133,7 +139,7 @@ const NewsMediaPage = () => {
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* tab选项卡 */}
-            <div className="mw-1920">
+            <div className="mw-1920" style={conf.xxxl ? { padding: `0 130px` } : {}}>
                 {/* swiper */}
                 <div className={styles['news-media-swiper-wrapper']}>
                     <div className={classNames(styles['swiper-button'], ' cursor-pointer ')}>
