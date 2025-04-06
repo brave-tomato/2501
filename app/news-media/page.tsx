@@ -186,31 +186,6 @@ const NewsMediaPage = () => {
                                             </div>
                                         </Col>
                                     </Row>
-                                    {/* <Row className={styles['event-container']}>
-                                        <Col span={8}>
-                                            内容
-                                            <div className={styles['event-text']}>
-                                                <h2>{event.title}</h2>
-                                                <p>{event.subtitle}</p>
-                                                <Flex className={styles['event-date']} gap={16}>
-                                                    <div>{event.date}</div>
-                                                    <div> {event.category}</div>
-                                                </Flex>
-                                            </div>
-                                        </Col>
-                                        <Col span={12}>
-                                            图片
-                                            <div style={{ width: '100%' }}>
-                                                <AspectRatio ratio={670 / 424}>
-                                                    <img
-                                                        src={event.image}
-                                                        alt={event.title}
-                                                        className={styles['event-image']}
-                                                    />
-                                                </AspectRatio>
-                                            </div>
-                                        </Col>
-                                    </Row> */}
                                 </Link>
                             </SwiperSlide>
                         ))}
