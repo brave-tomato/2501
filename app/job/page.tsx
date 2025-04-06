@@ -2,7 +2,7 @@
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
-import { Col, ConfigProvider, Flex, GetProps, Grid, Input, Menu, MenuProps, Pagination, Row, Tabs } from 'antd';
+import { Col, ConfigProvider, Flex, GetProps, Grid, Input, Menu, MenuProps, Modal, Pagination, Row, Tabs } from 'antd';
 type SearchProps = GetProps<typeof Input.Search>;
 
 import jobList from './data';
@@ -77,6 +77,20 @@ const JobPage = () => {
         setActiveKey(key);
     };
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div>
             <HeroSection src="/images/hero-section/job@2x.png">
@@ -138,6 +152,7 @@ const JobPage = () => {
                             id="grid-job-playground"
                             gutter={[68, 68]}
                             justify="space-around"
+                            onClick={showModal}
                         >
                             {jobList.map((payload: any, index: number) => (
                                 <Col key={index} span={8}>
@@ -202,6 +217,71 @@ const JobPage = () => {
                     </Col>
                 </Row>
             </div>
+
+            {/* modal */}
+            <Modal
+                title=""
+                closeIcon={null}
+                footer={null}
+                open={isModalOpen}
+                onOk={handleOk}
+                onCancel={handleCancel}
+                width={1215}
+            >
+                <div style={{ padding: 48 }}>
+                    <Flex className={styles['modal-wrapper']} vertical>
+                        {/* 标题 */}
+                        <div className={styles.title}>电芯开发工程师</div>
+                        <Flex gap={32} vertical>
+                            <Row>
+                                <Col span={2}>
+                                    <div className={styles.label}>工作地点</div>
+                                </Col>
+                                <Col span={1}></Col>
+                                <Col span={21}>
+                                    <div className={styles['label-content']}>北京房山</div>
+                                </Col>
+                            </Row>
+
+                            <Row>
+                                <Col span={2}>
+                                    <div className={styles.label}>职位描述</div>
+                                </Col>
+                                <Col span={1}></Col>
+                                <Col span={21}>
+                                    <div className={styles['label-content']}>
+                                        <p>
+                                            1、负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；1、负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；
+                                        </p>
+                                        <p>
+                                            2、负责组织进行产品方案设计与验证、产品设计与验证及产品导入，并提供技术支持；
+                                        </p>
+                                        <p>
+                                            3、负责整理、总结产品开发过程和关键问题数据，形成产品开发数据库和产品性能解决方案库。
+                                        </p>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col span={2}>
+                                    <div className={styles.label}>职位要求</div>
+                                </Col>
+                                <Col span={1}></Col>
+                                <Col span={21}>
+                                    <div className={styles['label-content']}>
+                                        负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Flex>
+                        {/* 邮箱 */}
+                        <Flex className={styles['email-box']}>
+                            <div className={styles.label}>简历投递邮箱：</div>
+                            <div className={styles['label']}>job@welion.cn</div>
+                        </Flex>
+                    </Flex>
+                </div>
+            </Modal>
         </div>
     );
 };

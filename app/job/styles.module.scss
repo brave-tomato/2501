@@ -84,3 +84,32 @@
         border-radius: 50px;
     }
 }
+
+// 弹窗
+.modal-wrapper {
+    p {
+        margin: 0;
+    }
+    .title {
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--custom-blue);
+    }
+    .label {
+        font-size: 18px;
+        color: var(--custom-green);
+    }
+    .label-content {
+        font-size: 16px;
+        color: var(--custom-gray);
+        word-break: break-all;
+    }
+    .email-box {
+        font-weight: 500;
+        margin-top: 28px;
+        .label {
+            padding-top: 16px;
+            border-top: 1px solid var(--custom-green);
+        }
+    }
+}
