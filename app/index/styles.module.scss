@@ -2,11 +2,12 @@
 .point {
     position: absolute;
     z-index: 1;
-    width: 18px;
-    height: 18px;
+    width: 28px;
+    height: 28px;
     background-color: #fff;
-    border: 7px solid #103675;
+    border: 9px solid #103675;
     border-radius: 50%;
+    transform: translate(-50%, -50%);
     animation: point 3s infinite;
 
     &::before,
@@ -17,8 +18,8 @@
         top: 50%;
         z-index: -1;
         display: block;
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         background: rgba(0, 30, 180, 0.2);
         transform: translate(-50%, -50%);
@@ -27,6 +28,18 @@
 
     &::after {
         animation: pointWrap 3s infinite;
+    }
+
+    &Popover {
+        padding: 12px 24px !important;
+        background-color: rgba(16, 54, 117, 0.9) !important;
+        border-radius: 56px !important;
+        font-size: 24px;
+        line-height: 32px;
+
+        :global(.ant-popover-inner-content) {
+            color: #fff !important;
+        }
     }
 }
 
@@ -58,14 +71,80 @@
 
 // 点位 1
 .point1 {
-    top: 40%;
-    left: 44%;
+    top: 36.67%;
+    left: 45.16%;
 }
 
 // 点位 2
 .point2 {
-    top: 23.5%;
-    left: 14%;
+    top: 50.5%;
+    left: 39%;
+}
+
+// 点位 3
+.point3 {
+    top: 33%;
+    left: 8%;
+}
+
+// 点位 4
+.point4 {
+    top: 39%;
+    left: 5%;
+}
+
+// 点位 5
+.point5 {
+    top: 42%;
+    left: 17%;
+}
+
+// 点位 6
+.point6 {
+    top: 20%;
+    left: 24.8%;
+}
+
+// 点位 7
+.point7 {
+    top: 17%;
+    left: 41.7%;
+}
+
+// 点位 8
+.point8 {
+    top: 20%;
+    left: 67%;
+}
+
+// 点位 9
+.point9 {
+    top: 39.53%;
+    left: 56.45%;
+}
+
+// 点位 10
+.point10 {
+    top: 77.78%;
+    left: 42.08%;
+}
+
+// 点位 11
+.point11 {
+    top: 56.2%;
+    left: 80.42%;
+}
+
+// 点位 12
+.point12 {
+    top: 58.98%;
+    left: 90.88%;
+}
+
+// 点位 13
+.point13 {
+    top: 76.39%;
+    left: 93.49%;
 }
 
 // 阴影
