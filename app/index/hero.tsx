@@ -1,12 +1,18 @@
 'use client';
 
 import { useSetState } from 'ahooks';
+import { Popover } from 'antd';
 import { useEffect } from 'react';
 
 /**
  * Components
  */
 import AspectRatio from '@/components/aspect-ratio';
+
+/**
+ * Styles
+ */
+import styles from './styles.module.scss';
 
 const Hero: React.FC = () => {
     /**
@@ -54,6 +60,16 @@ const Hero: React.FC = () => {
             >
                 {state.url ? <source src={state.url} type="video/mp4" /> : null}
             </video>
+
+            {/* 点位 1 */}
+            <Popover content={<img alt="" src="/static/footer/logo.png" />}>
+                <div className={`${styles.point} ${styles.point1}`} />
+            </Popover>
+
+            {/* 点位 2 */}
+            <Popover content={<img alt="" src="/static/footer/logo.png" />}>
+                <div className={`${styles.point} ${styles.point2}`} />
+            </Popover>
         </AspectRatio>
     );
 };
