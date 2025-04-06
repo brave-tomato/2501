@@ -90,6 +90,11 @@
     p {
         margin: 0;
     }
+    .line {
+        margin: 41px 0 44px;
+        height: 1px;
+        background-color: var(--custom-green);
+    }
     .title {
         font-size: 32px;
         font-weight: 500;

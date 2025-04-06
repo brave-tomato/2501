@@ -232,6 +232,7 @@ const JobPage = () => {
                     <Flex className={styles['modal-wrapper']} vertical>
                         {/* 标题 */}
                         <div className={styles.title}>电芯开发工程师</div>
+                        <div className={styles.line}></div>
                         <Flex gap={32} vertical>
                             <Row>
                                 <Col span={2}>
