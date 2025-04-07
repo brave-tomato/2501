@@ -136,18 +136,17 @@ const HeaderComponent: FC<ICustomComponentProps> = ({ className }) => {
             className={className}
         >
             {/* Logo部分 */}
-            <div style={{ width: 300, cursor: 'pointer' }} onClick={() => router.push('/')}>
-                <AspectRatio ratio={conf.logo}>
-                    <img
-                        src={
-                            isHovered || isScrolled || isMobile
-                                ? '/images/indexpage/nav_logo@2x.png'
-                                : '/images/indexpage/nav_logo_white@2x.png'
-                        }
-                        alt="北京卫蓝新能源科技股份有限公司"
-                        style={{ height: '100%', objectFit: 'contain' }}
-                    />
-                </AspectRatio>
+            <div style={{ width: 197, cursor: 'pointer' }} onClick={() => router.push('/')}>
+                <img
+                    alt="北京卫蓝新能源科技股份有限公司"
+                    height={26}
+                    src={
+                        isHovered || isScrolled || isMobile
+                            ? '/static/header/logo.png'
+                            : '/static/header/logo_white.png'
+                    }
+                    width={197}
+                />
             </div>
 
             {/* 导航菜单 */}
