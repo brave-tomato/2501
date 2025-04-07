@@ -221,7 +221,12 @@ const Demander = () => {
             <Row>
                 <Col span={24}>
                     <Form.Item name="detailedDemandDescription">
-                        <Input.TextArea placeholder="订单需求预估，期望交货时间，其他特殊需求等……" />
+                        <Input.TextArea
+                            className={styles['textarea-box']}
+                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
+                            maxLength={100}
+                            style={{ height: 168, resize: 'none', borderRadius: 0 }}
+                        />
                     </Form.Item>
                 </Col>
             </Row>
