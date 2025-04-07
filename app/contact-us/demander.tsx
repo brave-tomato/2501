@@ -3,6 +3,8 @@ import { Button, Checkbox, Col, Form, Input, Radio, Row, Select } from 'antd';
 import Link from 'next/link';
 import React from 'react';
 
+import styles from './styles.module.scss';
+
 const { Option } = Select;
 
 // 定义各个 Radio.Group 的选项数组
@@ -58,61 +60,55 @@ const Demander = () => {
 
     return (
         <Form
+            className={styles['form-wrapper']}
+            colon={false}
             name="my_form"
             // labelCol={{
             //     span: 8,
             // }}
-            wrapperCol={{
-                span: 16,
-            }}
+            // wrapperCol={{
+            //     span: 16,
+            // }}
             initialValues={{
                 // 可根据需求设置初始值
                 applicationRegion: '中国大陆',
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            style={{ padding: `0 76px` }}
+            style={{ padding: `40px 76px 0` }}
         >
             <Row>
                 {/* 第一行表单字段 */}
                 <Col span={8}>
-                    <Form.Item
-                        name="companyName"
-                        label="公司名称"
-                        rules={[{ required: true, message: '请输入公司名称' }]}
-                    >
-                        <Input placeholder="请输入公司名称" />
+                    <Form.Item name="companyName" label="公司名称" labelCol={{ flex: '200px' }}>
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="jobPosition" label="职位" rules={[{ required: true, message: '请输入职位' }]}>
-                        <Input placeholder="请输入职位" />
+                    <Form.Item name="jobPosition" label="职位" labelCol={{ flex: '200px' }}>
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="officialWebsite" label="官方网站" rules={[{ required: false }]}>
-                        <Input placeholder="请输入官方网站" />
+                    <Form.Item name="officialWebsite" label="官方网站" labelCol={{ flex: '200px' }}>
+                        <Input />
                     </Form.Item>
                 </Col>
 
                 {/* 第二行表单字段 */}
                 <Col span={8}>
-                    <Form.Item name="name" label="姓名" rules={[{ required: true, message: '请输入姓名' }]}>
-                        <Input placeholder="请输入姓名" />
+                    <Form.Item name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="phone" label="电话" rules={[{ required: true, message: '请输入电话' }]}>
-                        <Input placeholder="请输入电话" />
+                    <Form.Item name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item
-                        name="email"
-                        label="邮箱"
-                        rules={[{ required: true, message: '请输入邮箱', type: 'email' }]}
-                    >
-                        <Input placeholder="请输入邮箱" />
+                    <Form.Item name="email" label="邮箱" labelCol={{ flex: '200px' }}>
+                        <Input />
                     </Form.Item>
                 </Col>
             </Row>
@@ -121,7 +117,12 @@ const Demander = () => {
             <TitleSmallSection title="应用场景选择" />
             <Row>
                 <Col span={24}>
-                    <Form.Item name="passengerApplication" label="乘用类应用" valuePropName="checked">
+                    <Form.Item
+                        name="passengerApplication"
+                        label="乘用类应用"
+                        labelCol={{ flex: '200px' }}
+                        valuePropName="checked"
+                    >
                         <Radio.Group>
                             {passengerApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
@@ -132,7 +133,12 @@ const Demander = () => {
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item name="commercialApplication" label="商用类应用" valuePropName="checked">
+                    <Form.Item
+                        name="commercialApplication"
+                        label="商用类应用"
+                        labelCol={{ flex: '200px' }}
+                        valuePropName="checked"
+                    >
                         <Radio.Group>
                             {commercialApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
@@ -143,7 +149,12 @@ const Demander = () => {
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item name="lowAltitudeEconomyApplication" label="低空经济类应用" valuePropName="checked">
+                    <Form.Item
+                        name="lowAltitudeEconomyApplication"
+                        label="低空经济类应用"
+                        labelCol={{ flex: '200px' }}
+                        valuePropName="checked"
+                    >
                         <Radio.Group>
                             {lowAltitudeEconomyApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
@@ -155,7 +166,12 @@ const Demander = () => {
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item name="energyStorageApplication" label="储能应用" valuePropName="checked">
+                    <Form.Item
+                        name="energyStorageApplication"
+                        label="储能应用"
+                        labelCol={{ flex: '200px' }}
+                        valuePropName="checked"
+                    >
                         <Radio.Group>
                             {energyStorageApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
@@ -166,7 +182,12 @@ const Demander = () => {
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item name="otherBusiness" label="其他业务" valuePropName="checked">
+                    <Form.Item
+                        name="otherBusiness"
+                        label="其他业务"
+                        labelCol={{ flex: '200px' }}
+                        valuePropName="checked"
+                    >
                         <Radio.Group>
                             {otherBusinessOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
@@ -182,7 +203,7 @@ const Demander = () => {
             <TitleSmallSection title="详细需求描述" />
             <Row>
                 <Col span={24}>
-                    <Form.Item name="detailedDemandDescription" label="详细需求描述" rules={[{ required: false }]}>
+                    <Form.Item name="detailedDemandDescription" label="详细需求描述" labelCol={{ flex: '200px' }}>
                         <Input.TextArea placeholder="订单需求预估，期望交货时间，其他特殊需求等……" />
                     </Form.Item>
                 </Col>
@@ -194,7 +215,7 @@ const Demander = () => {
                     <TitleSmallSection title="应用地区" />
                 </Col>
                 <Col>
-                    <Form.Item name="applicationRegion" label="应用地区">
+                    <Form.Item name="applicationRegion">
                         <Select placeholder="请选择应用地区">
                             {applicationRegionOptions.map((option) => (
                                 <Option key={option.value} value={option.value}>

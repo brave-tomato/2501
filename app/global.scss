@@ -155,3 +155,22 @@
 .ant-btn-lg {
     padding: 0 !important;
 }
+
+// 联系我们-form表单
+.ant-form-item-label {
+    background-color: var(--custom-green) !important;
+    border-radius: 50px 0 0 50px !important;
+}
+.ant-form-item .ant-form-item-label > label {
+    color: #fff !important;
+    font-size: 18px !important;
+    line-height: 26px !important;
+    height: 50px !important;
+}
+.ant-form-item-control-input-content {
+    height: 50px !important;
+    .ant-input {
+        height: 50px !important;
+        border-radius: 0 50px 50px 0 !important;
+    }
+}
