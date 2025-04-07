@@ -6,9 +6,13 @@ import { ICustomComponentProps } from '@/types';
 import { Divider, Flex } from 'antd';
 import { StaggeredText } from '../motion';
 
-/**
- *
- */
+import styles from './index.module.scss';
+
+// 第二个
+export const TitleSmallSection: FC<ICustomComponentProps> = ({ title }) => {
+    return <div className={styles['title-small']}>{title}</div>;
+};
+
 const TitleSection: FC<ICustomComponentProps> = ({ title, subtitle = '' }) => {
     return (
         <Flex gap={80} vertical>

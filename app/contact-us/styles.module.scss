@@ -34,18 +34,34 @@
     }
 }
 
-.modal {
-    .title {
-        color: #103675;
+// 标题
+.title {
+    color: #103675;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.subtitle {
+    color: #2dafb7;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+// tab
+.tab-wrapper {
+    margin-top: 43px;
+    .tabname {
+        height: 100px;
+        background-color: var(--custom-green);
         font-size: 30px;
-        line-height: 40px;
-        text-align: center;
+        line-height: 38px;
+        color: #fff;
     }
 
-    .subtitle {
-        color: #2dafb7;
-        font-size: 16px;
-        line-height: 20px;
-        text-align: center;
+    .active {
+        background-color: #33c3cc;
     }
 }
