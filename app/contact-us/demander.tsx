@@ -1,5 +1,5 @@
 import { TitleSmallSection } from '@/components/title-section';
-import { Button, Checkbox, Col, Form, Input, Radio, Row, Select } from 'antd';
+import { Button, Checkbox, Col, Flex, Form, Input, Radio, Row, Select } from 'antd';
 import Link from 'next/link';
 import React from 'react';
 
@@ -63,12 +63,6 @@ const Demander = () => {
             className={styles['form-wrapper']}
             colon={false}
             name="my_form"
-            // labelCol={{
-            //     span: 8,
-            // }}
-            // wrapperCol={{
-            //     span: 16,
-            // }}
             initialValues={{
                 // 可根据需求设置初始值
                 applicationRegion: '中国大陆',
@@ -80,50 +74,68 @@ const Demander = () => {
             <Row>
                 {/* 第一行表单字段 */}
                 <Col span={8}>
-                    <Form.Item name="companyName" label="公司名称" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="companyName"
+                        label="公司名称"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="jobPosition" label="职位" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="jobPosition"
+                        label="职位"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="officialWebsite" label="官方网站" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="officialWebsite"
+                        label="官方网站"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
 
                 {/* 第二行表单字段 */}
                 <Col span={8}>
-                    <Form.Item name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item className={styles['space1']} name="name" label="姓名" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item className={styles['space1']} name="phone" label="电话" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item name="email" label="邮箱" labelCol={{ flex: '200px' }}>
+                    <Form.Item className={styles['space1']} name="email" label="邮箱" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
             </Row>
 
             {/* 应用场景选择部分 */}
-            <TitleSmallSection title="应用场景选择" />
+            <div style={{ marginBottom: 20 }}>
+                <TitleSmallSection title="应用场景选择" />
+            </div>
             <Row>
                 <Col span={24}>
                     <Form.Item
+                        className={styles['space2']}
                         name="passengerApplication"
                         label="乘用类应用"
                         labelCol={{ flex: '200px' }}
                         valuePropName="checked"
                     >
-                        <Radio.Group>
+                        <Radio.Group className={styles['radio-wrapper']}>
                             {passengerApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
                                     {option.label}
@@ -134,12 +146,13 @@ const Demander = () => {
                 </Col>
                 <Col span={24}>
                     <Form.Item
+                        className={styles['space2']}
                         name="commercialApplication"
                         label="商用类应用"
                         labelCol={{ flex: '200px' }}
                         valuePropName="checked"
                     >
-                        <Radio.Group>
+                        <Radio.Group className={styles['radio-wrapper']}>
                             {commercialApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
                                     {option.label}
@@ -155,7 +168,7 @@ const Demander = () => {
                         labelCol={{ flex: '200px' }}
                         valuePropName="checked"
                     >
-                        <Radio.Group>
+                        <Radio.Group className={styles['radio-wrapper']}>
                             {lowAltitudeEconomyApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
                                     {option.label}
@@ -167,12 +180,13 @@ const Demander = () => {
 
                 <Col span={12}>
                     <Form.Item
+                        className={styles['space2']}
                         name="energyStorageApplication"
                         label="储能应用"
                         labelCol={{ flex: '200px' }}
                         valuePropName="checked"
                     >
-                        <Radio.Group>
+                        <Radio.Group className={styles['radio-wrapper']}>
                             {energyStorageApplicationOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
                                     {option.label}
@@ -183,12 +197,13 @@ const Demander = () => {
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item
+                        className={styles['space2']}
                         name="otherBusiness"
                         label="其他业务"
                         labelCol={{ flex: '200px' }}
                         valuePropName="checked"
                     >
-                        <Radio.Group>
+                        <Radio.Group className={styles['radio-wrapper']}>
                             {otherBusinessOptions.map((option) => (
                                 <Radio key={option.value} value={option.value}>
                                     {option.label}
@@ -200,10 +215,12 @@ const Demander = () => {
             </Row>
 
             {/* 详细需求描述 */}
-            <TitleSmallSection title="详细需求描述" />
+            <div style={{ marginBottom: 20 }}>
+                <TitleSmallSection title="详细需求描述" />
+            </div>
             <Row>
                 <Col span={24}>
-                    <Form.Item name="detailedDemandDescription" label="详细需求描述" labelCol={{ flex: '200px' }}>
+                    <Form.Item name="detailedDemandDescription">
                         <Input.TextArea placeholder="订单需求预估，期望交货时间，其他特殊需求等……" />
                     </Form.Item>
                 </Col>
