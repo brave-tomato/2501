@@ -50,41 +50,47 @@ const Header: React.FC = () => {
      */
     const pathname = usePathname();
 
-    console.log('pathname :>> ', pathname);
-
     return (
-        <header className={styles.header}>
-            <Flex align="center" justify="space-between">
-                {/* Logo */}
-                <Link href="/">
-                    <img alt="北京卫蓝新能源科技股份有限公司" className={styles.logo} src="/static/header/logo.svg" />
-                </Link>
+        <>
+            <header className={styles.header}>
+                <Flex align="center" justify="space-between">
+                    {/* Logo */}
+                    <Link href="/">
+                        <img
+                            alt="北京卫蓝新能源科技股份有限公司"
+                            className={styles.logo}
+                            src="/static/header/logo.svg"
+                        />
+                    </Link>
 
-                {/* 菜单 */}
-                <Flex className={styles.menu} gap={12}>
-                    {menus.map((menu) => (
-                        <Link
-                            className={classNames({ [styles.active]: pathname === menu.href })}
-                            href={menu.href}
-                            key={menu.href}
-                        >
-                            {menu.name}
-                        </Link>
-                    ))}
-                </Flex>
-
-                {/* 语言 */}
-                <Popover arrow={false} content={<div>选择区域/语言功能开发中</div>} placement="bottomRight">
-                    <Flex className={styles.language} gap={12}>
-                        <img alt="" src="/static/header/icon_earth.svg" />
-
-                        <span>选择区域/语言</span>
-
-                        <img alt="" src="/static/header/icon_arrow_down.svg" />
+                    {/* 菜单 */}
+                    <Flex className={styles.menu} gap={12}>
+                        {menus.map((menu) => (
+                            <Link
+                                className={classNames({ [styles.active]: pathname === menu.href })}
+                                href={menu.href}
+                                key={menu.href}
+                            >
+                                {menu.name}
+                            </Link>
+                        ))}
                     </Flex>
-                </Popover>
-            </Flex>
-        </header>
+
+                    {/* 语言 */}
+                    <Popover arrow={false} content={<div>选择区域/语言功能开发中</div>} placement="bottomRight">
+                        <Flex className={styles.language} gap={12}>
+                            <img alt="" src="/static/header/icon_earth.svg" />
+
+                            <span>选择区域/语言</span>
+
+                            <img alt="" src="/static/header/icon_arrow_down.svg" />
+                        </Flex>
+                    </Popover>
+                </Flex>
+            </header>
+
+            <div style={{ height: 70 }} />
+        </>
     );
 };
 
