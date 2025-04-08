@@ -60,7 +60,6 @@ const Page = () => {
     };
     const getActiveComponent = () => {
         const activeRole = roles.find((role: any) => role.key === activeKey);
-        console.log(activeRole, '===activeRole===');
         return activeRole ? activeRole.component : null;
     };
 
