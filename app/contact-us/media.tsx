@@ -37,34 +37,34 @@ const Media: React.FC = () => {
             <Row>
                 <Col span={12}>
                     <Form.Item className="space1" name="mediaName" label="媒体名称" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入媒体名称" />
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item className="space1" name="mediaAddress" label="媒体地址" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入媒体地址" />
+                        <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
                     <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入姓名" />
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item className="space1" name="jobTitle" label="职务" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入职务" />
+                        <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
                     <Form.Item className="space1" name="workEmail" label="工作邮箱" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入工作邮箱" />
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入电话" />
+                        <Input />
                     </Form.Item>
                 </Col>
             </Row>
@@ -93,8 +93,8 @@ const Media: React.FC = () => {
                     <Form.Item name="detailedDemandDescription" style={{ marginBottom: 0 }}>
                         <Input.TextArea
                             className={styles['textarea-box']}
-                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
                             maxLength={100}
+                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
                             style={{ height: 168, resize: 'none', borderRadius: 0 }}
                         />
                     </Form.Item>

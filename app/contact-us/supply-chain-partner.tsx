@@ -36,7 +36,7 @@ const SupplyChainPartner: React.FC = () => {
             <Row>
                 <Col span={12}>
                     <Form.Item className="space1" name="roleAttribute" label="角色属性" labelCol={{ flex: '200px' }}>
-                        <Flex className={styles['checkbox-half']} align="center">
+                        <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
                                 {roleOptions.map((option) => (
                                     <Checkbox key={option.value} value={option.value}>
@@ -44,34 +44,34 @@ const SupplyChainPartner: React.FC = () => {
                                     </Checkbox>
                                 ))}
                             </Checkbox.Group>
-                        </Flex>
+                        </Form.Item>
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item className="space1" name="companyName" label="公司名称" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入公司名称" />
+                        <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
                     <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入姓名" />
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入电话" />
+                        <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
                     <Form.Item className="space1" name="jobPosition" label="职务" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入职务" />
+                        <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item className="space1" name="email" label="邮箱" labelCol={{ flex: '200px' }}>
-                        <Input placeholder="请输入邮箱" />
+                        <Input />
                     </Form.Item>
                 </Col>
             </Row>
@@ -85,8 +85,8 @@ const SupplyChainPartner: React.FC = () => {
                     <Form.Item name="detailedDemandDescription" style={{ marginBottom: 0 }}>
                         <Input.TextArea
                             className={styles['textarea-box']}
-                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
                             maxLength={100}
+                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
                             style={{ height: 168, resize: 'none', borderRadius: 0 }}
                         />
                     </Form.Item>

@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 const { Option } = Select;
 
-// 定义各个 Radio.Group 的选项数组
+// 定义各个 Checkbox.Group 的选项数组
 const passengerApplicationOptions = [
     { value: 'pureElectricPassengerCar', label: '纯电乘用车' },
     { value: 'pureElectricOperationalPassengerCar', label: '纯电运营类乘用车' },
@@ -48,7 +48,7 @@ const applicationRegionOptions = [
     // { value: '中国台湾', label: '中国台湾' },
 ];
 
-const Demander: React.FC = () => {
+const Demander2: React.FC = () => {
     const onFinish = (values: any) => {
         console.log('Form submitted:', values);
         // 这里可以添加实际的提交逻辑，比如发送到后端接口
@@ -74,34 +74,49 @@ const Demander: React.FC = () => {
             <Row>
                 {/* 第一行表单字段 */}
                 <Col span={8}>
-                    <Form.Item className="space1" name="companyName" label="公司名称" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="companyName"
+                        label="公司名称"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className="space1" name="jobPosition" label="职位" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="jobPosition"
+                        label="职位"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className="space1" name="officialWebsite" label="官方网站" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="officialWebsite"
+                        label="官方网站"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
 
                 {/* 第二行表单字段 */}
                 <Col span={8}>
-                    <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item className={styles['space1']} name="name" label="姓名" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item className={styles['space1']} name="phone" label="电话" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className="space1" name="email" label="邮箱" labelCol={{ flex: '200px' }}>
+                    <Form.Item className={styles['space1']} name="email" label="邮箱" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
@@ -114,87 +129,88 @@ const Demander: React.FC = () => {
             <Row>
                 <Col span={24}>
                     <Form.Item
-                        className="space2"
+                        className={styles['space2']}
                         name="passengerApplication"
                         label="乘用类应用"
                         labelCol={{ flex: '200px' }}
-                        valuePropName="checked"
                     >
-                        <Radio.Group className={styles['radio-wrapper']}>
-                            {passengerApplicationOptions.map((option) => (
-                                <Radio key={option.value} value={option.value}>
-                                    {option.label}
-                                </Radio>
-                            ))}
-                        </Radio.Group>
+                        <Form.Item className={styles['checkbox-half']}>
+                            <Checkbox.Group className="checkbox-radio-box ">
+                                {passengerApplicationOptions.map((option) => (
+                                    <Checkbox key={option.value} value={option.value}>
+                                        {option.label}
+                                    </Checkbox>
+                                ))}
+                            </Checkbox.Group>
+                        </Form.Item>
                     </Form.Item>
                 </Col>
                 <Col span={24}>
                     <Form.Item
-                        className="space2"
+                        className={styles['space2']}
                         name="commercialApplication"
                         label="商用类应用"
                         labelCol={{ flex: '200px' }}
-                        valuePropName="checked"
                     >
-                        <Radio.Group className={styles['radio-wrapper']}>
-                            {commercialApplicationOptions.map((option) => (
-                                <Radio key={option.value} value={option.value}>
-                                    {option.label}
-                                </Radio>
-                            ))}
-                        </Radio.Group>
+                        <Form.Item className={styles['checkbox-half']}>
+                            <Checkbox.Group className="checkbox-radio-box ">
+                                {commercialApplicationOptions.map((option) => (
+                                    <Checkbox key={option.value} value={option.value}>
+                                        {option.label}
+                                    </Checkbox>
+                                ))}
+                            </Checkbox.Group>
+                        </Form.Item>
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item
-                        name="lowAltitudeEconomyApplication"
-                        label="低空经济类应用"
-                        labelCol={{ flex: '200px' }}
-                        valuePropName="checked"
-                    >
-                        <Radio.Group className={styles['radio-wrapper']}>
-                            {lowAltitudeEconomyApplicationOptions.map((option) => (
-                                <Radio key={option.value} value={option.value}>
-                                    {option.label}
-                                </Radio>
-                            ))}
-                        </Radio.Group>
+                    <Form.Item name="lowAltitudeEconomyApplication" label="低空经济类应用" labelCol={{ flex: '200px' }}>
+                        <Form.Item className={styles['checkbox-half']}>
+                            <Checkbox.Group className="checkbox-radio-box ">
+                                {lowAltitudeEconomyApplicationOptions.map((option) => (
+                                    <Checkbox key={option.value} value={option.value}>
+                                        {option.label}
+                                    </Checkbox>
+                                ))}
+                            </Checkbox.Group>
+                        </Form.Item>
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
                     <Form.Item
-                        className="space2"
+                        className={styles['space2']}
                         name="energyStorageApplication"
                         label="储能应用"
                         labelCol={{ flex: '200px' }}
-                        valuePropName="checked"
                     >
-                        <Radio.Group className={styles['radio-wrapper']}>
-                            {energyStorageApplicationOptions.map((option) => (
-                                <Radio key={option.value} value={option.value}>
-                                    {option.label}
-                                </Radio>
-                            ))}
-                        </Radio.Group>
+                        <Form.Item className={styles['checkbox-half']}>
+                            <Checkbox.Group className="checkbox-radio-box ">
+                                {energyStorageApplicationOptions.map((option) => (
+                                    <Checkbox key={option.value} value={option.value}>
+                                        {option.label}
+                                    </Checkbox>
+                                ))}
+                            </Checkbox.Group>
+                        </Form.Item>
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item
-                        className="space2"
+                        className={styles['space2']}
                         name="otherBusiness"
                         label="其他业务"
                         labelCol={{ flex: '200px' }}
-                        valuePropName="checked"
                     >
-                        <Radio.Group className={styles['radio-wrapper']}>
-                            {otherBusinessOptions.map((option) => (
-                                <Radio key={option.value} value={option.value}>
-                                    {option.label}
-                                </Radio>
-                            ))}
-                        </Radio.Group>
+                        <Form.Item className={styles['checkbox-half']}>
+                            <Checkbox.Group className="checkbox-radio-box ">
+                                {otherBusinessOptions.map((option) => (
+                                    <Checkbox key={option.value} value={option.value}>
+                                        {option.label}
+                                    </Checkbox>
+                                ))}
+                            </Checkbox.Group>
+                        </Form.Item>
                     </Form.Item>
                 </Col>
             </Row>
@@ -255,4 +271,4 @@ const Demander: React.FC = () => {
     );
 };
 
-export default Demander;
+export default Demander2;
