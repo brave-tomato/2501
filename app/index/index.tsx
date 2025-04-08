@@ -3,6 +3,7 @@
 import { RightOutlined } from '@ant-design/icons';
 import { useSetState } from 'ahooks';
 import { Col, Flex, Modal, Row, Typography } from 'antd';
+import classNames from 'classnames';
 import Link from 'next/link';
 
 /**
@@ -30,15 +31,15 @@ const Index: React.FC = () => {
             <Hero />
 
             {/* News */}
-            <Row>
-                <Col className={styles.shadow} span={10}>
+            <Row style={{ padding: '80px', backgroundColor: '#f7f7f7' }}>
+                <Col className={styles.shadow} span={10} style={{ backgroundColor: '#fff' }}>
                     <AspectRatio ratio={800 / 690}>
                         <img alt="" className={styles.cover} src="/static/index/img_01.jpg" />
 
                         <div className={styles.category}>综合要闻</div>
                     </AspectRatio>
 
-                    <div style={{ margin: '10%' }}>
+                    <div style={{ margin: '48px 10%' }}>
                         <Flex justify="space-between" align="center">
                             <div className={styles.date}>2025-04-05</div>
 
@@ -49,7 +50,7 @@ const Index: React.FC = () => {
                             </Link>
                         </Flex>
 
-                        <Link className={styles.title} href="/">
+                        <Link className={classNames(styles.title, styles.title1)} href="/">
                             卫蓝新能源与钇威科技签署战略合作协议
                         </Link>
 
@@ -59,14 +60,14 @@ const Index: React.FC = () => {
                     </div>
                 </Col>
 
-                <Col className={styles.shadow} span={7}>
+                <Col className={styles.shadow} span={7} style={{ backgroundColor: '#fff' }}>
                     <AspectRatio ratio={560 / 690}>
                         <img alt="" className={styles.cover} src="/static/index/img_02.jpg" />
 
                         <div className={styles.category}>企业动态</div>
                     </AspectRatio>
 
-                    <div style={{ margin: '10%' }}>
+                    <div style={{ margin: '48px 10%' }}>
                         <Flex justify="space-between" align="center">
                             <div className={styles.date}>2025-03-30</div>
 
@@ -87,14 +88,14 @@ const Index: React.FC = () => {
                     </div>
                 </Col>
 
-                <Col span={7}>
+                <Col span={7} style={{ backgroundColor: '#fff' }}>
                     <AspectRatio ratio={560 / 690}>
                         <img alt="" className={styles.cover} src="/static/index/img_03.jpg" />
 
                         <div className={styles.category}>时事热点</div>
                     </AspectRatio>
 
-                    <div style={{ margin: '10%' }}>
+                    <div style={{ margin: '48px 10%' }}>
                         <Flex justify="space-between" align="center">
                             <div className={styles.date}>2024-11-27</div>
 
@@ -115,9 +116,6 @@ const Index: React.FC = () => {
                     </div>
                 </Col>
             </Row>
-
-            {/* 灰条 */}
-            <div style={{ height: 24, backgroundColor: '#f3f3f3' }} />
 
             {/* 展会 */}
             <img

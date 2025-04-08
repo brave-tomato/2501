@@ -1,0 +1,40 @@
+.header {
+    padding: 0 90px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// Logo
+.logo {
+    width: 197px;
+    height: 26px;
+}
+
+// 菜单
+.menu {
+    a {
+        display: inline-block;
+        padding: 21px 18px 15px;
+        color: #7f8085;
+        font-size: 20px;
+        line-height: 28px;
+        border-bottom: 6px solid transparent;
+
+        &:hover {
+            color: #103675;
+        }
+
+        &.active {
+            color: #103675;
+            border-bottom-color: #103675;
+        }
+    }
+}
+
+// 语言
+.language {
+    color: #7f8085;
+    font-size: 20px;
+    line-height: 28px;
+    cursor: pointer;
+}
