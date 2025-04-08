@@ -1,8 +1,6 @@
 'use client';
-import HeroSection from '@/components/hero-section';
-import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
-import { Col, ConfigProvider, Flex, GetProps, Grid, Input, Menu, MenuProps, Modal, Pagination, Row, Tabs } from 'antd';
+import { Col, Flex, GetProps, Grid, Input, Modal, Pagination, Row } from 'antd';
 type SearchProps = GetProps<typeof Input.Search>;
 
 import jobList from './data';

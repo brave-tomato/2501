@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { getConf } from '@/utils';
 import Link from 'next/link';
-import { handleClientScriptLoad } from 'next/script';
+
 import styles from './styles.module.scss';
 
 const events = [
@@ -199,7 +199,7 @@ const NewsMediaPage = () => {
                 </div>
 
                 {/* 分页list */}
-                <Flex className={styles['news-list-wrapper']} gap={104} vertical>
+                <Flex className={styles['news-list-wrapper']} gap={104} vertical style={{ paddingRight: 32 }}>
                     <Row gutter={[64, 60]}>
                         {newsList.map((payload: any, index: number) => (
                             <Col key={index} span={8}>
