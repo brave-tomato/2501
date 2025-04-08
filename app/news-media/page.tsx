@@ -199,7 +199,7 @@ const NewsMediaPage = () => {
                 </div>
 
                 {/* 分页list */}
-                <Flex className={styles['news-list-wrapper']} gap={104} vertical style={{ paddingRight: 32 }}>
+                <Flex className={styles['news-list-wrapper']} gap={104} vertical style={{ overflow: 'hidden' }}>
                     <Row gutter={[64, 60]}>
                         {newsList.map((payload: any, index: number) => (
                             <Col key={index} span={8}>

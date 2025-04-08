@@ -141,7 +141,7 @@ const JobPage = () => {
                         </Flex>
                     </Col>
                     <Col span={1}></Col>
-                    <Col span={20} style={{ width: '100%', padding: '0 34px 0 0' }}>
+                    <Col span={20} style={{ width: '100%', overflow: 'hidden' }}>
                         <Row
                             className={styles['job-list-wrapper']}
                             id="grid-job-playground"
