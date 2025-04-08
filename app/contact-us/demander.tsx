@@ -48,7 +48,7 @@ const applicationRegionOptions = [
     // { value: '中国台湾', label: '中国台湾' },
 ];
 
-const Demander = () => {
+const Demander: React.FC = () => {
     const onFinish = (values: any) => {
         console.log('Form submitted:', values);
         // 这里可以添加实际的提交逻辑，比如发送到后端接口

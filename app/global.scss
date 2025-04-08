@@ -201,6 +201,15 @@
         border-radius: 0 !important;
     }
     .ant-checkbox-label {
-        margin-left: 16px;
+        margin-left: 8px !important;
+    }
+
+    .checkbox-radio-box {
+        .ant-checkbox-label {
+            margin-left: 0px !important;
+        }
+        .ant-checkbox-inner {
+            border-radius: 20px !important;
+        }
     }
 }

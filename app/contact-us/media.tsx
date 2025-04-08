@@ -1,7 +1,9 @@
-import { Button, Checkbox, Form, Input, TextArea } from 'antd';
+import { Button, Checkbox, Col, Flex, Form, Input, Row } from 'antd';
 import React from 'react';
 
-const { Item } = Form;
+import { TitleSmallSection } from '@/components/title-section';
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 // 定义来函目的的选项数组
 const purposeOptions = [
@@ -24,68 +26,113 @@ const Media: React.FC = () => {
 
     return (
         <Form
+            className={styles['form-wrapper']}
+            colon={false}
             name="media_form"
-            labelCol={{
-                span: 8,
-            }}
-            wrapperCol={{
-                span: 16,
-            }}
             initialValues={{}}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
+            style={{ padding: `40px 76px 52px` }}
         >
-            {/* 左侧表单字段 */}
-            <Item name="mediaName" label="媒体名称" rules={[{ required: true, message: '请输入媒体名称' }]}>
-                <Input placeholder="请输入媒体名称" />
-            </Item>
-            <Item name="name" label="姓名" rules={[{ required: true, message: '请输入姓名' }]}>
-                <Input placeholder="请输入姓名" />
-            </Item>
-            <Item
-                name="workEmail"
-                label="工作邮箱"
-                rules={[{ required: true, message: '请输入工作邮箱', type: 'email' }]}
-            >
-                <Input placeholder="请输入工作邮箱" />
-            </Item>
-            {/* 右侧表单字段 */}
-            <Item name="mediaAddress" label="媒体地址" rules={[{ required: false }]}>
-                <Input placeholder="请输入媒体地址" />
-            </Item>
-            <Item name="jobTitle" label="职务" rules={[{ required: false }]}>
-                <Input placeholder="请输入职务" />
-            </Item>
-            <Item name="phone" label="电话" rules={[{ required: true, message: '请输入电话' }]}>
-                <Input placeholder="请输入电话" />
-            </Item>
+            <Row>
+                <Col span={12}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="mediaName"
+                        label="媒体名称"
+                        labelCol={{ flex: '200px' }}
+                    >
+                        <Input placeholder="请输入媒体名称" />
+                    </Form.Item>
+                </Col>
+                <Col span={11} offset={1}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="mediaAddress"
+                        label="媒体地址"
+                        labelCol={{ flex: '200px' }}
+                    >
+                        <Input placeholder="请输入媒体地址" />
+                    </Form.Item>
+                </Col>
+
+                <Col span={12}>
+                    <Form.Item className={styles['space1']} name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                        <Input placeholder="请输入姓名" />
+                    </Form.Item>
+                </Col>
+                <Col span={11} offset={1}>
+                    <Form.Item className={styles['space1']} name="jobTitle" label="职务" labelCol={{ flex: '200px' }}>
+                        <Input placeholder="请输入职务" />
+                    </Form.Item>
+                </Col>
+
+                <Col span={12}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="workEmail"
+                        label="工作邮箱"
+                        labelCol={{ flex: '200px' }}
+                    >
+                        <Input placeholder="请输入工作邮箱" />
+                    </Form.Item>
+                </Col>
+                <Col span={11} offset={1}>
+                    <Form.Item className={styles['space1']} name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                        <Input placeholder="请输入电话" />
+                    </Form.Item>
+                </Col>
+            </Row>
+
             {/* 来函目的（改为 Checkbox 多选 ）*/}
-            <Item name="purpose" label="来函目的">
-                <Checkbox.Group>
-                    {purposeOptions.map((option) => (
-                        <Checkbox key={option.value} value={option.value}>
-                            {option.label}
-                        </Checkbox>
-                    ))}
-                </Checkbox.Group>
-            </Item>
+            <div style={{ marginBottom: 20 }}>
+                <TitleSmallSection title="来函目的" />
+            </div>
+            <Flex className={styles['checkbox-single']} align="center">
+                <Form.Item name="purpose" style={{ marginBottom: 0 }}>
+                    <Checkbox.Group className="checkbox-radio-box">
+                        {purposeOptions.map((option) => (
+                            <Checkbox key={option.value} value={option.value}>
+                                {option.label}
+                            </Checkbox>
+                        ))}
+                    </Checkbox.Group>
+                </Form.Item>
+            </Flex>
             {/* 详细需求描述 */}
-            <Item name="detailedDemandDescription" label="详细需求描述" rules={[{ required: false }]}>
-                <Input.TextArea placeholder="订单需求预估，期望交货时间，其他特殊需求等……" />
-            </Item>
+            <div style={{ marginBottom: 20, marginTop: 32 }}>
+                <TitleSmallSection title="详细需求描述" />
+            </div>
+            <Row>
+                <Col span={24}>
+                    <Form.Item name="detailedDemandDescription" style={{ marginBottom: 0 }}>
+                        <Input.TextArea
+                            className={styles['textarea-box']}
+                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
+                            maxLength={100}
+                            style={{ height: 168, resize: 'none', borderRadius: 0 }}
+                        />
+                    </Form.Item>
+                </Col>
+            </Row>
+
             {/* 隐私声明 */}
-            <Item
+            <Form.Item
                 name="agreePrivacyStatement"
                 valuePropName="checked"
                 rules={[{ required: true, message: '请勾选同意隐私声明' }]}
+                style={{ marginTop: 48 }}
             >
-                <Checkbox>我已仔细阅读并同意隐私声明</Checkbox>
-            </Item>
-            <Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
+                <Checkbox className={styles['checkbox-content']}>
+                    我已仔细阅读并同意<Link href={'/'}>隐私声明</Link>
+                </Checkbox>
+            </Form.Item>
+
+            <Form.Item wrapperCol={{ offset: 9, span: 7 }}>
+                <Button className={styles['button-submit']} block htmlType="submit" type="primary" shape="round">
                     提交
                 </Button>
-            </Item>
+            </Form.Item>
         </Form>
     );
 };

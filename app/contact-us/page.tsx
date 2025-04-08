@@ -84,6 +84,7 @@ const Page = () => {
                                 className={classNames(
                                     item.key === activeKey ? styles['active'] : '',
                                     styles['tabname'],
+                                    'cursor-pointer',
                                 )}
                                 align="center"
                                 justify="center"
