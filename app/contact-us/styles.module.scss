@@ -69,12 +69,6 @@
 // form表单
 .form-wrapper {
     background-color: #f7f7f7;
-    .space1 {
-        letter-spacing: 7px;
-    }
-    .space2 {
-        letter-spacing: 4px;
-    }
 
     .radio-wrapper {
         font-size: 14px;
@@ -115,11 +109,15 @@
         letter-spacing: 5px;
     }
 
-    .checkbox-single {
+    .checkbox-single,
+    .checkbox-half {
         height: 50px;
         border: 1px solid pink;
         border-radius: 50px;
         padding-left: 45px;
         border: 1px solid #d9d9d9;
+    }
+    .checkbox-half {
+        border-radius: 0 50px 50px 0;
     }
 }

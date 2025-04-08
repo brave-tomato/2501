@@ -157,6 +157,16 @@
 }
 
 // 联系我们-form表单
+.ant-form-item.space1 {
+    label.ant-form-item-no-colon {
+        letter-spacing: 7px;
+    }
+}
+.ant-form-item.space2 {
+    label.ant-form-item-no-colon {
+        letter-spacing: 4px;
+    }
+}
 .ant-form-item-label {
     background-color: var(--custom-green) !important;
     border-radius: 50px 0 0 50px !important;

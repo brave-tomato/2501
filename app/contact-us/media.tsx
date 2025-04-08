@@ -36,49 +36,34 @@ const Media: React.FC = () => {
         >
             <Row>
                 <Col span={12}>
-                    <Form.Item
-                        className={styles['space1']}
-                        name="mediaName"
-                        label="媒体名称"
-                        labelCol={{ flex: '200px' }}
-                    >
+                    <Form.Item className="space1" name="mediaName" label="媒体名称" labelCol={{ flex: '200px' }}>
                         <Input placeholder="请输入媒体名称" />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item
-                        className={styles['space1']}
-                        name="mediaAddress"
-                        label="媒体地址"
-                        labelCol={{ flex: '200px' }}
-                    >
+                    <Form.Item className="space1" name="mediaAddress" label="媒体地址" labelCol={{ flex: '200px' }}>
                         <Input placeholder="请输入媒体地址" />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item className={styles['space1']} name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
                         <Input placeholder="请输入姓名" />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className={styles['space1']} name="jobTitle" label="职务" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="jobTitle" label="职务" labelCol={{ flex: '200px' }}>
                         <Input placeholder="请输入职务" />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item
-                        className={styles['space1']}
-                        name="workEmail"
-                        label="工作邮箱"
-                        labelCol={{ flex: '200px' }}
-                    >
+                    <Form.Item className="space1" name="workEmail" label="工作邮箱" labelCol={{ flex: '200px' }}>
                         <Input placeholder="请输入工作邮箱" />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className={styles['space1']} name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
                         <Input placeholder="请输入电话" />
                     </Form.Item>
                 </Col>

@@ -74,49 +74,34 @@ const Demander: React.FC = () => {
             <Row>
                 {/* 第一行表单字段 */}
                 <Col span={8}>
-                    <Form.Item
-                        className={styles['space1']}
-                        name="companyName"
-                        label="公司名称"
-                        labelCol={{ flex: '200px' }}
-                    >
+                    <Form.Item className="space1" name="companyName" label="公司名称" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item
-                        className={styles['space1']}
-                        name="jobPosition"
-                        label="职位"
-                        labelCol={{ flex: '200px' }}
-                    >
+                    <Form.Item className="space1" name="jobPosition" label="职位" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item
-                        className={styles['space1']}
-                        name="officialWebsite"
-                        label="官方网站"
-                        labelCol={{ flex: '200px' }}
-                    >
+                    <Form.Item className="space1" name="officialWebsite" label="官方网站" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
 
                 {/* 第二行表单字段 */}
                 <Col span={8}>
-                    <Form.Item className={styles['space1']} name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className={styles['space1']} name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className={styles['space1']} name="email" label="邮箱" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="email" label="邮箱" labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
@@ -129,7 +114,7 @@ const Demander: React.FC = () => {
             <Row>
                 <Col span={24}>
                     <Form.Item
-                        className={styles['space2']}
+                        className="space2"
                         name="passengerApplication"
                         label="乘用类应用"
                         labelCol={{ flex: '200px' }}
@@ -146,7 +131,7 @@ const Demander: React.FC = () => {
                 </Col>
                 <Col span={24}>
                     <Form.Item
-                        className={styles['space2']}
+                        className="space2"
                         name="commercialApplication"
                         label="商用类应用"
                         labelCol={{ flex: '200px' }}
@@ -180,7 +165,7 @@ const Demander: React.FC = () => {
 
                 <Col span={12}>
                     <Form.Item
-                        className={styles['space2']}
+                        className="space2"
                         name="energyStorageApplication"
                         label="储能应用"
                         labelCol={{ flex: '200px' }}
@@ -197,7 +182,7 @@ const Demander: React.FC = () => {
                 </Col>
                 <Col span={11} offset={1}>
                     <Form.Item
-                        className={styles['space2']}
+                        className="space2"
                         name="otherBusiness"
                         label="其他业务"
                         labelCol={{ flex: '200px' }}
