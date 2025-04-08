@@ -43,9 +43,9 @@ const otherBusinessOptions = [{ value: 'otherBusinessValue', label: '其他业�
 const applicationRegionOptions = [
     { value: '中国大陆', label: '中国大陆' },
     // 可根据实际情况添加更多选项
-    { value: '中国香港', label: '中国香港' },
-    { value: '中国澳门', label: '中国澳门' },
-    { value: '中国台湾', label: '中国台湾' },
+    // { value: '中国香港', label: '中国香港' },
+    // { value: '中国澳门', label: '中国澳门' },
+    // { value: '中国台湾', label: '中国台湾' },
 ];
 
 const Demander = () => {
@@ -69,7 +69,7 @@ const Demander = () => {
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            style={{ padding: `40px 76px 0` }}
+            style={{ padding: `40px 76px 52px` }}
         >
             <Row>
                 {/* 第一行表单字段 */}
@@ -232,13 +232,13 @@ const Demander = () => {
             </Row>
 
             {/* 应用地区 */}
-            <Row>
+            <Row gutter={34} align="middle">
                 <Col>
                     <TitleSmallSection title="应用地区" />
                 </Col>
                 <Col>
-                    <Form.Item name="applicationRegion">
-                        <Select placeholder="请选择应用地区">
+                    <Form.Item name="applicationRegion" style={{ marginBottom: 0 }}>
+                        <Select className={styles['select-box']} placeholder="请选择应用地区">
                             {applicationRegionOptions.map((option) => (
                                 <Option key={option.value} value={option.value}>
                                     {option.label}
@@ -254,14 +254,15 @@ const Demander = () => {
                 name="agreePrivacyStatement"
                 valuePropName="checked"
                 rules={[{ required: true, message: '请勾选同意隐私声明' }]}
+                style={{ marginTop: 48 }}
             >
-                <Checkbox>
+                <Checkbox className={styles['checkbox-content']}>
                     我已仔细阅读并同意<Link href={'/'}>隐私声明</Link>
                 </Checkbox>
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 9, span: 7 }} style={{ backgroundColor: 'pink' }}>
-                <Button block htmlType="submit" type="primary" shape="round">
+            <Form.Item wrapperCol={{ offset: 9, span: 7 }}>
+                <Button className={styles['button-submit']} block htmlType="submit" type="primary" shape="round">
                     提交
                 </Button>
             </Form.Item>

@@ -183,4 +183,24 @@
         font-size: 18px !important;
         line-height: 26px !important;
     }
+
+    .ant-select.ant-select-in-form-item {
+        height: 72px !important;
+        width: 260px !important;
+        .ant-select-selector {
+            border-radius: 0 !important;
+        }
+    }
+    .ant-select-single .ant-select-selector {
+        color: #636464 !important;
+    }
+    .ant-checkbox-inner,
+    .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type='checkbox'] {
+        width: 18px !important;
+        height: 18px !important;
+        border-radius: 0 !important;
+    }
+    .ant-checkbox-label {
+        margin-left: 16px;
+    }
 }
