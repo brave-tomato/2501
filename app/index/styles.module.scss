@@ -148,6 +148,21 @@
     left: 93.49%;
 }
 
+// 新闻标题
+.newsTitle1 {
+    color: #103675;
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 54px;
+}
+
+.newsTitle2 {
+    color: #2dafb7;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
 // 阴影
 .shadow {
     position: relative;
@@ -179,37 +194,57 @@
     left: 10%;
     bottom: 10%;
     display: inline-block;
-    padding: 8px 32px;
+    padding: 8px 22px 8px 24px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 44px;
     color: #103675;
     font-size: 20px;
     line-height: 28px;
+    letter-spacing: 2px;
 }
 
 // 日期
 .date {
     color: #103675;
     font-size: 20px;
+    font-weight: 600;
     line-height: 28px;
 }
 
 // 链接
-.link {
+.link,
+.more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 50px;
     background-color: #103675;
     border-radius: 50%;
-    color: #fff;
-    font-size: 28px;
+}
+
+.more {
+    gap: 16px;
+    width: auto;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
     line-height: 50px;
-    text-align: center;
+
+    span {
+        color: #fff;
+    }
+
+    img {
+        width: 10px;
+        height: 16px;
+    }
 }
 
 // 标题
 .title {
     display: block;
-    margin: 24px 0;
+    margin-top: 28px;
     color: #2dafb7;
     font-size: 20px;
     font-weight: 500;
@@ -223,7 +258,7 @@
 
 // 内容
 .content {
-    margin: 40px 0 0 !important;
+    margin: 10px 0 0 !important;
     color: #969696 !important;
 }
 
