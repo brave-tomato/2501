@@ -139,8 +139,8 @@ const NewsMediaPage = () => {
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* tab选项卡 */}
-            <div className="mw-1920" style={conf.xxxl ? { padding: `0 210px` } : {}}>
-                {/* <div className="mw-1920" style={{ padding: `0 210px` }}> */}
+            {/* <div className="mw-1920" style={conf.xxxl ? { padding: `0 210px` } : {}}> */}
+            <div className="mw-1920" style={{ padding: `0 210px` }}>
                 {/* swiper */}
                 <div className={styles['news-media-swiper-wrapper']}>
                     <div className={classNames(styles['swiper-button'], ' cursor-pointer ')}>

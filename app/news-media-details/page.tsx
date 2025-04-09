@@ -124,11 +124,12 @@ const NewsMediaDetailsPage = () => {
             {/* 左右布局：左边展示详情，右边切换 */}
             <div
                 className="mw-1920"
-                style={
-                    conf.xxxl
-                        ? { padding: `0 210px`, marginTop: 104, overflow: 'hidden' }
-                        : { marginTop: 104, overflow: 'hidden' }
-                }
+                // style={
+                //     conf.xxxl
+                //         ? { padding: `0 210px`, marginTop: 104, overflow: 'hidden' }
+                //         : { marginTop: 104, overflow: 'hidden' }
+                // }
+                style={{ padding: `0 210px`, marginTop: 104, overflow: 'hidden' }}
             >
                 <Row gutter={70}>
                     <Col span={16} style={{ width: '100%' }}>
