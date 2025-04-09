@@ -2,16 +2,11 @@
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
 
-import { FC } from 'react';
-import { Pagination as SwiperPagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 import AspectRatio from '@/components/aspect-ratio';
 import { getConf } from '@/utils';
 import { useSetState } from 'ahooks';
-import { Col, Flex, Grid, Pagination, Row } from 'antd';
-import classNames from 'classnames';
-import { stat } from 'fs';
+import { Col, Flex, Grid, Row } from 'antd';
+
 import styles from './styles.module.scss';
 
 const events = [
@@ -121,26 +116,20 @@ const NewsMediaDetailsPage = () => {
      */
     const conf = getConf(Grid.useBreakpoint());
 
-    /**
-     * States
-     */
-    const [state, setState] = useSetState<any>({
-        swiperCulture2: null,
-        currentPage: 1,
-        total: 1000,
-    });
-
-    const onChange = (page: any, pageSize: any) => {
-        console.log(page, pageSize, '---9999--page, pageSize');
-    };
-
     return (
         <div>
             <HeroSection src="/images/hero-section/news-media@2x.png">
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* 左右布局：左边展示详情，右边切换 */}
-            <div className="mw-1920" style={conf.xxxl ? { padding: `0 90px`, marginTop: 104 } : { marginTop: 104 }}>
+            <div
+                className="mw-1920"
+                style={
+                    conf.xxxl
+                        ? { padding: `0 210px`, marginTop: 104, overflow: 'hidden' }
+                        : { marginTop: 104, overflow: 'hidden' }
+                }
+            >
                 <Row gutter={70}>
                     <Col span={16} style={{ width: '100%' }}>
                         <Flex className={styles['news-details-left-box']} gap={36} vertical>

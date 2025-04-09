@@ -139,11 +139,12 @@ const NewsMediaPage = () => {
                 <TitleSection title="新闻媒体" />
             </HeroSection>
             {/* tab选项卡 */}
-            <div className="mw-1920" style={conf.xxxl ? { padding: `0 130px` } : {}}>
+            <div className="mw-1920" style={conf.xxxl ? { padding: `0 210px` } : {}}>
+                {/* <div className="mw-1920" style={{ padding: `0 210px` }}> */}
                 {/* swiper */}
                 <div className={styles['news-media-swiper-wrapper']}>
                     <div className={classNames(styles['swiper-button'], ' cursor-pointer ')}>
-                        <Flex gap={40}>
+                        <Flex gap={68}>
                             <img
                                 className={styles['button-prev']}
                                 src="/images/news-media/icon_news_swiper_left@2x.png"
@@ -167,13 +168,13 @@ const NewsMediaPage = () => {
                                     <Row>
                                         <Col span={8}>
                                             {/* 内容 */}
-                                            <Flex className={styles['event-text']} gap={48} vertical>
+                                            <Flex className={styles['event-text']} gap={58} vertical>
                                                 <Flex gap={34} vertical>
                                                     <div className={styles.title}>{event.title}</div>
                                                     <div className={styles.subtitle}>{event.subtitle}</div>
                                                 </Flex>
 
-                                                <Flex className={styles['event-date']} gap={16}>
+                                                <Flex className={styles['event-date']} gap={34}>
                                                     <div>{event.date}</div>
                                                     <div> {event.category}</div>
                                                 </Flex>
@@ -182,7 +183,7 @@ const NewsMediaPage = () => {
                                         <Col span={16}>
                                             {/* 图片 */}
                                             <div style={{ width: '100%' }}>
-                                                <AspectRatio ratio={670 / 424}>
+                                                <AspectRatio ratio={985 / 691}>
                                                     <img
                                                         src={event.image}
                                                         alt={event.title}
@@ -200,25 +201,25 @@ const NewsMediaPage = () => {
 
                 {/* 分页list */}
                 <Flex className={styles['news-list-wrapper']} gap={104} vertical style={{ overflow: 'hidden' }}>
-                    <Row gutter={[64, 60]}>
+                    <Row gutter={[44, 60]}>
                         {newsList.map((payload: any, index: number) => (
                             <Col key={index} span={8}>
                                 <Link href={'/news-media-details'}>
                                     <Flex
                                         align="start"
                                         className={styles['link-box']}
-                                        gap={32}
+                                        gap={40}
                                         justify="start"
                                         vertical
                                     >
                                         {/* 图片 */}
                                         <div style={{ width: '100%' }}>
-                                            <AspectRatio ratio={511 / 342}>
+                                            <AspectRatio ratio={471 / 316}>
                                                 <img src={payload.image} width={`100%`} height={`100%`} />
                                             </AspectRatio>
                                         </div>
                                         {/* 内容 */}
-                                        <Flex gap={22} vertical>
+                                        <Flex className={styles['content-box']} gap={22} vertical>
                                             {/* 日期和分类 */}
                                             <Flex gap={28} style={{ fontSize: 18, color: `var(--custom-gray)` }}>
                                                 <div>{payload.date}</div>
