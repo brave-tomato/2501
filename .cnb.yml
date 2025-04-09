@@ -28,7 +28,18 @@
           username: $REMOTE_USERNAME
           password: $REMOTE_PASSWORD
           target: /home/wwwroot/2501_fe
-          source: ./out/
+          source: ./out
+
+      - name: update application
+        image: tencentcom/ssh
+        settings:
+          host: $REMOTE_HOST
+          username: $REMOTE_USERNAME
+          password: $REMOTE_PASSWORD
+          script: |
+            cd /home/wwwroot/2501_fe
+
+            \mv -f out/* ./
 
 main:
   pull_request:
