@@ -28,8 +28,7 @@
           username: $REMOTE_USERNAME
           password: $REMOTE_PASSWORD
           target: /home/wwwroot/2501_fe
-          source: ./out
-          strip_components: 1
+          source: ./out/
 
 main:
   pull_request:
