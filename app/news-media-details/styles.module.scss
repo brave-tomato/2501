@@ -16,11 +16,15 @@
         color: var(--custom-gray);
         line-height: 26px;
         p {
-            margin: 48px 0;
+            margin: 50px 0 40px;
+        }
+        p:nth-child(1) {
+            margin-top: 0;
         }
         .img-title {
             font-size: 14px;
-            margin-top: 24px;
+            line-height: 22px;
+            margin-top: 20px;
         }
     }
 }

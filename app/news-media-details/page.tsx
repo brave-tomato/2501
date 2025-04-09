@@ -132,12 +132,12 @@ const NewsMediaDetailsPage = () => {
             >
                 <Row gutter={70}>
                     <Col span={16} style={{ width: '100%' }}>
-                        <Flex className={styles['news-details-left-box']} gap={36} vertical>
-                            <Flex gap={24} vertical>
+                        <Flex className={styles['news-details-left-box']} gap={84} vertical>
+                            <Flex gap={47} vertical>
                                 <div className={styles.title}>
                                     卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！
                                 </div>
-                                <Flex className={styles.subtitle} gap={70}>
+                                <Flex className={styles.subtitle} gap={30}>
                                     <div>时间：2025-03-31</div>
                                     <div>点击量：12345</div>
                                 </Flex>
@@ -149,7 +149,7 @@ const NewsMediaDetailsPage = () => {
                                 </p>
                                 <Flex align="center" justify="center" vertical>
                                     <div style={{ textAlign: 'center', width: '100%' }}>
-                                        <AspectRatio ratio={1137 / 739}>
+                                        <AspectRatio ratio={500 / 340}>
                                             <img
                                                 src={'/images/news-media/details/img_1@2x.png'}
                                                 style={{ width: '100%' }}
@@ -163,7 +163,7 @@ const NewsMediaDetailsPage = () => {
                                 </p>
                                 <Flex align="center" justify="center" vertical>
                                     <div style={{ textAlign: 'center', width: '100%' }}>
-                                        <AspectRatio ratio={1137 / 739}>
+                                        <AspectRatio ratio={500 / 340}>
                                             <img
                                                 src={'/images/news-media/details/img_2@2x.png'}
                                                 style={{ width: '100%' }}
@@ -175,23 +175,23 @@ const NewsMediaDetailsPage = () => {
                                     </div>
                                 </Flex>
                                 <Flex align="center" justify="center" vertical style={{ marginTop: 48 }}>
-                                    <div style={{ textAlign: 'center', width: 533 }}>
-                                        <AspectRatio ratio={533 / 691}>
+                                    <div style={{ textAlign: 'center', width: 500 }}>
+                                        <AspectRatio ratio={500 / 656}>
                                             <img
                                                 src={'/images/news-media/details/img_3@2x.png'}
-                                                style={{ width: 533 }}
+                                                style={{ width: 500 }}
                                             />
                                         </AspectRatio>
                                     </div>
                                     <div className={styles['img-title']}>（图：2024年北京市独角兽企业证书）</div>
                                 </Flex>
                                 <p>
-                                    <p>
+                                    <div>
                                         目前，369家独角兽企业分布在16个领域。独角兽企业覆盖了全国47个城市，“北上深广杭”集聚超六成，北京以114家的数量位居全国首位。
-                                    </p>
-                                    <p>
+                                    </div>
+                                    <div>
                                         注：《中国独角兽企业发展报告（2024年）》由中关村独角兽企业发展联盟联合毕马威企业咨询（中国）有限公司、长城战略咨询、北京方迪经济发展研究院、清华大学中国科技政策研究中心共同发布。
-                                    </p>
+                                    </div>
                                 </p>
                             </div>
                         </Flex>
