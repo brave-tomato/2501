@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-    output: 'export',
+    output: 'standalone',
     transpilePackages: ['three'],
     typescript: {
         ignoreBuildErrors: true,
