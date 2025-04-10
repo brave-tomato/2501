@@ -8,11 +8,31 @@
       - https://cnb.cool/liuuu/cases/secret/-/blob/main/env.yml
 
     stages:
-      - name: build application
-        script: |
-          npm install -g pnpm --register=https://registry.npmmirror.com
-          pnpm install
-          pnpm run build
+      - name: update application
+        image: tencentcom/ssh
+        settings:
+          host: $REMOTE_HOST
+          username: $REMOTE_USERNAME
+          password: $REMOTE_PASSWORD
+          script: |
+            export NVM_DIR="\$HOME/.nvm"
+            [ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"
+            [ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion"
+
+            cd /home/wwwroot/2501_fe
+
+            git fetch --all
+            git reset --hard origin/main
+
+            pnpm install
+            pnpm build
+            pm2 restart 2501_fe
+
+      # - name: build application
+      #   script: |
+      #     npm install -g pnpm --register=https://registry.npmmirror.com
+      #     pnpm install
+      #     pnpm run build
 
       # - name: upload application
       #   image: tencentcom/coscli
@@ -21,25 +41,25 @@
       #     coscli config add --init-skip=true -b $COS_BUCKET -r $COS_REGION
       #     coscli cp ./out cos://$COS_BUCKET -r
 
-      - name: upload application
-        image: tencentcom/scp
-        settings:
-          host: $REMOTE_HOST
-          username: $REMOTE_USERNAME
-          password: $REMOTE_PASSWORD
-          target: /home/wwwroot/2501_fe
-          source: ./out
+      # - name: upload application
+      #   image: tencentcom/scp
+      #   settings:
+      #     host: $REMOTE_HOST
+      #     username: $REMOTE_USERNAME
+      #     password: $REMOTE_PASSWORD
+      #     target: /home/wwwroot/2501_fe
+      #     source: ./out
 
-      - name: update application
-        image: tencentcom/ssh
-        settings:
-          host: $REMOTE_HOST
-          username: $REMOTE_USERNAME
-          password: $REMOTE_PASSWORD
-          script: |
-            cd /home/wwwroot/2501_fe
+      # - name: update application
+      #   image: tencentcom/ssh
+      #   settings:
+      #     host: $REMOTE_HOST
+      #     username: $REMOTE_USERNAME
+      #     password: $REMOTE_PASSWORD
+      #     script: |
+      #       cd /home/wwwroot/2501_fe
 
-            \mv -f out/* ./
+      #       \mv -f out/* ./
 
 main:
   pull_request:
