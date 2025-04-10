@@ -21,7 +21,7 @@ const culture1 = [
     {
         id: 1,
         src: '/images/research-and-innovation/play@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: '原位固态化',
         subtitle: 'In-situ Solidification',
         content: '原位固态化原位固态化',
@@ -29,7 +29,7 @@ const culture1 = [
     {
         id: 2,
         src: '/images/research-and-innovation/play_02@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: '固态电解质涂敷',
         subtitle: 'Solid Electrolyte Blending',
         content: '固态电解质涂敷固态电解质涂敷',
@@ -37,7 +37,7 @@ const culture1 = [
     {
         id: 3,
         src: '/images/research-and-innovation/play@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: '固态电解质正极包覆',
         subtitle: 'Solid Electrolyte Coating the Cathode',
         content: '固态电解质正极包覆固态电解质正极包覆',
@@ -45,7 +45,7 @@ const culture1 = [
     {
         id: 4,
         src: '/images/research-and-innovation/play_02@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: 'Title 4',
         subtitle: 'Subtitle 4',
         content: 'Content for item 4',
@@ -53,7 +53,7 @@ const culture1 = [
     {
         id: 5,
         src: '/images/research-and-innovation/play@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: 'Title 5',
         subtitle: 'Subtitle 5',
         content: 'Content for item 5',
@@ -61,7 +61,7 @@ const culture1 = [
     {
         id: 6,
         src: '/images/research-and-innovation/play_02@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: 'Title 6',
         subtitle: 'Subtitle 6',
         content: 'Content for item 6',
@@ -69,7 +69,7 @@ const culture1 = [
     {
         id: 7,
         src: '/images/research-and-innovation/play@2x.png',
-        video: '/images/about-us/banner.mp4',
+        video: 'https://2501-r2.liuuu.net/about-us/banner.mp4',
         title: 'Title 7',
         subtitle: 'Subtitle 7',
         content: 'Content for item 7',

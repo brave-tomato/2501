@@ -33,7 +33,10 @@ const Hero: React.FC = () => {
 
             setState({
                 poster: hour >= 20 || hour < 6 ? '/static/index/night_poster.png' : '/static/index/day_poster.png',
-                url: hour >= 20 || hour < 6 ? '/static/index/night.mp4' : '/static/index/day.mp4',
+                url:
+                    hour >= 20 || hour < 6
+                        ? 'https://2501-r2.liuuu.net/index/night.mp4'
+                        : 'https://2501-r2.liuuu.net/index/day.mp4',
             });
         };
 

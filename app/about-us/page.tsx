@@ -77,7 +77,7 @@ const Page = () => {
                         objectFit: 'cover',
                     }}
                 >
-                    {conf.lg ? <source src="/images/about-us/banner.mp4" type="video/mp4" /> : null}
+                    {conf.lg ? <source src="https://2501-r2.liuuu.net/about-us/banner.mp4" type="video/mp4" /> : null}
                 </video>
 
                 {/* 文案 */}
@@ -176,7 +176,7 @@ const Page = () => {
                                             controls
                                             loop
                                             playsInline
-                                            src="/images/about-us/zh_CN.mp4"
+                                            src="https://2501-r2.liuuu.net/about-us/zh_CN.mp4"
                                             style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                         />
                                     </div>
