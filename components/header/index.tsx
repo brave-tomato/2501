@@ -21,6 +21,13 @@ const menus = [
     {
         href: '/about-us',
         name: '关于我们',
+        children: [
+            { href: '/about-us/team0', name: '愿景使命价值观' },
+            { href: '/about-us/team1', name: '员工关怀' },
+            { href: '/about-us/team2', name: '企业简介' },
+            { href: '/about-us/team3', name: '全球布局' },
+            { href: '/about-us/team4', name: '可持续发展' },
+        ],
     },
     {
         href: '/research-and-innovation',
@@ -29,6 +36,11 @@ const menus = [
     {
         href: '/applications-and-solutions',
         name: '应用与解决方案',
+        children: [
+            { href: '/applications-and-solutions/automotive', name: '动力类应用' },
+            { href: '/applications-and-solutions/energy-storage', name: '低空经济类应用' },
+            { href: '/applications-and-solutions/consumer-electronics', name: '储能应用' },
+        ],
     },
     {
         href: '/news-media',
@@ -41,6 +53,10 @@ const menus = [
     {
         href: '/job',
         name: '人才招聘',
+    },
+    {
+        href: '/t',
+        name: 'T',
     },
 ];
 
@@ -66,13 +82,36 @@ const Header: React.FC = () => {
                     {/* 菜单 */}
                     <Flex className={styles.menu} gap={12}>
                         {menus.map((menu) => (
-                            <Link
-                                className={classNames({ [styles.active]: pathname === menu.href })}
-                                href={menu.href}
-                                key={menu.href}
-                            >
-                                {menu.name}
-                            </Link>
+                            <div key={menu.href}>
+                                <Link
+                                    className={classNames(styles.link, {
+                                        [styles.active]:
+                                            pathname === menu.href ||
+                                            menu.children?.some((submenu) => pathname === submenu.href),
+                                    })}
+                                    href={menu.href}
+                                >
+                                    {menu.name}
+                                </Link>
+
+                                {menu.children && (
+                                    <div className={styles.submenu}>
+                                        <Flex gap={50} justify="center">
+                                            {menu.children.map((submenu) => (
+                                                <Link
+                                                    className={classNames(styles.sublink, {
+                                                        [styles.active]: pathname === submenu.href,
+                                                    })}
+                                                    href={submenu.href}
+                                                    key={submenu.href}
+                                                >
+                                                    {submenu.name}
+                                                </Link>
+                                            ))}
+                                        </Flex>
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </Flex>
 
