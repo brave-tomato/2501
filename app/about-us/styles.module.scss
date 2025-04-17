@@ -17,3 +17,24 @@
         height: 70px;
     }
 }
+
+// 愿景
+.yuanjing-wrapper {
+    color: #fff;
+    // border-right: 1px solid #fff;
+    // &:last-child {
+    //     border-right: none;
+    // }
+    .title {
+        font-size: 52px;
+        font-weight: 500;
+        line-height: 88px;
+    }
+    .description {
+        font-size: 18px;
+        line-height: 26px;
+        overflow-wrap: break-word;
+        word-break: break-all;
+        width: 460px;
+    }
+}
