@@ -47,6 +47,7 @@ const culture2 = [
     '/images/about-us/img_01_04.png',
 ];
 
+// 愿景
 const contentData = [
     {
         title: '愿景',
@@ -65,6 +66,7 @@ const contentData = [
     },
 ];
 
+// 员工
 const yuangongList = [
     {
         image: '/images/about-us/yuangong_item@2x.png',
@@ -110,6 +112,24 @@ const yuangongList = [
     },
 ];
 
+// 可持续发展
+const kechixufazhanData = [
+    {
+        title: '协作共赢',
+        subtitle: 'WIN-WIN COOPERATION',
+        bg: '/images/about-us/ke_bg1@2x.png',
+    },
+    {
+        title: '绿色循环',
+        subtitle: 'GREEN CYCLE',
+        bg: '/images/about-us/ke_bg2@2x.png',
+    },
+    {
+        title: '持续创新',
+        subtitle: 'CONTINUOUS INNOVATION',
+        bg: '/images/about-us/ke_bg3@2x.png',
+    },
+];
 const Page = () => {
     /**
      * Hooks
@@ -247,10 +267,64 @@ const Page = () => {
                                 </Row>
                             </Flex>
                         </div>
-                        <div className="section">sdfsdf22222222222222</div>
-                        <div className="section">sdfsdf22222222222222</div>
-                        <div className="section">sdfsdf22222222222222</div>
-                        <div className="section">sdfsdf22222222222222</div>
+                        {/* 全球布局 */}
+                        <div className="section">
+                            <div
+                                style={{
+                                    height: '100vh',
+                                    backgroundImage: 'url(/images/about-us/quanqiu_bg@2x.png)',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                }}
+                            >
+                                <Flex align="center" justify="center">
+                                    <div style={{ width: 1249 }}>
+                                        <AspectRatio ratio={1249 / 666}>
+                                            <img
+                                                src="/images/about-us/quanqiu_map1@2x.png"
+                                                width={`100%`}
+                                                height={`100%`}
+                                            />
+                                        </AspectRatio>
+                                    </div>
+                                </Flex>
+                            </div>
+                        </div>
+                        {/* 可持续发展 */}
+                        <div className="section" style={{ position: 'relative' }}>
+                            <Row className={styles['kechixufazhan-wrapper']}>
+                                {kechixufazhanData.map((item, index) => (
+                                    <Col key={item.title} span={8}>
+                                        <Flex
+                                            align="center"
+                                            gap={20}
+                                            // justify="center"
+                                            vertical
+                                            style={{
+                                                height: '100vh',
+                                                backgroundImage: `url(${item.bg})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                paddingTop: 224,
+                                            }}
+                                        >
+                                            <div className={styles['title']}>{item.title}</div>
+                                            <div className={styles['subtitle']}>{item.subtitle}</div>
+                                        </Flex>
+                                    </Col>
+                                ))}
+                            </Row>
+                            {/* 企业 ESG */}
+                            <div className={styles['esg-btn']}>
+                                <div className={styles.esg}>
+                                    <img alt="" src="/images/about-us/esg.png" />
+
+                                    <span>
+                                        <span style={{ letterSpacing: '0.25em' }}>企业ES</span>G
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </ReactFullpage.Wrapper>
                 )}
             />
