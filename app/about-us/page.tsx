@@ -211,7 +211,7 @@ const Page = () => {
                                 }}
                             >
                                 {contentData.map((itemCol, index) => (
-                                    <Col span="8" style={{ height: '100%' }}>
+                                    <Col key={index} span="8" style={{ height: '100%' }}>
                                         <Flex
                                             align="center"
                                             className={classNames(
