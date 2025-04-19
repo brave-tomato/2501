@@ -18,6 +18,7 @@ const ComponentGlobe = dynamic(() => import('@/components/globe'), { ssr: false 
 /**
  * Styles
  */
+import classNames from 'classnames';
 import styles from './styles.module.scss';
 
 /**
@@ -135,7 +136,6 @@ const Page = () => {
                         <div className="section">
                             <Row
                                 align={'middle'}
-                                gutter={[16, 16]}
                                 style={{
                                     height: '100vh',
                                     backgroundImage: 'url(/images/about-us/bg_yuanjing@2x.png)',
@@ -143,9 +143,16 @@ const Page = () => {
                                     backgroundPosition: 'center',
                                 }}
                             >
-                                {contentData.map((itemCol) => (
-                                    <Col span="8">
-                                        <Flex align="center" className={styles['yuanjing-wrapper']} vertical>
+                                {contentData.map((itemCol, index) => (
+                                    <Col span="8" style={{ height: '100%' }}>
+                                        <Flex
+                                            align="center"
+                                            className={classNames(
+                                                styles['yuanjing-wrapper'],
+                                                index === contentData.length - 1 && styles['no-border-right'],
+                                            )}
+                                            vertical
+                                        >
                                             <div className={styles.title}>{itemCol.title}</div>
                                             <div className={styles.description}>{itemCol.description}</div>
                                         </Flex>
