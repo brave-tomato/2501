@@ -277,6 +277,7 @@ const Page = () => {
                                                 backgroundImage: `url(${item.bg})`,
                                                 backgroundSize: 'cover',
                                                 backgroundPosition: 'center',
+                                                overflow: `hidden`,
                                             }}
                                         >
                                             <Flex
