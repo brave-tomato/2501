@@ -2,18 +2,14 @@
 
 import { getConf } from '@/utils';
 import { useSetState } from 'ahooks';
-import { Col, Flex, Grid, Image, Row } from 'antd';
-import dynamic from 'next/dynamic';
+import { Col, Flex, Grid, Row } from 'antd';
 
 import ReactFullpage from '@fullpage/react-fullpage';
 /**
  * Components
  */
 import AspectRatio from '@/components/aspect-ratio';
-import { Title1, Title2 } from '@/components/headline';
 import { StaggeredText } from '@/components/motion';
-
-const ComponentGlobe = dynamic(() => import('@/components/globe'), { ssr: false });
 
 /**
  * Styles
@@ -132,159 +128,167 @@ const Page = () => {
         // Resetting the video on the previous section
     };
     return (
-        <div>
-            <AspectRatio ratio={1920 / 1080}>
-                {/* 视频 */}
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster="/images/about-us/top_bg@2x.png"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                    }}
-                >
-                    {conf.lg ? <source src="https://2501-r2.liuuu.net/about-us/banner.mp4" type="video/mp4" /> : null}
-                </video>
-
-                {/* 文案 */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '50%',
-                        width: '100%',
-                        transform: 'translateY(-50%)',
-                        color: 'white',
-                        fontSize: '50px',
-                        textAlign: 'center',
-                    }}
-                >
-                    <StaggeredText style={{ margin: '0 12px' }} text="让人类享受更安全的绿色能源" />
-                </div>
-            </AspectRatio>
-            <div className="App">
-                <ReactFullpage
-                    debug
-                    beforeLeave={beforeLeave}
-                    afterLoad={afterLoad}
-                    navigation={true}
-                    // licenseKey="xxxxxxxxxxxxxxxxxxxxxxxxx"
-                    render={() => (
-                        <ReactFullpage.Wrapper>
-                            {/* 愿景 */}
-                            <div className="section">
-                                <Row
-                                    align={'middle'}
+        <div className="App">
+            <ReactFullpage
+                debug
+                beforeLeave={beforeLeave}
+                afterLoad={afterLoad}
+                navigation={true}
+                // licenseKey="xxxxxxxxxxxxxxxxxxxxxxxxx"
+                render={() => (
+                    <ReactFullpage.Wrapper>
+                        <div className="section">
+                            <AspectRatio ratio={1920 / 1080}>
+                                {/* 视频 */}
+                                <video
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    poster="/images/about-us/top_bg@2x.png"
                                     style={{
-                                        height: '100vh',
-                                        backgroundImage: 'url(/images/about-us/bg_yuanjing@2x.png)',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
                                     }}
                                 >
-                                    {contentData.map((itemCol, index) => (
-                                        <Col key={index} span="8" style={{ height: '100%' }}>
-                                            <Flex
-                                                align="center"
-                                                className={classNames(
-                                                    styles['yuanjing-wrapper'],
-                                                    index === contentData.length - 1 && styles['no-border-right'],
-                                                )}
-                                                vertical
-                                            >
-                                                <div className={styles.title}>{itemCol.title}</div>
-                                                <div className={styles.description}>{itemCol.description}</div>
-                                            </Flex>
+                                    {conf.lg ? (
+                                        <source src="https://2501-r2.liuuu.net/about-us/banner.mp4" type="video/mp4" />
+                                    ) : null}
+                                </video>
+
+                                {/* 文案 */}
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        top: '50%',
+                                        width: '100%',
+                                        transform: 'translateY(-50%)',
+                                        color: 'white',
+                                        fontSize: '50px',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    <StaggeredText style={{ margin: '0 12px' }} text="让人类享受更安全的绿色能源" />
+                                </div>
+                            </AspectRatio>
+                        </div>
+                        {/* 愿景 */}
+                        <div className="section">
+                            <Row
+                                align={'middle'}
+                                style={{
+                                    height: '100vh',
+                                    backgroundImage: 'url(/images/about-us/bg_yuanjing@2x.png)',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                }}
+                            >
+                                {contentData.map((itemCol, index) => (
+                                    <Col key={index} span="8" style={{ height: '100%' }}>
+                                        <Flex
+                                            align="center"
+                                            className={classNames(
+                                                styles['yuanjing-wrapper'],
+                                                index === contentData.length - 1 && styles['no-border-right'],
+                                            )}
+                                            vertical
+                                        >
+                                            <div className={styles.title}>{itemCol.title}</div>
+                                            <div className={styles.description}>{itemCol.description}</div>
+                                        </Flex>
+                                    </Col>
+                                ))}
+                            </Row>
+                        </div>
+                        {/* 员工关怀  */}
+                        <div className="section" style={{ padding: `64px 230px ` }}>
+                            <Flex
+                                className={styles['yuangong-list-wrapper']}
+                                gap={104}
+                                vertical
+                                style={{ overflow: 'hidden' }}
+                            >
+                                <Row gutter={[0, 10]}>
+                                    {yuangongList.map((payload: any, index: number) => (
+                                        <Col key={index} span={8} className={styles['item-col']}>
+                                            <Link href={'/'}>
+                                                <Flex
+                                                    align="start"
+                                                    className={styles['link-box']}
+                                                    gap={20}
+                                                    justify="start"
+                                                    vertical
+                                                >
+                                                    {/* 图片 */}
+                                                    <div style={{ width: '100%' }}>
+                                                        <AspectRatio ratio={465 / 232}>
+                                                            <img src={payload.image} width={`100%`} height={`100%`} />
+                                                        </AspectRatio>
+                                                    </div>
+                                                    {/* 内容 */}
+                                                    <Flex className={styles['content-box']} gap={18} vertical>
+                                                        <div className={styles.title}>{payload.title}</div>
+                                                        {/* 日期和分类 */}
+                                                        <Flex>
+                                                            <div className={styles['date']}>{payload.date}</div>
+                                                        </Flex>
+                                                    </Flex>
+                                                </Flex>
+                                            </Link>
                                         </Col>
                                     ))}
                                 </Row>
-                            </div>
-                            {/* 员工关怀  */}
-                            <div className="section" style={{ padding: `64px 230px ` }}>
-                                <Flex
-                                    className={styles['yuangong-list-wrapper']}
-                                    gap={104}
-                                    vertical
-                                    style={{ overflow: 'hidden' }}
-                                >
-                                    <Row gutter={[0, 10]}>
-                                        {yuangongList.map((payload: any, index: number) => (
-                                            <Col key={index} span={8} className={styles['item-col']}>
-                                                <Link href={'/'}>
-                                                    <Flex
-                                                        align="start"
-                                                        className={styles['link-box']}
-                                                        gap={20}
-                                                        justify="start"
-                                                        vertical
-                                                    >
-                                                        {/* 图片 */}
-                                                        <div style={{ width: '100%' }}>
-                                                            <AspectRatio ratio={465 / 232}>
-                                                                <img
-                                                                    src={payload.image}
-                                                                    width={`100%`}
-                                                                    height={`100%`}
-                                                                />
-                                                            </AspectRatio>
-                                                        </div>
-                                                        {/* 内容 */}
-                                                        <Flex className={styles['content-box']} gap={18} vertical>
-                                                            <div className={styles.title}>{payload.title}</div>
-                                                            {/* 日期和分类 */}
-                                                            <Flex>
-                                                                <div className={styles['date']}>{payload.date}</div>
-                                                            </Flex>
-                                                        </Flex>
-                                                    </Flex>
-                                                </Link>
-                                            </Col>
-                                        ))}
-                                    </Row>
+                            </Flex>
+                        </div>
+                        {/* 全球布局 */}
+                        <div className="section">
+                            <div
+                                style={{
+                                    height: '100vh',
+                                    backgroundImage: 'url(/images/about-us/quanqiu_bg@2x.png)',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                }}
+                            >
+                                <Flex align="center" justify="center" style={{ height: '100vh' }}>
+                                    <div style={{ width: 1249 }}>
+                                        <AspectRatio ratio={1249 / 666}>
+                                            <img
+                                                src="/images/about-us/quanqiu_map1@2x.png"
+                                                width={`100%`}
+                                                height={`100%`}
+                                            />
+                                        </AspectRatio>
+                                    </div>
                                 </Flex>
                             </div>
-                            {/* 全球布局 */}
-                            <div className="section">
-                                <div
-                                    style={{
-                                        height: '100vh',
-                                        backgroundImage: 'url(/images/about-us/quanqiu_bg@2x.png)',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                    }}
-                                >
-                                    <Flex align="center" justify="center">
-                                        <div style={{ width: 1249 }}>
-                                            <AspectRatio ratio={1249 / 666}>
-                                                <img
-                                                    src="/images/about-us/quanqiu_map1@2x.png"
-                                                    width={`100%`}
-                                                    height={`100%`}
-                                                />
-                                            </AspectRatio>
-                                        </div>
-                                    </Flex>
-                                </div>
-                            </div>
-                            {/* 可持续发展 */}
-                            <div className="section" style={{ position: 'relative' }}>
+                        </div>
+                        {/* 可持续发展 */}
+                        <div className="section">
+                            <div style={{ position: 'relative' }}>
                                 <Row className={styles['kechixufazhan-wrapper']}>
                                     {kechixufazhanData.map((item, index) => (
-                                        <Col key={item.title} span={8}>
+                                        <Col
+                                            key={item.title}
+                                            span={8}
+                                            style={{
+                                                height: '100vh',
+                                                backgroundImage: `url(${item.bg})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                            }}
+                                        >
                                             <Flex
                                                 align="center"
                                                 gap={20}
                                                 // justify="center"
                                                 vertical
                                                 style={{
-                                                    height: '100vh',
-                                                    backgroundImage: `url(${item.bg})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center',
-                                                    paddingTop: 224,
+                                                    height: '100%',
+                                                    position: `relative`,
+                                                    top: '50%',
+                                                    transform: 'translateY(-20%)', // 实现垂直居中
                                                 }}
                                             >
                                                 <div className={styles['title']}>{item.title}</div>
@@ -304,10 +308,10 @@ const Page = () => {
                                     </div>
                                 </div>
                             </div>
-                        </ReactFullpage.Wrapper>
-                    )}
-                />
-            </div>
+                        </div>
+                    </ReactFullpage.Wrapper>
+                )}
+            />
         </div>
     );
 };
