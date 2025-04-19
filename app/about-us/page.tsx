@@ -163,14 +163,14 @@ const Page = () => {
                 render={() => (
                     <ReactFullpage.Wrapper>
                         <div className="section">
-                            <AspectRatio ratio={conf.banner}>
+                            <AspectRatio ratio={1920 / 1080}>
                                 {/* 视频 */}
                                 <video
                                     autoPlay
                                     loop
                                     muted
                                     playsInline
-                                    poster="/images/about-us/banner.jpg"
+                                    poster="/images/about-us/top_bg@2x.png"
                                     style={{
                                         width: '100%',
                                         height: '100%',
