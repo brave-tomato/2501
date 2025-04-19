@@ -41,3 +41,40 @@
         word-break: break-all;
     }
 }
+
+// List
+.yuangong-list-wrapper {
+    .item-col {
+        padding-bottom: 15px;
+    }
+    .link-box {
+        padding-bottom: 18px;
+        height: 100%;
+        border-bottom: 1px solid var(--custom-gray);
+        margin: 0 16px;
+        &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid var(--custom-green);
+            box-shadow:
+                -5px 5px 10px rgba(0, 0, 0, 0.2),
+                5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+    .title,
+    .date {
+        font-size: 16;
+        font-weight: 500;
+        color: var(--custom-black);
+        line-height: 24px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .date {
+        color: var(--custom-gray);
+    }
+    .content-box {
+        padding: 0 34px;
+        width: 100%;
+    }
+}

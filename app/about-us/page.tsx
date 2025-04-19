@@ -19,6 +19,7 @@ const ComponentGlobe = dynamic(() => import('@/components/globe'), { ssr: false 
  * Styles
  */
 import classNames from 'classnames';
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
 /**
@@ -61,6 +62,51 @@ const contentData = [
         title: '价值观',
         description:
             'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    },
+];
+
+const yuangongList = [
+    {
+        image: '/images/about-us/yuangong_item@2x.png',
+        date: '2024-04-24',
+        category: '企业动态',
+        title: '卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！',
+        description: '北京独角兽企业代表授牌仪式',
+    },
+    {
+        image: '/images/about-us/yuangong_item@2x.png',
+        date: '2023-11-27',
+        category: '时事热点',
+        title: '卫蓝新能源固态锂离子储能电池荣获中国能源研究会技术创新一等奖',
+        description: '中国能源研究会能源创新奖颁奖仪式',
+    },
+    {
+        image: '/images/about-us/yuangong_item@2x.png',
+        date: '2024-04-24',
+        category: '综合要闻',
+        title: '卫蓝新能源与亿威科技签署战略合作协议',
+        description: '卫蓝新能源与亿威科技合作相关场景',
+    },
+    {
+        image: '/images/about-us/yuangong_item@2x.png',
+        date: '2023-09-15',
+        category: '企业动态',
+        title: '卫蓝新能源入选2024年中国独角兽企业名单，排名第103位！',
+        description: '中天科技园区相关活动场景',
+    },
+    {
+        image: '/images/about-us/yuangong_item@2x.png',
+        date: '2024-06-11',
+        category: '时事热点',
+        title: '浙江龙泉固态电池网侧大规模储能电站并网',
+        description: '储能电站相关场景',
+    },
+    {
+        image: '/images/about-us/yuangong_item@2x.png',
+        date: '2024-04-24',
+        category: '综合要闻',
+        title: '卫蓝固态动力电池系统在CHINAPLAS 2024展会上广受关注',
+        description: '展会现场相关场景',
     },
 ];
 
@@ -133,6 +179,7 @@ const Page = () => {
                             </AspectRatio>
                         </div>
 
+                        {/* 愿景 */}
                         <div className="section">
                             <Row
                                 align={'middle'}
@@ -160,7 +207,46 @@ const Page = () => {
                                 ))}
                             </Row>
                         </div>
-                        <div className="section">sdfsdf22222222222222</div>
+                        {/* 员工关怀  */}
+                        <div className="section" style={{ padding: `64px 230px ` }}>
+                            <Flex
+                                className={styles['yuangong-list-wrapper']}
+                                gap={104}
+                                vertical
+                                style={{ overflow: 'hidden' }}
+                            >
+                                <Row gutter={[0, 10]}>
+                                    {yuangongList.map((payload: any, index: number) => (
+                                        <Col key={index} span={8} className={styles['item-col']}>
+                                            <Link href={'/'}>
+                                                <Flex
+                                                    align="start"
+                                                    className={styles['link-box']}
+                                                    gap={20}
+                                                    justify="start"
+                                                    vertical
+                                                >
+                                                    {/* 图片 */}
+                                                    <div style={{ width: '100%' }}>
+                                                        <AspectRatio ratio={465 / 232}>
+                                                            <img src={payload.image} width={`100%`} height={`100%`} />
+                                                        </AspectRatio>
+                                                    </div>
+                                                    {/* 内容 */}
+                                                    <Flex className={styles['content-box']} gap={18} vertical>
+                                                        <div className={styles.title}>{payload.title}</div>
+                                                        {/* 日期和分类 */}
+                                                        <Flex>
+                                                            <div className={styles['date']}>{payload.date}</div>
+                                                        </Flex>
+                                                    </Flex>
+                                                </Flex>
+                                            </Link>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </Flex>
+                        </div>
                         <div className="section">sdfsdf22222222222222</div>
                         <div className="section">sdfsdf22222222222222</div>
                         <div className="section">sdfsdf22222222222222</div>
