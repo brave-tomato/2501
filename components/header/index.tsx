@@ -22,20 +22,19 @@ const menus = [
         href: '/about-us',
         name: '关于我们',
         children: [
-            { href: '/about-us/team0', name: '愿景使命价值观' },
-            { href: '/about-us/team1', name: '员工关怀' },
-            { href: '/about-us/team2', name: '企业简介' },
-            { href: '/about-us/team3', name: '全球布局' },
-            { href: '/about-us/team4', name: '可持续发展' },
+            { href: '/about-us/profile', name: '简介&文化' },
+            { href: '/about-us/history', name: '公司历史' },
+            { href: '/about-us/global-layout', name: '全球布局' },
+            { href: '/about-us/sustainable-development', name: '可持续发展' },
         ],
     },
     {
         href: '/research-and-innovation',
-        name: '固态电池研发与创新',
+        name: '研发',
     },
     {
         href: '/applications-and-solutions',
-        name: '应用与解决方案',
+        name: '解决方案',
         children: [
             { href: '/applications-and-solutions/automotive', name: '动力类应用' },
             { href: '/applications-and-solutions/energy-storage', name: '低空经济类应用' },
@@ -44,7 +43,7 @@ const menus = [
     },
     {
         href: '/news-media',
-        name: '新闻媒体',
+        name: '新闻',
     },
     {
         href: '/contact-us',
@@ -53,10 +52,6 @@ const menus = [
     {
         href: '/job',
         name: '人才招聘',
-    },
-    {
-        href: '/t',
-        name: 'T',
     },
 ];
 
