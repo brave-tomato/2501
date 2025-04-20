@@ -138,7 +138,7 @@ const Page = () => {
                 render={() => (
                     <ReactFullpage.Wrapper>
                         <div className="section">
-                            <AspectRatio ratio={1920 / 1080}>
+                            <div style={{ width: '100%', height: `100vh`, overflow: 'hidden' }}>
                                 {/* 视频 */}
                                 <video
                                     autoPlay
@@ -148,7 +148,7 @@ const Page = () => {
                                     poster="/images/about-us/top_bg@2x.png"
                                     style={{
                                         width: '100%',
-                                        height: '100%',
+                                        height: 'inherit',
                                         objectFit: 'cover',
                                     }}
                                 >
@@ -171,7 +171,7 @@ const Page = () => {
                                 >
                                     <StaggeredText style={{ margin: '0 12px' }} text="让人类享受更安全的绿色能源" />
                                 </div>
-                            </AspectRatio>
+                            </div>
                         </div>
                         {/* 愿景 */}
                         <div className="section">
@@ -202,7 +202,7 @@ const Page = () => {
                             </Row>
                         </div>
                         {/* 员工关怀  */}
-                        <div className="section" style={{ padding: `64px 230px ` }}>
+                        <div className="section" style={{ padding: `0 230px ` }}>
                             <Flex
                                 className={styles['yuangong-list-wrapper']}
                                 gap={104}
@@ -286,10 +286,10 @@ const Page = () => {
                                                 // justify="center"
                                                 vertical
                                                 style={{
-                                                    height: '100%',
+                                                    // height: '100%',
                                                     position: `relative`,
-                                                    top: '50%',
-                                                    transform: 'translateY(-20%)', // 实现垂直居中
+                                                    top: '30%',
+                                                    // transform: 'translateY(-20%)', // 实现垂直居中
                                                 }}
                                             >
                                                 <div className={styles['title']}>{item.title}</div>
