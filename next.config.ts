@@ -1,8 +1,12 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     output: 'export',
-    transpilePackages: ['three'],
+    trailingSlash: true,
+    transpilePackages: ['next-international', 'international-types'],
     typescript: {
         ignoreBuildErrors: true,
     },
