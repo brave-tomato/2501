@@ -1,0 +1,35 @@
+'use client';
+import React, { FC } from 'react';
+
+import { ICustomComponentProps } from '@/types';
+
+import { Divider, Flex } from 'antd';
+import { StaggeredText } from '../motion';
+
+import styles from './index.module.scss';
+
+// 第二个
+export const TitleSmallSection: FC<ICustomComponentProps> = ({ title }) => {
+    return <div className={styles['title-small']}>{title}</div>;
+};
+
+const TitleSection: FC<ICustomComponentProps> = ({ title, subtitle = '' }) => {
+    return (
+        <Flex gap={80} vertical>
+            <Flex gap={8} vertical>
+                {/* 主标题 */}
+                <div className="title-top-big">
+                    <StaggeredText text={title} />
+                </div>
+                {/* 副标题 */}
+                {subtitle.length > 0 ? <div className="subtitle-top-big">{subtitle}</div> : null}
+            </Flex>
+            {/* 线 */}
+            <Divider
+                style={{ borderColor: `var(--custom-green)`, width: 110, minWidth: 110, borderWidth: 4, margin: 0 }}
+            ></Divider>
+        </Flex>
+    );
+};
+
+export default TitleSection;

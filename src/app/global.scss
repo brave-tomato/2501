@@ -1,0 +1,225 @@
+/* 字体 */
+@font-face {
+    font-family: 'Roboto';
+    font-stretch: 75% 100%;
+    font-weight: 100 900;
+    src: url('/static/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-stretch: 75% 100%;
+    font-style: italic;
+    font-weight: 100 900;
+    src: url('/static/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+}
+/* 字体 end */
+
+/* 变量 */
+:root:root {
+    --custom-blue: #103675;
+    --custom-green: #2dafb7;
+    --custom-black: #313232;
+    --custom-gray: #969696;
+    --custom-gray-light: #d9d9d9;
+
+    --custom-blue-rgb: 16, 54, 117;
+    --custom-green-rgb: 45, 175, 183;
+    --custom-black-rgb: 49, 50, 50;
+    --custom-gray-rgb: 150, 150, 150;
+    --custom-gray-light-rgb: 217, 217, 217;
+}
+/* 变量 end */
+
+/* 公共样式 */
+.mw-1920 {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+/* 公共样式 end */
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* 顶部导航区块的标题：固态电池研发与创新 */
+.title-top-big {
+    font-size: 52px;
+    color: #fff;
+}
+.subtitle-top-big {
+    font-size: 30px;
+    color: #fff;
+}
+
+/* 轮播图 */
+.swiper-culture {
+    position: relative;
+    width: 100%;
+}
+
+.swiper-culture .swiper-button-next {
+    right: -55px;
+    width: 44px;
+    height: 44px;
+    margin-top: -55px;
+    padding: 55px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    color: #103675;
+}
+
+.swiper-culture .swiper-button-prev {
+    left: -55px;
+    width: 44px;
+    height: 44px;
+    margin-top: -55px;
+    padding: 55px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    color: #103675;
+}
+
+.swiper-sustainable .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ffffff;
+    opacity: 1;
+}
+
+.swiper-sustainable .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #ffffff;
+}
+
+.bg-linear-green {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(253, 254, 254, 0.01) 40%,
+        rgba(245, 251, 252, 0.05) 54%,
+        rgba(231, 246, 247, 0.11) 64%,
+        rgba(212, 239, 240, 0.2) 73%,
+        rgba(187, 229, 232, 0.32) 80%,
+        rgba(156, 217, 221, 0.47) 86%,
+        rgba(118, 203, 208, 0.65) 92%,
+        rgba(77, 187, 194, 0.85) 97%,
+        rgba(45, 175, 183, 1) 100%
+    );
+}
+
+.bg-linear-green2 {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(118, 203, 208, 0.65) 92%,
+        rgba(77, 187, 194, 0.85) 97%,
+        rgba(45, 175, 183, 1) 100%
+    );
+}
+
+// 分页
+.ant-pagination .ant-pagination-item-active {
+    // width: 35px !important;
+    // height: 21px !important;
+    border: 1px solid transparent !important;
+    border-image: linear-gradient(90deg, var(--custom-green), var(--custom-blue)) 1 !important; /* 例如 border-color: blue; 将边框色改为蓝色 */
+    border-radius: 10px !important;
+}
+.ant-pagination .ant-pagination-item a,
+.ant-pagination .ant-pagination-item-active a {
+    color: var(--custom-gray) !important;
+}
+.ant-pagination .ant-pagination-next button {
+    color: var(--custom-black) !important;
+}
+
+// 导航
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after,
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after {
+    border-bottom-color: var(--custom-green) !important;
+}
+
+// 搜索后面的按钮
+.ant-input-search-button {
+    background-color: var(--custom-green) !important;
+    // width: 190px !important;
+    height: 54px !important;
+    border-radius: 0 30px 30px 0 !important;
+}
+.ant-input-affix-wrapper {
+    border-radius: 30px 0 0 30px !important;
+    height: 54px !important;
+}
+.ant-btn-lg {
+    padding: 0 !important;
+}
+
+// 联系我们-form表单
+.ant-form-item.space1 {
+    label.ant-form-item-no-colon {
+        letter-spacing: 7px;
+    }
+}
+.ant-form-item.space2 {
+    label.ant-form-item-no-colon {
+        letter-spacing: 4px;
+    }
+}
+.ant-form-item-label {
+    background-color: var(--custom-green) !important;
+    border-radius: 50px 0 0 50px !important;
+}
+.ant-form-item .ant-form-item-label > label {
+    color: #fff !important;
+    font-size: 18px !important;
+    line-height: 26px !important;
+    height: 50px !important;
+}
+.ant-form-item-control-input-content {
+    // height: 50px !important;
+    // line-height: 50px !important;
+    .ant-radio-group {
+        height: 100% !important;
+        line-height: 50px !important;
+        border: 1px solid #d9d9d9 !important;
+        width: 100% !important;
+        border-radius: 0 50px 50px 0 !important;
+    }
+    input.ant-input {
+        height: 50px !important;
+        border-radius: 0 50px 50px 0 !important;
+        font-size: 18px !important;
+        line-height: 26px !important;
+    }
+
+    .ant-select.ant-select-in-form-item {
+        height: 72px !important;
+        width: 260px !important;
+        .ant-select-selector {
+            border-radius: 0 !important;
+        }
+    }
+    .ant-select-single .ant-select-selector {
+        color: #636464 !important;
+    }
+    .ant-checkbox-inner,
+    .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type='checkbox'] {
+        width: 18px !important;
+        height: 18px !important;
+        border-radius: 0 !important;
+    }
+    .ant-checkbox-label {
+        margin-left: 8px !important;
+    }
+
+    .checkbox-radio-box {
+        .ant-checkbox-label {
+            margin-left: 0px !important;
+        }
+        .ant-checkbox-inner {
+            border-radius: 20px !important;
+        }
+    }
+}

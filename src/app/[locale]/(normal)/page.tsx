@@ -1,16 +1,13 @@
-'use client';
+/**
+ * Components
+ */
+import Index from './index';
 
-import { useI18n } from '@/locales/client';
-
-export default () => {
-    /**
-     * Hooks
-     */
-    const t = useI18n();
-
-    return (
-        <div style={{ height: '200vh', background: '#c7c7c7' }}>
-            <p>{t('welcome', { name: 'Welion' })}</p>
-        </div>
-    );
+/**
+ * Metadata
+ */
+export const metadata = {
+    title: '北京卫蓝新能源科技股份有限公司',
 };
+
+export default () => <Index />;

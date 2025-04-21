@@ -1,4 +1,9 @@
 /**
+ * Components
+ */
+import Footer from '@/components/footer';
+
+/**
  * Types
  */
 type Props = {
@@ -6,5 +11,13 @@ type Props = {
 };
 
 export default async ({ children }: Props) => {
-    return children;
+    return (
+        <>
+            {/* Page */}
+            {children}
+
+            {/* Footer */}
+            <Footer />
+        </>
+    );
 };

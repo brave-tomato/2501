@@ -1,0 +1,53 @@
+.swiper-item-wrapper {
+    text-align: center;
+
+    .content-box {
+        padding: 60px 0 70px;
+        border-radius: 0 0 18px 18px;
+    }
+    .title {
+        font-size: 28px;
+        color: var(--custom-blue);
+    }
+    .subtitle {
+        font-size: 16px;
+        color: var(--custom-green);
+    }
+    .content {
+        font-size: 16px;
+        color: var(--custom-gray);
+    }
+}
+
+.video-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 确保 z-index 足够高 */
+}
+
+.video-modal {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    display: flex;
+    // padding: 20px;
+    // border-radius: 8px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 9;
+}

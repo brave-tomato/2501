@@ -1,0 +1,16 @@
+.image-text-section-item-wrapper {
+    .title {
+        font-size: 24px;
+        color: var(--custom-green);
+    }
+    .content {
+        font-size: 16px;
+        color: var(--custom-gray);
+        text-align: center;
+    }
+    .content-box {
+        padding: 46px 60px 64px 60px;
+
+        border-radius: 0 0 18px 18px;
+    }
+}

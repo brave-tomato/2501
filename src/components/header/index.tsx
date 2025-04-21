@@ -111,7 +111,7 @@ export default ({ locale }: Props) => {
     }, []);
 
     return (
-        <header className={classNames(styles.header, { [styles.headerActive]: state.scroll })}>
+        <header className={classNames(styles.header, { [styles.headerActive]: true || state.scroll })}>
             <Flex align="center" justify="space-between" style={{ height: '100%' }}>
                 {/* Logo */}
                 <Link className={styles.logo} href={`/${locale}/`} />
