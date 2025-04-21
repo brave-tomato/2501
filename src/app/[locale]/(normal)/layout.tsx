@@ -10,7 +10,7 @@ type Props = {
     children: React.ReactNode;
 };
 
-export default async ({ children }: Props) => {
+export default ({ children }: Props) => {
     return (
         <>
             {/* Page */}

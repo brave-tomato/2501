@@ -26,9 +26,9 @@ const Footer: React.FC = () => {
                     </Link>
 
                     <Flex gap={8} style={{ marginTop: 24 }} vertical>
-                        <div className={styles.title2}>企业文化</div>
+                        <div className={styles.title2}>简介&文化</div>
 
-                        <div className={styles.title2}>公司简介</div>
+                        <div className={styles.title2}>公司历史</div>
 
                         <div className={styles.title2}>全球布局</div>
 
@@ -39,8 +39,8 @@ const Footer: React.FC = () => {
                 <Col span={1} />
 
                 <Col span={2}>
-                    <Link className={styles.title1} href="/research-and-innovation">
-                        固态电池研发与创新
+                    <Link className={styles.title1} href="/research">
+                        固态电池产业化
                     </Link>
 
                     <Flex gap={8} style={{ marginTop: 24 }} vertical>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                 <Col span={1} />
 
                 <Col span={2}>
-                    <Link className={styles.title1} href="/applications-and-solutions">
+                    <Link className={styles.title1} href="/solution">
                         应用与解决方案
                     </Link>
 
@@ -70,23 +70,15 @@ const Footer: React.FC = () => {
 
                 <Col span={2}>
                     <Flex gap={8} vertical>
-                        <Link className={styles.title1} href="/news-media">
-                            新闻媒体
-                        </Link>
-
-                        <Link className={styles.title1} href="/">
-                            制造
-                        </Link>
-
-                        <Link className={styles.title1} href="/">
-                            服务
+                        <Link className={styles.title1} href="/news">
+                            新闻
                         </Link>
 
                         <Link className={styles.title1} href="/contact-us">
                             联系我们
                         </Link>
 
-                        <Link className={styles.title1} href="/job">
+                        <Link className={styles.title1} href="/jobs">
                             人才招聘
                         </Link>
                     </Flex>
