@@ -169,11 +169,18 @@ export default ({ locale }: Props) => {
                     placement="bottomRight"
                 >
                     <Flex align="center" className={styles.language} gap={14}>
-                        <img alt="" src="/static/header/icon_earth.svg" width={22} />
+                        <img alt="" className={styles.icon} src="/static/header/icon_earth.svg" width={22} />
+                        <img alt="" className={styles.iconWhite} src="/static/header/icon_earth_white.svg" width={22} />
 
                         <span>{t('language')}</span>
 
-                        <img alt="" src="/static/header/icon_arrow_down.svg" width={20} />
+                        <img alt="" className={styles.icon} src="/static/header/icon_arrow_down.svg" width={20} />
+                        <img
+                            alt=""
+                            className={styles.iconWhite}
+                            src="/static/header/icon_arrow_down_white.svg"
+                            width={20}
+                        />
                     </Flex>
                 </Popover>
             </Flex>

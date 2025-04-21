@@ -5,6 +5,7 @@
     height: 70px;
     padding: 0 90px;
     z-index: 100;
+    transition: all 0.5s;
 }
 
 // Logo
@@ -22,14 +23,14 @@
     .link {
         display: block;
         padding: 22px 20px 16px;
-        color: #7f8085;
+        color: #fff;
         font-size: 18px;
         line-height: 26px;
         border-bottom: 6px solid transparent;
 
         &:hover,
         &.active {
-            color: #103675;
+            color: #fff;
         }
     }
 
@@ -43,6 +44,9 @@
         background: #ffffff;
         border-top: 1px solid #bdbdbd;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.36s;
+        animation: slidedown 0.36s forwards;
 
         .sublink {
             display: block;
@@ -72,10 +76,18 @@
 // Language
 .language {
     height: 100%;
-    color: #7f8085;
+    color: #fff;
     font-size: 20px;
     line-height: 28px;
     cursor: pointer;
+
+    .icon {
+        display: none;
+    }
+
+    .iconWhite {
+        display: block;
+    }
 }
 
 // 激活状态
@@ -90,9 +102,34 @@
 
     .menu {
         .link {
+            color: #7f8085;
+
             &.active {
+                color: #103675;
                 border-bottom-color: #103675;
             }
         }
+    }
+
+    .language {
+        color: #7f8085;
+
+        .icon {
+            display: block;
+        }
+
+        .iconWhite {
+            display: none;
+        }
+    }
+}
+
+@keyframes slidedown {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 56px;
     }
 }
