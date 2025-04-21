@@ -1,9 +1,3 @@
 export default {
-    hello: {
-        world: '你好 {param}！',
-        nested: {
-            translations: '翻译',
-        },
-    },
-    welcome: '欢迎 {name}！',
+    language: '选择区域/语言',
 } as const;

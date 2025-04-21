@@ -9,7 +9,7 @@ export default () => {
     const t = useI18n();
 
     return (
-        <div>
+        <div style={{ height: '200vh', background: '#c7c7c7' }}>
             <p>{t('welcome', { name: 'Welion' })}</p>
         </div>
     );

@@ -1,4 +1,13 @@
 import { getStaticParams } from '@/locales/server';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import '@ant-design/v5-patch-for-react-19';
+import { ConfigProvider } from 'antd';
+
+/**
+ * Styles
+ */
+import 'antd/dist/reset.css';
+import './global.scss';
 
 /**
  * Types
@@ -18,7 +27,21 @@ export default ({ children }: Props) => {
                 <link href="/favicon.svg" rel="icon" sizes="any" />
             </head>
 
-            <body>{children}</body>
+            <body>
+                <AntdRegistry>
+                    <ConfigProvider
+                        theme={{
+                            token: {
+                                colorLinkActive: '#2dafb7',
+                                colorLinkHover: '#2dafb7',
+                                colorPrimary: '#2dafb7',
+                            },
+                        }}
+                    >
+                        {children}
+                    </ConfigProvider>
+                </AntdRegistry>
+            </body>
         </html>
     );
 };

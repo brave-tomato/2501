@@ -1,6 +1,11 @@
 import { I18nProviderClient } from '@/locales/client';
 
 /**
+ * Components
+ */
+import Header from '@/components/header';
+
+/**
  * Types
  */
 type Props = {
@@ -14,5 +19,13 @@ export default async ({ children, params }: Props) => {
      */
     const { locale } = await params;
 
-    return <I18nProviderClient locale={locale}>{children}</I18nProviderClient>;
+    return (
+        <I18nProviderClient locale={locale}>
+            {/* Header */}
+            <Header locale={locale} />
+
+            {/* Page */}
+            {children}
+        </I18nProviderClient>
+    );
 };
