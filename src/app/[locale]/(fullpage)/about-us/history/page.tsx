@@ -80,7 +80,11 @@ export default () => {
                         requestAnimationFrame(checkTime);
                     }
                 },
-                beforeLeave: (origin: any) => {
+                beforeLeave: (origin: any, _: any, direction: any) => {
+                    if (direction === 'up') {
+                        return true;
+                    }
+
                     // 如果当前 section 有片段和视频
                     const segment = segments[origin.index];
                     const video = origin.item.querySelector('video');

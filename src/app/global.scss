@@ -36,6 +36,29 @@
     max-width: 1920px;
     margin: 0 auto;
 }
+
+.swiperPrev,
+.swiperNext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: -42px;
+    width: 84px;
+    height: 84px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.swiperNext {
+    left: auto;
+    right: -42px;
+}
 /* 公共样式 end */
 
 /* Animista */

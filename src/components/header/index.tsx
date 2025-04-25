@@ -43,8 +43,8 @@ const menus = [
         href: '/research',
         name: '固态电池产业化',
         children: [
-            { href: '/research#technology', name: '固态电池研发' },
-            { href: '/research#production', name: '固态电池制造' },
+            { href: '/research/#technology', name: '固态电池研发' },
+            { href: '/research/#production', name: '固态电池制造' },
         ],
     },
     {
@@ -84,6 +84,7 @@ export default ({ active, locale }: Props) => {
      * States
      */
     const [state, setState] = useSetState({
+        hash: '',
         scroll: false,
     });
 
@@ -98,16 +99,27 @@ export default ({ active, locale }: Props) => {
      * Effects
      */
     useEffect(() => {
-        const handleScroll = () => {
+        const onHashChange = () => {
+            setState({
+                hash: window.location.hash,
+            });
+        };
+        onHashChange();
+
+        window.addEventListener('hashchange', onHashChange);
+
+        const onScroll = () => {
             setState({
                 scroll: window.scrollY > 0,
             });
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', onScroll);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('hashchange', onHashChange);
+
+            window.removeEventListener('scroll', onScroll);
         };
     }, []);
 
@@ -138,10 +150,13 @@ export default ({ active, locale }: Props) => {
                                         {menu.children.map((submenu) => (
                                             <Link
                                                 className={classNames(styles.sublink, {
-                                                    [styles.active]: pathname === getHref(submenu.href),
+                                                    [styles.active]:
+                                                        pathname === getHref(submenu.href) ||
+                                                        pathname + state.hash === getHref(submenu.href),
                                                 })}
                                                 href={getHref(submenu.href)}
                                                 key={getHref(submenu.href)}
+                                                scroll={false}
                                             >
                                                 {submenu.name}
                                             </Link>
