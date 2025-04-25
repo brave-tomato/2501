@@ -17,6 +17,7 @@ import styles from './styles.module.scss';
  * Types
  */
 type Props = {
+    active?: boolean;
     locale: string;
 };
 
@@ -69,7 +70,7 @@ const menus = [
     },
 ];
 
-export default ({ locale }: Props) => {
+export default ({ active, locale }: Props) => {
     /**
      * Hooks
      */
@@ -111,7 +112,7 @@ export default ({ locale }: Props) => {
     }, []);
 
     return (
-        <header className={classNames(styles.header, { [styles.headerActive]: state.scroll })}>
+        <header className={classNames(styles.header, { [styles.headerActive]: active || state.scroll })}>
             <Flex align="center" justify="space-between" style={{ height: '100%' }}>
                 {/* Logo */}
                 <Link className={styles.logo} href={`/${locale}/`} />

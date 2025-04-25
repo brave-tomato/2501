@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useParams } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Components
  */
 import Footer from '@/components/footer';
+import Header from '@/components/header';
 
 /**
  * Constants
@@ -27,9 +29,19 @@ const segments = [
 
 export default () => {
     /**
+     * Params
+     */
+    const params = useParams();
+
+    /**
      * Hooks
      */
     const fullpageRef = useRef<HTMLDivElement>(null);
+
+    /**
+     * States
+     */
+    const [active, setActive] = useState(true);
 
     /**
      * Effects
@@ -116,27 +128,31 @@ export default () => {
     }, [fullpageRef]);
 
     return (
-        <div ref={fullpageRef}>
-            <div className="section">
-                <video
-                    loop={false}
-                    muted
-                    playsInline
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                    }}
-                >
-                    <source src="https://2501-r2.liuuu.net/about-us/history.mp4" type="video/mp4" />
-                </video>
-            </div>
+        <>
+            <Header active={active} locale={params.locale as string} />
 
-            <div className="section fp-auto-height">
-                <Footer />
+            <div ref={fullpageRef}>
+                <div className="section">
+                    <video
+                        loop={false}
+                        muted
+                        playsInline
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                        }}
+                    >
+                        <source src="https://2501-r2.liuuu.net/about-us/history.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div className="section fp-auto-height">
+                    <Footer />
+                </div>
             </div>
-        </div>
+        </>
     );
 };
