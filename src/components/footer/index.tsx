@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                 <Col span={1} />
 
                 <Col span={2}>
-                    <Link className={styles.title1} href="/research">
+                    <Link className={styles.title1} href="/research/technology">
                         固态电池产业化
                     </Link>
 

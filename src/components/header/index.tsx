@@ -39,7 +39,7 @@ const menus = [
         ],
     },
     {
-        href: '/research',
+        href: '/research/technology',
         name: '固态电池产业化',
         children: [
             { href: '/research/technology', name: '固态电池研发' },

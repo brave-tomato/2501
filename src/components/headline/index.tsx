@@ -17,6 +17,7 @@ export type Title1Props = {
 export type Title2Props = Title1Props;
 export type Title3Props = Title1Props;
 export type Title4Props = Title1Props;
+export type Title5Props = Title1Props;
 
 /**
  * Title1
@@ -85,6 +86,42 @@ export const Title4: React.FC<Title4Props> = (props) => {
             {props.subtitle && (
                 <div style={{ color: '#2DAFB7', fontSize: '20px', lineHeight: '23px' }}>{props.subtitle}</div>
             )}
+        </div>
+    );
+};
+
+/**
+ * Title5
+ *
+ * @example 固态电池产业化（人才与创新是卫蓝聚焦未来技术的基础）
+ * @example 应用与解决方案
+ * @example 新闻媒体
+ */
+export const Title5: React.FC<Title5Props> = (props) => {
+    return (
+        <div {...props}>
+            {/* 标题 */}
+            <div style={{ color: '#fff', fontSize: '60px', lineHeight: '80px' }}>
+                {/* <StaggeredText text={props.title} /> */}
+                {props.title}
+            </div>
+
+            {/* 副标题 */}
+            {props.subtitle && (
+                <div style={{ marginTop: 16, color: '#fff', fontSize: '36px', lineHeight: '48px' }}>
+                    {props.subtitle}
+                </div>
+            )}
+
+            {/* 线段 */}
+            <div
+                style={{
+                    marginTop: 52,
+                    width: 146,
+                    height: 4,
+                    backgroundColor: '#2DAFB7',
+                }}
+            />
         </div>
     );
 };

@@ -28,6 +28,8 @@ export default ({ children }: Props) => {
         <html lang="en">
             <head>
                 <link href="/favicon.svg" rel="icon" sizes="any" />
+                <link href="/static/vendors/fullpage.css" rel="stylesheet" />
+                <script src="/static/vendors/fullpage.js" />
             </head>
 
             <body>
