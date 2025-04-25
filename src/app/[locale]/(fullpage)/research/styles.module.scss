@@ -1,0 +1,45 @@
+.bg1 {
+    position: relative;
+    background: url('/static/research/technology_bg1.jpg') no-repeat center / cover;
+}
+
+.technologySwiper {
+    width: 465px;
+    cursor: pointer;
+}
+
+.technologySwiperContent {
+    height: 318px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(187, 229, 232, 0.32) 85.33%,
+        rgba(118, 203, 208, 0.65) 98.12%,
+        rgba(77, 187, 194, 0.85) 103.46%,
+        #2dafb7 106.66%
+    );
+    border-radius: 18px;
+    text-align: center;
+
+    .t1 {
+        padding-top: 80px;
+        color: #103675;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 40px;
+    }
+
+    .t2 {
+        padding-top: 16px;
+        color: #2dafb7;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .t3 {
+        padding-top: 29px;
+        color: #969696;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}

@@ -39,11 +39,11 @@ const menus = [
         ],
     },
     {
-        href: '/research/technology',
+        href: '/research',
         name: '固态电池产业化',
         children: [
-            { href: '/research/technology', name: '固态电池研发' },
-            { href: '/research/production', name: '固态电池制造' },
+            { href: '/research#technology', name: '固态电池研发' },
+            { href: '/research#production', name: '固态电池制造' },
         ],
     },
     {
