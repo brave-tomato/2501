@@ -1,6 +1,6 @@
 'use client';
 
-import { Flex } from 'antd';
+import { Flex, Image } from 'antd';
 import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
 
@@ -24,7 +24,7 @@ const segments = [
     {
         durations: [
             // 第 1 段
-            0.75,
+            0.7333,
             // 第 2 段
             1.5,
         ],
@@ -76,7 +76,11 @@ export default () => {
                         requestAnimationFrame(checkTime);
                     }
                 },
-                beforeLeave: (origin: any) => {
+                beforeLeave: (origin: any, _: any, direction: any) => {
+                    if (direction === 'up') {
+                        return true;
+                    }
+
                     // 如果当前 section 有片段和视频
                     const segment = segments[origin.index];
                     const video = origin.item.querySelector('video');
@@ -155,14 +159,40 @@ export default () => {
                 </video>
             </div>
 
-            <div className="section active">
+            <div className="section">
                 <Flex align="center" gap={32} justify="center">
                     <div className={styles.technologySwiper}>
                         <AspectRatio ratio={465 / 233}>
-                            <img
+                            <Image
                                 alt=""
+                                preview={{
+                                    destroyOnClose: true,
+                                    mask: '',
+                                    imageRender: () => (
+                                        <div
+                                            style={{
+                                                aspectRatio: '16/9',
+                                                width: '100%',
+                                                height: 'auto',
+                                                maxWidth: '90vw',
+                                                maxHeight: '90vh',
+                                                margin: 'auto',
+                                            }}
+                                        >
+                                            <video
+                                                autoPlay
+                                                controls
+                                                loop
+                                                playsInline
+                                                src="https://2501-r2.liuuu.net/research/technology_01_zh.mp4"
+                                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                            />
+                                        </div>
+                                    ),
+                                    toolbarRender: () => null,
+                                }}
                                 src="/static/research/technology_01.jpg"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
                             />
                         </AspectRatio>
 
@@ -177,10 +207,36 @@ export default () => {
 
                     <div className={styles.technologySwiper}>
                         <AspectRatio ratio={465 / 233}>
-                            <img
+                            <Image
                                 alt=""
+                                preview={{
+                                    destroyOnClose: true,
+                                    mask: '',
+                                    imageRender: () => (
+                                        <div
+                                            style={{
+                                                aspectRatio: '16/9',
+                                                width: '100%',
+                                                height: 'auto',
+                                                maxWidth: '90vw',
+                                                maxHeight: '90vh',
+                                                margin: 'auto',
+                                            }}
+                                        >
+                                            <video
+                                                autoPlay
+                                                controls
+                                                loop
+                                                playsInline
+                                                src="https://2501-r2.liuuu.net/research/technology_02_zh.mp4"
+                                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                            />
+                                        </div>
+                                    ),
+                                    toolbarRender: () => null,
+                                }}
                                 src="/static/research/technology_02.jpg"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
                             />
                         </AspectRatio>
 
@@ -195,10 +251,36 @@ export default () => {
 
                     <div className={styles.technologySwiper}>
                         <AspectRatio ratio={465 / 233}>
-                            <img
+                            <Image
                                 alt=""
+                                preview={{
+                                    destroyOnClose: true,
+                                    mask: '',
+                                    imageRender: () => (
+                                        <div
+                                            style={{
+                                                aspectRatio: '16/9',
+                                                width: '100%',
+                                                height: 'auto',
+                                                maxWidth: '90vw',
+                                                maxHeight: '90vh',
+                                                margin: 'auto',
+                                            }}
+                                        >
+                                            <video
+                                                autoPlay
+                                                controls
+                                                loop
+                                                playsInline
+                                                src="https://2501-r2.liuuu.net/research/technology_03_zh.mp4"
+                                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                            />
+                                        </div>
+                                    ),
+                                    toolbarRender: () => null,
+                                }}
                                 src="/static/research/technology_03.jpg"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
                             />
                         </AspectRatio>
 
