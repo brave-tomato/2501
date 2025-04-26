@@ -115,9 +115,6 @@ export default () => {
                 lockAnchors: false,
                 normalScrollElements: 'header',
                 afterLoad: (_: any, destination: any) => {
-                    // 特殊页面高亮菜单
-                    setActive([2, 3].includes(destination.index) || ['production'].includes(destination.anchor));
-
                     // 如果当前 section 有片段和视频
                     const segment = segments.find((s, i) => {
                         return i === destination.index || s?.anchor === destination.anchor;
@@ -146,8 +143,13 @@ export default () => {
                         requestAnimationFrame(checkTime);
                     }
                 },
-                beforeLeave: (origin: any, _: any, direction: any) => {
+                beforeLeave: (origin: any, destination: any, direction: any) => {
+                    const active = [2, 3].includes(destination.index) || ['production'].includes(destination.anchor);
+
                     if (direction === 'up') {
+                        // 特殊页面高亮菜单
+                        setActive(active);
+
                         return true;
                     }
 
@@ -188,6 +190,9 @@ export default () => {
                             return false;
                         }
                     }
+
+                    // 特殊页面高亮菜单
+                    setActive(active);
                 },
             });
 

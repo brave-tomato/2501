@@ -51,9 +51,9 @@ const menus = [
         href: '/solution',
         name: '应用与解决方案',
         children: [
-            { href: '/solution/automotive', name: '动力类应用' },
-            { href: '/solution/energy-storage', name: '低空经济类应用' },
-            { href: '/solution/consumer-electronics', name: '储能应用' },
+            { href: '/solution/c1', name: '动力类应用' },
+            { href: '/solution/c2', name: '低空经济类应用' },
+            { href: '/solution/c3', name: '储能应用' },
         ],
     },
     {
@@ -156,7 +156,6 @@ export default ({ active, locale }: Props) => {
                                                 })}
                                                 href={getHref(submenu.href)}
                                                 key={getHref(submenu.href)}
-                                                scroll={false}
                                             >
                                                 {submenu.name}
                                             </Link>
