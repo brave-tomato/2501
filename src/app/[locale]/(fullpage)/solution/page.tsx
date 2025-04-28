@@ -60,7 +60,22 @@ export default () => {
             <Header active={active} locale={params.locale as string} />
 
             <div ref={fullpageRef}>
-                <div className={classNames('section', styles.bg1)}>
+                <div className={classNames('section')} style={{ position: 'relative' }}>
+                    <video
+                        autoPlay
+                        muted
+                        playsInline
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                        }}
+                    >
+                        <source src="https://2501-r2.liuuu.net/solution/banner.mp4" type="video/mp4" />
+                    </video>
+
                     <Title5
                         className="slide-top"
                         style={{
