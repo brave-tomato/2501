@@ -164,7 +164,12 @@ const Demander2: React.FC = () => {
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item name="lowAltitudeEconomyApplication" label="低空经济类应用" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="no-spacing"
+                        name="lowAltitudeEconomyApplication"
+                        label="低空经济类应用"
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
                                 {lowAltitudeEconomyApplicationOptions.map((option) => (
