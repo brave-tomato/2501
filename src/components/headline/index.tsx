@@ -125,3 +125,20 @@ export const Title5: React.FC<Title5Props> = (props) => {
         </div>
     );
 };
+
+/**
+ * Title6 主标题和副标题没有间距
+ */
+export const Title6: React.FC<Title2Props> = (props) => {
+    return (
+        <div>
+            {/* 标题 */}
+            <div style={{ color: '#2DAFB7', fontSize: '40px', fontWeight: 500 }}>
+                <StaggeredText text={props.title} />
+            </div>
+
+            {/* 副标题 */}
+            {props.subtitle && <div style={{ color: '#969696', fontSize: '28px' }}>{props.subtitle}</div>}
+        </div>
+    );
+};

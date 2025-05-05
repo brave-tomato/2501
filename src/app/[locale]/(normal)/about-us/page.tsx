@@ -2,7 +2,7 @@
 
 import { getConf } from '@/utils';
 import { useSetState } from 'ahooks';
-import { Col, Flex, Grid, Row } from 'antd';
+import { Col, Flex, Grid, Image, Row } from 'antd';
 
 import ReactFullpage from '@fullpage/react-fullpage';
 /**
@@ -10,6 +10,8 @@ import ReactFullpage from '@fullpage/react-fullpage';
  */
 import AspectRatio from '@/components/aspect-ratio';
 import { StaggeredText } from '@/components/motion';
+
+import { Title6 } from '@/components/headline/index';
 
 /**
  * Styles
@@ -253,7 +255,78 @@ const Page = () => {
                         </div>
                         {/* 公司介绍 */}
                         <div className="section">
-                            <div className={styles['company-wrapper']}></div>
+                            <div className={styles['company-wrapper']}>
+                                <Flex gap={69}>
+                                    <Flex gap={18} vertical>
+                                        <Title6 title="公司介绍" subtitle="Profile" />
+                                        <div
+                                            style={{
+                                                width: 380,
+                                                flex: 1,
+                                                color: '#969696',
+                                                fontSize: '14px',
+                                                lineHeight: '22px',
+                                            }}
+                                        >
+                                            <div>
+                                                北京卫蓝新能源科技股份有限公司（以下简称“卫蓝新能源”）是中国科学院物理研究所固态电池产学研孵化企业，成立于2016年，位于北京房山窦店，主营固态锂离子电池，集研发、生产、市场、销售于一体，是国家级专精特新小巨人企业、独角兽企业，具有CNAS资质，具有40余年固态电池产业研究经验，在多个固态锂电技术领域实现“首次”突破。
+                                            </div>
+                                            <div>
+                                                公司由中国工程院院士陈立泉、中国科学院物理研究所研究员李泓、教授级高级工程师俞会根共同发起创办，汇聚了电池材料、电芯、系统等领域的高精尖人才。
+                                            </div>
+                                            <div>
+                                                产品主要应用领域涵盖新能源汽车、储能、低空经济动力三大部分，其中典型电芯产品有：
+                                            </div>
+                                            <div>
+                                                360Wh/kg高能量密度动力电芯：具备超高能量密度，单次续航里程超过1000km，已于2023年底量产交付蔚来汽车，并在多家知名整车厂获得定点。
+                                            </div>
+                                            <div>
+                                                280Ah超高安全储能电芯：已于2023年下半年量产交付，为三峡、海博思创、国电投等多个储能项目供货。
+                                            </div>
+                                            <div>
+                                                320Wh/kg高能量密度低空经济动力电芯：目前已为多家国内外无人机、机器人、便携电源等客户供货。
+                                            </div>
+                                        </div>
+                                    </Flex>
+                                    <div style={{ width: '100%' }}>
+                                        <AspectRatio ratio={887 / 500}>
+                                            <Image
+                                                alt=""
+                                                preview={{
+                                                    mask: '',
+                                                    imageRender: () => (
+                                                        <div
+                                                            style={{
+                                                                aspectRatio: '16/9',
+                                                                width: '100%',
+                                                                height: 'auto',
+                                                                maxWidth: '90vw',
+                                                                maxHeight: '90vh',
+                                                                margin: 'auto',
+                                                            }}
+                                                        >
+                                                            <video
+                                                                autoPlay
+                                                                loop
+                                                                playsInline
+                                                                src="/images/about-us/banner.mp4"
+                                                                style={{
+                                                                    width: '100%',
+                                                                    height: '100%',
+                                                                    objectFit: 'contain',
+                                                                }}
+                                                            />
+                                                        </div>
+                                                    ),
+                                                    toolbarRender: () => null,
+                                                }}
+                                                src="/images/about-us/img_03.png"
+                                                style={{ width: '100%', cursor: 'pointer' }}
+                                            />
+                                        </AspectRatio>
+                                    </div>
+                                </Flex>
+                            </div>
                         </div>
                         {/* 全球布局 */}
                         <div className="section">
