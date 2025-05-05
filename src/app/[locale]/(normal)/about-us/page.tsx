@@ -27,7 +27,7 @@ const contentData = [
     {
         title: '愿景',
         description:
-            'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            '1111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     },
     {
         title: '使命',
@@ -105,6 +105,16 @@ const kechixufazhanData = [
         bg: '/images/about-us/ke_bg3@2x.png',
     },
 ];
+const locationsArr = [
+    { id: 1, type: '研发', locations: ['北京', '广东南沙', '深圳', '上海'] },
+    { id: 2, type: '制造', locations: ['山东淄博', '江苏溧阳', '广东珠海', '浙江湖州'] },
+    {
+        id: 3,
+        type: '服务网点',
+        locations: ['马来西亚吉隆坡', '泰国曼谷', '匈牙利布达佩斯', '德国斯图加特', '日本大阪'],
+    },
+];
+
 const Page = () => {
     /**
      * Hooks
@@ -241,6 +251,10 @@ const Page = () => {
                                 </Row>
                             </Flex>
                         </div>
+                        {/* 公司介绍 */}
+                        <div className="section">
+                            <div className={styles['company-wrapper']}></div>
+                        </div>
                         {/* 全球布局 */}
                         <div className="section">
                             <div
@@ -251,16 +265,34 @@ const Page = () => {
                                     backgroundPosition: 'center',
                                 }}
                             >
-                                <Flex align="center" justify="center" style={{ height: '100vh' }}>
-                                    <div style={{ width: 1249 }}>
-                                        <AspectRatio ratio={1249 / 666}>
+                                <Flex align="center" justify="center" vertical style={{ height: '100vh' }}>
+                                    <div style={{ width: 1339 }}>
+                                        <AspectRatio ratio={1339 / 565}>
                                             <img
-                                                src="/images/about-us/quanqiu_map1@2x.png"
+                                                src="/images/about-us/quanqiu_map2@2x.png"
                                                 width={`100%`}
                                                 height={`100%`}
                                             />
                                         </AspectRatio>
                                     </div>
+                                    <Row gutter={32}>
+                                        {locationsArr.map((item) => (
+                                            <Col span={8} key={item.id}>
+                                                <Flex
+                                                    align="center"
+                                                    className={styles['quanqiumap-box']}
+                                                    justify="center"
+                                                    gap={15}
+                                                    vertical
+                                                >
+                                                    <div className={styles['title']}>{item.type}</div>
+                                                    <div className={styles['subtitle']}>
+                                                        {item.locations.join('，')}
+                                                    </div>
+                                                </Flex>
+                                            </Col>
+                                        ))}
+                                    </Row>
                                 </Flex>
                             </div>
                         </div>

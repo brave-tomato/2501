@@ -214,12 +214,25 @@
 .ant-form-item-label {
     background-color: var(--custom-green) !important;
     border-radius: 50px 0 0 50px !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding-left: 5px;
 }
 .ant-form-item .ant-form-item-label > label {
     color: #fff !important;
     font-size: 18px !important;
     line-height: 26px !important;
     height: 50px !important;
+    letter-spacing: 7px;
+    text-align: center;
+    &::after {
+        margin-inline-start: 0 !important;
+        margin-inline-end: 0 !important;
+        content: '' !important;
+    }
+}
+.no-spacing.ant-form-item .ant-form-item-label > label {
+    letter-spacing: 0;
 }
 .ant-form-item-control-input-content {
     // height: 50px !important;
