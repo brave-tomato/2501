@@ -309,7 +309,7 @@ const Page = () => {
                                                                 autoPlay
                                                                 loop
                                                                 playsInline
-                                                                src="/images/about-us/banner.mp4"
+                                                                src="https://2501-r2.liuuu.net/about-us/banner.mp4"
                                                                 style={{
                                                                     width: '100%',
                                                                     height: '100%',
