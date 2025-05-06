@@ -40,6 +40,10 @@ export default ({ children }: Props) => {
                         gtag('config', 'G-ZJTX18ZCBD');
                     `}
                 </Script>
+                <Script
+                    src="https://js-de.sentry-cdn.com/9cb5ab38af4b3aa878d1916d841e9c35.min.js"
+                    strategy="afterInteractive"
+                />
             </head>
 
             <body>
