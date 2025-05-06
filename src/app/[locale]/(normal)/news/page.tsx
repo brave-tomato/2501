@@ -1,15 +1,16 @@
 'use client';
-import AspectRatio from '@/components/aspect-ratio';
-import HeroSection from '@/components/hero-section';
-import TitleSection from '@/components/title-section';
 import { useSetState } from 'ahooks';
 import { Col, Flex, Grid, Pagination, Row } from 'antd';
 import classNames from 'classnames';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import AspectRatio from '@/components/aspect-ratio';
+import HeroSection from '@/components/hero-section';
+import TitleSection from '@/components/title-section';
 import { getConf } from '@/utils';
-import Link from 'next/link';
 
 import styles from './styles.module.scss';
 
@@ -116,6 +117,11 @@ const newsList = [
  */
 const NewsMediaPage = () => {
     /**
+     * Params
+     */
+    const params = useParams();
+
+    /**
      * Hooks
      */
     const conf = getConf(Grid.useBreakpoint());
@@ -204,7 +210,7 @@ const NewsMediaPage = () => {
                     <Row gutter={[44, 60]}>
                         {newsList.map((payload: any, index: number) => (
                             <Col key={index} span={8}>
-                                <Link href={'/news-media-details'}>
+                                <Link href={`/${params.locale}/news-media-details`}>
                                     <Flex
                                         align="start"
                                         className={styles['link-box']}
