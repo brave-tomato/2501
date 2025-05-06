@@ -2,6 +2,7 @@ import { getStaticParams } from '@/locales/server';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import '@ant-design/v5-patch-for-react-19';
 import { ConfigProvider } from 'antd';
+import Script from 'next/script';
 
 /**
  * Styles
@@ -29,14 +30,16 @@ export default ({ children }: Props) => {
             <head>
                 <link href="/favicon.svg" rel="icon" sizes="any" />
                 <link href="/static/vendors/fullpage.css" rel="stylesheet" />
-                <script src="/static/vendors/fullpage.js" />
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJTX18ZCBD" />
-                <script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-ZJTX18ZCBD');
-                </script>
+                <Script src="/static/vendors/fullpage.js" />
+                <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZJTX18ZCBD" strategy="afterInteractive" />
+                <Script id="ga-init" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-ZJTX18ZCBD');
+                    `}
+                </Script>
             </head>
 
             <body>
