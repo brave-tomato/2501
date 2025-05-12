@@ -107,7 +107,7 @@ export default () => {
         if (fullpageRef.current) {
             // @ts-ignore
             const instance = new fullpage(fullpageRef.current, {
-                anchors: ['s1', 'technology', 'production', 'footer'],
+                anchors: ['research-1', 'research-2', 'research-3'],
                 animateAnchor: true,
                 credits: {
                     enabled: false,

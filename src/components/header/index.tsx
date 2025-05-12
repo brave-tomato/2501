@@ -19,6 +19,7 @@ import styles from './styles.module.scss';
 type Props = {
     active?: boolean;
     locale: string;
+    onClick?: (href: string) => void;
 };
 
 /**
@@ -30,21 +31,25 @@ const menus = [
         name: '首页',
     },
     {
-        href: '/about-us/',
+        href: '/about-us/#about-us-1',
         name: '关于我们',
         children: [
-            { href: '/about-us/', name: '简介&文化' },
+            {
+                anchors: ['#about-us-1', '#about-us-2', '#about-us-3'],
+                href: '/about-us/#about-us-1',
+                name: '简介&文化',
+            },
             { href: '/about-us/history/', name: '公司历史' },
-            { href: '/about-us/global-layout/', name: '全球布局' },
-            { href: '/about-us/sustainable-development/', name: '可持续发展' },
+            { href: '/about-us/#about-us-4', name: '全球布局' },
+            { href: '/about-us/#about-us-5', name: '可持续发展' },
         ],
     },
     {
-        href: '/research',
+        href: '/research/#research-1',
         name: '固态电池产业化',
         children: [
-            { href: '/research/#technology', name: '固态电池研发' },
-            { href: '/research/#production', name: '固态电池制造' },
+            { href: '/research/#research-2', name: '固态电池研发' },
+            { href: '/research/#research-3', name: '固态电池制造' },
         ],
     },
     {
@@ -70,7 +75,7 @@ const menus = [
     },
 ];
 
-export default ({ active, locale }: Props) => {
+export default ({ active, locale, onClick }: Props) => {
     /**
      * Hooks
      */
@@ -84,6 +89,7 @@ export default ({ active, locale }: Props) => {
      * States
      */
     const [state, setState] = useSetState({
+        active: false,
         hash: '',
         scroll: false,
     });
@@ -123,8 +129,16 @@ export default ({ active, locale }: Props) => {
         };
     }, []);
 
+    useEffect(() => {
+        setState({
+            active: pathname === `/${locale}/jobs/`,
+        });
+    }, [pathname]);
+
     return (
-        <header className={classNames(styles.header, { [styles.headerActive]: active || state.scroll })}>
+        <header
+            className={classNames(styles.header, { [styles.headerActive]: active || state.active || state.scroll })}
+        >
             <Flex align="center" justify="space-between" style={{ height: '100%' }}>
                 {/* Logo */}
                 <Link className={styles.logo} href={`/${locale}/`} />
@@ -140,6 +154,9 @@ export default ({ active, locale }: Props) => {
                                         menu.children?.some((submenu) => pathname === getHref(submenu.href)),
                                 })}
                                 href={getHref(menu.href)}
+                                onClick={() => {
+                                    onClick?.(menu.href);
+                                }}
                             >
                                 {menu.name}
                             </Link>
@@ -152,10 +169,14 @@ export default ({ active, locale }: Props) => {
                                                 className={classNames(styles.sublink, {
                                                     [styles.active]:
                                                         pathname === getHref(submenu.href) ||
-                                                        pathname + state.hash === getHref(submenu.href),
+                                                        pathname + state.hash === getHref(submenu.href) ||
+                                                        submenu.anchors?.includes(state.hash),
                                                 })}
                                                 href={getHref(submenu.href)}
                                                 key={getHref(submenu.href)}
+                                                onClick={() => {
+                                                    onClick?.(submenu.href);
+                                                }}
                                             >
                                                 {submenu.name}
                                             </Link>
