@@ -31,17 +31,13 @@ const menus = [
         name: '首页',
     },
     {
-        href: '/about-us/#about-us-1',
+        href: '/about-us/',
         name: '关于我们',
         children: [
-            {
-                anchors: ['#about-us-1', '#about-us-2', '#about-us-3'],
-                href: '/about-us/#about-us-1',
-                name: '简介&文化',
-            },
+            { href: '/about-us/', name: '简介&文化' },
             { href: '/about-us/history/', name: '公司历史' },
-            { href: '/about-us/#about-us-4', name: '全球布局' },
-            { href: '/about-us/#about-us-5', name: '可持续发展' },
+            { href: '/about-us/global-layout/', name: '全球布局' },
+            { href: '/about-us/sustainable-development/', name: '可持续发展' },
         ],
     },
     {

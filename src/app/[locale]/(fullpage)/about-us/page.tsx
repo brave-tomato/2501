@@ -63,7 +63,6 @@ export default () => {
         if (fullpageRef.current) {
             // @ts-ignore
             const instance = new fullpage(fullpageRef.current, {
-                anchors: ['about-us-1', 'about-us-2', 'about-us-3', 'about-us-4', 'about-us-5'],
                 animateAnchor: true,
                 credits: {
                     enabled: false,
@@ -71,7 +70,7 @@ export default () => {
                 lockAnchors: false,
                 normalScrollElements: 'header',
                 beforeLeave: (origin: any, destination: any) => {
-                    const active = [2].includes(destination.index) || [''].includes(destination.anchor);
+                    const active = [2, 3].includes(destination.index) || [''].includes(destination.anchor);
 
                     // 特殊页面高亮菜单
                     setActive(active);
@@ -235,171 +234,7 @@ export default () => {
                     </Row>
                 </div>
 
-                {/* 全球布局 */}
-                <div className="section">
-                    <Flex align="center" className={styles.global} justify="center" vertical>
-                        <Flex align="center" gap={64}>
-                            <img alt="" height={565} src="/static/about-us/global.png" width={1099} />
-
-                            <Flex gap={9} vertical>
-                                <Popover
-                                    arrow={false}
-                                    classNames={{ body: styles['global-popover'] }}
-                                    content={
-                                        <Flex vertical>
-                                            <Flex gap={40}>
-                                                <div>北京</div>
-
-                                                <div>房山研发基地</div>
-                                            </Flex>
-
-                                            <Flex gap={40}>
-                                                <div>广东</div>
-
-                                                <div>南沙研发基地</div>
-                                            </Flex>
-
-                                            <Flex gap={40}>
-                                                <div>深圳</div>
-
-                                                <div>坪山研发基地</div>
-                                            </Flex>
-
-                                            <Flex gap={40}>
-                                                <div>上海</div>
-
-                                                <div>嘉定研发基地</div>
-                                            </Flex>
-                                        </Flex>
-                                    }
-                                    placement="left"
-                                >
-                                    <div className={styles.t1}>
-                                        <span />
-                                        研发基地
-                                    </div>
-                                </Popover>
-
-                                <Popover
-                                    arrow={false}
-                                    classNames={{ body: styles['global-popover'] }}
-                                    content={
-                                        <Flex vertical>
-                                            <div>山东淄博</div>
-
-                                            <div>江苏溧阳</div>
-
-                                            <div>广东珠海</div>
-
-                                            <div>浙江湖州</div>
-                                        </Flex>
-                                    }
-                                    placement="left"
-                                >
-                                    <div className={styles.t2}>
-                                        <span />
-                                        制造和服务网点
-                                    </div>
-                                </Popover>
-
-                                <Popover
-                                    arrow={false}
-                                    classNames={{ body: styles['global-popover'] }}
-                                    content={
-                                        <Flex vertical>
-                                            <div>马来西亚吉隆坡</div>
-
-                                            <div>泰国曼谷</div>
-
-                                            <div>匈牙利布达佩斯</div>
-
-                                            <div>德国斯图加特</div>
-
-                                            <div>日本大阪</div>
-                                        </Flex>
-                                    }
-                                    placement="left"
-                                >
-                                    <div className={styles.t3}>
-                                        <span />
-                                        业务范围
-                                    </div>
-                                </Popover>
-                            </Flex>
-                        </Flex>
-
-                        <Row style={{ width: '100%', padding: '0 130px' }}>
-                            <Col span={8}>
-                                <div className={styles.title}>研发</div>
-
-                                <div className={styles.description}>北京，广东南沙，深圳，上海</div>
-                            </Col>
-
-                            <Col span={8}>
-                                <div className={styles.title}>制造</div>
-
-                                <div className={styles.description}>山东淄博，江苏溧阳，广东珠海，浙江湖州</div>
-                            </Col>
-
-                            <Col span={8}>
-                                <div className={styles.title}>服务网点</div>
-
-                                <div className={styles.description}>
-                                    马来西亚吉隆坡，泰国曼谷，匈牙利布达佩斯，
-                                    <br />
-                                    德国斯图加特，日本大阪
-                                </div>
-                            </Col>
-                        </Row>
-                    </Flex>
-                </div>
-
-                {/* 协作共赢 */}
-                <div className="section">
-                    <div style={{ position: 'relative' }}>
-                        <Row className={styles.cooperation}>
-                            <Col className={styles.bg1} span={8}>
-                                <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                    <div className={styles.title}>协作共赢</div>
-
-                                    <div className={styles.description}>WIN-WIN COOPERATION</div>
-                                </Flex>
-                            </Col>
-
-                            <Col className={styles.bg2} span={8}>
-                                <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                    <div className={styles.title}>绿色循环</div>
-
-                                    <div className={styles.description}>GREEN CYCLE</div>
-                                </Flex>
-                            </Col>
-
-                            <Col className={styles.bg3} span={8}>
-                                <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                    <div className={styles.title}>持续创新</div>
-
-                                    <div className={styles.description}>CONTINUOUS INNOVATION</div>
-                                </Flex>
-                            </Col>
-                        </Row>
-
-                        {/* ESG */}
-                        <div className={styles['esg-btn']}>
-                            <div className={styles.esg}>
-                                <img alt="" src="/images/about-us/esg.png" />
-
-                                <span>
-                                    <span style={{ letterSpacing: '0.25em' }}>企业ES</span>G
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="section fp-auto-height">
-                    {/* 可持续发展 */}
-
-                    {/* Footer */}
                     <Footer />
                 </div>
             </div>
