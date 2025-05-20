@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * Components
  */
+import AspectRatio from '@/components/aspect-ratio';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 
@@ -78,31 +79,31 @@ export default () => {
             />
 
             <div ref={fullpageRef}>
-                {/* 协作共赢 */}
+                {/* 协作共赢 改为 绿色发展 */}
                 <div className="section">
                     <div style={{ position: 'relative' }}>
                         <Row className={styles.cooperation}>
                             <Col className={styles.bg1} span={8}>
                                 <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                    <div className={styles.title}>协作共赢</div>
+                                    <div className={styles.title}>绿色发展</div>
 
-                                    <div className={styles.description}>WIN-WIN COOPERATION</div>
+                                    <div className={styles.description}>Green Development</div>
                                 </Flex>
                             </Col>
 
                             <Col className={styles.bg2} span={8}>
                                 <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                    <div className={styles.title}>绿色循环</div>
+                                    <div className={styles.title}>履责担当</div>
 
-                                    <div className={styles.description}>GREEN CYCLE</div>
+                                    <div className={styles.description}>Responsible Accountability</div>
                                 </Flex>
                             </Col>
 
                             <Col className={styles.bg3} span={8}>
                                 <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                    <div className={styles.title}>持续创新</div>
+                                    <div className={styles.title}>合规治企</div>
 
-                                    <div className={styles.description}>CONTINUOUS INNOVATION</div>
+                                    <div className={styles.description}>Compliance-driven Governance</div>
                                 </Flex>
                             </Col>
                         </Row>
@@ -121,7 +122,83 @@ export default () => {
                 </div>
 
                 <div className="section fp-auto-height">
-                    {/* 可持续发展 */}
+                    <div style={{ maxWidth: 1920, margin: '0 auto' }}>
+                        {/* 可持续发展 */}
+                        <div className={`${styles.sustainable} ${styles.b1}`}>
+                            <Row gutter={86}>
+                                <Col span={12}>
+                                    <div style={{ maxWidth: 630 }}>
+                                        <AspectRatio ratio={630 / 360}>
+                                            <img alt="" src="/static/about-us/sustainable_1.png" />
+                                        </AspectRatio>
+                                    </div>
+                                </Col>
+
+                                <Col span={12}>
+                                    <div className={styles.title}>供应链尽责管理</div>
+
+                                    <div className={styles.description}>
+                                        卫蓝新能源严格甄选具有相同可持续发展经营理念的供应商，供应商筛选、评估、准入、动态管理等全流程采取严格的管控措施，建立公开评估准则，提高供应商履行社会责任的意识，推进负责任供应链的建设。
+                                    </div>
+
+                                    <div className={styles.button}>了解我们的供应链管理</div>
+                                </Col>
+                            </Row>
+                        </div>
+
+                        <div className={`${styles.sustainable}`}>
+                            <Row gutter={86}>
+                                <Col span={12}>
+                                    <div className={styles.title}>环境健康与职业安全</div>
+
+                                    <div className={styles.description}>
+                                        卫蓝新能源始终坚持“尊重自然、顺应自然、保护自然”的生态文明理念。环境健康是可持续发展的核心，通过减少污染、保护生态确保人类与自然和谐共生，而职业安全则聚焦工作场所风险控制，推动绿色、安全生产方式。两者协调推进实现经济、环境与社会的长期平衡。
+                                    </div>
+
+                                    <div className={styles.button}>了解我们的健康与安全</div>
+                                </Col>
+
+                                <Col span={12}>
+                                    <div style={{ maxWidth: 630, marginLeft: 'auto' }}>
+                                        <AspectRatio ratio={630 / 360}>
+                                            <img alt="" src="/static/about-us/sustainable_2.png" />
+                                        </AspectRatio>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </div>
+
+                        <div className={`${styles.sustainable} ${styles.b1}`}>
+                            <Row gutter={86}>
+                                <Col span={12}>
+                                    <div style={{ maxWidth: 630 }}>
+                                        <AspectRatio ratio={630 / 360}>
+                                            <img alt="" src="/static/about-us/sustainable_3.png" />
+                                        </AspectRatio>
+                                    </div>
+                                </Col>
+
+                                <Col span={12}>
+                                    <div className={styles.title}>劳工与人权</div>
+
+                                    <div className={styles.description}>
+                                        劳工权益与人权保障密不可分，卫蓝新能源遵守国际劳工标准、履行社会责任，推进包容性经济增长，实现可持续发展协同共进。强调公平就业的工作环境，确保劳动者享有平等机会。
+                                    </div>
+
+                                    <div className={styles.button}>了解我们的人权</div>
+                                </Col>
+                            </Row>
+                        </div>
+
+                        {/* 员工关怀 */}
+                        <div className={`${styles.sustainable}`}>
+                            <Flex vertical>
+                                <div className={styles.newsTitle1}>员工关怀</div>
+
+                                <div className={styles.newsTitle2}>News</div>
+                            </Flex>
+                        </div>
+                    </div>
 
                     {/* Footer */}
                     <Footer />
