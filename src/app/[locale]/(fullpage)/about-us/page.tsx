@@ -1,10 +1,9 @@
 'use client';
 
-import { Col, Flex, Image, Popover, Row } from 'antd';
+import { Col, Flex, Image, Row } from 'antd';
 import classNames from 'classnames';
 import { useParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 /**
  * Components
