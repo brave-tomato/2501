@@ -53,7 +53,11 @@ export default () => {
                 credits: {
                     enabled: false,
                 },
-                afterLoad: (_: any, destination: any) => {
+                afterLoad: (_: any, destination: any, direction: any) => {
+                    if (direction === 'up') {
+                        return true;
+                    }
+
                     // 如果当前 section 有片段和视频
                     const segment = segments[destination.index];
                     const video = destination.item.querySelector('video');
@@ -125,8 +129,60 @@ export default () => {
                 },
             });
 
+            const handleWheel = (event: WheelEvent) => {
+                const section = instance.getActiveSection();
+                console.log('section :>> ', section);
+
+                if (event.deltaY > 0 || section.index() !== 0) {
+                    return;
+                }
+
+                // 如果当前 section 有片段和视频
+                const segment = segments[section.index()];
+                const video = section.item.querySelector('video');
+
+                if (segment && video) {
+                    // 如果视频正在播放
+                    if (segment.playing) {
+                        return;
+                    }
+
+                    // 如果视频还没返回到起点
+                    if (segment.index >= 2) {
+                        // 获取上一个片段的开始时间和结束时间
+                        const startTime = segment.durations
+                            .slice(0, segment.index - 2)
+                            .reduce((acc, cur) => acc + cur, 0);
+                        const endTime = segment.durations
+                            .slice(0, segment.index - 1)
+                            .reduce((acc, cur) => acc + cur, 0);
+
+                        video.currentTime = startTime;
+
+                        video.play();
+                        segment.playing = true;
+
+                        const checkTime = () => {
+                            if (video.currentTime >= endTime) {
+                                video.pause();
+                                segment.index -= 1;
+                                segment.playing = false;
+                            } else {
+                                requestAnimationFrame(checkTime);
+                            }
+                        };
+                        requestAnimationFrame(checkTime);
+                    }
+                }
+            };
+
+            // 添加滚轮事件监听
+            window.addEventListener('wheel', handleWheel, { passive: false });
+
             return () => {
                 instance.destroy('all');
+
+                window.removeEventListener('wheel', handleWheel);
             };
         }
     }, [fullpageRef]);

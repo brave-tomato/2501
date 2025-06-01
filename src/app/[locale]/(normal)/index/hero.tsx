@@ -3,7 +3,7 @@
 import { useSetState } from 'ahooks';
 import { Popover } from 'antd';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * Components
@@ -17,9 +17,15 @@ import styles from './styles.module.scss';
 
 const Hero: React.FC = () => {
     /**
+     * Refs
+     */
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    /**
      * States
      */
     const [state, setState] = useSetState({
+        display: 'block',
         poster: '',
         url: '',
     });
@@ -51,11 +57,32 @@ const Hero: React.FC = () => {
         <AspectRatio ratio={1920 / 1080}>
             <video
                 autoPlay
-                key={state.url}
+                muted
+                playsInline
+                style={{
+                    display: state.display,
+                    position: 'absolute',
+                    inset: 0,
+                    zIndex: 2,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                }}
+                onEnded={() => {
+                    setState({ display: 'none' });
+
+                    videoRef.current?.play();
+                }}
+            >
+                <source src="https://2501-r2.liuuu.net/index/logo.mp4" type="video/mp4" />
+            </video>
+
+            <video
                 loop
                 muted
                 playsInline
                 poster={state.poster}
+                ref={videoRef}
                 style={{
                     width: '100%',
                     height: '100%',
