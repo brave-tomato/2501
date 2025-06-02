@@ -49,7 +49,7 @@ const technologySlides = [
     {
         image: '/static/research/technology_02',
         video: 'https://2501-r2.liuuu.net/research/technology_02',
-        title: '固态电解质涂敷',
+        title: '固态电解质掺混',
         subtitle: 'Solid Electrolyte Blending',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
@@ -57,7 +57,7 @@ const technologySlides = [
         image: '/static/research/technology_03',
         video: 'https://2501-r2.liuuu.net/research/technology_03',
         title: '固态电解质正极包覆',
-        subtitle: 'Solid Electrolyte Coating the Cathode',
+        subtitle: 'Solid Electrolyte Coating Cathode',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
@@ -71,14 +71,14 @@ const technologySlides = [
         image: '/static/research/technology_05',
         video: 'https://2501-r2.liuuu.net/research/technology_05',
         title: '超薄金属锂',
-        subtitle: 'Ultra-thin Metallic Lithium Foil',
+        subtitle: 'Ultra-thin Lithium Metal Foil',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
         image: '/static/research/technology_06',
         video: 'https://2501-r2.liuuu.net/research/technology_06',
-        title: '负极预锂化',
-        subtitle: 'Anode Pre-lithiation',
+        title: '高精度负极预锂化',
+        subtitle: 'High-precision Anode Pre-lithiation',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
 ];
@@ -183,7 +183,7 @@ export default () => {
         if (fullpageRef.current) {
             // @ts-ignore
             const instance = new fullpage(fullpageRef.current, {
-                anchors: ['research-1', 'research-2', 'research-3', 'footer'],
+                anchors: ['research-1', 'research-2', 'research-3', 'research-4', 'footer'],
                 animateAnchor: true,
                 credits: {
                     enabled: false,
@@ -245,6 +245,7 @@ export default () => {
                 <div className="section" style={{ position: 'relative' }}>
                     <video
                         autoPlay
+                        loop
                         muted
                         playsInline
                         style={{
@@ -368,6 +369,24 @@ export default () => {
                             <img alt="" src="/static/vendors/swiper_next.svg" />
                         </div>
                     </div>
+                </div>
+
+                <div className="section" style={{ position: 'relative' }}>
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                        }}
+                    >
+                        <source src="https://2501-r2.liuuu.net/research/liucheng.mp4" type="video/mp4" />
+                    </video>
                 </div>
 
                 <div className="section fp-auto-height">

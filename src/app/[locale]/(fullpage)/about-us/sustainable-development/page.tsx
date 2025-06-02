@@ -1,6 +1,6 @@
 'use client';
 
-import { Col, Flex, Row } from 'antd';
+import { Col, Flex, Row, Typography } from 'antd';
 import { useParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 import AspectRatio from '@/components/aspect-ratio';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
+import Swiper from '@/components/swiper';
 
 /**
  * Styles
@@ -127,11 +128,9 @@ export default () => {
                         <div className={`${styles.sustainable} ${styles.b1}`}>
                             <Row gutter={86}>
                                 <Col span={12}>
-                                    <div style={{ maxWidth: 630 }}>
-                                        <AspectRatio ratio={630 / 360}>
-                                            <img alt="" src="/static/about-us/sustainable_1.png" />
-                                        </AspectRatio>
-                                    </div>
+                                    <AspectRatio ratio={630 / 360}>
+                                        <img alt="" src="/static/about-us/sustainable_1.png" />
+                                    </AspectRatio>
                                 </Col>
 
                                 <Col span={12}>
@@ -146,7 +145,7 @@ export default () => {
                             </Row>
                         </div>
 
-                        <div className={`${styles.sustainable}`}>
+                        <div className={`${styles.sustainable} ${styles.b0}`}>
                             <Row gutter={86}>
                                 <Col span={12}>
                                     <div className={styles.title}>环境健康与职业安全</div>
@@ -159,11 +158,9 @@ export default () => {
                                 </Col>
 
                                 <Col span={12}>
-                                    <div style={{ maxWidth: 630, marginLeft: 'auto' }}>
-                                        <AspectRatio ratio={630 / 360}>
-                                            <img alt="" src="/static/about-us/sustainable_2.png" />
-                                        </AspectRatio>
-                                    </div>
+                                    <AspectRatio ratio={630 / 360}>
+                                        <img alt="" src="/static/about-us/sustainable_2.png" />
+                                    </AspectRatio>
                                 </Col>
                             </Row>
                         </div>
@@ -171,11 +168,9 @@ export default () => {
                         <div className={`${styles.sustainable} ${styles.b1}`}>
                             <Row gutter={86}>
                                 <Col span={12}>
-                                    <div style={{ maxWidth: 630 }}>
-                                        <AspectRatio ratio={630 / 360}>
-                                            <img alt="" src="/static/about-us/sustainable_3.png" />
-                                        </AspectRatio>
-                                    </div>
+                                    <AspectRatio ratio={630 / 360}>
+                                        <img alt="" src="/static/about-us/sustainable_3.png" />
+                                    </AspectRatio>
                                 </Col>
 
                                 <Col span={12}>
@@ -192,11 +187,27 @@ export default () => {
 
                         {/* 员工关怀 */}
                         <div className={`${styles.sustainable}`}>
-                            <Flex vertical>
+                            <Flex style={{ marginBottom: 42 }} vertical>
                                 <div className={styles.newsTitle1}>员工关怀</div>
 
                                 <div className={styles.newsTitle2}>News</div>
                             </Flex>
+
+                            <Swiper>
+                                {Array.from({ length: 10 }).map((_, index) => (
+                                    <div className={styles.employee} key={index}>
+                                        <AspectRatio ratio={332 / 232}>
+                                            <img alt="" src="/static/about-us/sustainable_3.png" />
+                                        </AspectRatio>
+
+                                        <div className={styles.newsTitle3}>
+                                            考试辅导离苦得乐快进到搜嘎科技路山旮旯金卡我饿叫哦IPO几我
+                                        </div>
+
+                                        <div className={styles.newsDescription3}>2025-03-01</div>
+                                    </div>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
 
