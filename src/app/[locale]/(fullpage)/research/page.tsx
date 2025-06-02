@@ -1,5 +1,6 @@
 'use client';
 
+import { useSetState } from 'ahooks';
 import { Image } from 'antd';
 import classNames from 'classnames';
 import { useParams } from 'next/navigation';
@@ -93,12 +94,87 @@ export default () => {
      */
     const fullpageRef = useRef<HTMLDivElement>(null);
 
+    const fullpageInstanceRef = useRef<any>(null);
+
     const technologySwiper = useRef<any>(null);
 
     /**
      * States
      */
     const [active, setActive] = useState(false);
+
+    const [state, setState] = useSetState({
+        index: 0,
+    });
+
+    /**
+     * Events
+     */
+    const onFirstClick = () => {
+        const section = fullpageInstanceRef.current.getActiveSection();
+
+        if (section.index() !== 1) return;
+
+        setState({
+            index: 0,
+        });
+
+        const segment = segments[1];
+        const video = section.item.querySelector('video');
+
+        if (segment && video) {
+            // 结束时间
+            const endTime = segment.durations[0];
+
+            video.currentTime = 0;
+            video.play();
+            segment.index = 0;
+            segment.playing = true;
+
+            const checkTime = () => {
+                if (video.currentTime >= endTime) {
+                    video.pause();
+                    segment.index += 1;
+                    segment.playing = false;
+                } else {
+                    requestAnimationFrame(checkTime);
+                }
+            };
+
+            requestAnimationFrame(checkTime);
+        }
+    };
+
+    const onSecondClick = () => {
+        const section = fullpageInstanceRef.current.getActiveSection();
+
+        if (section.index() !== 1) return;
+
+        setState({
+            index: 1,
+        });
+
+        const segment = segments[1];
+        const video = section.item.querySelector('video');
+
+        if (segment && video) {
+            const endTime = segment.durations.reduce((acc, cur) => acc + cur, 0);
+
+            video.play();
+            segment.playing = true;
+
+            const checkTime = () => {
+                if (video.currentTime >= endTime) {
+                    video.pause();
+                    segment.index += 0;
+                    segment.playing = false;
+                } else {
+                    requestAnimationFrame(checkTime);
+                }
+            };
+            requestAnimationFrame(checkTime);
+        }
+    };
 
     /**
      * Effects
@@ -107,7 +183,7 @@ export default () => {
         if (fullpageRef.current) {
             // @ts-ignore
             const instance = new fullpage(fullpageRef.current, {
-                anchors: ['research-1', 'research-2', 'research-3'],
+                anchors: ['research-1', 'research-2', 'research-3', 'footer'],
                 animateAnchor: true,
                 credits: {
                     enabled: false,
@@ -143,61 +219,17 @@ export default () => {
                         requestAnimationFrame(checkTime);
                     }
                 },
-                beforeLeave: (origin: any, destination: any, direction: any) => {
+                beforeLeave: (origin: any, destination: any) => {
                     const active = [2, 3].includes(destination.index) || ['production'].includes(destination.anchor);
 
-                    if (direction === 'up') {
-                        // 特殊页面高亮菜单
-                        setActive(active);
-
-                        return true;
-                    }
-
-                    // 如果当前 section 有片段和视频
-                    const segment = segments[origin.index];
-                    const video = origin.item.querySelector('video');
-
-                    if (segment && video) {
-                        // 结束时间
-                        const endTime = segment.durations
-                            .slice(0, segment.index + 1)
-                            .reduce((acc, cur) => acc + cur, 0);
-
-                        // 如果视频正在播放
-                        if (segment.playing) {
-                            // 阻止离开当前 section
-                            return false;
-                        }
-
-                        // 如果视频还有片段
-                        if (segment.index < segment.durations.length) {
-                            video.play();
-                            segment.playing = true;
-
-                            const checkTime = () => {
-                                if (video.currentTime >= endTime) {
-                                    video.pause();
-                                    segment.index += 1;
-                                    segment.playing = false;
-                                } else {
-                                    requestAnimationFrame(checkTime);
-                                }
-                            };
-
-                            requestAnimationFrame(checkTime);
-
-                            // 阻止离开当前 section
-                            return false;
-                        }
-                    }
-
-                    // 特殊页面高亮菜单
                     setActive(active);
                 },
             });
 
             // 优化 hash 缓存不更新的问题
             instance.moveTo(window.location.hash?.replace('#', ''));
+
+            fullpageInstanceRef.current = instance;
 
             return () => {
                 instance.destroy('all');
@@ -253,6 +285,18 @@ export default () => {
                     >
                         <source src="https://2501-r2.liuuu.net/research/technology_zh.mp4" type="video/mp4" />
                     </video>
+
+                    <div className={styles.indicators}>
+                        <span
+                            className={classNames(styles.indicator, { [styles.active]: state.index === 0 })}
+                            onClick={onFirstClick}
+                        />
+
+                        <span
+                            className={classNames(styles.indicator, { [styles.active]: state.index === 1 })}
+                            onClick={onSecondClick}
+                        />
+                    </div>
                 </div>
 
                 <div className="section">

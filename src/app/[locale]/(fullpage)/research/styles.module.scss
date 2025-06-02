@@ -42,3 +42,30 @@
         line-height: 28px;
     }
 }
+
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+
+    .indicator {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &.active {
+            opacity: 1;
+            background-color: #2dafb7;
+        }
+    }
+
+    .indicator:hover {
+        opacity: 0.8;
+    }
+}
