@@ -26,6 +26,7 @@ const Hero: React.FC = () => {
      */
     const [state, setState] = useSetState({
         display: 'block',
+        logo: '',
         poster: '',
         url: '',
     });
@@ -38,6 +39,10 @@ const Hero: React.FC = () => {
             const hour = new Date().getHours();
 
             setState({
+                logo:
+                    hour >= 20 || hour < 6
+                        ? 'https://2501-r2.liuuu.net/index/logo_night.mp4'
+                        : 'https://2501-r2.liuuu.net/index/logo_day.mp4',
                 poster: hour >= 20 || hour < 6 ? '/static/index/night_poster.png' : '/static/index/day_poster.png',
                 url:
                     hour >= 20 || hour < 6
@@ -74,7 +79,7 @@ const Hero: React.FC = () => {
                     videoRef.current?.play();
                 }}
             >
-                <source src="https://2501-r2.liuuu.net/index/logo.mp4" type="video/mp4" />
+                {state.logo ? <source src={state.logo} type="video/mp4" /> : null}
             </video>
 
             <video
