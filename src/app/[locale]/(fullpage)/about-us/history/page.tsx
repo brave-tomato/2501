@@ -205,7 +205,7 @@ export default () => {
                             objectFit: 'cover',
                         }}
                     >
-                        <source src="https://2501-r2.liuuu.net/about-us/history.mp4" type="video/mp4" />
+                        <source src="https://files.welion.asia/about-us/history.mp4" type="video/mp4" />
                     </video>
                 </div>
 

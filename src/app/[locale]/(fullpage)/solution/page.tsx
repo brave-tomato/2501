@@ -73,7 +73,7 @@ export default () => {
                             objectFit: 'cover',
                         }}
                     >
-                        <source src="https://2501-r2.liuuu.net/solution/banner.mp4" type="video/mp4" />
+                        <source src="https://files.welion.asia/solution/banner.mp4" type="video/mp4" />
                     </video>
 
                     <Title5

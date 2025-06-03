@@ -41,42 +41,42 @@ const segments = [
 const technologySlides = [
     {
         image: '/static/research/technology_01', // 自动拼接 _[locale].jpg，如 _zh.jpg
-        video: 'https://2501-r2.liuuu.net/research/technology_01', // 自动拼接 _[locale].mp4，如 _zh.mp4
+        video: 'https://files.welion.asia/research/technology_01', // 自动拼接 _[locale].mp4，如 _zh.mp4
         title: '原位固态化',
         subtitle: 'In-situ Solidification',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
         image: '/static/research/technology_02',
-        video: 'https://2501-r2.liuuu.net/research/technology_02',
+        video: 'https://files.welion.asia/research/technology_02',
         title: '固态电解质掺混',
         subtitle: 'Solid Electrolyte Blending',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
         image: '/static/research/technology_03',
-        video: 'https://2501-r2.liuuu.net/research/technology_03',
+        video: 'https://files.welion.asia/research/technology_03',
         title: '固态电解质正极包覆',
         subtitle: 'Solid Electrolyte Coating Cathode',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
         image: '/static/research/technology_04',
-        video: 'https://2501-r2.liuuu.net/research/technology_04',
+        video: 'https://files.welion.asia/research/technology_04',
         title: '离子导体膜',
         subtitle: 'Ionic Conductive Separator',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
         image: '/static/research/technology_05',
-        video: 'https://2501-r2.liuuu.net/research/technology_05',
+        video: 'https://files.welion.asia/research/technology_05',
         title: '超薄金属锂',
         subtitle: 'Ultra-thin Lithium Metal Foil',
         description: 'xxxxxxxxxxxxxxxxxxx',
     },
     {
         image: '/static/research/technology_06',
-        video: 'https://2501-r2.liuuu.net/research/technology_06',
+        video: 'https://files.welion.asia/research/technology_06',
         title: '高精度负极预锂化',
         subtitle: 'High-precision Anode Pre-lithiation',
         description: 'xxxxxxxxxxxxxxxxxxx',
@@ -256,7 +256,7 @@ export default () => {
                             objectFit: 'cover',
                         }}
                     >
-                        <source src="https://2501-r2.liuuu.net/research/banner.mp4" type="video/mp4" />
+                        <source src="https://files.welion.asia/research/banner.mp4" type="video/mp4" />
                     </video>
 
                     <Title5
@@ -284,7 +284,7 @@ export default () => {
                             objectFit: 'cover',
                         }}
                     >
-                        <source src="https://2501-r2.liuuu.net/research/technology_zh.mp4" type="video/mp4" />
+                        <source src="https://files.welion.asia/research/technology_zh.mp4" type="video/mp4" />
                     </video>
 
                     <div className={styles.indicators}>
@@ -385,7 +385,7 @@ export default () => {
                             objectFit: 'cover',
                         }}
                     >
-                        <source src="https://2501-r2.liuuu.net/research/liucheng.mp4" type="video/mp4" />
+                        <source src="https://files.welion.asia/research/liucheng.mp4" type="video/mp4" />
                     </video>
                 </div>
 

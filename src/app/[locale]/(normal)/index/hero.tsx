@@ -41,13 +41,13 @@ const Hero: React.FC = () => {
             setState({
                 logo:
                     hour >= 20 || hour < 6
-                        ? 'https://2501-r2.liuuu.net/index/logo_night.mp4'
-                        : 'https://2501-r2.liuuu.net/index/logo_day.mp4',
+                        ? 'https://files.welion.asia/index/logo_night.mp4'
+                        : 'https://files.welion.asia/index/logo_day.mp4',
                 poster: hour >= 20 || hour < 6 ? '/static/index/night_poster.png' : '/static/index/day_poster.png',
                 url:
                     hour >= 20 || hour < 6
-                        ? 'https://2501-r2.liuuu.net/index/night.mp4'
-                        : 'https://2501-r2.liuuu.net/index/day.mp4',
+                        ? 'https://files.welion.asia/index/night.mp4'
+                        : 'https://files.welion.asia/index/day.mp4',
             });
         };
 
