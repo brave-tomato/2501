@@ -220,14 +220,18 @@ export default () => {
                     }
                 },
                 beforeLeave: (origin: any, destination: any) => {
-                    const active = [2, 3].includes(destination.index) || ['production'].includes(destination.anchor);
+                    const active =
+                        [2, 3, 4].includes(destination.index) ||
+                        ['research-3', 'research-4', 'footer'].includes(destination.anchor);
 
                     setActive(active);
                 },
             });
 
             // 优化 hash 缓存不更新的问题
-            instance.moveTo(window.location.hash?.replace('#', ''));
+            if (window.location.hash) {
+                instance.moveTo(window.location.hash.replace('#', ''));
+            }
 
             fullpageInstanceRef.current = instance;
 

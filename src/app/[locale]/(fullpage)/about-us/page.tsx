@@ -77,7 +77,9 @@ export default () => {
             });
 
             // 优化 hash 缓存不更新的问题
-            instance.moveTo(window.location.hash?.replace('#', ''));
+            if (window.location.hash) {
+                instance.moveTo(window.location.hash.replace('#', ''));
+            }
 
             fullpageInstanceRef.current = instance;
 
