@@ -247,7 +247,9 @@
 }
 
 .employee {
+    display: block;
     border-bottom: 1px solid #969696;
+    text-decoration: none;
     user-select: none;
 
     &:hover {

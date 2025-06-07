@@ -1,8 +1,11 @@
 'use client';
 
-import { Col, Flex, Row, Typography } from 'antd';
+import { useSetState } from 'ahooks';
+import { Col, Flex, Row } from 'antd';
+import dayjs from 'dayjs';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * Components
@@ -33,7 +36,10 @@ export default () => {
     /**
      * States
      */
-    const [active, setActive] = useState(false);
+    const [state, setState] = useSetState({
+        active: false,
+        data: [],
+    });
 
     /**
      * Effects
@@ -52,7 +58,7 @@ export default () => {
                     const active = [1].includes(destination.index) || [''].includes(destination.anchor);
 
                     // 特殊页面高亮菜单
-                    setActive(active);
+                    setState({ active });
                 },
             });
 
@@ -69,10 +75,20 @@ export default () => {
         }
     }, [fullpageRef]);
 
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/news?category=activity`)
+            .then((res) => res.json())
+            .then((data) => {
+                setState({
+                    data: data?.data || [],
+                });
+            });
+    }, []);
+
     return (
         <>
             <Header
-                active={active}
+                active={state.active}
                 locale={params.locale as string}
                 onClick={(href) => {
                     if (href.includes('#')) {
@@ -196,18 +212,22 @@ export default () => {
                             </Flex>
 
                             <Swiper>
-                                {Array.from({ length: 10 }).map((_, index) => (
-                                    <div className={styles.employee} key={index}>
+                                {state.data.map((news: any) => (
+                                    <Link
+                                        className={styles.employee}
+                                        href={`/${params.locale}/news/${news.id}`}
+                                        key={news.id}
+                                    >
                                         <AspectRatio ratio={332 / 232}>
-                                            <img alt="" src="/static/about-us/sustainable_3.png" />
+                                            <img alt="" src={news.cover} />
                                         </AspectRatio>
 
-                                        <div className={styles.newsTitle3}>
-                                            考试辅导离苦得乐快进到搜嘎科技路山旮旯金卡我饿叫哦IPO几我
-                                        </div>
+                                        <div className={styles.newsTitle3}>{news.title}</div>
 
-                                        <div className={styles.newsDescription3}>2025-03-01</div>
-                                    </div>
+                                        <div className={styles.newsDescription3}>
+                                            {dayjs(news.created).format('YYYY-MM-DD')}
+                                        </div>
+                                    </Link>
                                 ))}
                             </Swiper>
                         </div>
