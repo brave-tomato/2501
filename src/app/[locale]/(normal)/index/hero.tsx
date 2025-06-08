@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                     display: state.display,
                     position: 'absolute',
                     inset: 0,
-                    zIndex: 2,
+                    zIndex: 102,
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
