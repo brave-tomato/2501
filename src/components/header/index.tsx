@@ -41,11 +41,11 @@ const menus = [
         ],
     },
     {
-        href: '/research/#research-1',
+        href: '/research/',
         name: '固态电池产业化',
         children: [
-            { href: '/research/#research-2', name: '固态电池研发' },
-            { href: '/research/#research-3', name: '固态电池制造' },
+            { href: '/research/', name: '固态电池研发' },
+            { href: '/manufacture/', name: '固态电池制造' },
         ],
     },
     {
@@ -149,7 +149,7 @@ export default ({ active, locale, onClick }: Props) => {
                                         pathname === getHref(menu.href) ||
                                         menu.children?.some((submenu) => pathname === getHref(submenu.href)),
                                 })}
-                                href={getHref(menu.href)}
+                                href={menu.children?.length ? getHref(menu.children[0].href) : getHref(menu.href)}
                                 onClick={() => {
                                     onClick?.(menu.href);
                                 }}

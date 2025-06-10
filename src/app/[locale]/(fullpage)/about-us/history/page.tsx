@@ -131,7 +131,6 @@ export default () => {
 
             const handleWheel = (event: WheelEvent) => {
                 const section = instance.getActiveSection();
-                console.log('section :>> ', section);
 
                 if (event.deltaY > 0 || section.index() !== 0) {
                     return;

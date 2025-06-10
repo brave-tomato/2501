@@ -44,28 +44,31 @@ const technologySlides = [
         video: 'https://files.welion.asia/research/technology_01', // 自动拼接 _[locale].mp4，如 _zh.mp4
         title: '原位固态化',
         subtitle: 'In-situ Solidification',
-        description: 'xxxxxxxxxxxxxxxxxxx',
+        description:
+            '该技术采用自研的单体材料和固化工艺技术，实现了基于原位固态化技术的固态电池量产工艺，其中固态电解质与电极颗粒之间原子级键合，保证了连续、共形接触的固-固界面。能够有效降低界面电阻，提高电池的安全性能。',
     },
     {
         image: '/static/research/technology_02',
         video: 'https://files.welion.asia/research/technology_02',
         title: '固态电解质掺混',
         subtitle: 'Solid Electrolyte Blending',
-        description: 'xxxxxxxxxxxxxxxxxxx',
+        description:
+            '该技术采用自主研发的固态电解质在正极/负极内掺混技术，达到降低电解液用量提高安全性能，同时传导锂离子保持倍率性能的效果。',
     },
     {
         image: '/static/research/technology_03',
         video: 'https://files.welion.asia/research/technology_03',
         title: '固态电解质正极包覆',
         subtitle: 'Solid Electrolyte Coating Cathode',
-        description: 'xxxxxxxxxxxxxxxxxxx',
+        description: '该技术采用快离子导体固态电解质包覆改性正极材料技术，改善了高镍正极材料界面副反应及安全性能。',
     },
     {
         image: '/static/research/technology_04',
         video: 'https://files.welion.asia/research/technology_04',
         title: '离子导体膜',
         subtitle: 'Ionic Conductive Separator',
-        description: 'xxxxxxxxxxxxxxxxxxx',
+        description:
+            '该技术采用自主研发的固态电解质在隔膜表面涂覆，以代替氧化铝涂层，形成离子导体膜。该技术以达到在维持隔膜热稳定性效果的同时，提高安全性能；同时固态电解质可传输锂离子，相比氧化铝可提高离子传导性能。',
     },
     {
         image: '/static/research/technology_05',
@@ -79,7 +82,8 @@ const technologySlides = [
         video: 'https://files.welion.asia/research/technology_06',
         title: '高精度负极预锂化',
         subtitle: 'High-precision Anode Pre-lithiation',
-        description: 'xxxxxxxxxxxxxxxxxxx',
+        description:
+            '该技术采用自主研发的超薄锂箔制备技术、金属锂箔表面钝化技术及锂化速率控制技术，通过在界面形成无机电解质层，金属锂在电子电导、离子电导及金属扩散的多重作用下，实现锂向负极中嵌入完成补锂，在负极表面提前形成无机SEI膜。',
     },
 ];
 
@@ -183,7 +187,6 @@ export default () => {
         if (fullpageRef.current) {
             // @ts-ignore
             const instance = new fullpage(fullpageRef.current, {
-                anchors: ['research-1', 'research-2', 'research-3', 'research-4', 'footer'],
                 animateAnchor: true,
                 credits: {
                     enabled: false,
@@ -193,7 +196,7 @@ export default () => {
                 afterLoad: (_: any, destination: any) => {
                     // 如果当前 section 有片段和视频
                     const segment = segments.find((s, i) => {
-                        return i === destination.index || s?.anchor === destination.anchor;
+                        return i === destination.index;
                     });
                     const video = destination.item.querySelector('video');
 
@@ -220,18 +223,11 @@ export default () => {
                     }
                 },
                 beforeLeave: (origin: any, destination: any) => {
-                    const active =
-                        [2, 3, 4].includes(destination.index) ||
-                        ['research-3', 'research-4', 'footer'].includes(destination.anchor);
+                    const active = [2, 3, 4].includes(destination.index);
 
                     setActive(active);
                 },
             });
-
-            // 优化 hash 缓存不更新的问题
-            if (window.location.hash) {
-                instance.moveTo(window.location.hash.replace('#', ''));
-            }
 
             fullpageInstanceRef.current = instance;
 
@@ -373,24 +369,6 @@ export default () => {
                             <img alt="" src="/static/vendors/swiper_next.svg" />
                         </div>
                     </div>
-                </div>
-
-                <div className="section" style={{ position: 'relative' }}>
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{
-                            position: 'absolute',
-                            inset: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    >
-                        <source src="https://files.welion.asia/research/liucheng.mp4" type="video/mp4" />
-                    </video>
                 </div>
 
                 <div className="section fp-auto-height">

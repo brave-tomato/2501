@@ -1,7 +1,6 @@
 'use client';
 
-import { useSetState } from 'ahooks';
-import { Col, Flex, Modal, Row, Typography } from 'antd';
+import { Col, Flex, Row, Typography } from 'antd';
 import classNames from 'classnames';
 import Link from 'next/link';
 
@@ -17,13 +16,6 @@ import Hero from './hero';
 import styles from './styles.module.scss';
 
 const Index: React.FC = () => {
-    /**
-     * States
-     */
-    const [state, setState] = useSetState({
-        open: false,
-    });
-
     return (
         <div className="mw-1920">
             {/* Hero */}
@@ -131,43 +123,6 @@ const Index: React.FC = () => {
                     </Col>
                 </Row>
             </div>
-
-            {/* 展会 */}
-            <img
-                alt=""
-                className={styles.exhibition}
-                src="/static/index/exhibition.png"
-                onClick={() => setState({ open: true })}
-            />
-
-            <Modal
-                styles={{
-                    content: {
-                        background: 'transparent',
-                        boxShadow: 'none',
-                        padding: 0,
-                    },
-                }}
-                centered
-                closeIcon={null}
-                footer={null}
-                open={state.open}
-                width="80%"
-                style={{ maxWidth: 979 }}
-                onCancel={() => setState({ open: false })}
-            >
-                <AspectRatio ratio={979 / 610}>
-                    <img
-                        alt=""
-                        src="/static/index/exhibition_bg.png"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    />
-                </AspectRatio>
-            </Modal>
         </div>
     );
 };
