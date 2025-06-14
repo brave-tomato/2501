@@ -1,0 +1,41 @@
+// 图片
+.image {
+    width: 100%;
+    max-width: 447px;
+    margin-bottom: 66px;
+}
+
+// 标题
+.title {
+    margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 56px;
+    color: #313232;
+}
+
+// 链接
+.link {
+    width: 80px;
+    height: 80px;
+    background: url('/static/solution/a1/button.png') center / contain no-repeat;
+}
+
+// 特性
+.feature {
+    .featureTitle {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #2dafb7;
+        color: #103675;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+    }
+
+    .featureDesc {
+        color: #969696;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

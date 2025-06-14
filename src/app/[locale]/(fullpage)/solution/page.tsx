@@ -1,8 +1,11 @@
 'use client';
 
+import ReactFullpage from '@fullpage/react-fullpage';
+import { Flex, Space } from 'antd';
 import classNames from 'classnames';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * Components
@@ -14,7 +17,6 @@ import { Title5 } from '@/components/headline';
 /**
  * Styles
  */
-import { Flex, Space } from 'antd';
 import styles from './styles.module.scss';
 
 export default () => {
@@ -22,11 +24,6 @@ export default () => {
      * Params
      */
     const params = useParams();
-
-    /**
-     * Hooks
-     */
-    const fullpageRef = useRef<HTMLDivElement>(null);
 
     /**
      * States
@@ -37,130 +34,137 @@ export default () => {
      * Effects
      */
     useEffect(() => {
-        if (fullpageRef.current) {
+        return () => {
             // @ts-ignore
-            const instance = new fullpage(fullpageRef.current, {
-                credits: {
-                    enabled: false,
-                },
-                beforeLeave: (_: any, destination: any) => {
-                    // 特殊页面高亮菜单
-                    setActive(![0].includes(destination.index));
-                },
-            });
-
-            return () => {
-                instance.destroy('all');
-            };
-        }
-    }, [fullpageRef]);
+            if (window.fullpage_api) {
+                // @ts-ignore
+                window.fullpage_api.moveTo(1);
+            }
+        };
+    }, []);
 
     return (
         <>
             <Header active={active} locale={params.locale as string} />
 
-            <div ref={fullpageRef}>
-                <div className={classNames('section')} style={{ position: 'relative' }}>
-                    <video
-                        autoPlay
-                        muted
-                        playsInline
-                        style={{
-                            position: 'absolute',
-                            inset: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    >
-                        <source src="https://files.welion.asia/solution/banner.mp4" type="video/mp4" />
-                    </video>
+            <ReactFullpage
+                beforeLeave={(_, destination) => {
+                    setActive(![0].includes(destination.index));
+                }}
+                credits={{
+                    enabled: false,
+                }}
+                render={() => (
+                    <ReactFullpage.Wrapper>
+                        <div className={classNames('section')} style={{ position: 'relative' }}>
+                            <video
+                                autoPlay
+                                muted
+                                playsInline
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                }}
+                            >
+                                <source src="https://files.welion.asia/solution/banner.mp4" type="video/mp4" />
+                            </video>
 
-                    <Title5
-                        className="slide-top"
-                        style={{
-                            position: 'absolute',
-                            top: '25%',
-                            left: '9.5833%',
-                        }}
-                        title="应用与解决方案"
-                    />
-                </div>
+                            <Title5
+                                className="slide-top"
+                                style={{
+                                    position: 'absolute',
+                                    top: '25%',
+                                    left: '9.5833%',
+                                }}
+                                title="应用与解决方案"
+                            />
+                        </div>
 
-                <div className="section">
-                    <Flex align="center" justify="center" style={{ height: '100vh' }}>
-                        <Flex vertical>
-                            <Space size={36}>
-                                <span className={styles.t1}>动力类应用</span>
+                        <div className="section">
+                            <Flex align="center" justify="center" style={{ height: '100vh' }}>
+                                <Flex vertical>
+                                    <Link href={`/${params.locale}/solution/a1/`}>
+                                        <Space size={36}>
+                                            <span className={styles.t1}>动力类应用</span>
 
-                                <img alt="" height={80} src="/static/solution/icon.png" width={80} />
-                            </Space>
+                                            <img alt="" height={80} src="/static/solution/icon.png" width={80} />
+                                        </Space>
+                                    </Link>
 
-                            <div className={styles.t2}>XXXXXXXXXXX</div>
+                                    <div className={styles.t2}>XXXXXXXXXXX</div>
 
-                            <div className={styles.t3}>
-                                Power type
-                                <br />
-                                applications
-                            </div>
-                        </Flex>
+                                    <div className={styles.t3}>
+                                        Power type
+                                        <br />
+                                        applications
+                                    </div>
+                                </Flex>
 
-                        <img alt="" height={399} src="/static/solution/solution1.png" width={541} />
-                    </Flex>
-                </div>
+                                <img alt="" height={399} src="/static/solution/solution1.png" width={541} />
+                            </Flex>
+                        </div>
 
-                <div className="section">
-                    <Flex align="center" justify="center" style={{ height: '100vh' }}>
-                        <Flex vertical>
-                            <Space size={36}>
-                                <span className={styles.t1}>低空经济类应用</span>
+                        <div className="section">
+                            <Flex align="center" justify="center" style={{ height: '100vh' }}>
+                                <Flex vertical>
+                                    <Link href={`/${params.locale}/solution/a2/`}>
+                                        <Space size={36}>
+                                            <span className={styles.t1}>低空经济类应用</span>
 
-                                <img alt="" height={80} src="/static/solution/icon.png" width={80} />
-                            </Space>
+                                            <img alt="" height={80} src="/static/solution/icon.png" width={80} />
+                                        </Space>
+                                    </Link>
 
-                            <div className={styles.t2}>XXXXXXXXXXX</div>
+                                    <div className={styles.t2}>XXXXXXXXXXX</div>
 
-                            <div className={styles.t3}>
-                                Low-altitude
-                                <br />
-                                economic
-                                <br />
-                                applications
-                            </div>
-                        </Flex>
+                                    <div className={styles.t3}>
+                                        Low-altitude
+                                        <br />
+                                        economic
+                                        <br />
+                                        applications
+                                    </div>
+                                </Flex>
 
-                        <img alt="" height={399} src="/static/solution/solution2.png" width={541} />
-                    </Flex>
-                </div>
+                                <img alt="" height={399} src="/static/solution/solution2.png" width={541} />
+                            </Flex>
+                        </div>
 
-                <div className="section">
-                    <Flex align="center" justify="center" style={{ height: '100vh' }}>
-                        <Flex vertical>
-                            <Space size={36}>
-                                <span className={styles.t1}>储能应用</span>
+                        <div className="section">
+                            <Flex align="center" justify="center" style={{ height: '100vh' }}>
+                                <Flex vertical>
+                                    <Link href={`/${params.locale}/solution/c3/`}>
+                                        <Space size={36}>
+                                            <span className={styles.t1}>储能应用</span>
 
-                                <img alt="" height={80} src="/static/solution/icon.png" width={80} />
-                            </Space>
+                                            <img alt="" height={80} src="/static/solution/icon.png" width={80} />
+                                        </Space>
+                                    </Link>
 
-                            <div className={styles.t2}>XXXXXXXXXXX</div>
+                                    <div className={styles.t2}>XXXXXXXXXXX</div>
 
-                            <div className={styles.t3}>
-                                Energy
-                                <br />
-                                storage
-                                <br />
-                                applications
-                            </div>
-                        </Flex>
+                                    <div className={styles.t3}>
+                                        Energy
+                                        <br />
+                                        storage
+                                        <br />
+                                        applications
+                                    </div>
+                                </Flex>
 
-                        <img alt="" height={399} src="/static/solution/solution3.png" width={541} />
-                    </Flex>
-                </div>
+                                <img alt="" height={399} src="/static/solution/solution3.png" width={541} />
+                            </Flex>
+                        </div>
 
-                <div className="section fp-auto-height">
-                    <Footer />
-                </div>
-            </div>
+                        <div className="section fp-auto-height">
+                            <Footer />
+                        </div>
+                    </ReactFullpage.Wrapper>
+                )}
+            />
         </>
     );
 };

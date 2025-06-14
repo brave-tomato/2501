@@ -49,12 +49,12 @@ const menus = [
         ],
     },
     {
-        href: '/solution',
+        href: '/solution/',
         name: '应用与解决方案',
         children: [
-            { href: '/solution/c1', name: '动力类应用' },
-            { href: '/solution/c2', name: '低空经济类应用' },
-            { href: '/solution/c3', name: '储能应用' },
+            { href: '/solution/a1/', name: '动力类应用' },
+            { href: '/solution/a2/', name: '低空经济类应用' },
+            { href: '/solution/c3/', name: '储能应用' },
         ],
     },
     {
@@ -149,7 +149,7 @@ export default ({ active, locale, onClick }: Props) => {
                                         pathname === getHref(menu.href) ||
                                         menu.children?.some((submenu) => pathname === getHref(submenu.href)),
                                 })}
-                                href={menu.children?.length ? getHref(menu.children[0].href) : getHref(menu.href)}
+                                href={getHref(menu.href)}
                                 onClick={() => {
                                     onClick?.(menu.href);
                                 }}
@@ -165,8 +165,7 @@ export default ({ active, locale, onClick }: Props) => {
                                                 className={classNames(styles.sublink, {
                                                     [styles.active]:
                                                         pathname === getHref(submenu.href) ||
-                                                        pathname + state.hash === getHref(submenu.href) ||
-                                                        submenu.anchors?.includes(state.hash),
+                                                        pathname + state.hash === getHref(submenu.href),
                                                 })}
                                                 href={getHref(submenu.href)}
                                                 key={getHref(submenu.href)}

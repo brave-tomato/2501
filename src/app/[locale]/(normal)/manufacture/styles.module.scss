@@ -31,11 +31,11 @@
     }
 
     &Popover {
-        padding: 12px 24px !important;
+        padding: 12px !important;
         background-color: rgba(16, 54, 117, 0.9) !important;
-        border-radius: 56px !important;
-        font-size: 24px;
-        line-height: 32px;
+        border-radius: 11px !important;
+        font-size: 14px;
+        line-height: 22px;
 
         a,
         :global(.ant-popover-inner-content) {
@@ -72,12 +72,78 @@
 
 // 点位 1
 .point1 {
-    top: 36.67%;
-    left: 45.16%;
+    top: 48%;
+    left: 6%;
 }
 
 // 点位 2
 .point2 {
-    top: 50.5%;
-    left: 39%;
+    top: 50%;
+    left: 12%;
+}
+
+// 点位 3
+.point3 {
+    top: 52%;
+    left: 24%;
+}
+
+// 点位 4
+.point4 {
+    top: 56%;
+    left: 36%;
+}
+
+// 点位 5
+.point5 {
+    top: 65%;
+    left: 62%;
+}
+
+// 点位 6
+.point6 {
+    top: 49%;
+    left: 81%;
+}
+
+// 点位 7
+.point7 {
+    top: 45%;
+    left: 62%;
+}
+
+// 点位 8
+.point8 {
+    top: 40%;
+    left: 44%;
+}
+
+// 点位 9
+.point9 {
+    top: 36%;
+    left: 28%;
+}
+
+// 点位 10
+.point10 {
+    top: 25%;
+    left: 41%;
+}
+
+// 点位 11
+.point11 {
+    top: 28%;
+    left: 55%;
+}
+
+// 点位 12
+.point12 {
+    top: 31%;
+    left: 73%;
+}
+
+// 点位 13
+.point13 {
+    top: 34%;
+    left: 85.5%;
 }

@@ -1,7 +1,8 @@
 'use client';
 
+import ReactFullpage from '@fullpage/react-fullpage';
 import { useParams } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 /**
  * Components
@@ -32,21 +33,74 @@ export default () => {
     const params = useParams();
 
     /**
-     * Hooks
-     */
-    const fullpageRef = useRef<HTMLDivElement>(null);
-
-    /**
      * Effects
      */
     useEffect(() => {
-        if (fullpageRef.current) {
-            // @ts-ignore
-            const instance = new fullpage(fullpageRef.current, {
-                credits: {
-                    enabled: false,
-                },
-                afterLoad: (_: any, destination: any, direction: any) => {
+        // @ts-ignore
+        const fullpageApi = window.fullpage_api;
+
+        const handleWheel = (event: WheelEvent) => {
+            if (!fullpageApi) return;
+
+            const section = fullpageApi.getActiveSection();
+
+            if (event.deltaY > 0 || section.index() !== 0) {
+                return;
+            }
+
+            // 如果当前 section 有片段和视频
+            const segment = segments[section.index()];
+            const video = section.item.querySelector('video');
+
+            if (segment && video) {
+                // 如果视频正在播放
+                if (segment.playing) {
+                    return;
+                }
+
+                // 如果视频还没返回到起点
+                if (segment.index >= 2) {
+                    // 获取上一个片段的开始时间和结束时间
+                    const startTime = segment.durations.slice(0, segment.index - 2).reduce((acc, cur) => acc + cur, 0);
+                    const endTime = segment.durations.slice(0, segment.index - 1).reduce((acc, cur) => acc + cur, 0);
+
+                    video.currentTime = startTime;
+
+                    video.play();
+                    segment.playing = true;
+
+                    const checkTime = () => {
+                        if (video.currentTime >= endTime) {
+                            video.pause();
+                            segment.index -= 1;
+                            segment.playing = false;
+                        } else {
+                            requestAnimationFrame(checkTime);
+                        }
+                    };
+                    requestAnimationFrame(checkTime);
+                }
+            }
+        };
+
+        // 添加滚轮事件监听
+        window.addEventListener('wheel', handleWheel, { passive: false });
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+
+            if (fullpageApi) {
+                fullpageApi.moveTo(1);
+            }
+        };
+    }, []);
+
+    return (
+        <>
+            <Header active={true} locale={params.locale as string} />
+
+            <ReactFullpage
+                afterLoad={(_, destination, direction) => {
                     if (direction === 'up') {
                         return true;
                     }
@@ -76,8 +130,8 @@ export default () => {
 
                         requestAnimationFrame(checkTime);
                     }
-                },
-                beforeLeave: (origin: any, _: any, direction: any) => {
+                }}
+                beforeLeave={(origin, _, direction) => {
                     if (direction === 'up') {
                         return true;
                     }
@@ -119,92 +173,35 @@ export default () => {
                             return false;
                         }
                     }
-                },
-            });
+                }}
+                credits={{
+                    enabled: false,
+                }}
+                render={() => (
+                    <ReactFullpage.Wrapper>
+                        <div className="section">
+                            <video
+                                loop={false}
+                                muted
+                                playsInline
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                }}
+                            >
+                                <source src="https://files.welion.asia/solution/0610.mp4" type="video/mp4" />
+                            </video>
+                        </div>
 
-            const handleWheel = (event: WheelEvent) => {
-                const section = instance.getActiveSection();
-
-                if (event.deltaY > 0 || section.index() !== 0) {
-                    return;
-                }
-
-                // 如果当前 section 有片段和视频
-                const segment = segments[section.index()];
-                const video = section.item.querySelector('video');
-
-                if (segment && video) {
-                    // 如果视频正在播放
-                    if (segment.playing) {
-                        return;
-                    }
-
-                    // 如果视频还没返回到起点
-                    if (segment.index >= 2) {
-                        // 获取上一个片段的开始时间和结束时间
-                        const startTime = segment.durations
-                            .slice(0, segment.index - 2)
-                            .reduce((acc, cur) => acc + cur, 0);
-                        const endTime = segment.durations
-                            .slice(0, segment.index - 1)
-                            .reduce((acc, cur) => acc + cur, 0);
-
-                        video.currentTime = startTime;
-
-                        video.play();
-                        segment.playing = true;
-
-                        const checkTime = () => {
-                            if (video.currentTime >= endTime) {
-                                video.pause();
-                                segment.index -= 1;
-                                segment.playing = false;
-                            } else {
-                                requestAnimationFrame(checkTime);
-                            }
-                        };
-                        requestAnimationFrame(checkTime);
-                    }
-                }
-            };
-
-            // 添加滚轮事件监听
-            window.addEventListener('wheel', handleWheel, { passive: false });
-
-            return () => {
-                instance.destroy('all');
-
-                window.removeEventListener('wheel', handleWheel);
-            };
-        }
-    }, [fullpageRef]);
-
-    return (
-        <>
-            <Header active={true} locale={params.locale as string} />
-
-            <div ref={fullpageRef}>
-                <div className="section">
-                    <video
-                        loop={false}
-                        muted
-                        playsInline
-                        style={{
-                            position: 'absolute',
-                            inset: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    >
-                        <source src="https://files.welion.asia/solution/0610.mp4" type="video/mp4" />
-                    </video>
-                </div>
-
-                <div className="section fp-auto-height">
-                    <Footer />
-                </div>
-            </div>
+                        <div className="section fp-auto-height">
+                            <Footer />
+                        </div>
+                    </ReactFullpage.Wrapper>
+                )}
+            />
         </>
     );
 };

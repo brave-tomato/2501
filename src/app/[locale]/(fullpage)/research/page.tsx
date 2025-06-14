@@ -1,5 +1,6 @@
 'use client';
 
+import ReactFullpage from '@fullpage/react-fullpage';
 import { useSetState } from 'ahooks';
 import { Image } from 'antd';
 import classNames from 'classnames';
@@ -75,7 +76,8 @@ const technologySlides = [
         video: 'https://files.welion.asia/research/technology_05',
         title: '超薄金属锂',
         subtitle: 'Ultra-thin Lithium Metal Foil',
-        description: 'xxxxxxxxxxxxxxxxxxx',
+        description:
+            '该技术通过金属掺杂、碳包覆等方法构造多孔结构、核壳结构的硅负极材料技术，多元共聚和半互穿结构的强键合作用的高强粘结剂技术，极片预锂化技术以及改性电解液技术，解决了硅负极可逆容量低、膨胀大的问题。',
     },
     {
         image: '/static/research/technology_06',
@@ -96,10 +98,6 @@ export default () => {
     /**
      * Hooks
      */
-    const fullpageRef = useRef<HTMLDivElement>(null);
-
-    const fullpageInstanceRef = useRef<any>(null);
-
     const technologySwiper = useRef<any>(null);
 
     /**
@@ -115,7 +113,12 @@ export default () => {
      * Events
      */
     const onFirstClick = () => {
-        const section = fullpageInstanceRef.current.getActiveSection();
+        // @ts-ignore
+        const fullpageApi = window.fullpage_api;
+
+        if (!fullpageApi) return;
+
+        const section = fullpageApi.getActiveSection();
 
         if (section.index() !== 1) return;
 
@@ -150,7 +153,12 @@ export default () => {
     };
 
     const onSecondClick = () => {
-        const section = fullpageInstanceRef.current.getActiveSection();
+        // @ts-ignore
+        const fullpageApi = window.fullpage_api;
+
+        if (!fullpageApi) return;
+
+        const section = fullpageApi.getActiveSection();
 
         if (section.index() !== 1) return;
 
@@ -184,16 +192,21 @@ export default () => {
      * Effects
      */
     useEffect(() => {
-        if (fullpageRef.current) {
+        return () => {
             // @ts-ignore
-            const instance = new fullpage(fullpageRef.current, {
-                animateAnchor: true,
-                credits: {
-                    enabled: false,
-                },
-                lockAnchors: false,
-                normalScrollElements: 'header',
-                afterLoad: (_: any, destination: any) => {
+            if (window.fullpage_api) {
+                // @ts-ignore
+                window.fullpage_api.moveTo(1);
+            }
+        };
+    }, []);
+
+    return (
+        <>
+            <Header active={active} locale={params.locale as string} />
+
+            <ReactFullpage
+                afterLoad={(_, destination) => {
                     // 如果当前 section 有片段和视频
                     const segment = segments.find((s, i) => {
                         return i === destination.index;
@@ -221,160 +234,156 @@ export default () => {
 
                         requestAnimationFrame(checkTime);
                     }
-                },
-                beforeLeave: (origin: any, destination: any) => {
-                    const active = [2, 3, 4].includes(destination.index);
+                }}
+                beforeLeave={(_, destination) => {
+                    setActive([2, 3, 4].includes(destination.index));
+                }}
+                credits={{
+                    enabled: false,
+                }}
+                render={() => (
+                    <ReactFullpage.Wrapper>
+                        <div className="section" style={{ position: 'relative' }}>
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                }}
+                            >
+                                <source src="https://files.welion.asia/research/banner.mp4" type="video/mp4" />
+                            </video>
 
-                    setActive(active);
-                },
-            });
-
-            fullpageInstanceRef.current = instance;
-
-            return () => {
-                instance.destroy('all');
-            };
-        }
-    }, [fullpageRef]);
-
-    return (
-        <>
-            <Header active={active} locale={params.locale as string} />
-
-            <div ref={fullpageRef}>
-                <div className="section" style={{ position: 'relative' }}>
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{
-                            position: 'absolute',
-                            inset: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    >
-                        <source src="https://files.welion.asia/research/banner.mp4" type="video/mp4" />
-                    </video>
-
-                    <Title5
-                        className="slide-top"
-                        style={{
-                            position: 'absolute',
-                            top: '25%',
-                            left: '9.5833%',
-                        }}
-                        subtitle="人才与创新是卫蓝聚焦未来技术的基础"
-                        title="固态电池产业化"
-                    />
-                </div>
-
-                <div className="section">
-                    <video
-                        loop={false}
-                        muted
-                        playsInline
-                        style={{
-                            position: 'absolute',
-                            inset: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    >
-                        <source src="https://files.welion.asia/research/technology_zh.mp4" type="video/mp4" />
-                    </video>
-
-                    <div className={styles.indicators}>
-                        <span
-                            className={classNames(styles.indicator, { [styles.active]: state.index === 0 })}
-                            onClick={onFirstClick}
-                        />
-
-                        <span
-                            className={classNames(styles.indicator, { [styles.active]: state.index === 1 })}
-                            onClick={onSecondClick}
-                        />
-                    </div>
-                </div>
-
-                <div className="section">
-                    <div style={{ position: 'relative', width: 1459, margin: '0 auto' }}>
-                        <Swiper loop ref={technologySwiper} slidesPerView={3} spaceBetween={32}>
-                            {technologySlides.map((slide) => (
-                                <SwiperSlide key={slide.title}>
-                                    <div className={styles.technologySwiper}>
-                                        <AspectRatio ratio={465 / 233}>
-                                            <Image
-                                                alt=""
-                                                preview={{
-                                                    destroyOnClose: true,
-                                                    mask: '',
-                                                    imageRender: () => (
-                                                        <div
-                                                            style={{
-                                                                aspectRatio: '16/9',
-                                                                width: '100%',
-                                                                height: 'auto',
-                                                                maxWidth: '90vw',
-                                                                maxHeight: '90vh',
-                                                                margin: 'auto',
-                                                            }}
-                                                        >
-                                                            <video
-                                                                autoPlay
-                                                                controls
-                                                                loop
-                                                                playsInline
-                                                                src={`${slide.video}_${params.locale || 'zh'}.mp4`}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    height: '100%',
-                                                                    objectFit: 'contain',
-                                                                }}
-                                                            />
-                                                        </div>
-                                                    ),
-                                                    toolbarRender: () => null,
-                                                }}
-                                                src={`${slide.image}_${params.locale || 'zh'}.jpg`}
-                                                style={{
-                                                    width: '100%',
-                                                    height: '100%',
-                                                    objectFit: 'cover',
-                                                    cursor: 'pointer',
-                                                }}
-                                            />
-                                        </AspectRatio>
-
-                                        <div className={styles.technologySwiperContent}>
-                                            <div className={styles.t1}>{slide.title}</div>
-
-                                            <div className={styles.t2}>{slide.subtitle}</div>
-
-                                            <div className={styles.t3}>{slide.description}</div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-
-                        <div className="swiperPrev" onClick={() => technologySwiper.current?.swiper.slidePrev()}>
-                            <img alt="" src="/static/vendors/swiper_prev.svg" />
+                            <Title5
+                                className="slide-top"
+                                style={{
+                                    position: 'absolute',
+                                    top: '25%',
+                                    left: '9.5833%',
+                                }}
+                                subtitle="人才与创新是卫蓝聚焦未来技术的基础"
+                                title="固态电池产业化"
+                            />
                         </div>
 
-                        <div className="swiperNext" onClick={() => technologySwiper.current?.swiper.slideNext()}>
-                            <img alt="" src="/static/vendors/swiper_next.svg" />
-                        </div>
-                    </div>
-                </div>
+                        <div className="section">
+                            <video
+                                loop={false}
+                                muted
+                                playsInline
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                }}
+                            >
+                                <source src="https://files.welion.asia/research/technology_zh.mp4" type="video/mp4" />
+                            </video>
 
-                <div className="section fp-auto-height">
-                    <Footer />
-                </div>
-            </div>
+                            <div className={styles.indicators}>
+                                <span
+                                    className={classNames(styles.indicator, { [styles.active]: state.index === 0 })}
+                                    onClick={onFirstClick}
+                                />
+
+                                <span
+                                    className={classNames(styles.indicator, { [styles.active]: state.index === 1 })}
+                                    onClick={onSecondClick}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div style={{ position: 'relative', width: 1459, margin: '0 auto' }}>
+                                <Swiper loop ref={technologySwiper} slidesPerView={3} spaceBetween={32}>
+                                    {technologySlides.map((slide) => (
+                                        <SwiperSlide key={slide.title}>
+                                            <div className={styles.technologySwiper}>
+                                                <AspectRatio ratio={465 / 233}>
+                                                    <Image
+                                                        alt=""
+                                                        preview={{
+                                                            destroyOnClose: true,
+                                                            mask: '',
+                                                            imageRender: () => (
+                                                                <div
+                                                                    style={{
+                                                                        aspectRatio: '16/9',
+                                                                        width: '100%',
+                                                                        height: 'auto',
+                                                                        maxWidth: '90vw',
+                                                                        maxHeight: '90vh',
+                                                                        margin: 'auto',
+                                                                    }}
+                                                                >
+                                                                    <video
+                                                                        autoPlay
+                                                                        controls
+                                                                        loop
+                                                                        playsInline
+                                                                        src={`${slide.video}_${params.locale || 'zh'}.mp4`}
+                                                                        style={{
+                                                                            width: '100%',
+                                                                            height: '100%',
+                                                                            objectFit: 'contain',
+                                                                        }}
+                                                                    />
+                                                                </div>
+                                                            ),
+                                                            toolbarRender: () => null,
+                                                        }}
+                                                        src={`${slide.image}_${params.locale || 'zh'}.jpg`}
+                                                        style={{
+                                                            width: '100%',
+                                                            height: '100%',
+                                                            objectFit: 'cover',
+                                                            cursor: 'pointer',
+                                                        }}
+                                                    />
+                                                </AspectRatio>
+
+                                                <div className={styles.technologySwiperContent}>
+                                                    <div className={styles.t1}>{slide.title}</div>
+
+                                                    <div className={styles.t2}>{slide.subtitle}</div>
+
+                                                    <div className={styles.t3}>{slide.description}</div>
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+
+                                <div
+                                    className="swiperPrev"
+                                    onClick={() => technologySwiper.current?.swiper.slidePrev()}
+                                >
+                                    <img alt="" src="/static/vendors/swiper_prev.svg" />
+                                </div>
+
+                                <div
+                                    className="swiperNext"
+                                    onClick={() => technologySwiper.current?.swiper.slideNext()}
+                                >
+                                    <img alt="" src="/static/vendors/swiper_next.svg" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section fp-auto-height">
+                            <Footer />
+                        </div>
+                    </ReactFullpage.Wrapper>
+                )}
+            />
         </>
     );
 };
