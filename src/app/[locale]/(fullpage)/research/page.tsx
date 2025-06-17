@@ -77,7 +77,7 @@ const technologySlides = [
         title: '超薄金属锂',
         subtitle: 'Ultra-thin Lithium Metal Foil',
         description:
-            '该技术通过金属掺杂、碳包覆等方法构造多孔结构、核壳结构的硅负极材料技术，多元共聚和半互穿结构的强键合作用的高强粘结剂技术，极片预锂化技术以及改性电解液技术，解决了硅负极可逆容量低、膨胀大的问题。',
+            '通过物理方法制备出 20um 以下的超薄金属锂箔与复合负极材料，该技术能有效抑制锂枝品生长，提升电池能量密度和循环稳定性。',
     },
     {
         image: '/static/research/technology_06',
