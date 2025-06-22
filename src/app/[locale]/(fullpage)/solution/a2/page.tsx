@@ -5,6 +5,7 @@ import { Col, Flex, Row } from 'antd';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 /**
@@ -35,14 +36,27 @@ const sections = [
         image: '/static/solution/a2/01.jpg',
         link: '/static/solution/a2/01.pdf',
         logo: [
-            {
-                image: '/static/solution/a2/01.jpg',
-                link: 'https://baidu.com',
-            },
-            {
-                image: '/static/solution/a2/02.jpg',
-                link: 'https://baidu.com',
-            },
+            { image: '/static/solution/a1/logo/01.jpg' },
+            { image: '/static/solution/a1/logo/02.jpg' },
+            { image: '/static/solution/a1/logo/03.jpg' },
+            { image: '/static/solution/a1/logo/04.jpg' },
+            { image: '/static/solution/a1/logo/05.jpg' },
+            { image: '/static/solution/a1/logo/06.jpg' },
+            { image: '/static/solution/a1/logo/07.jpg' },
+            { image: '/static/solution/a1/logo/08.jpg' },
+            { image: '/static/solution/a1/logo/09.jpg' },
+            { image: '/static/solution/a1/logo/10.jpg' },
+            { image: '/static/solution/a1/logo/11.jpg' },
+            { image: '/static/solution/a1/logo/12.jpg' },
+            { image: '/static/solution/a1/logo/13.jpg' },
+            { image: '/static/solution/a1/logo/14.jpg' },
+            { image: '/static/solution/a1/logo/15.jpg' },
+            { image: '/static/solution/a1/logo/16.jpg' },
+            { image: '/static/solution/a1/logo/17.jpg' },
+            { image: '/static/solution/a1/logo/18.jpg' },
+            { image: '/static/solution/a1/logo/19.jpg' },
+            { image: '/static/solution/a1/logo/20.jpg' },
+            { image: '/static/solution/a1/logo/21.jpg' },
         ],
         title: '工业无人机解决方案',
     },
@@ -58,30 +72,27 @@ const sections = [
         image: '/static/solution/a2/02.jpg',
         link: '/static/solution/a2/02.pdf',
         logo: [
-            {
-                image: '/static/solution/a2/01.jpg',
-                link: 'https://baidu.com',
-            },
-            {
-                image: '/static/solution/a2/02.jpg',
-                link: 'https://baidu.com',
-            },
-            {
-                image: '/static/solution/a2/01.jpg',
-                link: 'https://baidu.com',
-            },
-            {
-                image: '/static/solution/a2/02.jpg',
-                link: 'https://baidu.com',
-            },
-            {
-                image: '/static/solution/a2/01.jpg',
-                link: 'https://baidu.com',
-            },
-            {
-                image: '/static/solution/a2/02.jpg',
-                link: 'https://baidu.com',
-            },
+            { image: '/static/solution/a1/logo/01.jpg' },
+            { image: '/static/solution/a1/logo/02.jpg' },
+            { image: '/static/solution/a1/logo/03.jpg' },
+            { image: '/static/solution/a1/logo/04.jpg' },
+            { image: '/static/solution/a1/logo/05.jpg' },
+            { image: '/static/solution/a1/logo/06.jpg' },
+            { image: '/static/solution/a1/logo/07.jpg' },
+            { image: '/static/solution/a1/logo/08.jpg' },
+            { image: '/static/solution/a1/logo/09.jpg' },
+            { image: '/static/solution/a1/logo/10.jpg' },
+            { image: '/static/solution/a1/logo/11.jpg' },
+            { image: '/static/solution/a1/logo/12.jpg' },
+            { image: '/static/solution/a1/logo/13.jpg' },
+            { image: '/static/solution/a1/logo/14.jpg' },
+            { image: '/static/solution/a1/logo/15.jpg' },
+            { image: '/static/solution/a1/logo/16.jpg' },
+            { image: '/static/solution/a1/logo/17.jpg' },
+            { image: '/static/solution/a1/logo/18.jpg' },
+            { image: '/static/solution/a1/logo/19.jpg' },
+            { image: '/static/solution/a1/logo/20.jpg' },
+            { image: '/static/solution/a1/logo/21.jpg' },
         ],
         title: '植保无人机解决方案',
     },
@@ -164,10 +175,32 @@ export default () => {
 
                                             {/* 合作商 */}
                                             {section.logo?.length && (
-                                                <Swiper loop={true} slidesPerView={5} style={{ marginTop: 80 }}>
+                                                <Swiper
+                                                    autoplay={{
+                                                        delay: 1500,
+                                                        disableOnInteraction: false,
+                                                        pauseOnMouseEnter: true,
+                                                    }}
+                                                    loop={true}
+                                                    modules={[Autoplay]}
+                                                    slidesPerView={5}
+                                                    style={{ marginTop: 80 }}
+                                                >
                                                     {section.logo.map((logo, index) => (
                                                         <SwiperSlide key={index} style={{ textAlign: 'center' }}>
-                                                            <Link href={logo.link} target="_blank">
+                                                            {logo?.link ? (
+                                                                <Link href={logo.link} target="_blank">
+                                                                    <img
+                                                                        alt=""
+                                                                        src={logo.image}
+                                                                        style={{
+                                                                            width: 79,
+                                                                            height: 36,
+                                                                            objectFit: 'contain',
+                                                                        }}
+                                                                    />
+                                                                </Link>
+                                                            ) : (
                                                                 <img
                                                                     alt=""
                                                                     src={logo.image}
@@ -177,7 +210,7 @@ export default () => {
                                                                         objectFit: 'contain',
                                                                     }}
                                                                 />
-                                                            </Link>
+                                                            )}
                                                         </SwiperSlide>
                                                     ))}
                                                 </Swiper>

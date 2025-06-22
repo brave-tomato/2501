@@ -265,8 +265,8 @@ export default () => {
                     }}
                     render={() => (
                         <ReactFullpage.Wrapper>
-                            {sections.map((section) => (
-                                <div className="section" key={section.title}>
+                            {sections.map((section, index) => (
+                                <div className="section" data-anchor={`anchor-${index}`} key={section.title}>
                                     <Row align="middle" gutter={40} style={{ maxWidth: 1280, margin: '0 auto' }}>
                                         {/* 左侧 */}
                                         <Col span={12}>

@@ -3,6 +3,7 @@
 import { useSetState } from 'ahooks';
 import { Modal, Popover } from 'antd';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -16,6 +17,11 @@ import AspectRatio from '@/components/aspect-ratio';
 import styles from './styles.module.scss';
 
 const Hero: React.FC = () => {
+    /**
+     * Params
+     */
+    const params = useParams();
+
     /**
      * States
      */
@@ -91,7 +97,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">企业简介</Link>}
+                    content={<Link href={`/${params.locale}/about-us/`}>企业简介</Link>}
                 >
                     <div className={`${styles.point} ${styles.point1}`} />
                 </Popover>
@@ -100,7 +106,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">纯电乘用车解决方案</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/`}>纯电乘用车解决方案</Link>}
                     placement="right"
                 >
                     <div className={`${styles.point} ${styles.point2}`} />
@@ -110,7 +116,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/#anchor-4`}>电动摩托⻋解决⽅案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point3}`} />
                 </Popover>
@@ -119,7 +125,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/#anchor-5`}>电动助⼒⻋解决⽅案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point4}`} />
                 </Popover>
@@ -128,7 +134,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href="/">点位 5</Link>}
                 >
                     <div className={`${styles.point} ${styles.point5}`} />
                 </Popover>
@@ -137,7 +143,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href="/">点位 6</Link>}
                 >
                     <div className={`${styles.point} ${styles.point6}`} />
                 </Popover>
@@ -146,7 +152,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/#anchor-3`}>⼯程机械类解决⽅案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point7}`} />
                 </Popover>
@@ -155,7 +161,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href="/">点位 8</Link>}
                 >
                     <div className={`${styles.point} ${styles.point8}`} />
                 </Popover>
@@ -164,7 +170,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href={`/${params.locale}/research/`}>固态电池研发</Link>}
                 >
                     <div className={`${styles.point} ${styles.point9}`} />
                 </Popover>
@@ -173,7 +179,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/#anchor-2`}>电动游艇&轮船解决⽅案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point10}`} />
                 </Popover>
@@ -182,7 +188,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href="/">点位 11</Link>}
                 >
                     <div className={`${styles.point} ${styles.point11}`} />
                 </Popover>
@@ -191,7 +197,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href="/">点位 12</Link>}
                 >
                     <div className={`${styles.point} ${styles.point12}`} />
                 </Popover>
@@ -200,7 +206,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">暂未开放</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/#anchor-1`}>电动快艇解决⽅案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point13}`} />
                 </Popover>
