@@ -29,8 +29,6 @@ export default ({ children }: Props) => {
         <html lang="en">
             <head>
                 <link href="/favicon.svg" rel="icon" sizes="any" />
-                <link href="/static/vendors/fullpage.css" rel="stylesheet" />
-                <Script src="/static/vendors/fullpage.js" />
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZJTX18ZCBD" strategy="afterInteractive" />
                 <Script id="ga-init" strategy="afterInteractive">
                     {`

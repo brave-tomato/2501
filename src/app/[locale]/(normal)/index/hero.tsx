@@ -131,13 +131,13 @@ const Hero: React.FC = () => {
                 </Popover>
 
                 {/* 点位 5 */}
-                <Popover
+                {/* <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
                     content={<Link href="/">点位 5</Link>}
                 >
                     <div className={`${styles.point} ${styles.point5}`} />
-                </Popover>
+                </Popover> */}
 
                 {/* 点位 6 */}
                 <Popover
@@ -194,13 +194,13 @@ const Hero: React.FC = () => {
                 </Popover>
 
                 {/* 点位 12 */}
-                <Popover
+                {/* <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
                     content={<Link href="/">点位 12</Link>}
                 >
                     <div className={`${styles.point} ${styles.point12}`} />
-                </Popover>
+                </Popover> */}
 
                 {/* 点位 13 */}
                 <Popover

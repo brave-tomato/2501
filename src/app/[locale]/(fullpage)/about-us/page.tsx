@@ -81,7 +81,7 @@ export default () => {
                                 autoPlay
                                 muted
                                 playsInline
-                                poster="/static/about-us/banner.png"
+                                poster="/static/about-us/banner.jpg"
                                 style={{
                                     position: 'absolute',
                                     inset: 0,
