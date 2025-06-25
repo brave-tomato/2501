@@ -94,7 +94,7 @@ export default () => {
                                         </Space>
                                     </Link>
 
-                                    <div className={styles.t2}>XXXXXXXXXXX</div>
+                                    <div className={styles.t2}>半固态/固态高比能电池助力动力汽车突破续航极限</div>
 
                                     <div className={styles.t3}>
                                         Power type
@@ -118,7 +118,7 @@ export default () => {
                                         </Space>
                                     </Link>
 
-                                    <div className={styles.t2}>XXXXXXXXXXX</div>
+                                    <div className={styles.t2}>高倍率半固态电池助力航天蓬勃发展</div>
 
                                     <div className={styles.t3}>
                                         Low-altitude
@@ -144,7 +144,7 @@ export default () => {
                                         </Space>
                                     </Link>
 
-                                    <div className={styles.t2}>XXXXXXXXXXX</div>
+                                    <div className={styles.t2}>高安全半固态储能电池助力新型储能零风险</div>
 
                                     <div className={styles.t3}>
                                         Energy
