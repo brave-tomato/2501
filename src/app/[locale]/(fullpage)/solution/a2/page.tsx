@@ -36,29 +36,16 @@ const sections = [
         image: '/static/solution/a2/01.jpg',
         link: '/static/solution/a2/01.pdf',
         logo: [
-            { image: '/static/solution/a1/logo/01.jpg' },
-            { image: '/static/solution/a1/logo/02.jpg' },
-            { image: '/static/solution/a1/logo/03.jpg' },
-            { image: '/static/solution/a1/logo/04.jpg' },
-            { image: '/static/solution/a1/logo/05.jpg' },
-            { image: '/static/solution/a1/logo/06.jpg' },
-            { image: '/static/solution/a1/logo/07.jpg' },
-            { image: '/static/solution/a1/logo/08.jpg' },
-            { image: '/static/solution/a1/logo/09.jpg' },
-            { image: '/static/solution/a1/logo/10.jpg' },
-            { image: '/static/solution/a1/logo/11.jpg' },
-            { image: '/static/solution/a1/logo/12.jpg' },
-            { image: '/static/solution/a1/logo/13.jpg' },
-            { image: '/static/solution/a1/logo/14.jpg' },
-            { image: '/static/solution/a1/logo/15.jpg' },
-            { image: '/static/solution/a1/logo/16.jpg' },
-            { image: '/static/solution/a1/logo/17.jpg' },
-            { image: '/static/solution/a1/logo/18.jpg' },
-            { image: '/static/solution/a1/logo/19.jpg' },
-            { image: '/static/solution/a1/logo/20.jpg' },
-            { image: '/static/solution/a1/logo/21.jpg' },
+            { image: '/static/solution/a2/logo/01.jpg' },
+            { image: '/static/solution/a2/logo/02.jpg' },
+            { image: '/static/solution/a2/logo/03.jpg' },
+            { image: '/static/solution/a2/logo/04.jpg' },
+            { image: '/static/solution/a2/logo/05.jpg' },
+            { image: '/static/solution/a2/logo/06.jpg' },
+            { image: '/static/solution/a2/logo/07.jpg' },
+            { image: '/static/solution/a2/logo/08.jpg' },
         ],
-        title: '工业无人机解决方案',
+        title: '工业&植保无人机解决方案',
     },
     {
         features: [
@@ -72,29 +59,16 @@ const sections = [
         image: '/static/solution/a2/02.jpg',
         link: '/static/solution/a2/02.pdf',
         logo: [
-            { image: '/static/solution/a1/logo/01.jpg' },
-            { image: '/static/solution/a1/logo/02.jpg' },
-            { image: '/static/solution/a1/logo/03.jpg' },
-            { image: '/static/solution/a1/logo/04.jpg' },
-            { image: '/static/solution/a1/logo/05.jpg' },
-            { image: '/static/solution/a1/logo/06.jpg' },
-            { image: '/static/solution/a1/logo/07.jpg' },
-            { image: '/static/solution/a1/logo/08.jpg' },
-            { image: '/static/solution/a1/logo/09.jpg' },
-            { image: '/static/solution/a1/logo/10.jpg' },
-            { image: '/static/solution/a1/logo/11.jpg' },
-            { image: '/static/solution/a1/logo/12.jpg' },
-            { image: '/static/solution/a1/logo/13.jpg' },
-            { image: '/static/solution/a1/logo/14.jpg' },
-            { image: '/static/solution/a1/logo/15.jpg' },
-            { image: '/static/solution/a1/logo/16.jpg' },
-            { image: '/static/solution/a1/logo/17.jpg' },
-            { image: '/static/solution/a1/logo/18.jpg' },
-            { image: '/static/solution/a1/logo/19.jpg' },
-            { image: '/static/solution/a1/logo/20.jpg' },
-            { image: '/static/solution/a1/logo/21.jpg' },
+            { image: '/static/solution/a2/logo/01.jpg' },
+            { image: '/static/solution/a2/logo/02.jpg' },
+            { image: '/static/solution/a2/logo/03.jpg' },
+            { image: '/static/solution/a2/logo/04.jpg' },
+            { image: '/static/solution/a2/logo/05.jpg' },
+            { image: '/static/solution/a2/logo/06.jpg' },
+            { image: '/static/solution/a2/logo/07.jpg' },
+            { image: '/static/solution/a2/logo/08.jpg' },
         ],
-        title: '植保无人机解决方案',
+        title: 'EVTOL 解决方案',
     },
 ];
 
@@ -128,8 +102,8 @@ export default () => {
                     }}
                     render={() => (
                         <ReactFullpage.Wrapper>
-                            {sections.map((section) => (
-                                <div className="section" key={section.title}>
+                            {sections.map((section, index) => (
+                                <div className="section" data-anchor={`anchor-${index}`} key={section.title}>
                                     <Row align="middle" gutter={40} style={{ maxWidth: 1280, margin: '0 auto' }}>
                                         {/* 左侧 */}
                                         <Col span={12}>

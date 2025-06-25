@@ -4,7 +4,7 @@ import { useSetState } from 'ahooks';
 import { Modal, Popover } from 'antd';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 /**
  * Components
@@ -55,6 +55,10 @@ const Hero: React.FC = () => {
         return () => clearInterval(timer);
     }, []);
 
+    useEffect(() => {
+        document.body.style.overflow = state.display === 'block' ? 'hidden' : '';
+    }, [state.display]);
+
     return (
         <>
             <video
@@ -63,7 +67,7 @@ const Hero: React.FC = () => {
                 playsInline
                 style={{
                     display: state.display,
-                    position: 'absolute',
+                    position: 'fixed',
                     inset: 0,
                     zIndex: 102,
                     width: '100%',
@@ -143,7 +147,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">点位 6</Link>}
+                    content={<Link href={`/${params.locale}/solution/a2/#anchor-1`}>EVTOL 解决方案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point6}`} />
                 </Popover>
@@ -161,7 +165,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">点位 8</Link>}
+                    content={<Link href={`/${params.locale}/solution/a2/#anchor-0`}>工业&植保无人机解决方案</Link>}
                 >
                     <div className={`${styles.point} ${styles.point8}`} />
                 </Popover>
@@ -188,7 +192,7 @@ const Hero: React.FC = () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href="/">点位 11</Link>}
+                    content={<Link href={`/${params.locale}/solution/c3/`}>储能应用</Link>}
                 >
                     <div className={`${styles.point} ${styles.point11}`} />
                 </Popover>
