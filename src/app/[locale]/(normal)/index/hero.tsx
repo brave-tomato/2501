@@ -1,6 +1,6 @@
 'use client';
 
-import { useSetState } from 'ahooks';
+import { useSessionStorageState, useSetState } from 'ahooks';
 import { Modal, Popover } from 'antd';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -25,8 +25,11 @@ const Hero: React.FC = () => {
     /**
      * States
      */
+    const [display, setDisplay] = useSessionStorageState<'block' | 'none'>('video-display', {
+        defaultValue: 'block',
+    });
+
     const [state, setState] = useSetState({
-        display: 'block',
         poster: '',
         url: '',
         open: false,
@@ -56,8 +59,8 @@ const Hero: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        document.body.style.overflow = state.display === 'block' ? 'hidden' : '';
-    }, [state.display]);
+        document.body.style.overflow = display === 'block' ? 'hidden' : '';
+    }, [display]);
 
     return (
         <>
@@ -66,7 +69,7 @@ const Hero: React.FC = () => {
                 muted
                 playsInline
                 style={{
-                    display: state.display,
+                    display,
                     position: 'fixed',
                     inset: 0,
                     zIndex: 102,
@@ -75,7 +78,7 @@ const Hero: React.FC = () => {
                     objectFit: 'cover',
                 }}
                 onEnded={() => {
-                    setState({ display: 'none' });
+                    setDisplay('none');
                 }}
             >
                 <source src="https://files.welion.asia/index/logo.mp4" type="video/mp4" />

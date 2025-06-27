@@ -2,13 +2,14 @@
 
 import { Col, Flex, Row, Typography } from 'antd';
 import classNames from 'classnames';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 /**
  * Components
  */
 import AspectRatio from '@/components/aspect-ratio';
-import Hero from './hero';
+const Hero = dynamic(() => import('./hero'), { ssr: false });
 
 /**
  * Styles
