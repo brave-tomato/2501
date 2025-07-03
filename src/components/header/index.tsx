@@ -28,16 +28,16 @@ type Props = {
 const menus = [
     {
         href: '/',
-        name: '首页',
+        name: 'menu.home',
     },
     {
         href: '/about-us/',
-        name: '关于我们',
+        name: 'menu.about',
         children: [
-            { href: '/about-us/', name: '简介&文化' },
-            { href: '/about-us/history/', name: '公司历史' },
-            { href: '/about-us/global-layout/', name: '全球布局' },
-            { href: '/about-us/sustainable-development/', name: '可持续发展' },
+            { href: '/about-us/', name: 'menu.about1' },
+            { href: '/about-us/history/', name: 'menu.about2' },
+            { href: '/about-us/global-layout/', name: 'menu.about3' },
+            { href: '/about-us/sustainable-development/', name: 'menu.about4' },
         ],
     },
     {
@@ -154,7 +154,7 @@ export default ({ active, locale, onClick }: Props) => {
                                     onClick?.(menu.href);
                                 }}
                             >
-                                {menu.name}
+                                {t(menu.name)}
                             </Link>
 
                             {menu.children && (
@@ -173,7 +173,7 @@ export default ({ active, locale, onClick }: Props) => {
                                                     onClick?.(submenu.href);
                                                 }}
                                             >
-                                                {submenu.name}
+                                                {t(submenu.name)}
                                             </Link>
                                         ))}
                                     </Flex>

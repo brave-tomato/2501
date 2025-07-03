@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Col, Flex, Image, Row } from 'antd';
 import classNames from 'classnames';
@@ -25,16 +26,16 @@ import styles from './styles.module.scss';
 // 使命
 const missionData = [
     {
-        title: '愿景',
-        description: '成为全球固态电池领军企业',
+        title: 'about.vision',
+        description: 'about.visionDesc',
     },
     {
-        title: '使命',
-        description: '让人类享受绿色能源',
+        title: 'about.mission',
+        description: 'about.missionDesc',
     },
     {
-        title: '价值观',
-        description: '原始创新·深度思考·兼收并蓄·极致执行',
+        title: 'about.values',
+        description: 'about.valuesDesc',
     },
 ];
 
@@ -43,6 +44,11 @@ export default () => {
      * Params
      */
     const params = useParams();
+
+    /**
+     * Hooks
+     */
+    const t = useI18n();
 
     /**
      * States
@@ -104,7 +110,10 @@ export default () => {
                                     textAlign: 'center',
                                 }}
                             >
-                                <StaggeredText style={{ margin: '0 12px' }} text="让人类享受更安全的绿色能源" />
+                                <StaggeredText
+                                    style={{ margin: params.locale === 'zh' ? '0 12px' : '0 6px' }}
+                                    text={t('about.banner')}
+                                />
                             </div>
                         </div>
 
@@ -129,9 +138,9 @@ export default () => {
                                             justify="center"
                                             vertical
                                         >
-                                            <div className={styles.title}>{item.title}</div>
+                                            <div className={styles.title}>{t(item.title)}</div>
 
-                                            <div className={styles.description}>{item.description}</div>
+                                            <div className={styles.description}>{t(item.description)}</div>
                                         </Flex>
                                     </Col>
                                 ))}
@@ -142,22 +151,20 @@ export default () => {
                         <div className={`section ${styles.intro}`}>
                             <Row align="middle" className={styles.bg}>
                                 <Col offset={1} span={7}>
-                                    <div className={styles.title}>公司简介</div>
+                                    <div className={styles.title}>{t('about.profile')}</div>
 
                                     <div className={styles.subtitle}>Profile</div>
 
                                     <div className={styles.description}>
-                                        北京卫蓝新能源科技股份有限公司（以下简称“卫蓝新能源”）是中国科学院物理研究所固态电池产学研孵化企业，成立于2016年，位于北京房山窦店，主营固态锂离子电池，集研发、生产、市场、销售于一体，是国家级专精特新小巨人企业、独角兽企业，具有CNAS资质，具有40余年固态电池产业研究经验，在多个固态锂电技术领域实现“首次”突破。
+                                        {t('about.p1')}
                                         <br />
-                                        公司由中国工程院院士陈立泉、中国科学院物理研究所研究员李泓、教授级高级工程师俞会根共同发起创办，汇聚了电池材料、电芯、系统等领域的高精尖人才。
+                                        {t('about.p2')}
                                         <br />
-                                        产品主要应用领域涵盖新能源汽车、储能、低空经济动力三大部分，其中典型电芯产品有：
+                                        {t('about.p3')}
                                         <br />
-                                        360Wh/kg高能量密度动力电芯：具备超高能量密度，单次续航里程超过1000km，已于2023年底量产交付蔚来汽车，并在多家知名整车厂获得定点。
+                                        {t('about.p4')}
                                         <br />
-                                        280Ah超高安全储能电芯：已于2023年下半年量产交付，为三峡、海博思创、国电投等多个储能项目供货。
-                                        <br />
-                                        320Wh/kg高能量密度低空经济动力电芯：目前已为多家国内外无人机、机器人、便携电源等客户供货。
+                                        {t('about.p5')}
                                     </div>
                                 </Col>
 

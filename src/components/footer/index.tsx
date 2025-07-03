@@ -1,16 +1,19 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import { LinkedinOutlined, WechatOutlined } from '@ant-design/icons';
 import { Col, Flex, Popover, QRCode, Row } from 'antd';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 /**
  * Styles
  */
-import { usePathname } from 'next/navigation';
 import styles from './styles.module.scss';
 
 const Footer: React.FC = () => {
+    const t = useI18n();
+
     const pathname = usePathname();
     const shouldShowLine = pathname !== '/';
 
@@ -22,17 +25,17 @@ const Footer: React.FC = () => {
             <Row justify="center">
                 <Col span={2}>
                     <Link className={styles.title1} href="/about-us">
-                        关于我们
+                        {t('menu.about')}
                     </Link>
 
                     <Flex gap={8} style={{ marginTop: 24 }} vertical>
-                        <div className={styles.title2}>简介&文化</div>
+                        <div className={styles.title2}>{t('menu.about1')}</div>
 
-                        <div className={styles.title2}>公司历史</div>
+                        <div className={styles.title2}>{t('menu.about2')}</div>
 
-                        <div className={styles.title2}>全球布局</div>
+                        <div className={styles.title2}>{t('menu.about3')}</div>
 
-                        <div className={styles.title2}>可持续发展</div>
+                        <div className={styles.title2}>{t('menu.about4')}</div>
                     </Flex>
                 </Col>
 

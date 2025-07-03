@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import { Col, Flex, Row, Typography } from 'antd';
 import classNames from 'classnames';
 import dynamic from 'next/dynamic';
@@ -17,6 +18,11 @@ const Hero = dynamic(() => import('./hero'), { ssr: false });
 import styles from './styles.module.scss';
 
 const Index: React.FC = () => {
+    /**
+     * Hooks
+     */
+    const t = useI18n();
+
     return (
         <div className="mw-1920">
             {/* Hero */}
@@ -26,13 +32,13 @@ const Index: React.FC = () => {
             <div style={{ padding: '108px', backgroundColor: '#f7f7f7' }}>
                 <Flex align="flex-end" justify="space-between" style={{ marginBottom: 40 }}>
                     <Flex vertical>
-                        <div className={styles.newsTitle1}>新闻</div>
+                        <div className={styles.newsTitle1}>{t('index.news')}</div>
 
                         <div className={styles.newsTitle2}>News</div>
                     </Flex>
 
                     <Link className={styles.more} href="/news-media">
-                        <span>查看更多</span>
+                        <span>{t('index.more')}</span>
 
                         <img alt="" src="/static/index/icon_arrow_right.svg" />
                     </Link>

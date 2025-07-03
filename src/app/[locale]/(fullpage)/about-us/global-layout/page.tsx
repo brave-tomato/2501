@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Col, Flex, Popover, Row } from 'antd';
 import { useParams } from 'next/navigation';
@@ -21,6 +22,11 @@ export default () => {
      * Params
      */
     const params = useParams();
+
+    /**
+     * Hooks
+     */
+    const t = useI18n();
 
     /**
      * States
@@ -64,28 +70,28 @@ export default () => {
                                             classNames={{ body: styles['global-popover'] }}
                                             content={
                                                 <Flex vertical>
-                                                    <Flex gap={40}>
-                                                        <div>北京</div>
+                                                    <Flex gap={40} justify="space-between">
+                                                        <div>{t('about.rd011')}</div>
 
-                                                        <div>房山研发基地</div>
+                                                        <div>{t('about.rd012')}</div>
                                                     </Flex>
 
-                                                    <Flex gap={40}>
-                                                        <div>广东</div>
+                                                    <Flex gap={40} justify="space-between">
+                                                        <div>{t('about.rd013')}</div>
 
-                                                        <div>南沙研发基地</div>
+                                                        <div>{t('about.rd014')}</div>
                                                     </Flex>
 
-                                                    <Flex gap={40}>
-                                                        <div>深圳</div>
+                                                    <Flex gap={40} justify="space-between">
+                                                        <div>{t('about.rd015')}</div>
 
-                                                        <div>坪山研发基地</div>
+                                                        <div>{t('about.rd016')}</div>
                                                     </Flex>
 
-                                                    <Flex gap={40}>
-                                                        <div>上海</div>
+                                                    <Flex gap={40} justify="space-between">
+                                                        <div>{t('about.rd017')}</div>
 
-                                                        <div>嘉定研发基地</div>
+                                                        <div>{t('about.rd018')}</div>
                                                     </Flex>
                                                 </Flex>
                                             }
@@ -93,7 +99,7 @@ export default () => {
                                         >
                                             <div className={styles.t1}>
                                                 <span />
-                                                研发基地
+                                                {t('about.rd01')}
                                             </div>
                                         </Popover>
 
@@ -102,20 +108,20 @@ export default () => {
                                             classNames={{ body: styles['global-popover'] }}
                                             content={
                                                 <Flex vertical>
-                                                    <div>山东淄博</div>
+                                                    <div>{t('about.rd021')}</div>
 
-                                                    <div>江苏溧阳</div>
+                                                    <div>{t('about.rd022')}</div>
 
-                                                    <div>广东珠海</div>
+                                                    <div>{t('about.rd023')}</div>
 
-                                                    <div>浙江湖州</div>
+                                                    <div>{t('about.rd024')}</div>
                                                 </Flex>
                                             }
                                             placement="left"
                                         >
                                             <div className={styles.t2}>
                                                 <span />
-                                                制造和服务网点
+                                                {t('about.rd02')}
                                             </div>
                                         </Popover>
 
@@ -124,22 +130,22 @@ export default () => {
                                             classNames={{ body: styles['global-popover'] }}
                                             content={
                                                 <Flex vertical>
-                                                    <div>马来西亚吉隆坡</div>
+                                                    <div>{t('about.rd031')}</div>
 
-                                                    <div>泰国曼谷</div>
+                                                    <div>{t('about.rd032')}</div>
 
-                                                    <div>匈牙利布达佩斯</div>
+                                                    <div>{t('about.rd033')}</div>
 
-                                                    <div>德国斯图加特</div>
+                                                    <div>{t('about.rd034')}</div>
 
-                                                    <div>日本大阪</div>
+                                                    <div>{t('about.rd035')}</div>
                                                 </Flex>
                                             }
                                             placement="left"
                                         >
                                             <div className={styles.t3}>
                                                 <span />
-                                                业务范围
+                                                {t('about.rd03')}
                                             </div>
                                         </Popover>
                                     </Flex>
@@ -147,24 +153,36 @@ export default () => {
 
                                 <Row style={{ width: '100%', padding: '0 130px' }}>
                                     <Col span={8}>
-                                        <div className={styles.title}>研发</div>
-
-                                        <div className={styles.description}>北京，广东南沙，深圳，上海</div>
-                                    </Col>
-
-                                    <Col span={8}>
-                                        <div className={styles.title}>制造</div>
-
-                                        <div className={styles.description}>山东淄博，江苏溧阳，广东珠海，浙江湖州</div>
-                                    </Col>
-
-                                    <Col span={8}>
-                                        <div className={styles.title}>服务网点</div>
+                                        <div className={styles.title}>{t('about.rd1')}</div>
 
                                         <div className={styles.description}>
-                                            马来西亚吉隆坡，泰国曼谷，匈牙利布达佩斯，
-                                            <br />
-                                            德国斯图加特，日本大阪
+                                            {t('about.rd101')}
+                                            {t('about.rd102')}
+                                            {t('about.rd103')}
+                                            {t('about.rd104')}
+                                        </div>
+                                    </Col>
+
+                                    <Col span={8}>
+                                        <div className={styles.title}>{t('about.rd2')}</div>
+
+                                        <div className={styles.description}>
+                                            {t('about.rd201')}
+                                            {t('about.rd202')}
+                                            {t('about.rd203')}
+                                            {t('about.rd204')}
+                                        </div>
+                                    </Col>
+
+                                    <Col span={8}>
+                                        <div className={styles.title}>{t('about.rd3')}</div>
+
+                                        <div className={styles.description}>
+                                            {t('about.rd301')}
+                                            {t('about.rd302')}
+                                            {t('about.rd303')}
+                                            {t('about.rd304')}
+                                            {t('about.rd305')}
                                         </div>
                                     </Col>
                                 </Row>
