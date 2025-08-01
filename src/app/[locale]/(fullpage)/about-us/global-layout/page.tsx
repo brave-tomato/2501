@@ -2,7 +2,7 @@
 
 import { useI18n } from '@/locales/client';
 import ReactFullpage from '@fullpage/react-fullpage';
-import { Col, Flex, Popover, Row } from 'antd';
+import { Col, Flex, Popover, Row, Timeline } from 'antd';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -49,6 +49,24 @@ export default () => {
     return (
         <>
             <Header active={active} locale={params.locale as string} />
+
+            <Timeline
+                items={[
+                    {
+                        children: '总部&分公司',
+                    },
+                    {
+                        children: '制造生产基地',
+                    },
+                    {
+                        children: '业务范围',
+                    },
+                    {
+                        children: '服务网点',
+                    },
+                ]}
+                style={{ position: 'fixed', top: '30%', left: 70, color: '#fff', zIndex: 1000 }}
+            />
 
             <ReactFullpage
                 beforeLeave={(_, destination) => {

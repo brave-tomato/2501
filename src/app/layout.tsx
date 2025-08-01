@@ -48,6 +48,13 @@ export default ({ children }: Props) => {
                 <AntdRegistry>
                     <ConfigProvider
                         theme={{
+                            components: {
+                                Timeline: {
+                                    colorPrimary: '#fff',
+                                    itemPaddingBottom: 60,
+                                    tailColor: '#fff',
+                                },
+                            },
                             token: {
                                 colorLinkActive: '#2dafb7',
                                 colorLinkHover: '#2dafb7',
