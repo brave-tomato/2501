@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
 
                 <Col span={2}>
                     <Link className={styles.title1} href="/research">
-                        固态电池产业化
+                        {t('menu.research')}
                     </Link>
 
                     <Flex gap={8} style={{ marginTop: 24 }} vertical>

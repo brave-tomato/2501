@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { useSetState } from 'ahooks';
 import { Col, Flex, Row } from 'antd';
@@ -26,6 +27,11 @@ export default () => {
      * Params
      */
     const params = useParams();
+
+    /**
+     * Hooks
+     */
+    const t = useI18n();
 
     /**
      * States
@@ -77,7 +83,7 @@ export default () => {
                                 <Row className={styles.cooperation}>
                                     <Col className={styles.bg1} span={8}>
                                         <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                            <div className={styles.title}>绿色发展</div>
+                                            <div className={styles.title}>{t('about.s1')}</div>
 
                                             <div className={styles.description}>Green Development</div>
                                         </Flex>
@@ -85,7 +91,7 @@ export default () => {
 
                                     <Col className={styles.bg2} span={8}>
                                         <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                            <div className={styles.title}>履责担当</div>
+                                            <div className={styles.title}>{t('about.s2')}</div>
 
                                             <div className={styles.description}>Responsible Accountability</div>
                                         </Flex>
@@ -93,7 +99,7 @@ export default () => {
 
                                     <Col className={styles.bg3} span={8}>
                                         <Flex align="center" style={{ position: 'relative', top: '30%' }} vertical>
-                                            <div className={styles.title}>合规治企</div>
+                                            <div className={styles.title}>{t('about.s3')}</div>
 
                                             <div className={styles.description}>Compliance-driven Governance</div>
                                         </Flex>
@@ -106,7 +112,10 @@ export default () => {
                                         <img alt="" src="/images/about-us/esg.png" />
 
                                         <span>
-                                            <span style={{ letterSpacing: '0.25em' }}>企业ES</span>G
+                                            <span style={{ letterSpacing: '0.25em' }}>
+                                                {params.locale === 'zh' ? '企业' : ''}ES
+                                            </span>
+                                            G
                                         </span>
                                     </div>
                                 </div>
@@ -125,14 +134,12 @@ export default () => {
                                         </Col>
 
                                         <Col span={12}>
-                                            <div className={styles.title}>供应链尽责管理</div>
+                                            <div className={styles.title}>{t('about.s01')}</div>
 
-                                            <div className={styles.description}>
-                                                卫蓝新能源严格甄选具有相同可持续发展经营理念的供应商，供应商筛选、评估、准入、动态管理等全流程采取严格的管控措施，建立公开评估准则，提高供应商履行社会责任的意识，推进负责任供应链的建设。
-                                            </div>
+                                            <div className={styles.description}>{t('about.s02')}</div>
 
                                             <Link href={`/${params.locale}/about-us/a1/`}>
-                                                <div className={styles.button}>了解我们的供应链管理</div>
+                                                <div className={styles.button}>{t('about.s03')}</div>
                                             </Link>
                                         </Col>
                                     </Row>
@@ -141,14 +148,12 @@ export default () => {
                                 <div className={`${styles.sustainable} ${styles.b0}`}>
                                     <Row gutter={86}>
                                         <Col span={12}>
-                                            <div className={styles.title}>环境健康与职业安全</div>
+                                            <div className={styles.title}>{t('about.s04')}</div>
 
-                                            <div className={styles.description}>
-                                                卫蓝新能源始终坚持“尊重自然、顺应自然、保护自然”的生态文明理念。环境健康是可持续发展的核心，通过减少污染、保护生态确保人类与自然和谐共生，而职业安全则聚焦工作场所风险控制，推动绿色、安全生产方式。两者协调推进实现经济、环境与社会的长期平衡。
-                                            </div>
+                                            <div className={styles.description}>{t('about.s05')}</div>
 
                                             <Link href={`/${params.locale}/about-us/a1/`}>
-                                                <div className={styles.button}>了解我们的健康与安全</div>
+                                                <div className={styles.button}>{t('about.s06')}</div>
                                             </Link>
                                         </Col>
 
@@ -169,14 +174,12 @@ export default () => {
                                         </Col>
 
                                         <Col span={12}>
-                                            <div className={styles.title}>劳工与人权</div>
+                                            <div className={styles.title}>{t('about.s07')}</div>
 
-                                            <div className={styles.description}>
-                                                劳工权益与人权保障密不可分，卫蓝新能源遵守国际劳工标准、履行社会责任，推进包容性经济增长，实现可持续发展协同共进。强调公平就业的工作环境，确保劳动者享有平等机会。
-                                            </div>
+                                            <div className={styles.description}>{t('about.s08')}</div>
 
                                             <Link href={`/${params.locale}/about-us/a1/`}>
-                                                <div className={styles.button}>了解我们的人权</div>
+                                                <div className={styles.button}>{t('about.s09')}</div>
                                             </Link>
                                         </Col>
                                     </Row>
@@ -185,7 +188,7 @@ export default () => {
                                 {/* 员工关怀 */}
                                 <div className={`${styles.sustainable}`}>
                                     <Flex style={{ marginBottom: 42 }} vertical>
-                                        <div className={styles.newsTitle1}>员工关怀</div>
+                                        <div className={styles.newsTitle1}>{t('about.s10')}</div>
 
                                         <div className={styles.newsTitle2}>News</div>
                                     </Flex>

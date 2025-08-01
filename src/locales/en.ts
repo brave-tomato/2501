@@ -9,6 +9,7 @@ export default {
         about3: 'Global Layout',
         about4: 'Sustainable Development',
         home: 'Home',
+        research: 'Industrialization of solid-state battery',
     },
 
     // 首页
@@ -70,5 +71,32 @@ export default {
         rd033: 'Budapest, Hungary',
         rd034: 'Stuttgart, Germany',
         rd035: 'Osaka, Japan',
+
+        s1: 'Green development',
+        s2: 'Fulfilling responsibilities',
+        s3: 'Compliance governance for enterprise',
+
+        s01: 'Responsible Supply Chain Management',
+        s02: "Welion New Energy strictly selects suppliers with the same sustainable development business philosophy. The entire process of supplier screening, evaluation, admission, and dynamic management adopts strict control measures, establishes public evaluation criteria, enhances suppliers' awareness of fulfilling social responsibilities, and promotes the construction of responsible supply chains.",
+        s03: 'Know more about our supply chain management',
+        s04: 'Environmental Health and Occupational Safety',
+        s05: 'Welion New Energy always adheres to the ecological civilization concept of "respecting nature, conforming to nature, protecting nature". Environmental health is the core of sustainable development, ensuring harmonious coexistence between humans and nature by reducing pollution and protecting the ecology, while occupational safety focuses on workplace risk control and promotes green and safe production methods. The two coordinate to achieve long-term balance between economy, environment, and society.',
+        s06: 'Understand our health and safety',
+        s07: 'Labor and Human Rights',
+        s08: 'The protection of labor rights and human rights is inseparable. Welion New Energy adheres to international labor standards, fulfills social responsibilities, promotes inclusive economic growth, and achieves coordinated progress in sustainable development. Emphasize a fair employment environment and ensure equal opportunities for workers.',
+        s09: 'Understand our human rights',
+        s10: 'Employee Care',
+
+        sa01: 'Hand in hand with responsibility, create a better future of green supply chain together',
+        sa02: 'Welion New Energy establishes a full chain supply chain due diligence system to ensure compliance with the United Nations Guiding Principles on Business and Human Rights and the International Labour Organization (ILO) The core convention requires the establishment of a comprehensive risk screening checklist for key areas such as environmental protection, labor rights (including child labor prohibition, occupational health and safety), and business ethics, and a risk identification and evaluation mechanism that combines industry characteristics and regional compliance requirements to conduct graded assessments. Through regular on-site audits, data submission verification, and public opinion monitoring, the implementation of suppliers in carbon emission management, labor welfare, anti bribery, and other aspects is dynamically tracked, and a continuous monitoring and improvement mechanism is initiated for non compliant items. In addition, a supply chain responsibility management information disclosure mechanism is established, and a transparent governance mechanism is established to regularly disclose due diligence results to stakeholders and accept social supervision. We are committed to building a supply chain ecosystem that is both resilient and responsible, Promote the coordinated development of commercial value and social value through full process control.',
+        sa03: 'Download Report',
+        sa04: 'Supplier Code of Conduct',
+        sa05: 'Grievance Mechanism',
+        sa06: 'Due Diligence Policy',
+        sa07: 'Due Diligence Report',
+        sa08: 'International Guidelines',
+        sa09: 'International Labor Standards and Human Rights',
+        sa10: 'Human Rights_UN Global Compact',
+        sa11: 'Environment_UN Global Compact',
     },
 } as const;
