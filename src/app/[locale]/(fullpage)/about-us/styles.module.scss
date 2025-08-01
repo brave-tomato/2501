@@ -111,15 +111,43 @@
     }
 }
 
-.global-popover {
+.global-popover,
+.global-popover2,
+.global-popover-white {
     background: rgba(16, 54, 117, 0.7) !important;
     border: 1px solid #2dafb7 !important;
-    border-radius: 11px !important;
+    border-radius: 8px !important;
 
     div > div {
-        color: #fff !important;
+        color: #2dafb7 !important;
         font-size: 14px !important;
         line-height: 22px !important;
+
+        span {
+            margin-right: 12px;
+            color: #fff !important;
+            font-size: 18px !important;
+        }
+    }
+}
+
+.global-popover2 {
+    div > div {
+        color: #fff !important;
+    }
+}
+
+.global-popover-white {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 0 !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+
+    div > div {
+        color: #103675 !important;
+
+        span {
+            color: #103675 !important;
+        }
     }
 }
 
@@ -287,4 +315,256 @@
         height: 100%;
         object-fit: cover;
     }
+}
+
+// 全球布局
+// 点位 1
+.global-layout-point1 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 517px;
+    top: 193px;
+    background: #ffffff;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 2
+.global-layout-point2 {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 583px;
+    top: 213px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 3
+.global-layout-point3 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 869px;
+    top: 225px;
+    background: #ffffff;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 4
+.global-layout-point4 {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 940px;
+    top: 242px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 5
+.global-layout-point5 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 856px;
+    top: 287px;
+    background: #ffffff;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 6
+.global-layout-point6 {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 834px;
+    top: 324px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 7
+.global-layout-point7 {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 928px;
+    top: 446px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 总部&分公司
+.tit01 {
+    margin-bottom: 16px;
+    font-size: 48px;
+    line-height: 56px;
+    color: #2dafb7;
+}
+
+.tit02 {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.con01 {
+    color: #2dafb7;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+}
+
+// 点位 8
+.global-layout-point8 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 847px;
+    top: 246px;
+    background: #2dafb7;
+    border-radius: 39px;
+}
+
+// 点位 10
+.global-layout-point10 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 502px;
+    top: 231px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 11
+.global-layout-point11 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 511px;
+    top: 202px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 12
+.global-layout-point12 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 527px;
+    top: 165px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 13
+.global-layout-point13 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 552px;
+    top: 187px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 14
+.global-layout-point14 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 575px;
+    top: 158px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 15
+.global-layout-point15 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 645px;
+    top: 227px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 16
+.global-layout-point16 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 901px;
+    top: 231px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 17
+.global-layout-point17 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 935px;
+    top: 245px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 18
+.global-layout-point18 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 845px;
+    top: 318px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 19
+.global-layout-point19 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 822px;
+    top: 339px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+// 点位 20
+.global-layout-point20 {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 835px;
+    top: 362px;
+    background: #2dafb7;
+    border-radius: 39px;
+    cursor: pointer;
 }
