@@ -31,7 +31,7 @@ export default () => {
     /**
      * States
      */
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(true);
 
     /**
      * Effects
@@ -68,9 +68,28 @@ export default () => {
                 style={{ position: 'fixed', top: '30%', left: 70, color: '#fff', zIndex: 1000 }}
             />
 
+            <div className={styles.globalBackground}>
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster="/static/about-us/bg_global.png"
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                    }}
+                >
+                    <source src="https://files.welion.asia/about-us/bg_global.mp4" type="video/mp4" />
+                </video>
+            </div>
+
             <ReactFullpage
                 beforeLeave={(_, destination) => {
-                    setActive([1].includes(destination.index));
+                    // setActive([1].includes(destination.index));
                 }}
                 credits={{
                     enabled: false,
@@ -432,7 +451,7 @@ export default () => {
                             </Flex>
                         </div>
 
-                        <div className="section fp-auto-height">
+                        <div className="section fp-auto-height" style={{ background: '#fff' }}>
                             <Footer />
                         </div>
                     </ReactFullpage.Wrapper>

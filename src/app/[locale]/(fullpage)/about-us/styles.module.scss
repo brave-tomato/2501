@@ -57,9 +57,17 @@
 }
 
 // 全球布局
+.globalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it stays behind other content */
+}
+
 .global {
     height: 100vh;
-    background: url('/static/about-us/bg_global.png') center / cover no-repeat;
 
     .t1,
     .t2,

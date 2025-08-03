@@ -202,14 +202,32 @@ export default () => {
                                                 ),
                                                 toolbarRender: () => null,
                                             }}
-                                            src="/static/about-us/intro.jpg"
+                                            src="/static/about-us/intro.png"
                                             style={{
                                                 width: '100%',
                                                 height: '100%',
                                                 objectFit: 'cover',
                                                 cursor: 'pointer',
                                             }}
+                                            wrapperStyle={{
+                                                width: '100%',
+                                                height: '100%',
+                                            }}
                                         />
+
+                                        <img
+                                            alt=""
+                                            src="/static/research/play.png"
+                                            style={{
+                                                position: 'absolute',
+                                                top: '50%',
+                                                left: '50%',
+                                                transform: 'translate(-50%, -50%)',
+                                                width: '100px',
+                                                height: '100px',
+                                                cursor: 'pointer',
+                                            }}
+                                        ></img>
                                     </AspectRatio>
                                 </Col>
                             </Row>
