@@ -16,7 +16,11 @@ import AspectRatio from '@/components/aspect-ratio';
  */
 import styles from './styles.module.scss';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+    onVideoReady?: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
     /**
      * Params
      */
@@ -60,7 +64,21 @@ const Hero: React.FC = () => {
 
     useEffect(() => {
         document.body.style.overflow = display === 'block' ? 'hidden' : '';
+
+        return () => {
+            document.body.style.overflow = '';
+        };
     }, [display]);
+
+    // 视频判定完成后通知父组件
+    useEffect(() => {
+        // 如果视频已经被设置为隐藏（之前播放过），立即通知
+        if (display === 'none') {
+            onVideoReady?.();
+        }
+        // 如果视频是显示状态，等待视频播放结束后通知
+        // 这个通知会在 onEnded 事件中处理
+    }, [display, onVideoReady]);
 
     return (
         <>
@@ -68,17 +86,19 @@ const Hero: React.FC = () => {
                 autoPlay
                 muted
                 playsInline
+                poster="/static/index/poster.png"
                 style={{
                     display,
                     position: 'fixed',
                     inset: 0,
-                    zIndex: 102,
+                    zIndex: 1002,
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
                 }}
                 onEnded={() => {
                     setDisplay('none');
+                    onVideoReady?.();
                 }}
             >
                 <source src="https://files.welion.asia/index/logo.mp4" type="video/mp4" />
