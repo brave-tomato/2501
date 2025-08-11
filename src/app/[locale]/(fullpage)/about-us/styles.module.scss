@@ -576,3 +576,160 @@
     border-radius: 39px;
     cursor: pointer;
 }
+
+// 全选下的点位
+.gp1,
+.gp2,
+.gp3 {
+    padding: 4px 8px !important;
+    background: rgba(16, 54, 117, 0.9) !important;
+    border: 1px solid #fff !important;
+    border-radius: 4px !important;
+
+    div > div {
+        color: #fff !important;
+        font-size: 12px !important;
+        line-height: 12px !important;
+
+        span {
+            margin-right: 6px;
+            font-weight: bold;
+        }
+    }
+}
+
+.gp2 {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+
+    div > div {
+        color: #103675 !important;
+    }
+}
+
+.gp3 {
+    background: rgba(45, 175, 183, 0.9) !important;
+    border-color: rgba(45, 175, 183, 0.9) !important;
+}
+
+.glp01,
+.glp02,
+.glp03,
+.glp04,
+.glp05,
+.glp06,
+.glp07,
+.glp08,
+.glp09,
+.glp10,
+.glp11,
+.glp12,
+.glp13,
+.glp14,
+.glp15,
+.glp16,
+.glp17,
+.glp18,
+.glp19,
+.glp20,
+.glp21,
+.glp22,
+.glp23,
+.glp24,
+.glp25,
+.glp26,
+.glp27,
+.glp28,
+.glp29,
+.glp30 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 502px;
+    top: 233px;
+    background: #fff;
+    border-radius: 39px;
+    cursor: pointer;
+}
+
+.glp02 {
+    left: 512px;
+    top: 207px;
+}
+
+.glp03 {
+    left: 535px;
+    top: 169px;
+}
+
+.glp04 {
+    left: 550px;
+    top: 180.5px;
+    background: #ff3539;
+}
+
+.glp05 {
+    left: 585px;
+    top: 175px;
+}
+
+.glp06 {
+    left: 579px;
+    top: 204px;
+    background: #2dafb7;
+}
+
+.glp07 {
+    left: 645px;
+    top: 229px;
+}
+
+.glp08 {
+    left: 875px;
+    top: 231px;
+    background: #ff3539;
+}
+
+.glp09 {
+    left: 914px;
+    top: 242px;
+}
+
+.glp10 {
+    left: 937px;
+    top: 250px;
+    background: #2dafb7;
+}
+
+.glp11 {
+    left: 867px;
+    top: 289px;
+    background: #ff3539;
+}
+
+.glp12 {
+    left: 828px;
+    top: 322px;
+    background: #2dafb7;
+}
+
+.glp13 {
+    left: 848px;
+    top: 331px;
+}
+
+.glp14 {
+    left: 825px;
+    top: 353px;
+}
+
+.glp15 {
+    left: 835px;
+    top: 362px;
+}
+
+.glp16 {
+    left: 978px;
+    top: 489px;
+    background: #2dafb7;
+}
