@@ -54,7 +54,7 @@ const menus = [
         children: [
             { href: '/solution/a1/', name: '动力类应用' },
             { href: '/solution/a2/', name: '低空经济类应用' },
-            { href: '/solution/c3/', name: '储能应用' },
+            // { href: '/solution/c3/', name: '储能应用' },
         ],
     },
     {
