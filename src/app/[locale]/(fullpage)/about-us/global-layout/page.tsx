@@ -35,6 +35,10 @@ export default () => {
 
     const [currentTab, setCurrentTab] = useState(0);
 
+    const [currentSection, setCurrentSection] = useState(0);
+
+    const [showPopovers, setShowPopovers] = useState(true);
+
     /**
      * Effects
      */
@@ -65,7 +69,7 @@ export default () => {
                             background: '#FFFFFF',
                         }}
                     />
-                    
+
                     {[
                         { key: 0, label: '全选' },
                         { key: 1, label: '总部&分公司' },
@@ -101,7 +105,7 @@ export default () => {
                                         transition: 'all 0.3s ease',
                                     }}
                                 />
-                                
+
                                 {/* 内层实心圆 */}
                                 <div
                                     style={{
@@ -117,7 +121,7 @@ export default () => {
                                     }}
                                 />
                             </div>
-                            
+
                             {/* 文字标签 */}
                             <div
                                 style={{
@@ -155,6 +159,17 @@ export default () => {
             </div>
 
             <ReactFullpage
+                beforeLeave={(origin, destination) => {
+                    if (origin.index === 0 && destination.index !== 0) {
+                        setShowPopovers(false);
+                    }
+                }}
+                afterLoad={(origin, destination) => {
+                    setCurrentSection(destination.index);
+                    if (destination.index === 0) {
+                        setShowPopovers(true);
+                    }
+                }}
                 credits={{
                     enabled: false,
                 }}
@@ -170,7 +185,7 @@ export default () => {
                                                 alt=""
                                                 height={574}
                                                 src="/static/about-us/global-layout/3.png"
-                                                width={1116}
+                                                width={1117}
                                             />
 
                                             <Popover
@@ -181,7 +196,7 @@ export default () => {
                                                         <span>西班牙</span>巴萨罗那
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="left"
                                             >
                                                 <div className={styles.glp01}></div>
@@ -195,7 +210,7 @@ export default () => {
                                                         <span>法国</span>里昂
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="left"
                                             >
                                                 <div className={styles.glp02}></div>
@@ -209,7 +224,7 @@ export default () => {
                                                         <span>荷兰</span>阿姆斯特丹
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="topRight"
                                             >
                                                 <div className={styles.glp03}></div>
@@ -223,7 +238,7 @@ export default () => {
                                                         <span>德国</span>斯图加特
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="left"
                                             >
                                                 <div className={styles.glp04}></div>
@@ -237,7 +252,7 @@ export default () => {
                                                         <span>波兰</span>华沙
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="top"
                                             >
                                                 <div className={styles.glp05}></div>
@@ -251,7 +266,7 @@ export default () => {
                                                         <span>匈牙利</span>布达佩斯
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="bottom"
                                             >
                                                 <div className={styles.glp06}></div>
@@ -265,7 +280,7 @@ export default () => {
                                                         <span>土耳其</span>伊斯坦布尔
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="right"
                                             >
                                                 <div className={styles.glp07}></div>
@@ -279,7 +294,7 @@ export default () => {
                                                         <span>北京</span>房山
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="left"
                                             >
                                                 <div className={styles.glp08}></div>
@@ -293,7 +308,7 @@ export default () => {
                                                         <span>韩国</span>大邱
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="topLeft"
                                             >
                                                 <div className={styles.glp09}></div>
@@ -307,7 +322,7 @@ export default () => {
                                                         <span>日本</span>大阪
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="right"
                                             >
                                                 <div className={styles.glp10}></div>
@@ -321,7 +336,7 @@ export default () => {
                                                         <span>深圳</span>坪山
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="top"
                                             >
                                                 <div className={styles.glp11}></div>
@@ -335,7 +350,7 @@ export default () => {
                                                         <span>泰国</span>曼谷
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="topRight"
                                             >
                                                 <div className={styles.glp12}></div>
@@ -349,7 +364,7 @@ export default () => {
                                                         <span>越南</span>胡志明
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="right"
                                             >
                                                 <div className={styles.glp13}></div>
@@ -363,7 +378,7 @@ export default () => {
                                                         <span>马来西亚</span>吉隆坡
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="left"
                                             >
                                                 <div className={styles.glp14}></div>
@@ -377,7 +392,7 @@ export default () => {
                                                         <span>新加坡</span>
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="bottom"
                                             >
                                                 <div className={styles.glp15}></div>
@@ -391,7 +406,7 @@ export default () => {
                                                         <span>澳大利亚</span>堪培拉
                                                     </div>
                                                 }
-                                                open={true}
+                                                open={showPopovers}
                                                 placement="right"
                                             >
                                                 <div className={styles.glp16}></div>
@@ -406,7 +421,7 @@ export default () => {
                                                 alt=""
                                                 height={574}
                                                 src="/static/about-us/global-layout/1.png"
-                                                width={1116}
+                                                width={1117}
                                             />
 
                                             <Popover
@@ -509,7 +524,7 @@ export default () => {
                                                 alt=""
                                                 height={574}
                                                 src="/static/about-us/global-layout/2.png"
-                                                width={1116}
+                                                width={1117}
                                             />
 
                                             <Popover
@@ -559,7 +574,7 @@ export default () => {
                                                 alt=""
                                                 height={574}
                                                 src="/static/about-us/global-layout/3.png"
-                                                width={1116}
+                                                width={1117}
                                             />
                                         </>
                                     )}
@@ -571,7 +586,7 @@ export default () => {
                                                 alt=""
                                                 height={574}
                                                 src="/static/about-us/global-layout/4.png"
-                                                width={1116}
+                                                width={1117}
                                             />
 
                                             <Popover
