@@ -44,30 +44,30 @@ const menus = [
         href: '/research/',
         name: 'menu.research',
         children: [
-            { href: '/research/', name: '固态电池研发' },
-            { href: '/manufacture/', name: '固态电池制造' },
+            { href: '/research/', name: 'menu.research1' },
+            { href: '/manufacture/', name: 'menu.research2' },
         ],
     },
     {
         href: '/solution/',
-        name: '应用与解决方案',
+        name: 'menu.applications',
         children: [
-            { href: '/solution/a1/', name: '动力类应用' },
-            { href: '/solution/a2/', name: '低空经济类应用' },
-            // { href: '/solution/c3/', name: '储能应用' },
+            { href: '/solution/a1/', name: 'applications.powerApplications' },
+            { href: '/solution/a2/', name: 'applications.lowAltitudeApplications' },
+            // { href: '/solution/c3/', name: 'applications.energyStorageApplications' },
         ],
     },
     {
         href: '/news/',
-        name: '新闻',
+        name: 'menu.news',
     },
     {
         href: '/contact-us/',
-        name: '联系我们',
+        name: 'menu.contact',
     },
     {
         href: '/jobs/',
-        name: '人才招聘',
+        name: 'menu.jobs',
     },
 ];
 
@@ -154,7 +154,7 @@ export default ({ active, locale, onClick }: Props) => {
                                     onClick?.(menu.href);
                                 }}
                             >
-                                {t(menu.name)}
+                                {menu.name.startsWith('menu.') ? t(menu.name as any) : menu.name}
                             </Link>
 
                             {menu.children && (
@@ -173,7 +173,10 @@ export default ({ active, locale, onClick }: Props) => {
                                                     onClick?.(submenu.href);
                                                 }}
                                             >
-                                                {t(submenu.name)}
+                                                {submenu.name.startsWith('menu.') ||
+                                                submenu.name.startsWith('applications.')
+                                                    ? t(submenu.name as any)
+                                                    : submenu.name}
                                             </Link>
                                         ))}
                                     </Flex>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Flex, Space } from 'antd';
 import classNames from 'classnames';
@@ -24,6 +25,7 @@ export default () => {
      * Params
      */
     const params = useParams();
+    const t = useI18n();
 
     /**
      * States
@@ -79,7 +81,7 @@ export default () => {
                                     top: '25%',
                                     left: '9.5833%',
                                 }}
-                                title="应用与解决方案"
+                                title={t('applications.title')}
                             />
                         </div>
 
@@ -88,13 +90,13 @@ export default () => {
                                 <Flex vertical>
                                     <Link href={`/${params.locale}/solution/a1/`}>
                                         <Space size={36}>
-                                            <span className={styles.t1}>动力类应用</span>
+                                            <span className={styles.t1}>{t('applications.powerApplications')}</span>
 
                                             <img alt="" height={80} src="/static/solution/icon.png" width={80} />
                                         </Space>
                                     </Link>
 
-                                    <div className={styles.t2}>半固态/固态高比能电池助力动力汽车突破续航极限</div>
+                                    <div className={styles.t2}>{t('applications.powerDescription')}</div>
 
                                     <div className={styles.t3}>
                                         Power type
@@ -112,13 +114,15 @@ export default () => {
                                 <Flex vertical>
                                     <Link href={`/${params.locale}/solution/a2/`}>
                                         <Space size={36}>
-                                            <span className={styles.t1}>低空经济类应用</span>
+                                            <span className={styles.t1}>
+                                                {t('applications.lowAltitudeApplications')}
+                                            </span>
 
                                             <img alt="" height={80} src="/static/solution/icon.png" width={80} />
                                         </Space>
                                     </Link>
 
-                                    <div className={styles.t2}>高倍率半固态电池助力航天蓬勃发展</div>
+                                    <div className={styles.t2}>{t('applications.lowAltitudeDescription')}</div>
 
                                     <div className={styles.t3}>
                                         Low-altitude
@@ -138,13 +142,15 @@ export default () => {
                                 <Flex vertical>
                                     <Link href={`/${params.locale}/solution/c3/`}>
                                         <Space size={36}>
-                                            <span className={styles.t1}>储能应用</span>
+                                            <span className={styles.t1}>
+                                                {t('applications.energyStorageApplications')}
+                                            </span>
 
                                             <img alt="" height={80} src="/static/solution/icon.png" width={80} />
                                         </Space>
                                     </Link>
 
-                                    <div className={styles.t2}>高安全半固态储能电池助力新型储能零风险</div>
+                                    <div className={styles.t2}>{t('applications.energyStorageDescription')}</div>
 
                                     <div className={styles.t3}>
                                         Energy

@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
 import { EnvironmentOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { useSetState } from 'ahooks';
 import { Col, Flex, Form, Grid, Input, Modal, Result, Row } from 'antd';
@@ -27,6 +28,7 @@ const Page = () => {
      * Hooks
      */
     const conf = getConf(Grid.useBreakpoint());
+    const t = useI18n();
 
     /**
      * States
@@ -38,17 +40,17 @@ const Page = () => {
     const roles: any = [
         {
             key: 'demander',
-            label: '我是需求方',
+            label: t('contact.demandSide'),
             component: Demander,
         },
         {
             key: 'media',
-            label: '我是媒体',
+            label: t('contact.media'),
             component: Media,
         },
         {
-            key: 'supplyChainPartner',
-            label: '我是供应链伙伴',
+            key: 'supplyChain',
+            label: t('contact.supplyChain'),
             component: SupplyChainPartner,
         },
     ];

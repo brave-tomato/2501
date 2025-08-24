@@ -10,12 +10,20 @@ export default {
         about4: '可持续发展',
         home: '首页',
         research: '固态电池产业化',
+        research1: '固态电池研发',
+        research2: '固态电池制造',
+        applications: '应用与解决方案',
+        news: '新闻媒体',
+        jobs: '人才招聘',
+        contact: '联系我们',
     },
 
     // 首页
     index: {
         more: '查看更多',
         news: '新闻',
+        slogan: '下一站相遇',
+        learnMore: '查看更多',
     },
 
     // 关于我们
@@ -98,5 +106,211 @@ export default {
         sa09: '国际劳工标准与人权',
         sa10: '人权_联合国全球契约组织',
         sa11: '环境_联合国全球契约组织',
+    },
+
+    // 研发创新
+    research: {
+        title: '固态电池产业化',
+        subtitle: '人才与创新是卫蓝聚焦未来技术的基础',
+        totalPeople: '总人数',
+        rdPeople: 'RD人数',
+        phdPeople: 'PHD人数',
+        internationalPeople: 'international 人数',
+        talentEcosystem: '人才生态',
+        patentEcosystem: '专利生态',
+        inventionPatentRatio: '发明专利占比',
+        authorizedPatentRatio: '授权专利占比',
+        overseasPatentRatio: '海外专利占比',
+        paperPublication: '文章paper发表',
+        standardSetting: '标准制定',
+
+        // 技术介绍
+        tech1Title: '离子导体包覆正极',
+        tech1Desc: '该技术采用快离子导体固态电解质包覆改性正极材料技术，改善了高镍正极材料界面副反应及安全性能。',
+        tech2Title: '固态电解质掺混技术',
+        tech2Desc:
+            '该技术采用自主研发的固态电解质在正极/负极内掺混技术，达到降低电解液用量提高安全性能，同时传导锂离子保持倍率性能的效果。',
+        tech3Title: '高容量低膨胀硅负极技术',
+        tech3Desc:
+            '该技术通过金属掺杂、碳包覆等方法构造多孔结构、核壳结构的硅负极材料技术，多元共聚和半互穿结构的强键合作用的高强粘结剂技术，极片预锂化技术以及改性电解液技术，解决了硅负极可逆容量低、膨胀大的问题。',
+        tech4Title: '离子导体膜技术',
+        tech4Desc:
+            '该技术采用自主研发的固态电解质在隔膜表面涂覆，以代替氧化铝涂层，形成离子导体膜。该技术以达到在维持隔膜热稳定性效果的同时，提高安全性能；同时固态电解质可传输锂离子，相比氧化铝可提高离子传导性能。',
+        tech5Title: '干法预锂化技术',
+        tech5Desc:
+            '该技术采用自主研发的超薄锂箔制备技术、金属锂箔表面钝化技术及锂化速率控制技术，通过在界面形成无机电解质层，金属锂在电子电导、离子电导及金属扩散的多重作用下，实现锂向负极中嵌入完成补锂，在负极表面提前形成无机SEI膜。',
+        tech6Title: '原位固化技术',
+        tech6Desc:
+            '该技术采用自研的单体材料和固化工艺技术，实现了基于原位固态化技术的固态电池量产工艺，其中固态电解质与电极颗粒之间原子级键合，保证了连续、共形接触的固-固界面。能够有效降低界面电阻，提高电池的安全性能。',
+        tech7Title: '混合固液独特工艺',
+        tech7Desc:
+            '该技术可以在现有液态电池产线的电极段、装配段及化成段均加入固态电池技术，构筑一体化的混合固液结构，实现电极内颗粒间、电极界面处固相、液相共同传质，电芯保持电性能的同时具有更好的安全性。',
+    },
+
+    // 应用与解决方案
+    applications: {
+        title: '应用与解决方案',
+        powerApplications: '动力类应用',
+        lowAltitudeApplications: '低空经济类应用',
+        energyStorageApplications: '储能应用',
+        powerDescription: '半固态/固态高比能电池助力动力汽车突破续航极限',
+        lowAltitudeDescription: '高倍率半固态电池助力航天蓬勃发展',
+        energyStorageDescription: '高安全半固态储能电池助力新型储能零风险',
+
+        // 乘用车解决方案
+        electricVehicleTitle: '纯电乘用车解决方案',
+        electricVehicle1:
+            '尖端电芯 领航能量密度：采用半固态电池技术兼容新一代正负极材料，量产电芯比能量实现360Wh/kg行业最高水平',
+        electricVehicle2: '超长续航 定义行业标杆：超高比能单体电芯，赋能主机厂实现行业首个实测续航突破1000KM的量产车型',
+        electricVehicle3: '极速快充 重构补能体验：10-80%SOC最快仅需12分钟补能，峰值充电倍率高达6C',
+        electricVehicle4: '多维安全 构筑防护体系：多项固态电池原创核心技术切断热失控连锁反应，改善电芯本征安全特性',
+        electricVehicle5: '智造革新 驱动产业升级：支持46系列大圆柱全极耳电芯，实现Pack平台标准化，缩减系统开发成本',
+
+        // 电动快艇解决方案
+        electricBoatTitle: '电动快艇解决方案',
+        electricBoat1: '350Wh/kg高比能：采用固态技术匹配高比能正负极材料，提供270-350Wh/kg多种高比能单体电芯选型',
+        electricBoat2: '7-10高倍率：最高支持电池系统5C持续放电，7-10C峰值放电倍率，提供强劲动力性能。',
+        electricBoat3: '超长续航：利用高效CTP系统集成技术，电池系统能量密度197Wh/Kg行业最高水平。',
+        electricBoat4: '高安全：固态电池技术导入与智能制造结合，为高比能、高功率的安全性提供双重保障。',
+
+        // 更多解决方案
+        yachtTitle: '电动游艇&轮船解决方案',
+        yacht1: '超大能量容量: 采用350Wh/kg混合固液电池，单包容量可达60KWh，轻松满足长时间航行需求',
+        yacht2: '船用级安全标准: 电芯通过IEC/IMO（待确认）船用安全认证，搭配智能BMS系统，确保舱内热管理与多级电气保护',
+        yacht3: '防水抗腐蚀设计：IP68防护等级，专为湿热、高盐雾环境打造，海上运行更安心',
+
+        engineeringTitle: '工程机械类解决方案',
+        engineering1:
+            '超高安全：全球首款280Ah混合固液工程机械电池，采用原创的新型纳米固态电解质，1P52S模组280A过充无冒烟、不起火',
+        engineering2: '超长耐久： 100%深度充放电7500次循环容量保持率≥80%，45℃高温循环3000周容量保持率≥70%。',
+        engineering3: '经济高效：全球首款成本对标液态的大容量半固态电池方案，关键材料成本优化+高良率智能制造双重降本',
+        engineering4: '全球认证：GB/IEC/UL多体系认证矩阵，CCS船级社认证突破海上平台应用壁垒',
+
+        motorcycleTitle: '电动摩托车解决方案',
+        motorcycle1: '轻巧之芯：高质量能量密度 270~350Wh/kg，相同电量电池包，重量减小30%，体积减小30%',
+        motorcycle2: '澎湃之力： 最高支持 5-7C持续放电，起步快，载重高，玩乐更尽兴，跑单更有劲',
+        motorcycle3: '极速充电：最高支持 2-3C 持续充电，满电只需片刻，让等待不再成为负担',
+        motorcycle4: '续航突破：一次充电，轻松续航180km+，城市通勤/跨区送货更放心',
+        motorcycle5: '长循环长收益：寿命高达1500+，日骑夜跑也不怕，降低长期用车成本',
+        motorcycle6: '"车规级"品质：源自新能源汽车制造标准，一致性更高，性能更稳定，每一次骑行都放心',
+
+        bicycleTitle: '电动助力车解决方案',
+        bicycle1: '轻巧之芯：高质量能量密度 320~400Wh/kg，电池更轻盈，整车更省力',
+        bicycle2: '迷你之芯：高体积能量密度，≥700Wh/L，体积缩小能量不减，轻松集成于车架，满足更多设计可能',
+        bicycle3: '续航突破： 一次充电，轻松续航超上百公里，骑行者的福音',
+        bicycle4: '"车规级"品质：源自新能源汽车制造标准，一致性更高，性能更稳定，每一次骑行都放心',
+
+        droneTitle: '工业无人机解决方案',
+        drone1: '高能量密度：提供 270~350+Wh/kg 多种高能量密度电芯方案，飞行更持久，作业更广，一次起飞，多点巡航',
+        drone2: '高倍率放电能力： 最高支持5C+持续放电能力，轻松应对无人机起飞、爬升、抗风、重载飞行等全工况飞行需求',
+        drone3: '高安全邢恩能够： 采用自主研发的混合固液电池，安全升级大幅提升，运行更安心',
+        drone4: '强低温性能：可在-40℃环境下稳定放电，容量保持率≥75%，挑战高源与极寒无压力',
+        drone5: '长循环寿命：单体电芯支持1000-2000次超长循环寿命，满足高频飞行等高强度任务场景需要',
+        drone6: '"车规级"品质：源自新能源汽车制造标准，一致性更高，性能更稳定，每一次飞行都放心',
+
+        evtolTitle: 'EVTOL解决方案',
+        evtol1: '高能量密度：≥300Wh/kg航空级电芯，轻装高效，助力实现百公里级续航飞行',
+        evtol2: '大功率输出： 支持5C以上持续放电，垂直起降、急速爬升稳如飞行堡垒！',
+        evtol3: '极致安全设计： 混合固态电芯+多层电芯防护 + 热管理系统 + 冗余安全策略，全维保障飞行安全',
+        evtol4: '宽温适应能力：-40℃~60℃宽温性能，全天候飞行环境下稳定可靠！',
+        evtol5: '长循环寿命：≥1000次循环寿命，支持高频次飞行任务，运营成本更低',
+        evtol6: '车规级/航空质控：对标新能源汽车与航空标准双重验证，严控一致性与可追溯性。',
+    },
+
+    // 新闻媒体
+    news: {
+        title: '新闻媒体',
+        companyNews: '企业动态',
+        hotNews: '时事热点',
+        generalNews: '综合要闻',
+        time: '时间',
+        clicks: '点击量',
+        previous: '上一条',
+        next: '下一条',
+        share: '分享到',
+    },
+
+    // 联系我们
+    contact: {
+        title: '联系我们',
+        welcomeMessage: '欢迎在线留言',
+        demandSide: '我是需求方',
+        media: '我是媒体',
+        supplyChain: '我是供应链伙伴',
+
+        // 公共字段
+        companyName: '公司名称',
+        name: '姓名',
+        position: '职务',
+        email: '工作邮箱',
+        telephone: '电话',
+        purpose: '来函目的',
+        demandDescription: '详细需求描述',
+        orderEstimate: '订单需求预估，期望交货时间，其他特殊需求等......',
+        applicationArea: '应用地区',
+        chinaMainland: '中国大陆',
+        privacyStatement: '我已仔细阅读并同意隐私声明',
+        submit: '提交',
+
+        // 需求方特定字段
+        applicationScenario: '应用场景选择',
+        passengerApplications: '乘用类应用',
+        pureElectricCar: '纯电乘用车',
+        operationalCar: '纯电运营类乘用车',
+        hybridCar: '混动动力乘用车',
+        electricYacht: '电动游艇',
+
+        commercialApplications: '商用类应用',
+        passengerBus: '客运大巴',
+        urbanDelivery: '城市配送',
+        heavyTruck: '重型运载货车',
+        roadCleaning: '城市道路清洁',
+        engineeringVehicle: '工程机械车',
+        electricTwoWheeler: '电动两轮车',
+        electricFreightShip: '电动货运轮船',
+        specialApplication: '特种应用（机场用车）',
+
+        lowAltitudeApplications: '低空经济类应用',
+        droneSolution: '无人机解决方案',
+        evtolSolution: 'EVTOL解决方案',
+
+        energyStorageApplications: '储能应用',
+        powerSide: '发电侧',
+        gridSide: '电网侧',
+        consumptionSide: '用电侧',
+
+        // 媒体特定字段
+        mediaName: '媒体名称',
+        mediaAddress: '媒体地址',
+        advertising: '广告投放',
+        interview: '采访',
+        visit: '参观',
+        activity: '活动',
+        other: '其他',
+
+        // 供应链伙伴特定字段
+        roleAttribute: '角色属性',
+        youAre: 'You are？',
+        materialSupplier: '电芯源材料商',
+        equipmentSupplier: '生产设备商',
+        nonProductCategory: '非产品类（备注）',
+    },
+
+    // 人才招聘
+    jobs: {
+        title: '人才招聘',
+        positionType: '职位类型',
+        searchKeywords: '搜索职位关键词',
+        allPositions: '全部职位',
+        rd: '研发类',
+        engineering: '工程技术类',
+        it: '计算机类',
+        production: '生产运营类',
+        marketing: '营销类',
+        functional: '职能类',
+        description: '职位描述',
+        workingPlace: '工作地点',
+        requirement: '职位要求',
+        resumeEmail: '简历投递邮箱',
     },
 } as const;

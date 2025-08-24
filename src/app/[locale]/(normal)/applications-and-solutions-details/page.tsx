@@ -3,6 +3,7 @@ import AspectRatio from '@/components/aspect-ratio';
 import { Title1, Title2, Title4 } from '@/components/headline';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
+import { useI18n } from '@/locales/client';
 import { Flex } from 'antd';
 import classNames from 'classnames';
 import { FC } from 'react';
@@ -61,10 +62,12 @@ const breakWordsAtPosition = (text: any, breakPosition: any) => {
  * 应用与解决方案
  */
 const Details = () => {
+    const t = useI18n();
+
     return (
         <div>
             <HeroSection src="/images/hero-section/applications-and-solutions@2x.png">
-                <TitleSection title="应用与解决方案" />
+                <TitleSection title={t('applications.title')} />
             </HeroSection>
             {/* 解决方案 */}
             <Flex gap={70} vertical style={{ margin: `70px` }}>

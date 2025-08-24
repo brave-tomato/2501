@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/locales/client';
 import { useSetState } from 'ahooks';
 import { Col, Flex, GetProps, Grid, Input, Modal, Pagination, Row } from 'antd';
 type SearchProps = GetProps<typeof Input.Search>;
@@ -11,36 +12,6 @@ import { getConf } from '@/utils';
 import classNames from 'classnames';
 import { useState } from 'react';
 
-const tabItems = [
-    {
-        key: 'all-jobs',
-        label: '全部职位',
-    },
-    {
-        key: 'research',
-        label: '研发类',
-    },
-    {
-        key: 'engineering',
-        label: '工程技术类',
-    },
-    {
-        key: 'computer',
-        label: '计算机类',
-    },
-    {
-        key: 'production',
-        label: '生产运营类',
-    },
-    {
-        key: 'marketing',
-        label: '营销类',
-    },
-    {
-        key: 'functional',
-        label: '职能类',
-    },
-];
 /**
  * 页面：人才招聘
  */
@@ -49,6 +20,38 @@ const JobPage = () => {
      * Hooks
      */
     const conf = getConf(Grid.useBreakpoint());
+    const t = useI18n();
+
+    const tabItems = [
+        {
+            key: 'all-jobs',
+            label: t('jobs.allPositions'),
+        },
+        {
+            key: 'research',
+            label: t('jobs.rd'),
+        },
+        {
+            key: 'engineering',
+            label: t('jobs.engineering'),
+        },
+        {
+            key: 'computer',
+            label: t('jobs.it'),
+        },
+        {
+            key: 'production',
+            label: t('jobs.production'),
+        },
+        {
+            key: 'marketing',
+            label: t('jobs.marketing'),
+        },
+        {
+            key: 'functional',
+            label: t('jobs.functional'),
+        },
+    ];
 
     /**
      * States

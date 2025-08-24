@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 
-import { ICustomComponentProps } from '@/types';
+import { useI18n } from '@/locales/client';
 
 import { Col, Flex, Row } from 'antd';
 import './index.scss';
@@ -12,17 +12,19 @@ import NewsItemSmall from './news-item-small';
 /**
  * 首页-新闻模块
  */
-const NewsSection: FC<ICustomComponentProps> = ({ newsData }) => {
+const NewsSection: FC<{ newsData: any[] }> = ({ newsData }) => {
+    const t = useI18n();
+
     return (
         <div style={{ backgroundColor: 'var(--custom-gray-light)' }}>
             <Flex className={'news-section-wrapper'} gap={40} vertical style={{ maxWidth: 1200, margin: '0 auto' }}>
                 <Flex className="header" justify="space-between">
                     <Flex gap={6} vertical>
-                        <div className="title">新闻动态</div>
+                        <div className="title">{t('index.news')}</div>
                         <div className="sub-title">NEWS</div>
                     </Flex>
                     <Flex align="center" className="btn-more" justify="center" gap={8}>
-                        <div>查看更多</div>
+                        <div>{t('index.more')}</div>
                         <img src="/images/indexpage/icon_arrow_right_white@2x.png" width={6} height={12} />
                     </Flex>
                 </Flex>

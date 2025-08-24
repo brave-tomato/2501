@@ -47,9 +47,9 @@ const Footer: React.FC = () => {
                     </Link>
 
                     <Flex gap={8} style={{ marginTop: 24 }} vertical>
-                        <div className={styles.title2}>固态电池研发</div>
+                        <div className={styles.title2}>{t('menu.research1')}</div>
 
-                        <div className={styles.title2}>固态电池制造</div>
+                        <div className={styles.title2}>{t('menu.research2')}</div>
                     </Flex>
                 </Col>
 
@@ -57,15 +57,15 @@ const Footer: React.FC = () => {
 
                 <Col span={2}>
                     <Link className={styles.title1} href="/solution">
-                        应用与解决方案
+                        {t('menu.applications')}
                     </Link>
 
                     <Flex gap={8} style={{ marginTop: 24 }} vertical>
-                        <div className={styles.title2}>动力类应用</div>
+                        <div className={styles.title2}>{t('applications.powerApplications')}</div>
 
-                        <div className={styles.title2}>低空经济类应用</div>
+                        <div className={styles.title2}>{t('applications.lowAltitudeApplications')}</div>
 
-                        <div className={styles.title2}>储能应用</div>
+                        <div className={styles.title2}>{t('applications.energyStorageApplications')}</div>
                     </Flex>
                 </Col>
 
@@ -74,15 +74,15 @@ const Footer: React.FC = () => {
                 <Col span={2}>
                     <Flex gap={8} vertical>
                         <Link className={styles.title1} href="/news">
-                            新闻
+                            {t('menu.news')}
                         </Link>
 
                         <Link className={styles.title1} href="/contact-us">
-                            联系我们
+                            {t('menu.contact')}
                         </Link>
 
                         <Link className={styles.title1} href="/jobs">
-                            人才招聘
+                            {t('menu.jobs')}
                         </Link>
                     </Flex>
                 </Col>
