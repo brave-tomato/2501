@@ -338,7 +338,10 @@ export default () => {
                                     zIndex: 3,
                                 }}
                             >
-                                <source src="https://files.welion.asia/about-us/history.mp4" type="video/mp4" />
+                                <source
+                                    src={`https://files.welion.asia/about-us/history_${params.locale}.mp4`}
+                                    type="video/mp4"
+                                />
                             </video>
 
                             {/* 向上滚动播放的视频 */}
@@ -356,7 +359,10 @@ export default () => {
                                     zIndex: 1,
                                 }}
                             >
-                                <source src="https://files.welion.asia/about-us/history_back.mp4" type="video/mp4" />
+                                <source
+                                    src={`https://files.welion.asia/about-us/history_${params.locale}_back.mp4`}
+                                    type="video/mp4"
+                                />
                             </video>
                         </div>
 
