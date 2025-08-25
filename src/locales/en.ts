@@ -143,9 +143,12 @@ export default {
         tech6Title: 'In-situ curing technology',
         tech6Desc:
             'This technology uses self-developed monomer materials and curing process technology to realize the mass production process of solid-state batteries based on in-situ solidification technology, in which the atomic-level bonding between the solid electrolyte and the electrode particles ensures a continuous and conformal solid-solid interface. It can effectively reduce the interface resistance and improve the safety performance of the battery.',
-        tech7Title: 'Unique hybrid solid-liquid technology',
+        tech7Title: 'Hybrid solid-liquid unique process',
         tech7Desc:
-            'This technology can add solid-state battery technology to the electrode section, assembly section and formation section of the existing liquid battery production line to construct an integrated hybrid solid-liquid structure, achieve solid-liquid mass transfer between particles in the electrode and at the electrode interface, and improve safety while maintaining the electrical performance of the battery cell.',
+            'This technology can add solid-state battery technology to the electrode section, assembly section and formation section of the existing liquid battery production line to build an integrated hybrid solid-liquid structure, achieve common mass transfer of solid and liquid phases between electrode particles and electrode interfaces, and the cell maintains electrical performance while having better safety.',
+        ultraThinLithiumTitle: 'Ultra-thin Lithium Metal Foil',
+        ultraThinLithiumDesc:
+            'Ultra-thin lithium metal foil and composite negative electrode materials below 20um are prepared by physical methods. This technology can effectively inhibit lithium dendrite growth and improve battery energy density and cycle stability.',
     },
 
     // 应用与解决方案
