@@ -1,5 +1,8 @@
 'use client';
 
+import { useI18n } from '@/locales/client';
+import enTranslations from '@/locales/en';
+import zhTranslations from '@/locales/zh';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Col, Flex, Row } from 'antd';
 import Link from 'next/link';
@@ -20,63 +23,54 @@ import Header from '@/components/header';
  */
 import styles from './styles.module.scss';
 
-/**
- * Constants
- */
-const sections = [
-    {
-        features: [
-            ['高能量密度', '提供 270~350+Wh/kg 多种高能量密度电芯方案，飞行更持久，作业更广，一次起飞，多点巡航'],
-            ['高倍率放电能力', '最高支持5C+持续放电能力，轻松应对无人机起飞、爬升、抗风、重载飞行等全工况飞行需求'],
-            ['高安全邢恩能够', '采用自主研发的混合固液电池，安全升级大幅提升，运行更安心'],
-            ['强低温性能', '可在-40℃环境下稳定放电，容量保持率≥75%，挑战高源与极寒无压力'],
-            ['长循环寿命', '单体电芯支持1000-2000次超长循环寿命，满足高频飞行等高强度任务场景需要'],
-            ['“车规级”品质', '源自新能源汽车制造标准，一致性更高，性能更稳定，每一次飞行都放心'],
-        ],
-        image: '/static/solution/a2/01.jpg',
-        link: '/static/solution/a2/01.pdf',
-        logo: [
-            { image: '/static/solution/a2/logo/01.jpg' },
-            { image: '/static/solution/a2/logo/02.jpg' },
-            { image: '/static/solution/a2/logo/03.jpg' },
-            { image: '/static/solution/a2/logo/04.jpg' },
-            { image: '/static/solution/a2/logo/05.jpg' },
-            { image: '/static/solution/a2/logo/06.jpg' },
-            { image: '/static/solution/a2/logo/07.jpg' },
-            { image: '/static/solution/a2/logo/08.jpg' },
-        ],
-        title: '工业&植保无人机解决方案',
-    },
-    {
-        features: [
-            ['高能量密度', '≥300Wh/kg航空级电芯，轻装高效，助力实现百公里级续航飞行'],
-            ['大功率输出', '支持5C以上持续放电，垂直起降、急速爬升稳如飞行堡垒！'],
-            ['极致安全设计', '混合固态电芯+多层电芯防护 + 热管理系统 + 冗余安全策略，全维保障飞行安全'],
-            ['宽温适应能力', '-40℃~60℃宽温性能，全天候飞行环境下稳定可靠！'],
-            ['长循环寿命', '≥1000次循环寿命，支持高频次飞行任务，运营成本更低'],
-            ['车规级/航空质控', '对标新能源汽车与航空标准双重验证，严控一致性与可追溯性'],
-        ],
-        image: '/static/solution/a2/02.jpg',
-        link: '/static/solution/a2/02.pdf',
-        logo: [
-            { image: '/static/solution/a2/logo/01.jpg' },
-            { image: '/static/solution/a2/logo/02.jpg' },
-            { image: '/static/solution/a2/logo/03.jpg' },
-            { image: '/static/solution/a2/logo/04.jpg' },
-            { image: '/static/solution/a2/logo/05.jpg' },
-            { image: '/static/solution/a2/logo/06.jpg' },
-            { image: '/static/solution/a2/logo/07.jpg' },
-            { image: '/static/solution/a2/logo/08.jpg' },
-        ],
-        title: 'EVTOL 解决方案',
-    },
-];
-
 export default () => {
     /**
      * Params
      */
     const params = useParams();
+    const t = useI18n();
+    const locale = params.locale as string;
+
+    /**
+     * Constants - Using direct translation imports
+     */
+    const translations = locale === 'zh' ? zhTranslations : enTranslations;
+    const solutions = translations.applications.solutions;
+
+    const sections = [
+        {
+            title: solutions.droneSolution.title,
+            features: solutions.droneSolution.features,
+            image: '/static/solution/a2/01.jpg',
+            link: '/static/solution/a2/01.pdf',
+            logo: [
+                { image: '/static/solution/a2/logo/01.jpg' },
+                { image: '/static/solution/a2/logo/02.jpg' },
+                { image: '/static/solution/a2/logo/03.jpg' },
+                { image: '/static/solution/a2/logo/04.jpg' },
+                { image: '/static/solution/a2/logo/05.jpg' },
+                { image: '/static/solution/a2/logo/06.jpg' },
+                { image: '/static/solution/a2/logo/07.jpg' },
+                { image: '/static/solution/a2/logo/08.jpg' },
+            ],
+        },
+        {
+            title: solutions.evtolSolution.title,
+            features: solutions.evtolSolution.features,
+            image: '/static/solution/a2/02.jpg',
+            link: '/static/solution/a2/02.pdf',
+            logo: [
+                { image: '/static/solution/a2/logo/01.jpg' },
+                { image: '/static/solution/a2/logo/02.jpg' },
+                { image: '/static/solution/a2/logo/03.jpg' },
+                { image: '/static/solution/a2/logo/04.jpg' },
+                { image: '/static/solution/a2/logo/05.jpg' },
+                { image: '/static/solution/a2/logo/06.jpg' },
+                { image: '/static/solution/a2/logo/07.jpg' },
+                { image: '/static/solution/a2/logo/08.jpg' },
+            ],
+        },
+    ];
 
     /**
      * Effects
@@ -160,31 +154,17 @@ export default () => {
                                                     slidesPerView={5}
                                                     style={{ marginTop: 80 }}
                                                 >
-                                                    {section.logo.map((logo, index) => (
+                                                    {section.logo.map((logo: any, index: number) => (
                                                         <SwiperSlide key={index} style={{ textAlign: 'center' }}>
-                                                            {logo?.link ? (
-                                                                <Link href={logo.link} target="_blank">
-                                                                    <img
-                                                                        alt=""
-                                                                        src={logo.image}
-                                                                        style={{
-                                                                            width: 79,
-                                                                            height: 36,
-                                                                            objectFit: 'contain',
-                                                                        }}
-                                                                    />
-                                                                </Link>
-                                                            ) : (
-                                                                <img
-                                                                    alt=""
-                                                                    src={logo.image}
-                                                                    style={{
-                                                                        width: 79,
-                                                                        height: 36,
-                                                                        objectFit: 'contain',
-                                                                    }}
-                                                                />
-                                                            )}
+                                                            <img
+                                                                alt=""
+                                                                src={logo.image}
+                                                                style={{
+                                                                    width: 79,
+                                                                    height: 36,
+                                                                    objectFit: 'contain',
+                                                                }}
+                                                            />
                                                         </SwiperSlide>
                                                     ))}
                                                 </Swiper>

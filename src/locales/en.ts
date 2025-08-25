@@ -152,6 +152,14 @@ export default {
     },
 
     // 应用与解决方案
+    // Solution pages
+    solutionElectricVehicleTitle: 'Electric Vehicles Solutions',
+    solutionElectricBoatTitle: 'Electric Boat Solutions',
+    solutionElectricYachtTitle: 'Electric Yacht & Ship Solutions',
+    solutionConstructionMachineryTitle: 'Construction Machinery Solutions',
+    solutionElectricMotorcycleTitle: 'Electric Motorcycle Solutions',
+    solutionElectricBikeTitle: 'Electric Bike Solutions',
+
     applications: {
         title: 'Applications and Solutions',
         powerApplications: 'Power applications',
@@ -161,6 +169,207 @@ export default {
         lowAltitudeDescription: 'High-rate semi-solid batteries help aerospace flourish',
         energyStorageDescription:
             'High-safety semi-solid energy storage batteries help new energy storage achieve zero risk',
+
+        // Solution detail pages
+        solutions: {
+            // Electric vehicle solution
+            electricVehicleSolution: {
+                title: 'Electric Vehicles Solutions',
+                features: [
+                    [
+                        'Cutting-edge battery cells lead energy density',
+                        'Using semi-solid battery technology compatible with a new generation of positive and negative electrode materials, mass-produced battery cells achieve the highest level of specific energy of 360Wh/kg in the industry',
+                    ],
+                    [
+                        'Ultra-long range defines industry benchmark',
+                        "Ultra-high specific energy single cells enable OEMs to achieve the industry's first mass-produced model with actual range exceeding 1000KM",
+                    ],
+                    [
+                        'Ultra-fast charging reconstructs energy experience',
+                        '10-80% SOC charging takes only 12 minutes at fastest, with peak charging rate up to 6C',
+                    ],
+                    [
+                        'Multi-dimensional safety builds protection system',
+                        'Multiple solid-state battery original core technologies cut off thermal runaway chain reaction and improve cell intrinsic safety characteristics',
+                    ],
+                    [
+                        'Intelligent manufacturing innovation drives industry upgrade',
+                        'Supports 46 series large cylindrical full-tab cells, realizes Pack platform standardization, and reduces system development costs',
+                    ],
+                ],
+            },
+            // Electric boat solution
+            electricBoatSolution: {
+                title: 'Electric Boat Solutions',
+                features: [
+                    [
+                        '350Wh/kg high specific energy',
+                        'Using solid-state technology matched with high specific energy positive and negative electrode materials, providing 270-350Wh/kg various high specific energy single cell options',
+                    ],
+                    [
+                        '7-10 high rate',
+                        'Maximum support for battery system 5C continuous discharge, 7-10C peak discharge rate, providing strong power performance',
+                    ],
+                    [
+                        'Ultra-long range',
+                        'Using efficient CTP system integration technology, battery system energy density 197Wh/Kg industry highest level',
+                    ],
+                    [
+                        'High safety',
+                        'Solid-state battery technology introduction combined with intelligent manufacturing provides dual protection for high specific energy and high power safety',
+                    ],
+                ],
+            },
+            // Electric yacht solution
+            electricYachtSolution: {
+                title: 'Electric Yacht & Ship Solutions',
+                features: [
+                    [
+                        'Ultra-large energy capacity',
+                        'Using 350Wh/kg hybrid solid-liquid battery, single pack capacity up to 60KWh, easily meeting long-term navigation needs',
+                    ],
+                    [
+                        'Marine-grade safety standards',
+                        'Cells pass IEC/IMO (to be confirmed) marine safety certification, equipped with intelligent BMS system, ensuring cabin thermal management and multi-level electrical protection',
+                    ],
+                    [
+                        'Waterproof and corrosion-resistant design',
+                        'IP68 protection level, specially designed for humid, high-salt fog environments, more peace of mind for marine operation',
+                    ],
+                ],
+            },
+            // Construction machinery solution
+            constructionMachinerySolution: {
+                title: 'Construction Machinery Solutions',
+                features: [
+                    [
+                        'Ultra-high safety',
+                        "World's first 280Ah hybrid solid-liquid construction machinery battery, using original new nano solid-state electrolyte, 1P52S module 280A overcharge without smoke or fire",
+                    ],
+                    [
+                        'Ultra-long durability',
+                        '100% deep charge-discharge 7500 cycles with capacity retention ≥80%, 45°C high temperature cycling 3000 cycles with capacity retention ≥70%',
+                    ],
+                    [
+                        'Economic efficiency',
+                        "World's first large-capacity semi-solid battery solution with cost benchmarking liquid batteries, key material cost optimization + high yield intelligent manufacturing dual cost reduction",
+                    ],
+                    [
+                        'Global certification',
+                        'GB/IEC/UL multi-system certification matrix, CCS classification society certification breaks through offshore platform application barriers',
+                    ],
+                ],
+            },
+            // Electric motorcycle solution
+            electricMotorcycleSolution: {
+                title: 'Electric Motorcycle Solutions',
+                features: [
+                    [
+                        'Lightweight core',
+                        'High gravimetric energy density 270~350Wh/kg, same power battery pack, weight reduced by 30%, volume reduced by 30%',
+                    ],
+                    [
+                        'Powerful force',
+                        'Maximum support 5-7C continuous discharge, fast start, high load, more fun to play, more energy for delivery',
+                    ],
+                    [
+                        'Ultra-fast charging',
+                        'Maximum support 2-3C continuous charging, full charge in just moments, no longer burdened by waiting',
+                    ],
+                    [
+                        'Range breakthrough',
+                        'One charge, easy range 180km+, more peace of mind for urban commuting/cross-district delivery',
+                    ],
+                    [
+                        'Long cycle, long returns',
+                        'Life up to 1500+, not afraid of day riding and night running, reducing long-term vehicle costs',
+                    ],
+                    [
+                        '"Vehicle-grade" quality',
+                        'Derived from new energy vehicle manufacturing standards, higher consistency, more stable performance, peace of mind for every ride',
+                    ],
+                ],
+            },
+            // Electric bike solution
+            electricBikeSolution: {
+                title: 'Electric Bike Solutions',
+                features: [
+                    [
+                        'Lightweight core',
+                        'High gravimetric energy density 320~400Wh/kg, lighter battery, more effortless vehicle',
+                    ],
+                    [
+                        'Mini core',
+                        'High volumetric energy density, ≥700Wh/L, volume reduction without energy reduction, easy integration into frame, meeting more design possibilities',
+                    ],
+                    ['Range breakthrough', 'One charge, easy range over hundreds of kilometers, a boon for cyclists'],
+                    [
+                        '"Vehicle-grade" quality',
+                        'Derived from new energy vehicle manufacturing standards, higher consistency, more stable performance, peace of mind for every ride',
+                    ],
+                ],
+            },
+            // Industrial drone solution
+            droneSolution: {
+                title: 'Industrial & Agricultural Drone Solutions',
+                features: [
+                    [
+                        'High energy density',
+                        'Providing 270~350+Wh/kg multiple high energy density cell options, longer flight duration, wider operation range, one takeoff multiple waypoint cruise',
+                    ],
+                    [
+                        'High rate discharge capability',
+                        'Maximum support for 5C+ continuous discharge capability, easily handle drone takeoff, climbing, wind resistance, heavy load flight and all flight conditions',
+                    ],
+                    [
+                        'High safety performance',
+                        'Using self-developed hybrid solid-liquid batteries, safety upgrade significantly improved, more peace of mind operation',
+                    ],
+                    [
+                        'Strong low temperature performance',
+                        'Stable discharge at -40°C environment, capacity retention ≥75%, challenge high altitude and extreme cold without pressure',
+                    ],
+                    [
+                        'Long cycle life',
+                        'Single cell supports 1000-2000 ultra-long cycle life, meeting high-frequency flight and other high-intensity mission scenarios',
+                    ],
+                    [
+                        '"Vehicle-grade" quality',
+                        'Derived from new energy vehicle manufacturing standards, higher consistency, more stable performance, peace of mind for every flight',
+                    ],
+                ],
+            },
+            // EVTOL solution
+            evtolSolution: {
+                title: 'EVTOL Solutions',
+                features: [
+                    [
+                        'High energy density',
+                        '≥300Wh/kg aviation-grade cells, light and efficient, helping achieve hundred-kilometer range flight',
+                    ],
+                    [
+                        'High power output',
+                        'Support 5C+ continuous discharge, vertical takeoff and landing, rapid climbing stable as flying fortress!',
+                    ],
+                    [
+                        'Ultimate safety design',
+                        'Hybrid solid-state cells + multi-layer cell protection + thermal management system + redundant safety strategy, comprehensive flight safety protection',
+                    ],
+                    [
+                        'Wide temperature adaptability',
+                        '-40°C~60°C wide temperature performance, stable and reliable in all-weather flight environments!',
+                    ],
+                    [
+                        'Long cycle life',
+                        '≥1000 cycle life, supporting high-frequency flight missions, lower operating costs',
+                    ],
+                    [
+                        'Vehicle-grade/Aviation quality control',
+                        'Benchmarking new energy vehicle and aviation standards dual verification, strict control of consistency and traceability',
+                    ],
+                ],
+            },
+        },
 
         // 乘用车解决方案
         electricVehicleTitle: 'Electric vehicles solutions',
