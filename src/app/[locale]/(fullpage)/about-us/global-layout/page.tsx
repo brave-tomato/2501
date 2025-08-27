@@ -735,24 +735,24 @@ export default () => {
                                     )}
                                 </div>
 
-                                <div style={{ width: '320px' }}>
+                                <div style={{ width: '340px' }}>
                                     {/* 全选内容 */}
                                     {currentTab === 0 && (
                                         <Flex gap={20} vertical>
                                             <div className={styles.tit01}>
-                                                <span style={{ color: '#FF3539' }}>●</span> 总部
+                                                <span style={{ color: '#FF3539' }}>●</span>总部
                                             </div>
 
                                             <div className={styles.tit01}>
-                                                <span>●</span> 分公司
+                                                <span>●</span>分公司
                                             </div>
 
                                             <div className={styles.tit01}>
-                                                <span>■</span> 业务范围
+                                                <span>■</span>业务范围
                                             </div>
 
                                             <div className={styles.tit01}>
-                                                <span style={{ color: '#fff' }}>●</span> 服务网点
+                                                <span style={{ color: '#fff' }}>●</span>服务网点
                                             </div>
                                         </Flex>
                                     )}
@@ -760,7 +760,7 @@ export default () => {
                                     {/* 总部&分公司内容 */}
                                     {currentTab === 1 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>● 总部&分公司</div>
+                                            <div className={styles.tit01}>●总部&分公司</div>
 
                                             <Flex vertical>
                                                 <div className={styles.tit02}>总部</div>
@@ -785,7 +785,7 @@ export default () => {
                                     {/* 制造生产基地内容 */}
                                     {currentTab === 2 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>● 制造生产基地</div>
+                                            <div className={styles.tit01}>●制造生产基地</div>
 
                                             <Flex vertical>
                                                 <div className={styles.con01}>北京-房山，山东-淄博，江苏-溧阳</div>
@@ -811,7 +811,7 @@ export default () => {
                                     {/* 服务网点内容 */}
                                     {currentTab === 4 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>● 服务网点</div>
+                                            <div className={styles.tit01}>●服务网点</div>
 
                                             <div className={styles.con01}>
                                                 德国-杜塞尔多夫，法国-里昂，波兰-华沙 荷兰-阿姆斯特丹，西班牙-巴萨罗那

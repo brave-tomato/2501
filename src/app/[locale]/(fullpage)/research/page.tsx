@@ -365,11 +365,28 @@ export default () => {
                                                 </AspectRatio>
 
                                                 <div className={styles.technologySwiperContent}>
-                                                    <div className={styles.t1}>{slide.title}</div>
+                                                    <div
+                                                        className={styles.t1}
+                                                        style={{
+                                                            fontSize: params.locale === 'zh' ? '32px' : '20px',
+                                                            lineHeight: params.locale === 'zh' ? '40px' : '28px',
+                                                            color: params.locale === 'zh' ? '#103675' : '#2dafb7',
+                                                        }}
+                                                    >
+                                                        {slide.title}
+                                                    </div>
 
-                                                    <div className={styles.t2}>{slide.subtitle}</div>
+                                                    {/* <div className={styles.t2}>{slide.subtitle}</div> */}
 
-                                                    <div className={styles.t3}>{slide.description}</div>
+                                                    <div
+                                                        className={styles.t3}
+                                                        style={{
+                                                            fontSize: params.locale === 'zh' ? '20px' : '16px',
+                                                            lineHeight: params.locale === 'zh' ? '28px' : '1.3',
+                                                        }}
+                                                    >
+                                                        {slide.description}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
