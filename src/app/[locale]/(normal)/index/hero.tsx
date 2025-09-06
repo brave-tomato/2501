@@ -242,7 +242,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <img
                     alt=""
                     className={styles.exhibition}
-                    src="/static/index/exhibition.png"
+                    src={`/static/index/exhibition_${params.locale || 'zh'}.png`}
                     onClick={() => setState({ open: true })}
                 />
             </AspectRatio>

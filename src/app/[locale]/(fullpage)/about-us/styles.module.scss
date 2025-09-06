@@ -412,10 +412,13 @@
 
 // 总部&分公司
 .tit01 {
-    margin-bottom: 16px;
-    font-size: 48px;
+    font-size: 26px;
     line-height: 56px;
     color: #2dafb7;
+
+    span {
+        margin-right: 15px;
+    }
 }
 
 .tit02 {

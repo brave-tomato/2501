@@ -285,7 +285,10 @@ export default () => {
                                     objectFit: 'cover',
                                 }}
                             >
-                                <source src="https://files.welion.asia/research/technology_zh.mp4" type="video/mp4" />
+                                <source
+                                    src={`https://files.welion.asia/research/technology_${params.locale || 'zh'}.mp4`}
+                                    type="video/mp4"
+                                />
                             </video>
 
                             <div className={styles.indicators}>
@@ -360,6 +363,7 @@ export default () => {
                                                             width: 100,
                                                             height: 100,
                                                             cursor: 'pointer',
+                                                            pointerEvents: 'none',
                                                         }}
                                                     />
                                                 </AspectRatio>

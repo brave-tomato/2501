@@ -1,5 +1,8 @@
+'use client';
+
 import { Popover } from 'antd';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 /**
  * Components
@@ -12,6 +15,11 @@ import AspectRatio from '@/components/aspect-ratio';
 import styles from './styles.module.scss';
 
 export default () => {
+    /**
+     * Params
+     */
+    const params = useParams();
+
     return (
         <div className="mw-1920">
             <AspectRatio ratio={16 / 9}>
@@ -26,7 +34,10 @@ export default () => {
                         objectFit: 'cover',
                     }}
                 >
-                    <source src="https://files.welion.asia/research/liucheng.mp4" type="video/mp4" />
+                    <source
+                        src={`https://files.welion.asia/research/liucheng_${params.locale || 'zh'}.mp4`}
+                        type="video/mp4"
+                    />
                 </video>
 
                 {/* 点位 1 */}

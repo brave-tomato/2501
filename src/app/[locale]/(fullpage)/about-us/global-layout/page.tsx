@@ -738,7 +738,7 @@ export default () => {
                                 <div style={{ width: '340px' }}>
                                     {/* 全选内容 */}
                                     {currentTab === 0 && (
-                                        <Flex gap={20} vertical>
+                                        <Flex gap={10} vertical>
                                             <div className={styles.tit01}>
                                                 <span style={{ color: '#FF3539' }}>●</span>总部
                                             </div>
