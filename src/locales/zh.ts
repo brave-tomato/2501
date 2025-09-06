@@ -24,6 +24,17 @@ export default {
         news: '新闻',
         slogan: '下一站相遇',
         learnMore: '查看更多',
+        companyIntro: '企业简介',
+        pureElectricCarSolution: '纯电乘用车解决方案',
+        electricMotorcycleSolution: '电动摩托⻋解决⽅案',
+        electricBikeSolution: '电动助⼒⻋解决⽅案',
+        evtolSolution: 'EVTOL 解决方案',
+        engineeringSolution: '⼯程机械类解决⽅案',
+        droneSolution: '工业&植保无人机解决方案',
+        solidStateBatteryRD: '固态电池研发',
+        electricYachtSolution: '电动游艇&轮船解决⽅案',
+        electricBoatSolution: '电动快艇解决⽅案',
+        energyStorageApplication: '储能应用',
     },
 
     // 关于我们
@@ -106,6 +117,76 @@ export default {
         sa09: '国际劳工标准与人权',
         sa10: '人权_联合国全球契约组织',
         sa11: '环境_联合国全球契约组织',
+
+        // 全球布局页面
+        globalLayout: {
+            selectAll: '全选',
+            headquarters: '总部&分公司',
+            manufacturing: '制造生产基地',
+            businessScope: '业务范围',
+            servicePoints: '服务网点',
+            // 地名翻译
+            spain: '西班牙',
+            barcelona: '巴萨罗那',
+            france: '法国',
+            lyon: '里昂',
+            netherlands: '荷兰',
+            amsterdam: '阿姆斯特丹',
+            germany: '德国',
+            stuttgart: '斯图加特',
+            dusseldorf: '杜塞尔多夫',
+            poland: '波兰',
+            warsaw: '华沙',
+            hungary: '匈牙利',
+            budapest: '布达佩斯',
+            turkey: '土耳其',
+            istanbul: '伊斯坦布尔',
+            beijing: '北京',
+            fangshan: '房山',
+            southKorea: '韩国',
+            daegu: '大邱',
+            japan: '日本',
+            osaka: '大阪',
+            tokyo: '东京',
+            shenzhen: '深圳',
+            pingshan: '坪山',
+            thailand: '泰国',
+            bangkok: '曼谷',
+            vietnam: '越南',
+            hoChiMinh: '胡志明',
+            malaysia: '马来西亚',
+            kualaLumpur: '吉隆坡',
+            singapore: '新加坡',
+            australia: '澳大利亚',
+            canberra: '堪培拉',
+            shandong: '山东',
+            zibo: '淄博',
+            jiangsu: '江苏',
+            liyang: '溧阳',
+            zhejiang: '浙江',
+            huzhou: '湖州',
+            guangdong: '广东',
+            zhuhai: '珠海',
+            shaoxing: '绍兴',
+            lanyao: '蓝姚',
+            // 内容描述
+            headquartersTitle: '总部',
+            branchesTitle: '分公司',
+            chinaRDHeadquarters: '中国研发总部',
+            europeHeadquarters: '欧洲总部',
+            sulfideRDHeadquarters: '硫化物研发总部',
+            headquartersDesc1: '中国研发总部 北京-房山',
+            headquartersDesc2: '欧洲总部 德国-斯图加特',
+            headquartersDesc3: '硫化物研发总部 深圳-坪山',
+            branchesDesc1: '匈牙利-布达佩斯，日本-大阪',
+            branchesDesc2: '泰国-曼谷，澳大利亚-堪培拉',
+            manufacturingDesc1: '北京-房山，山东-淄博，江苏-溧阳',
+            manufacturingDesc2: '浙江-湖州，广东-珠海，绍兴-蓝姚',
+            businessScopeDesc:
+                '中国、法国、美国、加拿大、英国、荷兰、德国、波兰、奥地利、巴西、匈牙利、希腊、印度、韩国、日本、台湾、泰国、马来西亚、澳大利亚',
+            servicePointsDesc:
+                '德国-杜塞尔多夫，法国-里昂，波兰-华沙、荷兰-阿姆斯特丹，西班牙-巴萨罗那、土耳其-伊斯坦布尔，日本-东京，新加坡、马来西亚-吉隆坡，越南-胡志明，韩国-大邱',
+        },
     },
 
     // 研发创新
@@ -344,6 +425,9 @@ export default {
         previous: '上一条',
         next: '下一条',
         share: '分享到',
+        noPrevious: '没有上一条',
+        noNext: '没有下一条',
+        newsDetail: '新闻详情',
     },
 
     // 联系我们
@@ -428,5 +512,17 @@ export default {
         workingPlace: '工作地点',
         requirement: '职位要求',
         resumeEmail: '简历投递邮箱',
+    },
+
+    // 联系我们
+    contactUs: {
+        title: '联系我们',
+    },
+
+    // 制造页面
+    manufacture: {
+        contentIntroduction: '内容介绍',
+        secondIntroduction: '第二个介绍',
+        introduction: '介绍',
     },
 } as const;

@@ -20,10 +20,33 @@ export default {
 
     // 首页
     index: {
-        more: 'Learn more',
+        more: 'Learn More',
         news: 'News',
         slogan: 'Next station meet',
         learnMore: 'Learn more',
+        companyIntro: 'Company Introduction',
+        pureElectricCarSolution: 'Pure Electric Car Solutions',
+        electricMotorcycleSolution: 'Electric Motorcycle Solutions',
+        electricBikeSolution: 'Electric Bike Solutions',
+        evtolSolution: 'EVTOL Solutions',
+        engineeringSolution: 'Engineering Machinery Solutions',
+        droneSolution: 'Industrial & Agricultural Drone Solutions',
+        solidStateBatteryRD: 'Solid-State Battery R&D',
+        electricYachtSolution: 'Electric Yacht & Ship Solutions',
+        electricBoatSolution: 'Electric Boat Solutions',
+        energyStorageApplication: 'Energy Storage Applications',
+    },
+
+    // Contact Us
+    contactUs: {
+        title: 'Contact Us',
+    },
+
+    // Manufacturing page
+    manufacture: {
+        contentIntroduction: 'Content Introduction',
+        secondIntroduction: 'Second Introduction',
+        introduction: 'Introduction',
     },
 
     // 关于我们
@@ -106,6 +129,76 @@ export default {
         sa09: 'International Labor Standards and Human Rights',
         sa10: 'Human Rights_UN Global Compact',
         sa11: 'Environment_UN Global Compact',
+
+        // Global layout page
+        globalLayout: {
+            selectAll: 'Select All',
+            headquarters: 'Headquarters & Branches',
+            manufacturing: 'Manufacturing Bases',
+            businessScope: 'Business Scope',
+            servicePoints: 'Service Points',
+            // Location translations
+            spain: 'Spain',
+            barcelona: 'Barcelona',
+            france: 'France',
+            lyon: 'Lyon',
+            netherlands: 'Netherlands',
+            amsterdam: 'Amsterdam',
+            germany: 'Germany',
+            stuttgart: 'Stuttgart',
+            dusseldorf: 'Düsseldorf',
+            poland: 'Poland',
+            warsaw: 'Warsaw',
+            hungary: 'Hungary',
+            budapest: 'Budapest',
+            turkey: 'Turkey',
+            istanbul: 'Istanbul',
+            beijing: 'Beijing',
+            fangshan: 'Fangshan',
+            southKorea: 'South Korea',
+            daegu: 'Daegu',
+            japan: 'Japan',
+            osaka: 'Osaka',
+            tokyo: 'Tokyo',
+            shenzhen: 'Shenzhen',
+            pingshan: 'Pingshan',
+            thailand: 'Thailand',
+            bangkok: 'Bangkok',
+            vietnam: 'Vietnam',
+            hoChiMinh: 'Ho Chi Minh',
+            malaysia: 'Malaysia',
+            kualaLumpur: 'Kuala Lumpur',
+            singapore: 'Singapore',
+            australia: 'Australia',
+            canberra: 'Canberra',
+            shandong: 'Shandong',
+            zibo: 'Zibo',
+            jiangsu: 'Jiangsu',
+            liyang: 'Liyang',
+            zhejiang: 'Zhejiang',
+            huzhou: 'Huzhou',
+            guangdong: 'Guangdong',
+            zhuhai: 'Zhuhai',
+            shaoxing: 'Shaoxing',
+            lanyao: 'Lanyao',
+            // Content descriptions
+            headquartersTitle: 'Headquarters',
+            branchesTitle: 'Branches',
+            chinaRDHeadquarters: 'China R&D Headquarters',
+            europeHeadquarters: 'Europe Headquarters',
+            sulfideRDHeadquarters: 'Sulfide R&D Headquarters',
+            headquartersDesc1: 'China R&D Headquarters Beijing-Fangshan',
+            headquartersDesc2: 'Europe Headquarters Germany-Stuttgart',
+            headquartersDesc3: 'Sulfide R&D Headquarters Shenzhen-Pingshan',
+            branchesDesc1: 'Hungary-Budapest, Japan-Osaka',
+            branchesDesc2: 'Thailand-Bangkok, Australia-Canberra',
+            manufacturingDesc1: 'Beijing-Fangshan, Shandong-Zibo, Jiangsu-Liyang',
+            manufacturingDesc2: 'Zhejiang-Huzhou, Guangdong-Zhuhai, Shaoxing-Lanyao',
+            businessScopeDesc:
+                'China, France, USA, Canada, UK, Netherlands, Germany, Poland, Austria, Brazil, Hungary, Greece, India, South Korea, Japan, Taiwan, Thailand, Malaysia, Australia',
+            servicePointsDesc:
+                'Germany-Düsseldorf, France-Lyon, Poland-Warsaw, Netherlands-Amsterdam, Spain-Barcelona, Turkey-Istanbul, Japan-Tokyo, Singapore, Malaysia-Kuala Lumpur, Vietnam-Ho Chi Minh, South Korea-Daegu',
+        },
     },
 
     // 研发创新
@@ -462,6 +555,9 @@ export default {
         previous: 'Previous',
         next: 'Next',
         share: 'Share',
+        noPrevious: 'No previous article',
+        noNext: 'No next article',
+        newsDetail: 'News Detail',
     },
 
     // 联系我们

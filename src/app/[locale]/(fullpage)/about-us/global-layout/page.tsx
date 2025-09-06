@@ -71,11 +71,11 @@ export default () => {
                     />
 
                     {[
-                        { key: 0, label: '全选' },
-                        { key: 1, label: '总部&分公司' },
-                        { key: 2, label: '制造生产基地' },
-                        { key: 3, label: '业务范围' },
-                        { key: 4, label: '服务网点' },
+                        { key: 0, label: t('about.globalLayout.selectAll') },
+                        { key: 1, label: t('about.globalLayout.headquarters') },
+                        { key: 2, label: t('about.globalLayout.manufacturing') },
+                        { key: 3, label: t('about.globalLayout.businessScope') },
+                        { key: 4, label: t('about.globalLayout.servicePoints') },
                     ].map((item, index) => (
                         <div
                             key={item.key}
@@ -193,7 +193,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>西班牙</span>巴萨罗那
+                                                        <span>{t('about.globalLayout.spain')}</span>
+                                                        {t('about.globalLayout.barcelona')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -207,7 +208,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>法国</span>里昂
+                                                        <span>{t('about.globalLayout.france')}</span>
+                                                        {t('about.globalLayout.lyon')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -221,7 +223,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>荷兰</span>阿姆斯特丹
+                                                        <span>{t('about.globalLayout.netherlands')}</span>
+                                                        {t('about.globalLayout.amsterdam')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -235,7 +238,8 @@ export default () => {
                                                 classNames={{ body: styles.gp2 }}
                                                 content={
                                                     <div>
-                                                        <span>德国</span>斯图加特
+                                                        <span>{t('about.globalLayout.germany')}</span>
+                                                        {t('about.globalLayout.stuttgart')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -249,7 +253,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>波兰</span>华沙
+                                                        <span>{t('about.globalLayout.poland')}</span>
+                                                        {t('about.globalLayout.warsaw')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -263,7 +268,8 @@ export default () => {
                                                 classNames={{ body: styles.gp3 }}
                                                 content={
                                                     <div>
-                                                        <span>匈牙利</span>布达佩斯
+                                                        <span>{t('about.globalLayout.hungary')}</span>
+                                                        {t('about.globalLayout.budapest')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -277,7 +283,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>土耳其</span>伊斯坦布尔
+                                                        <span>{t('about.globalLayout.turkey')}</span>
+                                                        {t('about.globalLayout.istanbul')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -291,7 +298,8 @@ export default () => {
                                                 classNames={{ body: styles.gp2 }}
                                                 content={
                                                     <div>
-                                                        <span>北京</span>房山
+                                                        <span>{t('about.globalLayout.beijing')}</span>
+                                                        {t('about.globalLayout.fangshan')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -305,7 +313,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>韩国</span>大邱
+                                                        <span>{t('about.globalLayout.southKorea')}</span>
+                                                        {t('about.globalLayout.daegu')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -319,7 +328,8 @@ export default () => {
                                                 classNames={{ body: styles.gp3 }}
                                                 content={
                                                     <div>
-                                                        <span>日本</span>大阪
+                                                        <span>{t('about.globalLayout.japan')}</span>
+                                                        {t('about.globalLayout.osaka')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -333,7 +343,8 @@ export default () => {
                                                 classNames={{ body: styles.gp2 }}
                                                 content={
                                                     <div>
-                                                        <span>深圳</span>坪山
+                                                        <span>{t('about.globalLayout.shenzhen')}</span>
+                                                        {t('about.globalLayout.pingshan')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -347,7 +358,8 @@ export default () => {
                                                 classNames={{ body: styles.gp3 }}
                                                 content={
                                                     <div>
-                                                        <span>泰国</span>曼谷
+                                                        <span>{t('about.globalLayout.thailand')}</span>
+                                                        {t('about.globalLayout.bangkok')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -361,7 +373,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>越南</span>胡志明
+                                                        <span>{t('about.globalLayout.vietnam')}</span>
+                                                        {t('about.globalLayout.hoChiMinh')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -375,7 +388,8 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>马来西亚</span>吉隆坡
+                                                        <span>{t('about.globalLayout.malaysia')}</span>
+                                                        {t('about.globalLayout.kualaLumpur')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -389,7 +403,7 @@ export default () => {
                                                 classNames={{ body: styles.gp1 }}
                                                 content={
                                                     <div>
-                                                        <span>新加坡</span>
+                                                        <span>{t('about.globalLayout.singapore')}</span>
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -403,7 +417,8 @@ export default () => {
                                                 classNames={{ body: styles.gp3 }}
                                                 content={
                                                     <div>
-                                                        <span>澳大利亚</span>堪培拉
+                                                        <span>{t('about.globalLayout.australia')}</span>
+                                                        {t('about.globalLayout.canberra')}
                                                     </div>
                                                 }
                                                 open={showPopovers}
@@ -429,7 +444,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover-white'] }}
                                                 content={
                                                     <div>
-                                                        <span>德国</span>斯图加特
+                                                        <span>{t('about.globalLayout.germany')}</span>
+                                                        {t('about.globalLayout.stuttgart')}
                                                     </div>
                                                 }
                                                 placement="left"
@@ -442,7 +458,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>匈牙利</span>布达佩斯
+                                                        <span>{t('about.globalLayout.hungary')}</span>
+                                                        {t('about.globalLayout.budapest')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -455,7 +472,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover-white'] }}
                                                 content={
                                                     <div>
-                                                        <span>北京</span>房山
+                                                        <span>{t('about.globalLayout.beijing')}</span>
+                                                        {t('about.globalLayout.fangshan')}
                                                     </div>
                                                 }
                                                 placement="top"
@@ -468,7 +486,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>日本</span>大阪
+                                                        <span>{t('about.globalLayout.japan')}</span>
+                                                        {t('about.globalLayout.osaka')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -481,7 +500,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover-white'] }}
                                                 content={
                                                     <div>
-                                                        <span>深圳</span>坪山
+                                                        <span>{t('about.globalLayout.shenzhen')}</span>
+                                                        {t('about.globalLayout.pingshan')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -494,7 +514,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>泰国</span>曼谷
+                                                        <span>{t('about.globalLayout.thailand')}</span>
+                                                        {t('about.globalLayout.bangkok')}
                                                     </div>
                                                 }
                                                 placement="bottom"
@@ -507,7 +528,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>澳大利亚</span>堪培拉
+                                                        <span>{t('about.globalLayout.australia')}</span>
+                                                        {t('about.globalLayout.canberra')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -535,27 +557,33 @@ export default () => {
                                                     <div>
                                                         <Flex gap={8} vertical>
                                                             <div>
-                                                                <span>北京</span>房山
+                                                                <span>{t('about.globalLayout.beijing')}</span>
+                                                                {t('about.globalLayout.fangshan')}
                                                             </div>
 
                                                             <div>
-                                                                <span>山东</span>淄博
+                                                                <span>{t('about.globalLayout.shandong')}</span>
+                                                                {t('about.globalLayout.zibo')}
                                                             </div>
 
                                                             <div>
-                                                                <span>江苏</span>溧阳
+                                                                <span>{t('about.globalLayout.jiangsu')}</span>
+                                                                {t('about.globalLayout.liyang')}
                                                             </div>
 
                                                             <div>
-                                                                <span>浙江</span>湖州
+                                                                <span>{t('about.globalLayout.zhejiang')}</span>
+                                                                {t('about.globalLayout.huzhou')}
                                                             </div>
 
                                                             <div>
-                                                                <span>广东</span>珠海
+                                                                <span>{t('about.globalLayout.guangdong')}</span>
+                                                                {t('about.globalLayout.zhuhai')}
                                                             </div>
 
                                                             <div>
-                                                                <span>绍兴</span>蓝姚
+                                                                <span>{t('about.globalLayout.shaoxing')}</span>
+                                                                {t('about.globalLayout.lanyao')}
                                                             </div>
                                                         </Flex>
                                                     </div>
@@ -594,7 +622,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>西班牙</span>巴萨罗那
+                                                        <span>{t('about.globalLayout.spain')}</span>
+                                                        {t('about.globalLayout.barcelona')}
                                                     </div>
                                                 }
                                                 placement="bottom"
@@ -607,7 +636,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>法国</span>里昂
+                                                        <span>{t('about.globalLayout.france')}</span>
+                                                        {t('about.globalLayout.lyon')}
                                                     </div>
                                                 }
                                                 placement="left"
@@ -620,7 +650,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>荷兰</span>阿姆斯特丹
+                                                        <span>{t('about.globalLayout.netherlands')}</span>
+                                                        {t('about.globalLayout.amsterdam')}
                                                     </div>
                                                 }
                                                 placement="left"
@@ -633,7 +664,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>德国</span>杜塞尔多夫
+                                                        <span>{t('about.globalLayout.germany')}</span>
+                                                        {t('about.globalLayout.dusseldorf')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -646,7 +678,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>波兰</span>华沙
+                                                        <span>{t('about.globalLayout.poland')}</span>
+                                                        {t('about.globalLayout.warsaw')}
                                                     </div>
                                                 }
                                                 placement="top"
@@ -659,7 +692,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>土耳其</span>伊斯坦布尔
+                                                        <span>{t('about.globalLayout.turkey')}</span>
+                                                        {t('about.globalLayout.istanbul')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -672,7 +706,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>韩国</span>大邱
+                                                        <span>{t('about.globalLayout.southKorea')}</span>
+                                                        {t('about.globalLayout.daegu')}
                                                     </div>
                                                 }
                                                 placement="top"
@@ -685,7 +720,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>日本</span>东京
+                                                        <span>{t('about.globalLayout.japan')}</span>
+                                                        {t('about.globalLayout.tokyo')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -698,7 +734,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>越南</span>胡志明
+                                                        <span>{t('about.globalLayout.vietnam')}</span>
+                                                        {t('about.globalLayout.hoChiMinh')}
                                                     </div>
                                                 }
                                                 placement="right"
@@ -711,7 +748,8 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>马来西亚</span>吉隆坡
+                                                        <span>{t('about.globalLayout.malaysia')}</span>
+                                                        {t('about.globalLayout.kualaLumpur')}
                                                     </div>
                                                 }
                                                 placement="left"
@@ -724,7 +762,7 @@ export default () => {
                                                 classNames={{ body: styles['global-popover'] }}
                                                 content={
                                                     <div>
-                                                        <span>新加坡</span>
+                                                        <span>{t('about.globalLayout.singapore')}</span>
                                                     </div>
                                                 }
                                                 placement="bottom"
@@ -740,19 +778,23 @@ export default () => {
                                     {currentTab === 0 && (
                                         <Flex gap={10} vertical>
                                             <div className={styles.tit01}>
-                                                <span style={{ color: '#FF3539' }}>●</span>总部
+                                                <span style={{ color: '#FF3539' }}>●</span>
+                                                {t('about.globalLayout.headquartersTitle')}
                                             </div>
 
                                             <div className={styles.tit01}>
-                                                <span>●</span>分公司
+                                                <span>●</span>
+                                                {t('about.globalLayout.branchesTitle')}
                                             </div>
 
                                             <div className={styles.tit01}>
-                                                <span>■</span>业务范围
+                                                <span>■</span>
+                                                {t('about.globalLayout.businessScope')}
                                             </div>
 
                                             <div className={styles.tit01}>
-                                                <span style={{ color: '#fff' }}>●</span>服务网点
+                                                <span style={{ color: '#fff' }}>●</span>
+                                                {t('about.globalLayout.servicePoints')}
                                             </div>
                                         </Flex>
                                     )}
@@ -760,24 +802,38 @@ export default () => {
                                     {/* 总部&分公司内容 */}
                                     {currentTab === 1 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>●总部&分公司</div>
+                                            <div className={styles.tit01}>●{t('about.globalLayout.headquarters')}</div>
 
                                             <Flex vertical>
-                                                <div className={styles.tit02}>总部</div>
+                                                <div className={styles.tit02}>
+                                                    {t('about.globalLayout.headquartersTitle')}
+                                                </div>
 
-                                                <div className={styles.con01}>中国研发总部 北京-房山</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.headquartersDesc1')}
+                                                </div>
 
-                                                <div className={styles.con01}>欧洲总部 德国-斯图加特</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.headquartersDesc2')}
+                                                </div>
 
-                                                <div className={styles.con01}>硫化物研发总部 深圳-坪山</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.headquartersDesc3')}
+                                                </div>
                                             </Flex>
 
                                             <Flex vertical>
-                                                <div className={styles.tit02}>分公司</div>
+                                                <div className={styles.tit02}>
+                                                    {t('about.globalLayout.branchesTitle')}
+                                                </div>
 
-                                                <div className={styles.con01}>匈牙利-布达佩斯，日本-大阪</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.branchesDesc1')}
+                                                </div>
 
-                                                <div className={styles.con01}>泰国-曼谷，澳大利亚-堪培拉</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.branchesDesc2')}
+                                                </div>
                                             </Flex>
                                         </Flex>
                                     )}
@@ -785,12 +841,16 @@ export default () => {
                                     {/* 制造生产基地内容 */}
                                     {currentTab === 2 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>●制造生产基地</div>
+                                            <div className={styles.tit01}>●{t('about.globalLayout.manufacturing')}</div>
 
                                             <Flex vertical>
-                                                <div className={styles.con01}>北京-房山，山东-淄博，江苏-溧阳</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.manufacturingDesc1')}
+                                                </div>
 
-                                                <div className={styles.con01}>浙江-湖州，广东-珠海，绍兴-蓝姚</div>
+                                                <div className={styles.con01}>
+                                                    {t('about.globalLayout.manufacturingDesc2')}
+                                                </div>
                                             </Flex>
                                         </Flex>
                                     )}
@@ -798,12 +858,10 @@ export default () => {
                                     {/* 业务范围内容 */}
                                     {currentTab === 3 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>业务范围</div>
+                                            <div className={styles.tit01}>{t('about.globalLayout.businessScope')}</div>
 
                                             <div className={styles.con01}>
-                                                中国、法国、美国、加拿大、英国、荷兰、德国
-                                                波兰、奥地利、巴西、匈牙利、希腊、印度、韩国
-                                                日本、台湾、泰国、马来西亚、澳大利亚
+                                                {t('about.globalLayout.businessScopeDesc')}
                                             </div>
                                         </Flex>
                                     )}
@@ -811,12 +869,10 @@ export default () => {
                                     {/* 服务网点内容 */}
                                     {currentTab === 4 && (
                                         <Flex align="center" gap={20} vertical>
-                                            <div className={styles.tit01}>●服务网点</div>
+                                            <div className={styles.tit01}>●{t('about.globalLayout.servicePoints')}</div>
 
                                             <div className={styles.con01}>
-                                                德国-杜塞尔多夫，法国-里昂，波兰-华沙 荷兰-阿姆斯特丹，西班牙-巴萨罗那
-                                                土耳其-伊斯坦布尔，日本-东京，新加坡
-                                                马来西亚-吉隆坡，越南-胡志明，韩国-大邱
+                                                {t('about.globalLayout.servicePointsDesc')}
                                             </div>
                                         </Flex>
                                     )}

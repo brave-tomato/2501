@@ -12,6 +12,11 @@ import { useEffect } from 'react';
 import AspectRatio from '@/components/aspect-ratio';
 
 /**
+ * Locales
+ */
+import { useI18n } from '@/locales/client';
+
+/**
  * Styles
  */
 import styles from './styles.module.scss';
@@ -25,6 +30,11 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
      * Params
      */
     const params = useParams();
+
+    /**
+     * Locales
+     */
+    const t = useI18n();
 
     /**
      * States
@@ -124,7 +134,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/about-us/`}>企业简介</Link>}
+                    content={<Link href={`/${params.locale}/about-us/`}>{t('index.companyIntro')}</Link>}
                 >
                     <div className={`${styles.point} ${styles.point1}`} />
                 </Popover>
@@ -133,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a1/`}>纯电乘用车解决方案</Link>}
+                    content={<Link href={`/${params.locale}/solution/a1/`}>{t('index.pureElectricCarSolution')}</Link>}
                     placement="right"
                 >
                     <div className={`${styles.point} ${styles.point2}`} />
@@ -143,7 +153,11 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a1/#anchor-4`}>电动摩托⻋解决⽅案</Link>}
+                    content={
+                        <Link href={`/${params.locale}/solution/a1/#anchor-4`}>
+                            {t('index.electricMotorcycleSolution')}
+                        </Link>
+                    }
                 >
                     <div className={`${styles.point} ${styles.point3}`} />
                 </Popover>
@@ -152,7 +166,9 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a1/#anchor-5`}>电动助⼒⻋解决⽅案</Link>}
+                    content={
+                        <Link href={`/${params.locale}/solution/a1/#anchor-5`}>{t('index.electricBikeSolution')}</Link>
+                    }
                 >
                     <div className={`${styles.point} ${styles.point4}`} />
                 </Popover>
@@ -170,7 +186,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a2/#anchor-1`}>EVTOL 解决方案</Link>}
+                    content={<Link href={`/${params.locale}/solution/a2/#anchor-1`}>{t('index.evtolSolution')}</Link>}
                 >
                     <div className={`${styles.point} ${styles.point6}`} />
                 </Popover>
@@ -179,7 +195,9 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a1/#anchor-3`}>⼯程机械类解决⽅案</Link>}
+                    content={
+                        <Link href={`/${params.locale}/solution/a1/#anchor-3`}>{t('index.engineeringSolution')}</Link>
+                    }
                 >
                     <div className={`${styles.point} ${styles.point7}`} />
                 </Popover>
@@ -188,7 +206,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a2/#anchor-0`}>工业&植保无人机解决方案</Link>}
+                    content={<Link href={`/${params.locale}/solution/a2/#anchor-0`}>{t('index.droneSolution')}</Link>}
                 >
                     <div className={`${styles.point} ${styles.point8}`} />
                 </Popover>
@@ -197,7 +215,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/research/`}>固态电池研发</Link>}
+                    content={<Link href={`/${params.locale}/research/`}>{t('index.solidStateBatteryRD')}</Link>}
                 >
                     <div className={`${styles.point} ${styles.point9}`} />
                 </Popover>
@@ -206,7 +224,9 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a1/#anchor-2`}>电动游艇&轮船解决⽅案</Link>}
+                    content={
+                        <Link href={`/${params.locale}/solution/a1/#anchor-2`}>{t('index.electricYachtSolution')}</Link>
+                    }
                 >
                     <div className={`${styles.point} ${styles.point10}`} />
                 </Popover>
@@ -215,7 +235,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/c3/`}>储能应用</Link>}
+                    content={<Link href={`/${params.locale}/solution/c3/`}>{t('index.energyStorageApplication')}</Link>}
                 >
                     <div className={`${styles.point} ${styles.point11}`} />
                 </Popover>
@@ -233,7 +253,9 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<Link href={`/${params.locale}/solution/a1/#anchor-1`}>电动快艇解决⽅案</Link>}
+                    content={
+                        <Link href={`/${params.locale}/solution/a1/#anchor-1`}>{t('index.electricBoatSolution')}</Link>
+                    }
                 >
                     <div className={`${styles.point} ${styles.point13}`} />
                 </Popover>

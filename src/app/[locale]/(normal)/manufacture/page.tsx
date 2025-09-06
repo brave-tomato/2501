@@ -10,6 +10,11 @@ import { useParams } from 'next/navigation';
 import AspectRatio from '@/components/aspect-ratio';
 
 /**
+ * Locales
+ */
+import { useI18n } from '@/locales/client';
+
+/**
  * Styles
  */
 import styles from './styles.module.scss';
@@ -19,6 +24,11 @@ export default () => {
      * Params
      */
     const params = useParams();
+
+    /**
+     * Locales
+     */
+    const t = useI18n();
 
     return (
         <div className="mw-1920">
@@ -44,7 +54,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>内容介绍</div>}
+                    content={<div>{t('manufacture.contentIntroduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point1}`} />
@@ -54,7 +64,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>第二个介绍</div>}
+                    content={<div>{t('manufacture.secondIntroduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point2}`} />
@@ -64,7 +74,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point3}`} />
@@ -74,7 +84,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="right"
                 >
                     <div className={`${styles.point} ${styles.point4}`} />
@@ -84,7 +94,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="right"
                 >
                     <div className={`${styles.point} ${styles.point5}`} />
@@ -94,7 +104,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point6}`} />
@@ -104,7 +114,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point7}`} />
@@ -114,7 +124,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point8}`} />
@@ -124,7 +134,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point9}`} />
@@ -134,7 +144,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point10}`} />
@@ -144,7 +154,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point11}`} />
@@ -154,7 +164,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point12}`} />
@@ -164,7 +174,7 @@ export default () => {
                 <Popover
                     arrow={false}
                     classNames={{ body: styles.pointPopover }}
-                    content={<div>介绍</div>}
+                    content={<div>{t('manufacture.introduction')}</div>}
                     placement="bottom"
                 >
                     <div className={`${styles.point} ${styles.point13}`} />
