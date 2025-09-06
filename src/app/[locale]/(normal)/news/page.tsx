@@ -6,47 +6,16 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { Pagination as SwiperPagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination as SwiperPagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import AspectRatio from '@/components/aspect-ratio';
 import HeroSection from '@/components/hero-section';
 import TitleSection from '@/components/title-section';
+import { useI18n } from '@/locales/client';
 import { getConf } from '@/utils';
 
 import styles from './styles.module.scss';
-
-const events = [
-    {
-        title: '卫蓝新能源2024大事件',
-        subtitle: '让人类享受绿色能源',
-        date: '2024-04-24',
-        category: '企业动态',
-        image: '/images/news-media/news_big@2x.png', // 替换为实际图片地址
-    },
-    // 可添加更多事件对象
-    {
-        title: '卫蓝新能源2025大事件',
-        subtitle: '让人类享受绿色能源',
-        date: '2024-04-24',
-        category: '企业动态',
-        image: '/images/news-media/news_big@2x.png', // 替换为实际图片地址
-    },
-    {
-        title: '卫蓝新能源2026大事件',
-        subtitle: '让人类享受绿色能源',
-        date: '2024-04-24',
-        category: '企业动态',
-        image: '/images/news-media/news_big@2x.png', // 替换为实际图片地址
-    },
-    {
-        title: '卫蓝新能源2027大事件',
-        subtitle: '让人类享受绿色能源',
-        date: '2024-04-24',
-        category: '企业动态',
-        image: '/images/news-media/news_big@2x.png', // 替换为实际图片地址
-    },
-];
 
 /**
  * 页面：新闻媒体
@@ -61,6 +30,7 @@ const NewsMediaPage = () => {
      * Hooks
      */
     const conf = getConf(Grid.useBreakpoint());
+    const t = useI18n();
 
     /**
      * States
@@ -72,6 +42,7 @@ const NewsMediaPage = () => {
         total: 0,
         newsList: [],
         loading: false,
+        topEvents: [], // 顶部幻灯片数据
     });
 
     /**
@@ -88,9 +59,11 @@ const NewsMediaPage = () => {
 
             setState({
                 newsList: data?.data || [],
-                total: data?.total || 0,
+                total: data?.meta?.total || 0,
                 currentPage: page,
                 loading: false,
+                // 取前3条作为顶部幻灯片数据
+                topEvents: page === 1 ? (data?.data || []).slice(0, 3) : state.topEvents,
             });
         } catch (error) {
             console.error('Failed to fetch news list:', error);
@@ -112,7 +85,7 @@ const NewsMediaPage = () => {
     return (
         <div>
             <HeroSection src="/images/hero-section/news-media@2x.png">
-                <TitleSection title="新闻媒体" />
+                <TitleSection title={t('news.title')} />
             </HeroSection>
             {/* tab选项卡 */}
             {/* <div className="mw-1920" style={conf.xxxl ? { padding: `0 210px` } : {}}> */}
@@ -124,55 +97,74 @@ const NewsMediaPage = () => {
                             <img
                                 className={styles['button-prev']}
                                 src="/images/news-media/icon_news_swiper_left@2x.png"
-                                onClick={() => state.swiperCulture2.slidePrev()}
+                                onClick={() => state.swiperCulture2?.slidePrev()}
                             />
                             <img
                                 className={styles['button-next']}
                                 src="/images/news-media/icon_news_swiper_right@2x.png"
-                                onClick={() => state.swiperCulture2.slideNext()}
+                                onClick={() => state.swiperCulture2?.slideNext()}
                             />
                         </Flex>
                     </div>
-                    <Swiper
-                        modules={[SwiperPagination]}
-                        className={styles['news-swiper']}
-                        onSwiper={(swiper) => setState({ swiperCulture2: swiper })}
-                    >
-                        {events.map((event, index) => (
-                            <SwiperSlide key={index}>
-                                <Link href={'/news-media-details'}>
-                                    <Row>
-                                        <Col span={8}>
-                                            {/* 内容 */}
-                                            <Flex className={styles['event-text']} gap={58} vertical>
-                                                <Flex gap={34} vertical>
-                                                    <div className={styles.title}>{event.title}</div>
-                                                    <div className={styles.subtitle}>{event.subtitle}</div>
-                                                </Flex>
+                    {state.topEvents.length > 0 && (
+                        <Swiper
+                            modules={[SwiperPagination, Navigation, Autoplay]}
+                            className={styles['news-swiper']}
+                            onSwiper={(swiper) => setState({ swiperCulture2: swiper })}
+                            loop={true}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
+                        >
+                            {state.topEvents.map((event: any, index: number) => (
+                                <SwiperSlide key={event.id || index}>
+                                    <Link href={`/${params.locale}/news/${event.id}`}>
+                                        <Row>
+                                            <Col span={8}>
+                                                {/* 内容 */}
+                                                <Flex className={styles['event-text']} gap={58} vertical>
+                                                    <Flex gap={34} vertical>
+                                                        <div className={styles.title}>{event.title}</div>
+                                                        <div className={styles.subtitle}>
+                                                            {event.summary ||
+                                                                event.description ||
+                                                                t('about.missionDesc')}
+                                                        </div>
+                                                    </Flex>
 
-                                                <Flex className={styles['event-date']} gap={34}>
-                                                    <div>{event.date}</div>
-                                                    <div> {event.category}</div>
+                                                    <Flex className={styles['event-date']} gap={34}>
+                                                        <div>
+                                                            {event.created
+                                                                ? dayjs(event.created).format('YYYY-MM-DD')
+                                                                : event.date}
+                                                        </div>
+                                                        <div>{event.category || t('news.companyNews')}</div>
+                                                    </Flex>
                                                 </Flex>
-                                            </Flex>
-                                        </Col>
-                                        <Col span={16}>
-                                            {/* 图片 */}
-                                            <div style={{ width: '100%' }}>
-                                                <AspectRatio ratio={985 / 691}>
-                                                    <img
-                                                        src={event.image}
-                                                        alt={event.title}
-                                                        className={styles['event-image']}
-                                                    />
-                                                </AspectRatio>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </Link>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                            </Col>
+                                            <Col span={16}>
+                                                {/* 图片 */}
+                                                <div style={{ width: '100%' }}>
+                                                    <AspectRatio ratio={985 / 691}>
+                                                        <img
+                                                            src={
+                                                                event.cover ||
+                                                                event.image ||
+                                                                '/images/news-media/news_big@2x.png'
+                                                            }
+                                                            alt={event.title}
+                                                            className={styles['event-image']}
+                                                        />
+                                                    </AspectRatio>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    </Link>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )}
                 </div>
 
                 {/* 分页list */}
