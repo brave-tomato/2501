@@ -5,7 +5,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import { useSetState } from 'ahooks';
 import { Image } from 'antd';
 import classNames from 'classnames';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -45,6 +45,7 @@ export default () => {
      * Params
      */
     const params = useParams();
+    const router = useRouter();
     const t = useI18n();
 
     /**
@@ -409,6 +410,16 @@ export default () => {
                                     onClick={() => technologySwiper.current?.swiper.slideNext()}
                                 >
                                     <img alt="" src="/static/vendors/swiper_next.svg" />
+                                </div>
+
+                                <div style={{ textAlign: 'right' }}>
+                                    <button
+                                        className={styles['history-btn']}
+                                        type="button"
+                                        onClick={() => router.push(`/${params.locale || 'zh'}/manufacture/`)}
+                                    >
+                                        {params.locale === 'zh' ? '看看我们的工厂' : 'Our Factory'}
+                                    </button>
                                 </div>
                             </div>
                         </div>

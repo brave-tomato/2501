@@ -4,7 +4,7 @@ import { useI18n } from '@/locales/client';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Col, Flex, Image, Row } from 'antd';
 import classNames from 'classnames';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 /**
@@ -67,6 +67,8 @@ export default () => {
             }
         };
     }, []);
+
+    const router = useRouter();
 
     return (
         <>
@@ -166,6 +168,13 @@ export default () => {
                                         <br />
                                         {t('about.p5')}
                                     </div>
+                                    <button
+                                        className={styles['history-btn']}
+                                        type="button"
+                                        onClick={() => router.push(`/${params.locale || 'zh'}/about-us/history/`)}
+                                    >
+                                        {params.locale === 'zh' ? '去了解我们的历史' : 'Our History'}
+                                    </button>
                                 </Col>
 
                                 <Col offset={1} span={14}>

@@ -54,6 +54,22 @@
         line-height: 22px;
         text-align: justify;
     }
+
+    .history-btn {
+        display: inline-block;
+        margin-top: 24px;
+        margin-left: auto;
+        width: 141px;
+        height: 36px;
+        background: #2dafb7;
+        border-radius: 42px;
+        font-size: 14px;
+        line-height: 36px;
+        text-align: center;
+        color: #f9fbff;
+        border: none;
+        cursor: pointer;
+    }
 }
 
 // 全球布局
