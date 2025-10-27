@@ -10,30 +10,13 @@ import TitleSection from '@/components/title-section';
 /**
  * Localization
  */
-import { getI18n, getStaticParams, setStaticParamsLocale } from '@/locales/server';
+import { getI18n, setStaticParamsLocale } from '@/locales/server';
 
 /**
  * Styles
  */
 import Link from 'next/link';
 import styles from './styles.module.scss';
-
-/**
- * Constants
- */
-export async function generateStaticParams() {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/news?size=9999`).then((res) => res.json());
-    const locales = getStaticParams();
-
-    return locales.flatMap((localeParam) => {
-        return data.data.map((news: any) => {
-            return {
-                id: news.id.toString(),
-                ...localeParam,
-            };
-        });
-    });
-}
 
 export default async ({ params }: any) => {
     /**
