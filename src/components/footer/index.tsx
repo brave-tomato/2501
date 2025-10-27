@@ -4,7 +4,7 @@ import { useI18n } from '@/locales/client';
 import { LinkedinOutlined, WechatOutlined } from '@ant-design/icons';
 import { Col, Flex, Popover, QRCode, Row } from 'antd';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 
 /**
  * Styles
@@ -13,6 +13,10 @@ import styles from './styles.module.scss';
 
 const Footer: React.FC = () => {
     const t = useI18n();
+    /**
+     * Params
+     */
+    const params = useParams();
 
     const pathname = usePathname();
     const shouldShowLine = pathname !== '/';
@@ -24,7 +28,7 @@ const Footer: React.FC = () => {
 
             <Row justify="center">
                 <Col span={2}>
-                    <Link className={styles.title1} href="/about-us">
+                    <Link className={styles.title1} href={`/${params.locale}/about-us`}>
                         {t('menu.about')}
                     </Link>
 
@@ -42,7 +46,7 @@ const Footer: React.FC = () => {
                 <Col span={1} />
 
                 <Col span={2}>
-                    <Link className={styles.title1} href="/research">
+                    <Link className={styles.title1} href={`/${params.locale}/research`}>
                         {t('menu.research')}
                     </Link>
 
@@ -56,7 +60,7 @@ const Footer: React.FC = () => {
                 <Col span={1} />
 
                 <Col span={2}>
-                    <Link className={styles.title1} href="/solution">
+                    <Link className={styles.title1} href={`/${params.locale}/solution`}>
                         {t('menu.applications')}
                     </Link>
 
@@ -73,15 +77,15 @@ const Footer: React.FC = () => {
 
                 <Col span={2}>
                     <Flex gap={8} vertical>
-                        <Link className={styles.title1} href="/news">
+                        <Link className={styles.title1} href={`/${params.locale}/news`}>
                             {t('menu.news')}
                         </Link>
 
-                        <Link className={styles.title1} href="/contact-us">
+                        <Link className={styles.title1} href={`/${params.locale}/contact-us`}>
                             {t('menu.contact')}
                         </Link>
 
-                        <Link className={styles.title1} href="/jobs">
+                        <Link className={styles.title1} href={`/${params.locale}/jobs`}>
                             {t('menu.jobs')}
                         </Link>
                     </Flex>
@@ -94,13 +98,13 @@ const Footer: React.FC = () => {
                         <img alt="" height={26} src="/static/footer/logo.png" width={201} />
 
                         <Flex gap={24}>
-                            <a
+                            {/* <a
                                 href="https://www.linkedin.com/company/beijing-welion-new-energy-technology-co-ltd/"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
                                 <LinkedinOutlined className={styles.icon} />
-                            </a>
+                            </a> */}
 
                             <Popover
                                 content={
