@@ -18,6 +18,8 @@ import { getI18n, setStaticParamsLocale } from '@/locales/server';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 
+export const revalidate = 0;
+
 export default async ({ params }: any) => {
     /**
      * Params
@@ -37,7 +39,9 @@ export default async ({ params }: any) => {
     /**
      * Requests
      */
-    const { data } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/news/${id}`).then((res) => res.json());
+    const { data } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/news/${id}`, {
+        cache: 'no-cache',
+    }).then((res) => res.json());
 
     console.log('data :>> ', data);
 
