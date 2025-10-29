@@ -38,19 +38,19 @@ const links = [
     ],
     [
         {
-            text: 'Supplier Sustainability | PPG',
+            text: 'about.sa09',
             href: '/static/about-us/a1/21.pdf',
         },
         {
-            text: 'about.sa09',
+            text: 'about.sa10',
             href: '/static/about-us/a1/22.pdf',
         },
         {
-            text: 'about.sa10',
+            text: 'about.sa11',
             href: '/static/about-us/a1/23.pdf',
         },
         {
-            text: 'about.sa11',
+            text: 'about.sa12',
             href: '/static/about-us/a1/24.pdf',
         },
     ],

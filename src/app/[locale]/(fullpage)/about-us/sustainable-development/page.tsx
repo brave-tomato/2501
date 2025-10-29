@@ -107,7 +107,7 @@ export default () => {
                                 </Row>
 
                                 {/* ESG */}
-                                <div className={styles['esg-btn']}>
+                                <div className={styles['esg-btn']} style={{ display: 'none' }}>
                                     <div className={styles.esg}>
                                         <img alt="" src="/images/about-us/esg.png" />
 
@@ -145,7 +145,7 @@ export default () => {
                                     </Row>
                                 </div>
 
-                                <div className={`${styles.sustainable} ${styles.b0}`}>
+                                <div className={`${styles.sustainable} ${styles.b0}`} style={{ display: 'none' }}>
                                     <Row gutter={86}>
                                         <Col span={12}>
                                             <div className={styles.title}>{t('about.s04')}</div>
@@ -165,7 +165,7 @@ export default () => {
                                     </Row>
                                 </div>
 
-                                <div className={`${styles.sustainable} ${styles.b1}`}>
+                                <div className={`${styles.sustainable} ${styles.b1}`} style={{ display: 'none' }}>
                                     <Row gutter={86}>
                                         <Col span={12}>
                                             <AspectRatio ratio={630 / 360}>
