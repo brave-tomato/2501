@@ -3,7 +3,7 @@
 import { useI18n } from '@/locales/client';
 import { EnvironmentOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { useSetState } from 'ahooks';
-import { Col, Flex, Form, Grid, Input, Modal, Result, Row } from 'antd';
+import { Col, Flex, Form, Grid, Input, Modal, Result, Row, message } from 'antd';
 
 /**
  * Components
@@ -35,7 +35,41 @@ const Page = () => {
      */
     const [state, setState] = useSetState({
         open: false,
+        submitLoading: false,
     });
+
+    // 通用的表单提交处理函数
+    const handleFormSubmit = async (values: any, formType: string) => {
+        try {
+            setState({ submitLoading: true });
+
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+            const response = await fetch(`${apiUrl}/v1/messages`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...values,
+                    form_type: formType, // 标识表单类型
+                }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                message.success('提交成功！');
+                setState({ open: true }); // 显示成功弹窗
+            } else {
+                message.error(result.message || '提交失败，请重试');
+            }
+        } catch (error) {
+            console.error('提交失败:', error);
+            message.error('网络错误，请重试');
+        } finally {
+            setState({ submitLoading: false });
+        }
+    };
 
     const roles: any = [
         {
@@ -96,8 +130,23 @@ const Page = () => {
                         </Col>
                     ))}
                 </Row>
-                <div> {ActiveComponent && <ActiveComponent />}</div>
+                <div>
+                    {' '}
+                    {ActiveComponent && <ActiveComponent onSubmit={handleFormSubmit} loading={state.submitLoading} />}
+                </div>
             </div>
+
+            {/* 成功提交弹窗 */}
+            <Modal
+                title=""
+                open={state.open}
+                onCancel={() => setState({ open: false })}
+                footer={null}
+                centered
+                width={400}
+            >
+                <Result status="success" title="提交成功" subTitle="我们已收到您的留言，将尽快与您联系！" />
+            </Modal>
         </div>
     );
 };

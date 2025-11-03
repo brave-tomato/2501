@@ -14,10 +14,15 @@ const purposeOptions = [
     { value: 'other', label: '其他' },
 ];
 
-const Media: React.FC = () => {
-    const onFinish = (values: any) => {
-        console.log('Form submitted:', values);
-        // 这里可以添加实际的提交逻辑，比如发送到后端接口
+const Media: React.FC<{
+    onSubmit?: (values: any, formType: string) => Promise<void>;
+    loading?: boolean;
+}> = ({ onSubmit, loading = false }) => {
+    const onFinish = async (values: any) => {
+        console.log('Media form submitted:', values);
+        if (onSubmit) {
+            await onSubmit(values, 'media');
+        }
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -114,7 +119,14 @@ const Media: React.FC = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 9, span: 7 }}>
-                <Button className={styles['button-submit']} block htmlType="submit" type="primary" shape="round">
+                <Button
+                    className={styles['button-submit']}
+                    block
+                    htmlType="submit"
+                    type="primary"
+                    shape="round"
+                    loading={loading}
+                >
                     提交
                 </Button>
             </Form.Item>

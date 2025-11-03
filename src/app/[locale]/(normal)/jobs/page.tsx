@@ -1,16 +1,10 @@
 'use client';
 import { useI18n } from '@/locales/client';
-import { useSetState } from 'ahooks';
-import { Col, Flex, GetProps, Grid, Input, Modal, Pagination, Row } from 'antd';
-type SearchProps = GetProps<typeof Input.Search>;
-
-import jobList from './data';
+import { Col, Flex, Modal, Row, Spin } from 'antd';
 
 import styles from './styles.module.scss';
 
-import { getConf } from '@/utils';
-import classNames from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * 页面：人才招聘
@@ -19,68 +13,38 @@ const JobPage = () => {
     /**
      * Hooks
      */
-    const conf = getConf(Grid.useBreakpoint());
     const t = useI18n();
-
-    const tabItems = [
-        {
-            key: 'all-jobs',
-            label: t('jobs.allPositions'),
-        },
-        {
-            key: 'research',
-            label: t('jobs.rd'),
-        },
-        {
-            key: 'engineering',
-            label: t('jobs.engineering'),
-        },
-        {
-            key: 'computer',
-            label: t('jobs.it'),
-        },
-        {
-            key: 'production',
-            label: t('jobs.production'),
-        },
-        {
-            key: 'marketing',
-            label: t('jobs.marketing'),
-        },
-        {
-            key: 'functional',
-            label: t('jobs.functional'),
-        },
-    ];
 
     /**
      * States
      */
-    const [state, setState] = useSetState<any>({
-        currentPage: 1,
-        total: 1000,
-    });
-
-    const onChange = (page: any, pageSize: any) => {
-        console.log(page, pageSize, '---9999--page, pageSize');
-    };
-
-    const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value);
-
-    // const handleTabChange = (key: any) => {
-    //     console.log('当前选中的标签:', key);
-    //     // 这里可以添加更多自定义逻辑，比如根据选中标签加载对应数据等
-    // };
-
-    const [activeKey, setActiveKey] = useState(tabItems[0].key);
-
-    const handleTabChange = (key: any) => {
-        setActiveKey(key);
-    };
-
+    const [jobList, setJobList] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [selectedJob, setSelectedJob] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const showModal = () => {
+    // 获取职位数据
+    useEffect(() => {
+        const fetchJobs = async () => {
+            try {
+                setLoading(true);
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+                const response = await fetch(`${apiUrl}/v1/jobs?is_deleted=false&size=9999`);
+                const data = await response.json();
+                setJobList(data.data || data || []);
+            } catch (error) {
+                console.error('获取职位数据失败:', error);
+                setJobList([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchJobs();
+    }, []);
+
+    const showModal = (job: any) => {
+        setSelectedJob(job);
         setIsModalOpen(true);
     };
 
@@ -95,69 +59,29 @@ const JobPage = () => {
     return (
         <div>
             <div
-                className={classNames('mw-1920', styles['job-wrapper'])}
-                style={conf.xxxl ? { padding: `0 150px` } : {}}
+                className={styles['job-wrapper']}
+                style={{ maxWidth: 1200, margin: '0 auto', padding: '108px 108px 0' }}
             >
-                {/* 搜索条 */}
-                <Row style={{ marginBottom: 112 }}>
-                    <Col span={3}>
-                        <div className={styles.title}>职位类型</div>
-                    </Col>
-                    <Col span={1}></Col>
-                    <Col span={20}>
-                        <div className={styles['input-box']}>
-                            <Input.Search
-                                allowClear
-                                className={styles.customInput}
-                                enterButton={<div className={styles['enter-button']}>搜索职位</div>}
-                                prefix={
-                                    <img
-                                        src="/images/job/icon_search@2x.png"
-                                        width={32}
-                                        height={32}
-                                        style={{ marginRight: 32 }}
-                                    />
-                                }
-                                placeholder="搜索职位关键词"
-                                size="large"
-                                onSearch={onSearch}
-                            />
-                        </div>
-                    </Col>
-                </Row>
-                {/* 左右布局 */}
-                <Row className={styles['jianli']}>
-                    <Col span={3}>
-                        <Flex className={styles['menu-wrapper']} gap={26} vertical>
-                            {tabItems.map((item: any) => (
-                                <div
-                                    className={classNames(
-                                        item.key === activeKey ? styles['active'] : '',
-                                        styles['menu-item'],
-                                    )}
-                                    key={item.key}
-                                    onClick={() => handleTabChange(item.key)}
-                                >
-                                    {item.label}
-                                </div>
-                            ))}
-                        </Flex>
-                    </Col>
-                    <Col span={1}></Col>
-                    <Col span={20} style={{ width: '100%', overflow: 'hidden' }}>
-                        <Row
-                            className={styles['job-list-wrapper']}
-                            id="grid-job-playground"
-                            gutter={[68, 68]}
-                            justify="space-around"
-                            onClick={showModal}
-                        >
-                            {jobList.map((payload: any, index: number) => (
-                                <Col key={index} span={8}>
+                {loading ? (
+                    <div style={{ textAlign: 'center', padding: '100px 0' }}>
+                        <Spin size="large" />
+                    </div>
+                ) : (
+                    <Row
+                        className={styles['job-list-wrapper']}
+                        id="grid-job-playground"
+                        gutter={[68, 68]}
+                        justify="start"
+                    >
+                        {jobList.map((payload: any, index: number) => (
+                            <Col key={payload.id || index} span={8}>
+                                <div onClick={() => showModal(payload)}>
                                     <Flex className={styles['list-item-box']} gap={19} vertical>
                                         <Flex gap={25} vertical>
                                             {/* 标题 */}
-                                            <div className={styles['job-title']}>{payload.jobTitle}</div>
+                                            <div className={styles['job-title']}>
+                                                {payload.title || payload.jobTitle}
+                                            </div>
                                             {/* 小内容 */}
                                             <Flex className={styles.subtitle} justify="space-between">
                                                 <Flex gap={4}>
@@ -199,21 +123,11 @@ const JobPage = () => {
                                             />
                                         </Flex>
                                     </Flex>
-                                </Col>
-                            ))}
-                        </Row>
-                        <Flex align="center" style={{ width: '100%', marginTop: 104 }}>
-                            <Flex justify="center" style={{ width: '100%' }}>
-                                <Pagination
-                                    defaultCurrent={state.currentPage}
-                                    total={state.total}
-                                    showSizeChanger={false}
-                                    onChange={onChange}
-                                />
-                            </Flex>
-                        </Flex>
-                    </Col>
-                </Row>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                )}
             </div>
 
             {/* modal */}
@@ -229,7 +143,7 @@ const JobPage = () => {
                 <div style={{ padding: 48 }}>
                     <Flex className={styles['modal-wrapper']} vertical>
                         {/* 标题 */}
-                        <div className={styles.title}>电芯开发工程师</div>
+                        <div className={styles.title}>{selectedJob?.title || selectedJob?.jobTitle || '职位详情'}</div>
                         <div className={styles.line}></div>
                         <Flex gap={32} vertical>
                             <Row>
@@ -238,7 +152,7 @@ const JobPage = () => {
                                 </Col>
                                 <Col span={1}></Col>
                                 <Col span={21}>
-                                    <div className={styles['label-content']}>北京房山</div>
+                                    <div className={styles['label-content']}>{selectedJob?.location || '待定'}</div>
                                 </Col>
                             </Row>
 
@@ -248,17 +162,10 @@ const JobPage = () => {
                                 </Col>
                                 <Col span={1}></Col>
                                 <Col span={21}>
-                                    <div className={styles['label-content']}>
-                                        <p>
-                                            1、负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；1、负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；
-                                        </p>
-                                        <p>
-                                            2、负责组织进行产品方案设计与验证、产品设计与验证及产品导入，并提供技术支持；
-                                        </p>
-                                        <p>
-                                            3、负责整理、总结产品开发过程和关键问题数据，形成产品开发数据库和产品性能解决方案库。
-                                        </p>
-                                    </div>
+                                    <div
+                                        className={styles['label-content']}
+                                        dangerouslySetInnerHTML={{ __html: selectedJob?.description || '暂无职位描述' }}
+                                    />
                                 </Col>
                             </Row>
                             <Row>
@@ -267,16 +174,20 @@ const JobPage = () => {
                                 </Col>
                                 <Col span={1}></Col>
                                 <Col span={21}>
-                                    <div className={styles['label-content']}>
-                                        负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；负责全面识别项目技术需求参数或客户SOR，明确产品定义；进行技术可行性分析，制定可实施的技术方案；
-                                    </div>
+                                    <div
+                                        className={styles['label-content']}
+                                        dangerouslySetInnerHTML={{
+                                            __html:
+                                                selectedJob?.requirements || selectedJob?.requirement || '暂无职位要求',
+                                        }}
+                                    />
                                 </Col>
                             </Row>
                         </Flex>
                         {/* 邮箱 */}
                         <Flex className={styles['email-box']}>
                             <div className={styles.label}>简历投递邮箱：</div>
-                            <div className={styles['label']}>job@welion.cn</div>
+                            <div className={styles['label']}>{selectedJob?.email || 'job@welion.cn'}</div>
                         </Flex>
                     </Flex>
                 </div>

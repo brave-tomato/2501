@@ -13,10 +13,15 @@ const roleOptions = [
     { value: 'nonProductCategory', label: '非产品类（备注）' },
 ];
 
-const SupplyChainPartner: React.FC = () => {
-    const onFinish = (values: any) => {
-        console.log('Form submitted:', values);
-        // 这里可以添加实际的提交逻辑，比如发送到后端接口
+const SupplyChainPartner: React.FC<{
+    onSubmit?: (values: any, formType: string) => Promise<void>;
+    loading?: boolean;
+}> = ({ onSubmit, loading = false }) => {
+    const onFinish = async (values: any) => {
+        console.log('SupplyChainPartner form submitted:', values);
+        if (onSubmit) {
+            await onSubmit(values, 'supply_chain');
+        }
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -106,7 +111,14 @@ const SupplyChainPartner: React.FC = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 9, span: 7 }}>
-                <Button className={styles['button-submit']} block htmlType="submit" type="primary" shape="round">
+                <Button
+                    className={styles['button-submit']}
+                    block
+                    htmlType="submit"
+                    type="primary"
+                    shape="round"
+                    loading={loading}
+                >
                     提交
                 </Button>
             </Form.Item>
