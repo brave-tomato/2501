@@ -1,5 +1,5 @@
 'use client';
-import { useI18n } from '@/locales/client';
+import { useCurrentLocale, useI18n } from '@/locales/client';
 import { Col, Flex, Modal, Row, Spin } from 'antd';
 
 import styles from './styles.module.scss';
@@ -14,6 +14,7 @@ const JobPage = () => {
      * Hooks
      */
     const t = useI18n();
+    const currentLocale = useCurrentLocale();
 
     /**
      * States
@@ -29,7 +30,9 @@ const JobPage = () => {
             try {
                 setLoading(true);
                 const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
-                const response = await fetch(`${apiUrl}/v1/jobs?is_deleted=false&size=9999`);
+                // 根据当前语言获取对应的职位数据
+                const language = currentLocale === 'zh' ? 'zh-CN' : 'en-US';
+                const response = await fetch(`${apiUrl}/v1/jobs?is_deleted=false&size=9999&lang=${language}`);
                 const data = await response.json();
                 setJobList(data.data || data || []);
             } catch (error) {
@@ -41,7 +44,7 @@ const JobPage = () => {
         };
 
         fetchJobs();
-    }, []);
+    }, [currentLocale]);
 
     const showModal = (job: any) => {
         setSelectedJob(job);

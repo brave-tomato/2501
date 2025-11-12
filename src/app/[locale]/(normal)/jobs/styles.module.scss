@@ -16,6 +16,9 @@
         .list-item-box {
             padding: 42px;
             background-color: #fff;
+            height: 520px;
+            display: flex;
+            flex-direction: column;
             /* 右侧阴影：水平偏移2px（向右），垂直偏移4px，模糊半径8px，阴影颜色为黑色且透明度0.1 */
             box-shadow:
                 2px 4px 8px rgba(0, 0, 0, 0.1),
@@ -40,6 +43,8 @@
             border-bottom: 1px solid var(--custom-green);
         }
         .list-item-content-box {
+            flex: 1;
+            overflow-y: auto;
             .content {
                 font-size: 12px;
                 line-height: 20px;
