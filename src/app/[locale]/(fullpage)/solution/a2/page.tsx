@@ -121,7 +121,7 @@ export default () => {
                                                 <div className={styles.title}>{section.title}</div>
 
                                                 {/* 链接 */}
-                                                <Link className={styles.link} href={section.link} target="_blank" />
+                                                {/* <Link className={styles.link} href={section.link} target="_blank" /> */}
                                             </Flex>
                                         </Col>
 

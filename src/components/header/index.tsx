@@ -206,7 +206,7 @@ export default ({ active, locale, onClick }: Props) => {
                         <img alt="" className={styles.icon} src="/static/header/icon_earth.svg" width={22} />
                         <img alt="" className={styles.iconWhite} src="/static/header/icon_earth_white.svg" width={22} />
 
-                        <span>{t('language')}</span>
+                        {/* <span>{t('language')}</span> */}
 
                         <img alt="" className={styles.icon} src="/static/header/icon_arrow_down.svg" width={20} />
                         <img
