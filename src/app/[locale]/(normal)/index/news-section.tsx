@@ -73,7 +73,7 @@ const NewsSection: React.FC = () => {
                     <div className={styles.newsTitle2}>News</div>
                 </Flex>
 
-                <Link className={styles.more} href={`/${currentLocale}/news-media`}>
+                <Link className={styles.more} href={`/${currentLocale}/news`}>
                     <span>{t('index.more')}</span>
 
                     <img alt="" src="/static/index/icon_arrow_right.svg" />
