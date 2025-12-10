@@ -58,14 +58,14 @@ const Page = () => {
             const result = await response.json();
 
             if (response.ok) {
-                message.success('提交成功！');
+                message.success(t('contact.submitSuccess') || '提交成功！');
                 setState({ open: true }); // 显示成功弹窗
             } else {
-                message.error(result.message || '提交失败，请重试');
+                message.error(result.message || t('contact.submitFailed') || '提交失败，请重试');
             }
         } catch (error) {
             console.error('提交失败:', error);
-            message.error('网络错误，请重试');
+            message.error(t('contact.networkError') || '网络错误，请重试');
         } finally {
             setState({ submitLoading: false });
         }
@@ -103,12 +103,12 @@ const Page = () => {
     return (
         <div>
             <HeroSection src="/images/hero-section/contact-us@2x.png">
-                <TitleSection title="联系我们" />
+                <TitleSection title={t('contact.title')} />
             </HeroSection>
 
             <div className="mw-1920" style={conf.xxxl ? { padding: `0 130px`, marginTop: 104 } : { marginTop: 104 }}>
                 <Flex vertical>
-                    <div className={styles.title}>欢迎在线留言</div>
+                    <div className={styles.title}>{t('contact.welcomeMessage')}</div>
                     <div className={styles.subtitle}>Welcome to Leave a Message Online</div>
                 </Flex>
                 {/* tab */}
@@ -145,7 +145,11 @@ const Page = () => {
                 centered
                 width={400}
             >
-                <Result status="success" title="提交成功" subTitle="我们已收到您的留言，将尽快与您联系！" />
+                <Result
+                    status="success"
+                    title={t('contact.submitSuccessTitle') || '提交成功'}
+                    subTitle={t('contact.submitSuccessDesc') || '我们已收到您的留言，将尽快与您联系！'}
+                />
             </Modal>
         </div>
     );

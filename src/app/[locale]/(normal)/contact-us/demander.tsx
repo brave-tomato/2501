@@ -1,4 +1,5 @@
 import { TitleSmallSection } from '@/components/title-section';
+import { useI18n } from '@/locales/client';
 import { Button, Checkbox, Col, Flex, Form, Input, Radio, Row, Select } from 'antd';
 import Link from 'next/link';
 import React from 'react';
@@ -7,51 +8,47 @@ import styles from './styles.module.scss';
 
 const { Option } = Select;
 
-// 定义各个 Checkbox.Group 的选项数组
-const passengerApplicationOptions = [
-    { value: 'pureElectricPassengerCar', label: '纯电乘用车' },
-    { value: 'pureElectricOperationalPassengerCar', label: '纯电运营类乘用车' },
-    { value: 'hybridPowerPassengerCar', label: '混动力乘用车' },
-    { value: 'electricYacht', label: '电动游艇' },
-];
-
-const commercialApplicationOptions = [
-    { value: 'passengerBus', label: '客运大巴' },
-    { value: 'urbanDelivery', label: '城市配送' },
-    { value: 'heavyLoadTruck', label: '重型运载货车' },
-    { value: 'urbanRoadCleaning', label: '城市道路清洁' },
-    { value: 'engineeringMachinery', label: '工程机械车' },
-    { value: 'electricTwoWheeler', label: '电动两轮车' },
-    { value: 'electricFreightWheel', label: '电动货运轮' },
-    { value: 'specialApplicationAirportVehicle', label: '特种应用（机场用车）' },
-];
-
-const lowAltitudeEconomyApplicationOptions = [
-    { value: 'droneSolution', label: '无人机解决方案' },
-    { value: 'eVTOLSolution', label: 'eVTOL解决方案' },
-];
-
-const energyStorageApplicationOptions = [
-    { value: 'powerGenerationSide', label: '发电侧' },
-    { value: 'gridSide', label: '电网侧' },
-    { value: 'powerConsumptionSide', label: '用电侧' },
-];
-
-const otherBusinessOptions = [{ value: 'otherBusinessValue', label: '其他业务' }];
-
-// 定义应用地区的选项数组
-const applicationRegionOptions = [
-    { value: '中国大陆', label: '中国大陆' },
-    // 可根据实际情况添加更多选项
-    // { value: '中国香港', label: '中国香港' },
-    // { value: '中国澳门', label: '中国澳门' },
-    // { value: '中国台湾', label: '中国台湾' },
-];
-
 const Demander2: React.FC<{
     onSubmit?: (values: any, formType: string) => Promise<void>;
     loading?: boolean;
 }> = ({ onSubmit, loading = false }) => {
+    const t = useI18n();
+
+    // 定义各个 Checkbox.Group 的选项数组
+    const passengerApplicationOptions = [
+        { value: 'pureElectricPassengerCar', label: t('contact.pureElectricCar') },
+        { value: 'pureElectricOperationalPassengerCar', label: t('contact.operationalCar') },
+        { value: 'hybridPowerPassengerCar', label: t('contact.hybridCar') },
+        { value: 'electricYacht', label: t('contact.electricYacht') },
+    ];
+
+    const commercialApplicationOptions = [
+        { value: 'passengerBus', label: t('contact.passengerBus') },
+        { value: 'urbanDelivery', label: t('contact.urbanDelivery') },
+        { value: 'heavyLoadTruck', label: t('contact.heavyTruck') },
+        { value: 'urbanRoadCleaning', label: t('contact.roadCleaning') },
+        { value: 'engineeringMachinery', label: t('contact.engineeringVehicle') },
+        { value: 'electricTwoWheeler', label: t('contact.electricTwoWheeler') },
+        { value: 'electricFreightWheel', label: t('contact.electricFreightShip') },
+        { value: 'specialApplicationAirportVehicle', label: t('contact.specialApplication') },
+    ];
+
+    const lowAltitudeEconomyApplicationOptions = [
+        { value: 'droneSolution', label: t('contact.droneSolution') },
+        { value: 'eVTOLSolution', label: t('contact.evtolSolution') },
+    ];
+
+    const energyStorageApplicationOptions = [
+        { value: 'powerGenerationSide', label: t('contact.powerSide') },
+        { value: 'gridSide', label: t('contact.gridSide') },
+        { value: 'powerConsumptionSide', label: t('contact.consumptionSide') },
+    ];
+
+    const otherBusinessOptions = [{ value: 'otherBusinessValue', label: t('contact.otherBusiness') }];
+
+    // 定义应用地区的选项数组
+    const applicationRegionOptions = [{ value: t('contact.chinaMainland'), label: t('contact.chinaMainland') }];
+
     const onFinish = async (values: any) => {
         console.log('Demander form submitted:', values);
         if (onSubmit) {
@@ -69,8 +66,7 @@ const Demander2: React.FC<{
             colon={false}
             name="my_form"
             initialValues={{
-                // 可根据需求设置初始值
-                applicationRegion: '中国大陆',
+                applicationRegion: t('contact.chinaMainland'),
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -82,7 +78,7 @@ const Demander2: React.FC<{
                     <Form.Item
                         className={styles['space1']}
                         name="companyName"
-                        label="公司名称"
+                        label={t('contact.companyName')}
                         labelCol={{ flex: '200px' }}
                     >
                         <Input />
@@ -92,7 +88,7 @@ const Demander2: React.FC<{
                     <Form.Item
                         className={styles['space1']}
                         name="jobPosition"
-                        label="职位"
+                        label={t('contact.jobPosition')}
                         labelCol={{ flex: '200px' }}
                     >
                         <Input />
@@ -102,7 +98,7 @@ const Demander2: React.FC<{
                     <Form.Item
                         className={styles['space1']}
                         name="officialWebsite"
-                        label="官方网站"
+                        label={t('contact.officialWebsite')}
                         labelCol={{ flex: '200px' }}
                     >
                         <Input />
@@ -111,17 +107,32 @@ const Demander2: React.FC<{
 
                 {/* 第二行表单字段 */}
                 <Col span={8}>
-                    <Form.Item className={styles['space1']} name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="name"
+                        label={t('contact.name')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className={styles['space1']} name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="phone"
+                        label={t('contact.phone')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={7} offset={1}>
-                    <Form.Item className={styles['space1']} name="email" label="邮箱" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className={styles['space1']}
+                        name="email"
+                        label={t('contact.email')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
@@ -129,15 +140,15 @@ const Demander2: React.FC<{
 
             {/* 应用场景选择部分 */}
             <div style={{ marginBottom: 20 }}>
-                <TitleSmallSection title="应用场景选择" />
+                <TitleSmallSection title={t('contact.applicationScenario')} />
             </div>
             <Row>
                 <Col span={24}>
                     <Form.Item
                         className={styles['space2']}
                         name="passengerApplication"
-                        label="乘用类应用"
-                        labelCol={{ flex: '200px' }}
+                        label={t('contact.passengerApplications')}
+                        labelCol={{ flex: '280px' }}
                     >
                         <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
@@ -154,8 +165,8 @@ const Demander2: React.FC<{
                     <Form.Item
                         className={styles['space2']}
                         name="commercialApplication"
-                        label="商用类应用"
-                        labelCol={{ flex: '200px' }}
+                        label={t('contact.commercialApplications')}
+                        labelCol={{ flex: '280px' }}
                     >
                         <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
@@ -172,8 +183,8 @@ const Demander2: React.FC<{
                     <Form.Item
                         className="no-spacing"
                         name="lowAltitudeEconomyApplication"
-                        label="低空经济类应用"
-                        labelCol={{ flex: '200px' }}
+                        label={t('contact.lowAltitudeApplications')}
+                        labelCol={{ flex: '280px' }}
                     >
                         <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
@@ -191,8 +202,8 @@ const Demander2: React.FC<{
                     <Form.Item
                         className={styles['space2']}
                         name="energyStorageApplication"
-                        label="储能应用"
-                        labelCol={{ flex: '200px' }}
+                        label={t('contact.energyStorageApplications')}
+                        labelCol={{ flex: '280px' }}
                     >
                         <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
@@ -209,7 +220,7 @@ const Demander2: React.FC<{
                     <Form.Item
                         className={styles['space2']}
                         name="otherBusiness"
-                        label="其他业务"
+                        label={t('contact.otherBusiness')}
                         labelCol={{ flex: '200px' }}
                     >
                         <Form.Item className={styles['checkbox-half']}>
@@ -227,14 +238,14 @@ const Demander2: React.FC<{
 
             {/* 详细需求描述 */}
             <div style={{ marginBottom: 20 }}>
-                <TitleSmallSection title="详细需求描述" />
+                <TitleSmallSection title={t('contact.demandDescription')} />
             </div>
             <Row>
                 <Col span={24}>
                     <Form.Item name="detailedDemandDescription">
                         <Input.TextArea
                             className={styles['textarea-box']}
-                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
+                            placeholder={t('contact.orderEstimate')}
                             maxLength={100}
                             style={{ height: 168, resize: 'none', borderRadius: 0 }}
                         />
@@ -245,11 +256,11 @@ const Demander2: React.FC<{
             {/* 应用地区 */}
             <Row gutter={34} align="middle">
                 <Col>
-                    <TitleSmallSection title="应用地区" />
+                    <TitleSmallSection title={t('contact.applicationArea')} />
                 </Col>
                 <Col>
                     <Form.Item name="applicationRegion" style={{ marginBottom: 0 }}>
-                        <Select className={styles['select-box']} placeholder="请选择应用地区">
+                        <Select className={styles['select-box']} placeholder={t('contact.applicationArea')}>
                             {applicationRegionOptions.map((option) => (
                                 <Option key={option.value} value={option.value}>
                                     {option.label}
@@ -264,11 +275,12 @@ const Demander2: React.FC<{
             <Form.Item
                 name="agreePrivacyStatement"
                 valuePropName="checked"
-                rules={[{ required: true, message: '请勾选同意隐私声明' }]}
+                rules={[{ required: true, message: t('contact.privacyStatementError') }]}
                 style={{ marginTop: 48 }}
             >
                 <Checkbox className={styles['checkbox-content']}>
-                    我已仔细阅读并同意<Link href={'/'}>隐私声明</Link>
+                    {t('contact.privacyStatement')}
+                    <Link href={'/'}></Link>
                 </Checkbox>
             </Form.Item>
 
@@ -281,7 +293,7 @@ const Demander2: React.FC<{
                     shape="round"
                     loading={loading}
                 >
-                    提交
+                    {t('contact.submit')}
                 </Button>
             </Form.Item>
         </Form>

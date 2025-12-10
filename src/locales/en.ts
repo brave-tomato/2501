@@ -581,7 +581,21 @@ export default {
         applicationArea: 'Application area',
         chinaMainland: 'Mainland China',
         privacyStatement: 'I have carefully read and agree to the Privacy Statement',
+        privacyStatementError: 'Please agree to the Privacy Statement',
         submit: 'Submit',
+        officialWebsite: 'Official Website',
+        phone: 'Phone',
+        jobPosition: 'Position',
+        workEmail: 'Work Email',
+        jobTitle: 'Job Title',
+        otherBusiness: 'Other Business',
+
+        // Submit related
+        submitSuccess: 'Submitted successfully!',
+        submitFailed: 'Submission failed, please try again',
+        networkError: 'Network error, please try again',
+        submitSuccessTitle: 'Submitted Successfully',
+        submitSuccessDesc: 'We have received your message and will contact you as soon as possible!',
 
         // 需求方特定字段
         applicationScenario: 'Application scenario selection',

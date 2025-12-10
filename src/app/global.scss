@@ -203,12 +203,12 @@
 // 联系我们-form表单
 .ant-form-item.space1 {
     label.ant-form-item-no-colon {
-        letter-spacing: 7px;
+        letter-spacing: 2px;
     }
 }
 .ant-form-item.space2 {
     label.ant-form-item-no-colon {
-        letter-spacing: 4px;
+        letter-spacing: 1px;
     }
 }
 .ant-form-item-label {
@@ -223,7 +223,7 @@
     font-size: 18px !important;
     line-height: 26px !important;
     height: 50px !important;
-    letter-spacing: 7px;
+    letter-spacing: 1px;
     text-align: center;
     &::after {
         margin-inline-start: 0 !important;

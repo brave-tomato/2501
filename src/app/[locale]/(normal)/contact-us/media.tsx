@@ -2,22 +2,25 @@ import { Button, Checkbox, Col, Flex, Form, Input, Row } from 'antd';
 import React from 'react';
 
 import { TitleSmallSection } from '@/components/title-section';
+import { useI18n } from '@/locales/client';
 import Link from 'next/link';
 import styles from './styles.module.scss';
-
-// 定义来函目的的选项数组
-const purposeOptions = [
-    { value: 'advertisingPlacement', label: '广告投放' },
-    { value: 'interview', label: '采访' },
-    { value: 'visit', label: '参观' },
-    { value: 'event', label: '活动' },
-    { value: 'other', label: '其他' },
-];
 
 const Media: React.FC<{
     onSubmit?: (values: any, formType: string) => Promise<void>;
     loading?: boolean;
 }> = ({ onSubmit, loading = false }) => {
+    const t = useI18n();
+
+    // 定义来函目的的选项数组
+    const purposeOptions = [
+        { value: 'advertisingPlacement', label: t('contact.advertising') },
+        { value: 'interview', label: t('contact.interview') },
+        { value: 'visit', label: t('contact.visit') },
+        { value: 'event', label: t('contact.activity') },
+        { value: 'other', label: t('contact.other') },
+    ];
+
     const onFinish = async (values: any) => {
         console.log('Media form submitted:', values);
         if (onSubmit) {
@@ -41,34 +44,54 @@ const Media: React.FC<{
         >
             <Row>
                 <Col span={12}>
-                    <Form.Item className="space1" name="mediaName" label="媒体名称" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="mediaName"
+                        label={t('contact.mediaName')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className="space1" name="mediaAddress" label="媒体地址" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="mediaAddress"
+                        label={t('contact.mediaAddress')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="name" label={t('contact.name')} labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className="space1" name="jobTitle" label="职务" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="jobTitle"
+                        label={t('contact.jobTitle')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item className="space1" name="workEmail" label="工作邮箱" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="workEmail"
+                        label={t('contact.workEmail')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="phone" label={t('contact.phone')} labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
@@ -76,7 +99,7 @@ const Media: React.FC<{
 
             {/* 来函目的（改为 Checkbox 多选 ）*/}
             <div style={{ marginBottom: 20 }}>
-                <TitleSmallSection title="来函目的" />
+                <TitleSmallSection title={t('contact.purpose')} />
             </div>
             <Flex className={styles['checkbox-single']} align="center">
                 <Form.Item name="purpose" style={{ marginBottom: 0 }}>
@@ -91,7 +114,7 @@ const Media: React.FC<{
             </Flex>
             {/* 详细需求描述 */}
             <div style={{ marginBottom: 20, marginTop: 32 }}>
-                <TitleSmallSection title="详细需求描述" />
+                <TitleSmallSection title={t('contact.demandDescription')} />
             </div>
             <Row>
                 <Col span={24}>
@@ -99,7 +122,7 @@ const Media: React.FC<{
                         <Input.TextArea
                             className={styles['textarea-box']}
                             maxLength={100}
-                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
+                            placeholder={t('contact.orderEstimate')}
                             style={{ height: 168, resize: 'none', borderRadius: 0 }}
                         />
                     </Form.Item>
@@ -110,11 +133,12 @@ const Media: React.FC<{
             <Form.Item
                 name="agreePrivacyStatement"
                 valuePropName="checked"
-                rules={[{ required: true, message: '请勾选同意隐私声明' }]}
+                rules={[{ required: true, message: t('contact.privacyStatementError') }]}
                 style={{ marginTop: 48 }}
             >
                 <Checkbox className={styles['checkbox-content']}>
-                    我已仔细阅读并同意<Link href={'/'}>隐私声明</Link>
+                    {t('contact.privacyStatement')}
+                    <Link href={'/'}></Link>
                 </Checkbox>
             </Form.Item>
 
@@ -127,7 +151,7 @@ const Media: React.FC<{
                     shape="round"
                     loading={loading}
                 >
-                    提交
+                    {t('contact.submit')}
                 </Button>
             </Form.Item>
         </Form>

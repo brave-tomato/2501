@@ -451,7 +451,21 @@ export default {
         applicationArea: '应用地区',
         chinaMainland: '中国大陆',
         privacyStatement: '我已仔细阅读并同意隐私声明',
+        privacyStatementError: '请勾选同意隐私声明',
         submit: '提交',
+        officialWebsite: '官方网站',
+        phone: '电话',
+        jobPosition: '职位',
+        workEmail: '工作邮箱',
+        jobTitle: '职务',
+        otherBusiness: '其他业务',
+
+        // 提交相关
+        submitSuccess: '提交成功！',
+        submitFailed: '提交失败，请重试',
+        networkError: '网络错误，请重试',
+        submitSuccessTitle: '提交成功',
+        submitSuccessDesc: '我们已收到您的留言，将尽快与您联系！',
 
         // 需求方特定字段
         applicationScenario: '应用场景选择',

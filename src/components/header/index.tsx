@@ -137,7 +137,18 @@ export default ({ active, locale, onClick }: Props) => {
         >
             <Flex align="center" justify="space-between" style={{ height: '100%' }}>
                 {/* Logo */}
-                <Link className={styles.logo} href={`/${locale}/`} />
+                <Link className={styles.logo} href={`/${locale}/`}>
+                    <img
+                        alt="logo"
+                        className={styles.logoImage}
+                        src={locale === 'en' ? '/static/header/logo_white_en.svg' : '/static/header/logo_white.png'}
+                    />
+                    <img
+                        alt="logo"
+                        className={styles.logoImageActive}
+                        src={locale === 'en' ? '/static/header/logo_en.svg' : '/static/header/logo.png'}
+                    />
+                </Link>
 
                 {/* Menu */}
                 <Flex className={styles.menu} gap={12}>
@@ -148,6 +159,7 @@ export default ({ active, locale, onClick }: Props) => {
                                     [styles.active]:
                                         pathname === getHref(menu.href) ||
                                         menu.children?.some((submenu) => pathname === getHref(submenu.href)),
+                                    [styles.linkEn]: locale === 'en',
                                 })}
                                 href={getHref(menu.href)}
                                 onClick={() => {
@@ -166,6 +178,7 @@ export default ({ active, locale, onClick }: Props) => {
                                                     [styles.active]:
                                                         pathname === getHref(submenu.href) ||
                                                         pathname + state.hash === getHref(submenu.href),
+                                                    [styles.sublinkEn]: locale === 'en',
                                                 })}
                                                 href={getHref(submenu.href)}
                                                 key={getHref(submenu.href)}

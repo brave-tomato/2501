@@ -1,22 +1,25 @@
 'use client';
 
 import { TitleSmallSection } from '@/components/title-section';
+import { useI18n } from '@/locales/client';
 import { Button, Checkbox, Col, Flex, Form, Input, Row } from 'antd';
 import Link from 'next/link';
 import React from 'react';
 import styles from './styles.module.scss';
 
-// 定义角色属性的选项数组
-const roleOptions = [
-    { value: 'cellMaterialSupplier', label: '电芯源材料商' },
-    { value: 'productionEquipmentSupplier', label: '生产设备商' },
-    { value: 'nonProductCategory', label: '非产品类（备注）' },
-];
-
 const SupplyChainPartner: React.FC<{
     onSubmit?: (values: any, formType: string) => Promise<void>;
     loading?: boolean;
 }> = ({ onSubmit, loading = false }) => {
+    const t = useI18n();
+
+    // 定义角色属性的选项数组
+    const roleOptions = [
+        { value: 'cellMaterialSupplier', label: t('contact.materialSupplier') },
+        { value: 'productionEquipmentSupplier', label: t('contact.equipmentSupplier') },
+        { value: 'nonProductCategory', label: t('contact.nonProductCategory') },
+    ];
+
     const onFinish = async (values: any) => {
         console.log('SupplyChainPartner form submitted:', values);
         if (onSubmit) {
@@ -40,7 +43,12 @@ const SupplyChainPartner: React.FC<{
         >
             <Row>
                 <Col span={12}>
-                    <Form.Item className="space1" name="roleAttribute" label="角色属性" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="roleAttribute"
+                        label={t('contact.roleAttribute')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Form.Item className={styles['checkbox-half']}>
                             <Checkbox.Group className="checkbox-radio-box ">
                                 {roleOptions.map((option) => (
@@ -53,29 +61,39 @@ const SupplyChainPartner: React.FC<{
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className="space1" name="companyName" label="公司名称" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="companyName"
+                        label={t('contact.companyName')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item className="space1" name="name" label="姓名" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="name" label={t('contact.name')} labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className="space1" name="phone" label="电话" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="phone" label={t('contact.phone')} labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
 
                 <Col span={12}>
-                    <Form.Item className="space1" name="jobPosition" label="职务" labelCol={{ flex: '200px' }}>
+                    <Form.Item
+                        className="space1"
+                        name="jobPosition"
+                        label={t('contact.position')}
+                        labelCol={{ flex: '200px' }}
+                    >
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col span={11} offset={1}>
-                    <Form.Item className="space1" name="email" label="邮箱" labelCol={{ flex: '200px' }}>
+                    <Form.Item className="space1" name="email" label={t('contact.email')} labelCol={{ flex: '200px' }}>
                         <Input />
                     </Form.Item>
                 </Col>
@@ -83,7 +101,7 @@ const SupplyChainPartner: React.FC<{
 
             {/* 详细需求描述 */}
             <div style={{ marginBottom: 20, marginTop: 32 }}>
-                <TitleSmallSection title="详细需求描述" />
+                <TitleSmallSection title={t('contact.demandDescription')} />
             </div>
             <Row>
                 <Col span={24}>
@@ -91,7 +109,7 @@ const SupplyChainPartner: React.FC<{
                         <Input.TextArea
                             className={styles['textarea-box']}
                             maxLength={100}
-                            placeholder="订单需求预估，期望交货时间，其他特殊需求等……"
+                            placeholder={t('contact.orderEstimate')}
                             style={{ height: 168, resize: 'none', borderRadius: 0 }}
                         />
                     </Form.Item>
@@ -102,11 +120,12 @@ const SupplyChainPartner: React.FC<{
             <Form.Item
                 name="agreePrivacyStatement"
                 valuePropName="checked"
-                rules={[{ required: true, message: '请勾选同意隐私声明' }]}
+                rules={[{ required: true, message: t('contact.privacyStatementError') }]}
                 style={{ marginTop: 48 }}
             >
                 <Checkbox className={styles['checkbox-content']}>
-                    我已仔细阅读并同意<Link href={'/'}>隐私声明</Link>
+                    {t('contact.privacyStatement')}
+                    <Link href={'/'}></Link>
                 </Checkbox>
             </Form.Item>
 
@@ -119,7 +138,7 @@ const SupplyChainPartner: React.FC<{
                     shape="round"
                     loading={loading}
                 >
-                    提交
+                    {t('contact.submit')}
                 </Button>
             </Form.Item>
         </Form>

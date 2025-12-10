@@ -152,7 +152,7 @@ export default () => {
                         {/* 公司简介 */}
                         <div className={`section ${styles.intro}`}>
                             <Row align="middle" className={styles.bg}>
-                                <Col offset={1} span={7}>
+                                <Col offset={1} span={12}>
                                     <div className={styles.title}>{t('about.profile')}</div>
 
                                     <div className={styles.subtitle}>Profile</div>
@@ -177,7 +177,7 @@ export default () => {
                                     </button>
                                 </Col>
 
-                                <Col offset={1} span={14}>
+                                <Col offset={1} span={10}>
                                     <AspectRatio ratio={887 / 500}>
                                         <Image
                                             alt=""
