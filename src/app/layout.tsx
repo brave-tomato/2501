@@ -42,6 +42,13 @@ export default ({ children }: Props) => {
                     src="https://js-de.sentry-cdn.com/9cb5ab38af4b3aa878d1916d841e9c35.min.js"
                     strategy="afterInteractive"
                 />
+                <Script id="mobile-redirect" strategy="beforeInteractive">
+                    {`
+                        if (window.innerWidth < 1024) {
+                            window.location.href = 'https://m.welion.asia';
+                        }
+                    `}
+                </Script>
             </head>
 
             <body>
