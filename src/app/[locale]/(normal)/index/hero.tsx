@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
             });
         };
 
-        checkTime();
+        setTimeout(checkTime, 2000);
 
         const timer = setInterval(checkTime, 60_000);
 
