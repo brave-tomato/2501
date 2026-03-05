@@ -120,7 +120,7 @@ export default {
 
         sa01: 'Hand in hand with responsibility, create a better future of green supply chain together',
         sa02: 'Welion New Energy focuses on battery supply chain compliance management and responsible sourcing, fulfilling its due diligence obligations for batteries. The company has established a full-chain due diligence system to identify, prevent, and address actual and potential social (such as labor rights and the prohibition of child labor) and environmental (such as carbon emissions and ecological protection) risks in the procurement, processing, and trading of primary and secondary raw materials required for battery manufacturing.Throughout the entire supply chain, operations strictly comply with international and domestic regulatory requirements, including the UN Guiding Principles on Business and Human Rights, the EU Battery and Waste Battery Regulation, the Chinese Guidelines for Responsible Mineral Supply Chain Due Diligence, and the OECD Due Diligence Guidance for Responsible Supply Chains of Minerals from Conflict-Affected and High-Risk Areas (Third Edition).Through continuous due diligence practices, the company enhances supply chain transparency and governance capability, achieving traceable sources, controllable risks, and auditable information. Welion New Energy is committed to building a resilient and responsible supply chain ecosystem, promoting the coordinated development of commercial value and social value.',
-        sa03: 'Download Report',
+        sa03: 'Download',
         sa04: 'Responsible Mineral Supply Chain Due Diligence Policy',
         sa05: 'Supplier Code of Conduct',
         sa06: 'Grievance and Management Mechanism',
