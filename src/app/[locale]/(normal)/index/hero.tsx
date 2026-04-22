@@ -60,8 +60,8 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 poster: hour >= 20 || hour < 6 ? '/static/index/night_poster.png' : '/static/index/day_poster.png',
                 url:
                     hour >= 20 || hour < 6
-                        ? 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/index/night.mp4'
-                        : 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/index/day.mp4',
+                        ? 'https://files.welion.top/index/night.mp4'
+                        : 'https://files.welion.top/index/day.mp4',
             });
         };
 
@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                     onVideoReady?.();
                 }}
             >
-                <source src="https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/index/logo.mp4" type="video/mp4" />
+                <source src="https://files.welion.top/index/logo.mp4" type="video/mp4" />
             </video>
 
             <AspectRatio ratio={1920 / 1080}>

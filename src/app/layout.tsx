@@ -45,7 +45,7 @@ export default ({ children }: Props) => {
                 <Script id="mobile-redirect" strategy="beforeInteractive">
                     {`
                         if (window.innerWidth < 1024) {
-                            window.location.href = 'https://250103-h5.pages.dev';
+                            window.location.href = 'https://m.welion.top';
                         }
                     `}
                 </Script>

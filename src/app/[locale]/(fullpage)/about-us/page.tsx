@@ -98,10 +98,7 @@ export default () => {
                                     objectFit: 'cover',
                                 }}
                             >
-                                <source
-                                    src="https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/about-us/banner.mp4"
-                                    type="video/mp4"
-                                />
+                                <source src="https://files.welion.top/about-us/banner.mp4" type="video/mp4" />
                             </video>
 
                             <div
@@ -203,7 +200,7 @@ export default () => {
                                                             controls
                                                             loop
                                                             playsInline
-                                                            src={`https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/about-us/intro_${params.locale || 'zh'}.mp4`}
+                                                            src={`https://files.welion.top/about-us/intro_${params.locale || 'zh'}.mp4`}
                                                             style={{
                                                                 width: '100%',
                                                                 height: '100%',
