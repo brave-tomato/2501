@@ -54,42 +54,42 @@ export default () => {
     const technologySlides = [
         {
             image: '/static/research/technology_01', // 自动拼接 _[locale].jpg，如 _zh.jpg
-            video: 'https://files.welion.asia/research/technology_01', // 自动拼接 _[locale].mp4，如 _zh.mp4
+            video: 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_01', // 自动拼接 _[locale].mp4，如 _zh.mp4
             title: t('research.tech6Title'),
             subtitle: 'In-situ Solidification',
             description: t('research.tech6Desc'),
         },
         {
             image: '/static/research/technology_02',
-            video: 'https://files.welion.asia/research/technology_02',
+            video: 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_02',
             title: t('research.tech2Title'),
             subtitle: 'Solid Electrolyte Blending',
             description: t('research.tech2Desc'),
         },
         {
             image: '/static/research/technology_03',
-            video: 'https://files.welion.asia/research/technology_03',
+            video: 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_03',
             title: t('research.tech1Title'),
             subtitle: 'Solid Electrolyte Coating Cathode',
             description: t('research.tech1Desc'),
         },
         {
             image: '/static/research/technology_04',
-            video: 'https://files.welion.asia/research/technology_04',
+            video: 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_04',
             title: t('research.tech4Title'),
             subtitle: 'Ionic Conductive Separator',
             description: t('research.tech4Desc'),
         },
         {
             image: '/static/research/technology_05',
-            video: 'https://files.welion.asia/research/technology_05',
+            video: 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_05',
             title: t('research.ultraThinLithiumTitle'),
             subtitle: 'Ultra-thin Lithium Metal Foil',
             description: t('research.ultraThinLithiumDesc'),
         },
         {
             image: '/static/research/technology_06',
-            video: 'https://files.welion.asia/research/technology_06',
+            video: 'https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_06',
             title: t('research.tech5Title'),
             subtitle: 'High-precision Anode Pre-lithiation',
             description: t('research.tech5Desc'),
@@ -258,7 +258,10 @@ export default () => {
                                     objectFit: 'cover',
                                 }}
                             >
-                                <source src="https://files.welion.asia/research/banner.mp4" type="video/mp4" />
+                                <source
+                                    src="https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/banner.mp4"
+                                    type="video/mp4"
+                                />
                             </video>
 
                             <Title5
@@ -287,7 +290,7 @@ export default () => {
                                 }}
                             >
                                 <source
-                                    src={`https://files.welion.asia/research/technology_${params.locale || 'zh'}.mp4`}
+                                    src={`https://pub-e5f8e9df96154b4581ab0bf84e59744f.r2.dev/research/technology_${params.locale || 'zh'}.mp4`}
                                     type="video/mp4"
                                 />
                             </video>
