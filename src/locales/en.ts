@@ -199,6 +199,10 @@ export default {
                 'China, France, USA, Canada, UK, Netherlands, Germany, Poland, Austria, Brazil, Hungary, Greece, India, South Korea, Japan, Taiwan, Thailand, Malaysia, Australia',
             servicePointsDesc:
                 'Germany-Düsseldorf, France-Lyon, Poland-Warsaw, Netherlands-Amsterdam, Spain-Barcelona, Turkey-Istanbul, Japan-Tokyo, Singapore, Malaysia-Kuala Lumpur, Vietnam-Ho Chi Minh, South Korea-Daegu',
+
+            name: 'Name',
+            address: 'Address',
+            contact: 'Contact',
         },
     },
 

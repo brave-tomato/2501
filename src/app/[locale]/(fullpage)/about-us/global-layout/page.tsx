@@ -267,10 +267,32 @@ export default () => {
                                                 arrow={false}
                                                 classNames={{ body: styles.gp3 }}
                                                 content={
-                                                    <div>
-                                                        <span>{t('about.globalLayout.hungary')}</span>
-                                                        {t('about.globalLayout.budapest')}
-                                                    </div>
+                                                    <Popover
+                                                        content={
+                                                            <div>
+                                                                {t('about.globalLayout.name')}: Welion New Energy
+                                                                (Hungary) Kft
+                                                                <br />
+                                                                {t('about.globalLayout.address')}: Budapest, Röppentyű
+                                                                u. 53, 1139
+                                                                <br />
+                                                                {t('about.globalLayout.contact')}: LU WEI +36709475670
+                                                            </div>
+                                                        }
+                                                        placement="bottom"
+                                                    >
+                                                        <div>
+                                                            <span
+                                                                style={{
+                                                                    cursor: 'pointer',
+                                                                    textDecoration: 'underline dotted',
+                                                                }}
+                                                            >
+                                                                {t('about.globalLayout.hungary')}
+                                                            </span>
+                                                            {t('about.globalLayout.budapest')}
+                                                        </div>
+                                                    </Popover>
                                                 }
                                                 open={showPopovers}
                                                 placement="bottom"
