@@ -211,7 +211,7 @@ export default () => {
                                                 ),
                                                 toolbarRender: () => null,
                                             }}
-                                            src="/static/about-us/intro.png"
+                                            src="/static/about-us/intro.jpg"
                                             style={{
                                                 width: '100%',
                                                 height: '100%',
@@ -235,6 +235,7 @@ export default () => {
                                                 width: '100px',
                                                 height: '100px',
                                                 cursor: 'pointer',
+                                                pointerEvents: 'none',
                                             }}
                                         ></img>
                                     </AspectRatio>
