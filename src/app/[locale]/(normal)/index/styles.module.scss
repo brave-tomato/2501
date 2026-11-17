@@ -271,3 +271,124 @@
     height: 60px;
     cursor: pointer;
 }
+
+.exhibitionModal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 3.5%;
+}
+
+.exhibitionBackground {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibitionContent {
+    position: absolute;
+    inset: 15% 5% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: #fff;
+    text-align: left;
+    text-shadow: 0 2px 8px rgb(0 35 92 / 35%);
+}
+
+.exhibitionContent p,
+.exhibitionTitle {
+    margin: 0;
+}
+
+.exhibitionBooth {
+    align-self: flex-start;
+    margin: 0 0 2% !important;
+    font-size: clamp(12px, 2.3vw, 28px);
+    font-weight: 600;
+}
+
+.exhibitionTitle {
+    max-width: 100%;
+    font-size: clamp(18px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.exhibitionDetail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65em;
+    margin-top: 1.5% !important;
+    font-size: clamp(12px, 2.2vw, 27px);
+    line-height: 1.3;
+}
+
+.exhibitionDetail :global(.anticon) {
+    display: inline-flex;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.15em;
+    font-size: 24px;
+}
+
+.exhibitionAddress {
+    max-width: 90%;
+    margin-top: 2.5% !important;
+    font-size: clamp(10px, 1.45vw, 18px);
+    line-height: 1.35;
+}
+
+.exhibitionContact {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    display: flex;
+    width: 25%;
+    height: 11%;
+    align-items: center;
+    justify-content: center;
+    color: #133c79;
+    font-size: clamp(12px, 1.8vw, 22px);
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateX(-40%);
+}
+
+.exhibitionContact:hover {
+    color: #087f9d;
+}
+
+@media (max-width: 600px) {
+    .exhibitionContent {
+        inset: 12% 4% 8%;
+    }
+
+    .exhibitionBooth {
+        margin-bottom: 2% !important;
+        font-size: clamp(10px, 3vw, 16px);
+    }
+
+    .exhibitionTitle {
+        font-size: clamp(15px, 4.5vw, 24px);
+    }
+
+    .exhibitionDetail {
+        font-size: clamp(10px, 3vw, 16px);
+    }
+
+    .exhibitionAddress {
+        font-size: clamp(8px, 2.2vw, 12px);
+    }
+
+    .exhibitionContact {
+        font-size: clamp(10px, 3vw, 16px);
+    }
+}

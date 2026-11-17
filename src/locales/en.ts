@@ -35,6 +35,12 @@ export default {
         electricYachtSolution: 'Electric Yacht & Ship Solutions',
         electricBoatSolution: 'Electric Boat Solutions',
         energyStorageApplication: 'Energy Storage Applications',
+        exhibitionBooth: 'Booth-N14',
+        exhibitionTitle: 'Sustainable Solutions Düsseldorf 2026',
+        exhibitionSubtitle: 'Sustainable Energy and Green Innovation Technologies',
+        exhibitionDate: '2026.12.02-2026.12.03',
+        exhibitionAddress: 'Hall 13 & 14, Messe Düsseldorf Stockumer Kirchstraße 61, 40474 Düsseldorf',
+        exhibitionContact: 'Contact Us',
     },
 
     // Contact Us

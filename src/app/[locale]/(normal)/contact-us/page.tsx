@@ -131,7 +131,6 @@ const Page = () => {
                     ))}
                 </Row>
                 <div>
-                    {' '}
                     {ActiveComponent && <ActiveComponent onSubmit={handleFormSubmit} loading={state.submitLoading} />}
                 </div>
             </div>

@@ -35,6 +35,12 @@ export default {
         electricYachtSolution: '电动游艇&轮船解决⽅案',
         electricBoatSolution: '电动快艇解决⽅案',
         energyStorageApplication: '储能应用',
+        exhibitionBooth: '展位-N14',
+        exhibitionTitle: '2026届德国杜塞尔多夫可持续解决方案展览会',
+        exhibitionSubtitle: '可再生能源与绿色能源技术',
+        exhibitionDate: '2026.12.02-2026.12.03',
+        exhibitionAddress: 'Hall 13 & 14, Messe Düsseldorf Stockumer Kirchstraße 61, 40474 Düsseldorf',
+        exhibitionContact: '联系我们',
     },
 
     // 关于我们

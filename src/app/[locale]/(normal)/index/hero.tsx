@@ -2,6 +2,7 @@
 
 import { useSessionStorageState, useSetState } from 'ahooks';
 import { Modal, Popover } from 'antd';
+import { CalendarOutlined, EnvironmentOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
@@ -287,16 +288,29 @@ const Hero: React.FC<HeroProps> = ({ onVideoReady }) => {
                 style={{ maxWidth: 979 }}
                 onCancel={() => setState({ open: false })}
             >
-                <AspectRatio ratio={979 / 610}>
-                    <img
-                        alt=""
-                        src="/static/index/exhibition_bg.png"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    />
+                <AspectRatio ratio={1959 / 1220}>
+                    <div className={styles.exhibitionModal}>
+                        <img className={styles.exhibitionBackground} src="/static/index/exhibition_bg2.png" alt="" />
+                        <div className={styles.exhibitionContent}>
+                            <p className={styles.exhibitionBooth}>{t('index.exhibitionBooth')}</p>
+                            <h2 className={styles.exhibitionTitle}>{t('index.exhibitionTitle')}</h2>
+                            <p className={styles.exhibitionDetail}>
+                                <ThunderboltOutlined />
+                                <span>{t('index.exhibitionSubtitle')}</span>
+                            </p>
+                            <p className={styles.exhibitionDetail}>
+                                <CalendarOutlined />
+                                <span>{t('index.exhibitionDate')}</span>
+                            </p>
+                            <p className={`${styles.exhibitionDetail} ${styles.exhibitionAddress}`}>
+                                <EnvironmentOutlined />
+                                <span>{t('index.exhibitionAddress')}</span>
+                            </p>
+                        </div>
+                        <Link className={styles.exhibitionContact} href={`/${params.locale}/contact-us/`}>
+                            {t('index.exhibitionContact')}
+                        </Link>
+                    </div>
                 </AspectRatio>
             </Modal>
         </>
